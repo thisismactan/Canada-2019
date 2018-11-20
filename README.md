@@ -11,3 +11,8 @@ Current status: data processing; figuring out how I actually plan to model this.
     - **/Raw**
       - **/2015 results**
   - **/Data processing code**
+    - **/Raw**
+      - **/2015 results**
+    - **/Processed**
+  - **/Data processing**
+
