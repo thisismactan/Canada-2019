@@ -1,0 +1,1602 @@
+district_code,district_name_english,district_name_french,party,candidate_last,candidate_first
+10001,Avalon,Avalon,Liberal,Andrews,Scott
+10001,Avalon,Avalon,Green,Aylward,Dave
+10001,Avalon,Avalon,NDP,Dawe,Randy Wayne
+10001,Avalon,Avalon,Conservative,Manning,Fabian
+10002,Bonavista--Gander--Grand Falls--Windsor,Bonavista--Gander--Grand Falls--Windsor,NDP,Holley,Jason
+10002,Bonavista--Gander--Grand Falls--Windsor,Bonavista--Gander--Grand Falls--Windsor,Conservative,House,Andrew
+10002,Bonavista--Gander--Grand Falls--Windsor,Bonavista--Gander--Grand Falls--Windsor,Green,O'Connor,Robert Karl
+10002,Bonavista--Gander--Grand Falls--Windsor,Bonavista--Gander--Grand Falls--Windsor,Liberal,Simms,Scott
+10003,Humber--St. Barbe--Baie Verte,Humber--St. Barbe--Baie Verte,Newfoundland and Labrador First,Bennett,Wayne Ronald
+10003,Humber--St. Barbe--Baie Verte,Humber--St. Barbe--Baie Verte,Liberal,Byrne,Gerry
+10003,Humber--St. Barbe--Baie Verte,Humber--St. Barbe--Baie Verte,NDP,Kennedy,Mark
+10003,Humber--St. Barbe--Baie Verte,Humber--St. Barbe--Baie Verte,Conservative,Robinson,Lorne
+10004,Labrador,Labrador,NDP,Artiss,Phyllis
+10004,Labrador,Labrador,Conservative,Lewis,Lacey
+10004,Labrador,Labrador,Green,McLeod,Nyssa Christine
+10004,Labrador,Labrador,Liberal,Russell,Todd
+10005,Random--Burin--St. George's,Random--Burin--St. George's,Conservative,Davis,Herb
+10005,Random--Burin--St. George's,Random--Burin--St. George's,Liberal,Foote,Judy
+10005,Random--Burin--St. George's,Random--Burin--St. George's,Green,Wainwright,Kaitlin
+10005,Random--Burin--St. George's,Random--Burin--St. George's,NDP,White,Terry
+10006,St. John's East,St. John's-Est,Newfoundland and Labrador First,Coultas,Les
+10006,St. John's East,St. John's-Est,NDP,Harris,Jack
+10006,St. John's East,St. John's-Est,Liberal,Noel,Walter
+10006,St. John's East,St. John's-Est,Green,Story,Howard
+10006,St. John's East,St. John's-Est,Progressive Canadian,Tobin,Shannon John
+10006,St. John's East,St. John's-Est,Conservative,Westcott,Craig
+10007,St. John's South--Mount Pearl,St. John's-Sud--Mount Pearl,Independent,Butler,Terry Christopher
+10007,St. John's South--Mount Pearl,St. John's-Sud--Mount Pearl,Newfoundland and Labrador First,Byrne,Greg
+10007,St. John's South--Mount Pearl,St. John's-Sud--Mount Pearl,NDP,Cleary,Ryan
+10007,St. John's South--Mount Pearl,St. John's-Sud--Mount Pearl,Liberal,Coady,Siobhan
+10007,St. John's South--Mount Pearl,St. John's-Sud--Mount Pearl,Green,Warren,Ted
+10007,St. John's South--Mount Pearl,St. John's-Sud--Mount Pearl,Conservative,Wiseman,Merv
+11001,Cardigan,Cardigan,NDP,Avery,Mike
+11001,Cardigan,Cardigan,Green,Daughton,Emma
+11001,Cardigan,Cardigan,Liberal,MacAulay,Lawrence
+11001,Cardigan,Cardigan,Independent,McGuire,Larry
+11001,Cardigan,Cardigan,Conservative,McMullin,Sid
+11002,Charlottetown,Charlottetown,Green,Bisaillon,Laura M.
+11002,Charlottetown,Charlottetown,Conservative,DeBlois,Tom
+11002,Charlottetown,Charlottetown,Christian Heritage,Judson,Baird
+11002,Charlottetown,Charlottetown,Liberal,Murphy,Shawn
+11002,Charlottetown,Charlottetown,NDP,Pollard,Brian
+11003,Egmont,Egmont,NDP,Lewis,Orville
+11003,Egmont,Egmont,Liberal,Milligan,Keith
+11003,Egmont,Egmont,Green,Ridlington,Rebecca
+11003,Egmont,Egmont,Conservative,Shea,Gail
+11004,Malpeque,Malpeque,Green,Bevan-Baker,Peter
+11004,Malpeque,Malpeque,NDP,Brown,J'Nan
+11004,Malpeque,Malpeque,Conservative,Crane,Mary
+11004,Malpeque,Malpeque,Liberal,Easter,Wayne
+12001,Cape Breton--Canso,Cape Breton--Canso,Liberal,Cuzner,Rodger
+12001,Cape Breton--Canso,Cape Breton--Canso,Green,MacEachern,Dwayne
+12001,Cape Breton--Canso,Cape Breton--Canso,NDP,MacNeill,Mark
+12001,Cape Breton--Canso,Cape Breton--Canso,Conservative,Murphy,Allan Richard
+12002,Central Nova,Nova-Centre,Canadian Action,Kemp,Paul
+12002,Central Nova,Nova-Centre,NDP,Lorefice,Mary Louise
+12002,Central Nova,Nova-Centre,Christian Heritage,MacKay,Michael Harris
+12002,Central Nova,Nova-Centre,Conservative,MacKay,Peter Gordon
+12002,Central Nova,Nova-Centre,Green,May,Elizabeth
+12003,Dartmouth--Cole Harbour,Dartmouth--Cole Harbour,Christian Heritage,Campbell,George
+12003,Dartmouth--Cole Harbour,Dartmouth--Cole Harbour,NDP,Pye,Brad
+12003,Dartmouth--Cole Harbour,Dartmouth--Cole Harbour,Liberal,Savage,Michael John
+12003,Dartmouth--Cole Harbour,Dartmouth--Cole Harbour,Green,Shreenan,Paul
+12003,Dartmouth--Cole Harbour,Dartmouth--Cole Harbour,Conservative,Webber,Wanda
+12004,Halifax,Halifax,Conservative,Larsen,Ted
+12004,Halifax,Halifax,NDP,Leslie,Megan
+12004,Halifax,Halifax,Liberal,Meade,Catherine
+12004,Halifax,Halifax,Marxist-Leninist,Seed,Tony
+12004,Halifax,Halifax,Green,Whetter,Darryl
+12005,Halifax West,Halifax-Ouest,Christian Heritage,Ennis,Trevor
+12005,Halifax West,Halifax-Ouest,Conservative,Khosla,Rakesh
+12005,Halifax West,Halifax-Ouest,NDP,Lorincz,Tamara
+12005,Halifax West,Halifax-Ouest,Green,Munday,Michael
+12005,Halifax West,Halifax-Ouest,Liberal,Regan,Geoff
+12006,Kings--Hants,Kings--Hants,Liberal,Brison,Scott
+12006,Kings--Hants,Kings--Hants,NDP,Harris,Carol E.
+12006,Kings--Hants,Kings--Hants,Christian Heritage,Hnatiuk,Jim
+12006,Kings--Hants,Kings--Hants,Green,MacNeill,Brendan
+12006,Kings--Hants,Kings--Hants,Conservative,Segado,Rosemary
+12007,Cumberland--Colchester--Musquodoboit Valley,Cumberland--Colchester--Musquodoboit Valley,Conservative,Bernard,Joel E.
+12007,Cumberland--Colchester--Musquodoboit Valley,Cumberland--Colchester--Musquodoboit Valley,Independent,Casey,Bill
+12007,Cumberland--Colchester--Musquodoboit Valley,Cumberland--Colchester--Musquodoboit Valley,NDP,Olsson,Karen
+12007,Cumberland--Colchester--Musquodoboit Valley,Cumberland--Colchester--Musquodoboit Valley,Liberal,Parsons,Tracy
+12007,Cumberland--Colchester--Musquodoboit Valley,Cumberland--Colchester--Musquodoboit Valley,Independent,Simpson,Rick
+12008,Sackville--Eastern Shore,Sackville--Eastern Shore,Green,Hartlen,Noreen
+12008,Sackville--Eastern Shore,Sackville--Eastern Shore,Conservative,Montgomery,David
+12008,Sackville--Eastern Shore,Sackville--Eastern Shore,Liberal,Scott,Carolyn
+12008,Sackville--Eastern Shore,Sackville--Eastern Shore,NDP,Stoffer,Peter
+12009,South Shore--St. Margaret's,South Shore--St. Margaret's,NDP,Earle,Gordon S.
+12009,South Shore--St. Margaret's,South Shore--St. Margaret's,Conservative,Keddy,Gerald
+12009,South Shore--St. Margaret's,South Shore--St. Margaret's,Christian Heritage,Larkin,Joe
+12009,South Shore--St. Margaret's,South Shore--St. Margaret's,Green,Oddy,Michael
+12009,South Shore--St. Margaret's,South Shore--St. Margaret's,Liberal,Smith,Bill
+12010,Sydney--Victoria,Sydney--Victoria,Liberal,Eyking,Mark
+12010,Sydney--Victoria,Sydney--Victoria,Green,Harker,Collin
+12010,Sydney--Victoria,Sydney--Victoria,NDP,McKay,Wayne
+12010,Sydney--Victoria,Sydney--Victoria,Conservative,Rudderham,Kristen
+12011,West Nova,Nova-Ouest,NDP,Barron,George
+12011,West Nova,Nova-Ouest,Conservative,Kerr,Greg
+12011,West Nova,Nova-Ouest,Green,Mills,Ronald
+12011,West Nova,Nova-Ouest,Independent,Nesbitt,Cindy M.
+12011,West Nova,Nova-Ouest,Liberal,Thibault,Robert
+13001,Acadie--Bathurst,Acadie--Bathurst,Green,Aubin,Michelle
+13001,Acadie--Bathurst,Acadie--Bathurst,Conservative,Dubé,Jean Guy
+13001,Acadie--Bathurst,Acadie--Bathurst,NDP,Godin,Yvon
+13001,Acadie--Bathurst,Acadie--Bathurst,Liberal,Robichaud,Odette
+13002,Beauséjour,Beauséjour,NDP,Durrant,Chris
+13002,Beauséjour,Beauséjour,Liberal,LeBlanc,Dominic
+13002,Beauséjour,Beauséjour,Conservative,Leger,Omer
+13002,Beauséjour,Beauséjour,Green,Milligan,Michael
+13003,Fredericton,Fredericton,Conservative,Ashfield,Keith
+13003,Fredericton,Fredericton,Green,Babineau,Mary Lou
+13003,Fredericton,Fredericton,Liberal,Innes,David
+13003,Fredericton,Fredericton,Canadian Action,Kelly,Ben
+13003,Fredericton,Fredericton,NDP,Travis,Jesse
+13004,Fundy Royal,Fundy Royal,Green,Millett,Erik Matthew
+13004,Fundy Royal,Fundy Royal,NDP,Moir,Rob
+13004,Fundy Royal,Fundy Royal,Conservative,Moore,Rob
+13004,Fundy Royal,Fundy Royal,Liberal,Wright,Mark
+13005,Madawaska--Restigouche,Madawaska--Restigouche,Green,Arpin,André
+13005,Madawaska--Restigouche,Madawaska--Restigouche,Liberal,D'Amours,Jean-Claude JC
+13005,Madawaska--Restigouche,Madawaska--Restigouche,Conservative,Ouellet,Jean-Pierre
+13005,Madawaska--Restigouche,Madawaska--Restigouche,NDP,Tremblay-Philippe,Thérèse
+13006,Miramichi,Miramichi,NDP,Doucet,Donald A.
+13006,Miramichi,Miramichi,Liberal,Hubbard,Charles
+13006,Miramichi,Miramichi,Conservative,O'Neill-Gordon,Tilly
+13006,Miramichi,Miramichi,Green,Smith,Todd
+13007,Moncton--Riverview--Dieppe,Moncton--Riverview--Dieppe,Conservative,Allain,Daniel
+13007,Moncton--Riverview--Dieppe,Moncton--Riverview--Dieppe,NDP,Bainbridge,Carl
+13007,Moncton--Riverview--Dieppe,Moncton--Riverview--Dieppe,Green,Ménard,Alison
+13007,Moncton--Riverview--Dieppe,Moncton--Riverview--Dieppe,Liberal,Murphy,Brian
+13008,New Brunswick Southwest,Nouveau-Brunswick-Sud-Ouest,Green,Boucher,Robert Wayne
+13008,New Brunswick Southwest,Nouveau-Brunswick-Sud-Ouest,NDP,Graham,Andrew
+13008,New Brunswick Southwest,Nouveau-Brunswick-Sud-Ouest,Liberal,MacIntosh,Nancy
+13008,New Brunswick Southwest,Nouveau-Brunswick-Sud-Ouest,Conservative,Thompson,Greg
+13009,Saint John,Saint John,Marijuana,Moffat,Michael
+13009,Saint John,Saint John,NDP,Mowery,Tony
+13009,Saint John,Saint John,Green,Richardson,Mike
+13009,Saint John,Saint John,Conservative,Weston,Rodney
+13009,Saint John,Saint John,Liberal,Zed,Paul
+13010,Tobique--Mactaquac,Tobique--Mactaquac,Conservative,Allen,Mike
+13010,Tobique--Mactaquac,Tobique--Mactaquac,NDP,Finnamore,Alice
+13010,Tobique--Mactaquac,Tobique--Mactaquac,Green,Glass,Mark
+13010,Tobique--Mactaquac,Tobique--Mactaquac,Liberal,McGrath,Sally
+24001,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Liberal,Barrette,Gilbert
+24001,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Green,Côté,Bruno
+24001,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Conservative,Grandmaitre,Pierre
+24001,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Bloc,Lemay,Marc
+24001,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Independent,Loiselle,Ghislain
+24001,Abitibi--Témiscamingue,Abitibi--Témiscamingue,NDP,Moore,Christine
+24002,Ahuntsic,Ahuntsic,Liberal,Bakopanos,Eleni
+24002,Ahuntsic,Ahuntsic,NDP,Bélec,Alexandra
+24002,Ahuntsic,Ahuntsic,Bloc,Mourani,Maria
+24002,Ahuntsic,Ahuntsic,Conservative,Précourt,Jean
+24002,Ahuntsic,Ahuntsic,Green,Tremblay,Lynette
+24003,Alfred-Pellan,Alfred-Pellan,Bloc,Carrier,Robert
+24003,Alfred-Pellan,Alfred-Pellan,Green,Desjardins Drouin,Tristan
+24003,Alfred-Pellan,Alfred-Pellan,Independent,Millette,Régent
+24003,Alfred-Pellan,Alfred-Pellan,NDP,Roy,Cynthia
+24003,Alfred-Pellan,Alfred-Pellan,Liberal,Saintelmy,Wilson
+24003,Alfred-Pellan,Alfred-Pellan,Conservative,Salameh,Alexandre
+24004,Argenteuil--Papineau--Mirabel,Argenteuil--Papineau--Mirabel,Green,Audette,Pierre
+24004,Argenteuil--Papineau--Mirabel,Argenteuil--Papineau--Mirabel,Marxist-Leninist,Ferlatte,Christian-Simon
+24004,Argenteuil--Papineau--Mirabel,Argenteuil--Papineau--Mirabel,Bloc,Laframboise,Mario
+24004,Argenteuil--Papineau--Mirabel,Argenteuil--Papineau--Mirabel,Conservative,Pearce,Scott
+24004,Argenteuil--Papineau--Mirabel,Argenteuil--Papineau--Mirabel,Liberal,Robert,André
+24004,Argenteuil--Papineau--Mirabel,Argenteuil--Papineau--Mirabel,NDP,Senécal,Alain
+24005,Beauce,Beauce,Conservative,Bernier,Maxime
+24005,Beauce,Beauce,Bloc,Côté,André
+24005,Beauce,Beauce,NDP,Poulin,Véronique
+24005,Beauce,Beauce,Green,Rochette,Nicolas
+24005,Beauce,Beauce,Liberal,Roy,René
+24006,Beauharnois--Salaberry,Beauharnois--Salaberry,Conservative,Bellemare,Dominique
+24006,Beauharnois--Salaberry,Beauharnois--Salaberry,Bloc,Debellefeuille,Claude
+24006,Beauharnois--Salaberry,Beauharnois--Salaberry,Liberal,Lopez,Maria
+24006,Beauharnois--Salaberry,Beauharnois--Salaberry,NDP,Quach,Anne Minh Thu
+24006,Beauharnois--Salaberry,Beauharnois--Salaberry,Green,Smith,David
+24007,Beauport--Limoilou,Beauport--Limoilou,NDP,Beaudet,Simon-Pierre
+24007,Beauport--Limoilou,Beauport--Limoilou,Independent,Bédard,Simon
+24007,Beauport--Limoilou,Beauport--Limoilou,Conservative,Boucher,Sylvie
+24007,Beauport--Limoilou,Beauport--Limoilou,Green,Côté,Luc
+24007,Beauport--Limoilou,Beauport--Limoilou,Bloc,Mainguy,Éléonore
+24007,Beauport--Limoilou,Beauport--Limoilou,Liberal,Picard,Yves
+24008,Berthier--Maskinongé,Berthier--Maskinongé,Bloc,André,Guy
+24008,Berthier--Maskinongé,Berthier--Maskinongé,NDP,Chauvette,André
+24008,Berthier--Maskinongé,Berthier--Maskinongé,Conservative,Godue,Marie-Claude
+24008,Berthier--Maskinongé,Berthier--Maskinongé,Green,Lefebvre,Denis
+24008,Berthier--Maskinongé,Berthier--Maskinongé,Liberal,Matteau,Jean-Luc
+24009,Bourassa,Bourassa,Conservative,Allaire,Michelle
+24009,Bourassa,Bourassa,Green,Boucher,François
+24009,Bourassa,Bourassa,Liberal,Coderre,Denis
+24009,Bourassa,Bourassa,NDP,Laouni,Samira
+24009,Bourassa,Bourassa,Bloc,Mailhot,Daniel
+24009,Bourassa,Bourassa,Marxist-Leninist,Royer,Geneviève
+24010,Brome--Missisquoi,Brome--Missisquoi,NDP,Bogosta,Christelle
+24010,Brome--Missisquoi,Brome--Missisquoi,Green,Brassard,Pierre
+24010,Brome--Missisquoi,Brome--Missisquoi,Independent,Marler,David
+24010,Brome--Missisquoi,Brome--Missisquoi,Bloc,Ouellet,Christian
+24010,Brome--Missisquoi,Brome--Missisquoi,Liberal,Paradis,Denis
+24010,Brome--Missisquoi,Brome--Missisquoi,Conservative,Quinlan,Mark
+24011,Brossard--La Prairie,Brossard--La Prairie,Conservative,Brossard,Maurice
+24011,Brossard--La Prairie,Brossard--La Prairie,Marxist-Leninist,Chouinard,Normand
+24011,Brossard--La Prairie,Brossard--La Prairie,Bloc,Lussier,Marcel
+24011,Brossard--La Prairie,Brossard--La Prairie,NDP,Mai,Hoang
+24011,Brossard--La Prairie,Brossard--La Prairie,Liberal,Mendes,Alexandra
+24011,Brossard--La Prairie,Brossard--La Prairie,Green,Ziadé,Sonia
+24012,Chambly--Borduas,Chambly--Borduas,Green,Adam,Olivier
+24012,Chambly--Borduas,Chambly--Borduas,Liberal,Arsenault,Gabriel
+24012,Chambly--Borduas,Chambly--Borduas,Conservative,Chartrand,Suzanne
+24012,Chambly--Borduas,Chambly--Borduas,NDP,Gélinas,Serge
+24012,Chambly--Borduas,Chambly--Borduas,Bloc,Lessard,Yves
+24013,Charlesbourg--Haute-Saint-Charles,Charlesbourg--Haute-Saint-Charles,Green,Bédard,François
+24013,Charlesbourg--Haute-Saint-Charles,Charlesbourg--Haute-Saint-Charles,Bloc,Courteau,Denis
+24013,Charlesbourg--Haute-Saint-Charles,Charlesbourg--Haute-Saint-Charles,NDP,Day,Anne-Marie
+24013,Charlesbourg--Haute-Saint-Charles,Charlesbourg--Haute-Saint-Charles,Liberal,Legros,Denise
+24013,Charlesbourg--Haute-Saint-Charles,Charlesbourg--Haute-Saint-Charles,Conservative,Petit,Daniel
+24014,Montmorency--Charlevoix--Haute-Côte-Nord,Montmorency--Charlevoix--Haute-Côte-Nord,Liberal,Gauthier,Robert
+24014,Montmorency--Charlevoix--Haute-Côte-Nord,Montmorency--Charlevoix--Haute-Côte-Nord,Bloc,Guimond,Michel
+24014,Montmorency--Charlevoix--Haute-Côte-Nord,Montmorency--Charlevoix--Haute-Côte-Nord,Green,Legros,Jacques
+24014,Montmorency--Charlevoix--Haute-Côte-Nord,Montmorency--Charlevoix--Haute-Côte-Nord,Conservative,Tremblay,Guy-Léonard
+24014,Montmorency--Charlevoix--Haute-Côte-Nord,Montmorency--Charlevoix--Haute-Côte-Nord,NDP,Tremblay,Jonathan
+24015,Châteauguay--Saint-Constant,Châteauguay--Saint-Constant,Bloc,Freeman,Carole
+24015,Châteauguay--Saint-Constant,Châteauguay--Saint-Constant,NDP,Jurado,Sonia
+24015,Châteauguay--Saint-Constant,Châteauguay--Saint-Constant,Conservative,Routhier,Pierre-Paul
+24015,Châteauguay--Saint-Constant,Châteauguay--Saint-Constant,Green,Sarwer-Foner,Brian
+24015,Châteauguay--Saint-Constant,Châteauguay--Saint-Constant,Liberal,Schwey,Linda
+24016,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,Bloc,Bouchard,Robert
+24016,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,NDP,Girard,Stéphane
+24016,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,Conservative,Maltais,Jean-Guy
+24016,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,Liberal,Pettersen,Marc
+24016,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,Green,Veilleux,Jean-François
+24017,Compton--Stanstead,Compton--Stanstead,Bloc,Bonsant,France
+24017,Compton--Stanstead,Compton--Stanstead,Green,Caldwell,Gary
+24017,Compton--Stanstead,Compton--Stanstead,Conservative,Gagné,Michel
+24017,Compton--Stanstead,Compton--Stanstead,Liberal,Hogg,William
+24017,Compton--Stanstead,Compton--Stanstead,NDP,Rousseau,Jean
+24018,Drummond,Drummond,NDP,Corriveau,Annick
+24018,Drummond,Drummond,Liberal,Courchesne,Jean
+24018,Drummond,Drummond,Green,Gagnon,Réginald
+24018,Drummond,Drummond,Conservative,Komlosy,André
+24018,Drummond,Drummond,Bloc,Pomerleau,Roger
+24019,Gaspésie--Îles-de-la-Madeleine,Gaspésie--Îles-de-la-Madeleine,Bloc,Blais,Raynald
+24019,Gaspésie--Îles-de-la-Madeleine,Gaspésie--Îles-de-la-Madeleine,Liberal,Gauvreau,Denis
+24019,Gaspésie--Îles-de-la-Madeleine,Gaspésie--Îles-de-la-Madeleine,Conservative,Gray,Darryl
+24019,Gaspésie--Îles-de-la-Madeleine,Gaspésie--Îles-de-la-Madeleine,NDP,Langlais,Gaston
+24019,Gaspésie--Îles-de-la-Madeleine,Gaspésie--Îles-de-la-Madeleine,Green,Leblanc,Julien
+24020,Gatineau,Gatineau,NDP,Boivin,Françoise
+24020,Gatineau,Gatineau,Green,Inglis,David
+24020,Gatineau,Gatineau,Bloc,Nadeau,Richard
+24020,Gatineau,Gatineau,Liberal,Simard,Michel
+24020,Gatineau,Gatineau,Conservative,Tassé,Denis
+24021,Hochelaga,Hochelaga,Communist,Breton Fontaine,Marianne
+24021,Hochelaga,Hochelaga,Marxist-Leninist,Dandenault,Christine
+24021,Hochelaga,Hochelaga,Liberal,Dicaire,Diane
+24021,Hochelaga,Hochelaga,Conservative,Labbé,Luc
+24021,Hochelaga,Hochelaga,neorhino.ca,Landry,Simon
+24021,Hochelaga,Hochelaga,Green,Larochelle,Philippe
+24021,Hochelaga,Hochelaga,Marijuana,Longley,Blair T.
+24021,Hochelaga,Hochelaga,Bloc,Ménard,Réal
+24021,Hochelaga,Hochelaga,NDP,Rocheleau,Jean-Claude
+24022,Honoré-Mercier,Honoré-Mercier,Conservative,Alfaro,Rodrigo
+24022,Honoré-Mercier,Honoré-Mercier,Green,Bérard,Gaëtan
+24022,Honoré-Mercier,Honoré-Mercier,Bloc,Labelle,Gérard
+24022,Honoré-Mercier,Honoré-Mercier,NDP,Pilon,François
+24022,Honoré-Mercier,Honoré-Mercier,Liberal,Rodriguez,Pablo
+24023,Hull--Aylmer,Hull--Aylmer,Bloc,Déry,Raphaël
+24023,Hull--Aylmer,Hull--Aylmer,NDP,Ducasse,Pierre
+24023,Hull--Aylmer,Hull--Aylmer,Conservative,Fréchette,Paul
+24023,Hull--Aylmer,Hull--Aylmer,Marxist-Leninist,Girard-Bernier,Gabriel
+24023,Hull--Aylmer,Hull--Aylmer,Green,Pouyot,Frédéric
+24023,Hull--Aylmer,Hull--Aylmer,Liberal,Proulx,Marcel
+24024,Jeanne-Le Ber,Jeanne-Le Ber,Conservative,Beaudin,Daniel
+24024,Jeanne-Le Ber,Jeanne-Le Ber,NDP,Breton,Daniel
+24024,Jeanne-Le Ber,Jeanne-Le Ber,Liberal,Feuillette,Christian P.
+24024,Jeanne-Le Ber,Jeanne-Le Ber,Independent,Gray,Darryl
+24024,Jeanne-Le Ber,Jeanne-Le Ber,Green,Sansoucy,Véronik
+24024,Jeanne-Le Ber,Jeanne-Le Ber,Bloc,St-Cyr,Thierry
+24025,Joliette,Joliette,Green,Durette,Annie
+24025,Joliette,Joliette,Conservative,Lavallée,Sylvie
+24025,Joliette,Joliette,Bloc,Paquette,Pierre
+24025,Joliette,Joliette,NDP,Raynault,Francine
+24025,Joliette,Joliette,Liberal,St-Onge,Suzie
+24026,Jonquière--Alma,Jonquière--Alma,Conservative,Blackburn,Jean-Pierre
+24026,Jonquière--Alma,Jonquière--Alma,Bloc,Bouchard,Chantale
+24026,Jonquière--Alma,Jonquière--Alma,Liberal,Dupéré,Marc
+24026,Jonquière--Alma,Jonquière--Alma,NDP,Paradis,Jean-François
+24027,Lac-Saint-Louis,Lac-Saint-Louis,Bloc,Clément,Maxime
+24027,Lac-Saint-Louis,Lac-Saint-Louis,Green,Graham,Peter
+24027,Lac-Saint-Louis,Lac-Saint-Louis,Conservative,Paine,Andrea
+24027,Lac-Saint-Louis,Lac-Saint-Louis,NDP,Quinn,Daniel
+24027,Lac-Saint-Louis,Lac-Saint-Louis,Liberal,Scarpaleggia,Francis
+24028,La Pointe-de-l'Île,La Pointe-de-l'Île,neorhino.ca,Benoit,Ben 97
+24028,La Pointe-de-l'Île,La Pointe-de-l'Île,Marxist-Leninist,Brunelle,Claude
+24028,La Pointe-de-l'Île,La Pointe-de-l'Île,Green,Cundari,Domita
+24028,La Pointe-de-l'Île,La Pointe-de-l'Île,Bloc,Lalonde,Francine
+24028,La Pointe-de-l'Île,La Pointe-de-l'Île,NDP,Maguire,Isabelle
+24028,La Pointe-de-l'Île,La Pointe-de-l'Île,Conservative,Pichet,Hubert
+24028,La Pointe-de-l'Île,La Pointe-de-l'Île,Liberal,Sarr,Oumy
+24029,LaSalle--Émard,LaSalle--Émard,NDP,Darwish,Amy
+24029,LaSalle--Émard,LaSalle--Émard,Conservative,Guay-Pepper,Béatrice
+24029,LaSalle--Émard,LaSalle--Émard,Bloc,Isaya,Frédéric
+24029,LaSalle--Émard,LaSalle--Émard,Independent,Kaluzny,Antoine
+24029,LaSalle--Émard,LaSalle--Émard,Marxist-Leninist,Le Seigle,Yves
+24029,LaSalle--Émard,LaSalle--Émard,Green,Vitelli,Kristina
+24029,LaSalle--Émard,LaSalle--Émard,Liberal,Zarac,Lise
+24030,Laurentides--Labelle,Laurentides--Labelle,Bloc,Deschamps,Johanne
+24030,Laurentides--Labelle,Laurentides--Labelle,NDP,Dupras,David
+24030,Laurentides--Labelle,Laurentides--Labelle,Liberal,Gfeller,Pierre
+24030,Laurentides--Labelle,Laurentides--Labelle,Conservative,Joncas,Guy
+24030,Laurentides--Labelle,Laurentides--Labelle,Green,Rigal,Jacques
+24031,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Liberal,Caron,Sébastien
+24031,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Bloc,Duceppe,Gilles
+24031,Laurier--Sainte-Marie,Laurier--Sainte-Marie,neorhino.ca,Gourd,François Yo
+24031,Laurier--Sainte-Marie,Laurier--Sainte-Marie,NDP,Grégoire,François
+24031,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Marxist-Leninist,Lachapelle,Serge
+24031,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Independent,Laforest,"Daniel ""F4J"""
+24031,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Conservative,Langford,Charles K.
+24031,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Communist,Pagé-Quirion,Samie
+24031,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Green,Perceval-Maxwell,Dylan
+24032,Laval,Laval,Conservative,Bélisle,Jean-Pierre
+24032,Laval,Laval,Marxist-Leninist,Breton,Yvon
+24032,Laval,Laval,Bloc,Demers,Nicole
+24032,Laval,Laval,NDP,Giguère,Alain
+24032,Laval,Laval,Liberal,Haddad,Alia
+24032,Laval,Laval,Green,Madelein,Eric
+24033,Laval--Les Îles,Laval--Les Îles,NDP,El-Masri,Zahia
+24033,Laval--Les Îles,Laval--Les Îles,Conservative,Evereklian,Agop
+24033,Laval--Les Îles,Laval--Les Îles,Liberal,Folco,Raymonde
+24033,Laval--Les Îles,Laval--Les Îles,Bloc,Jetha,Mohamedali
+24033,Laval--Les Îles,Laval--Les Îles,Green,Neil,Brent
+24033,Laval--Les Îles,Laval--Les Îles,neorhino.ca,Trottier,Sylvain A.
+24034,Lévis--Bellechasse,Lévis--Bellechasse,Bloc,Bergeron,Guy
+24034,Lévis--Bellechasse,Lévis--Bellechasse,NDP,Biron,Gabriel
+24034,Lévis--Bellechasse,Lévis--Bellechasse,Conservative,Blaney,Steven
+24034,Lévis--Bellechasse,Lévis--Bellechasse,Green,Champoux-Williams,Lynne
+24034,Lévis--Bellechasse,Lévis--Bellechasse,Liberal,Côté,Pauline
+24034,Lévis--Bellechasse,Lévis--Bellechasse,Marxist-Leninist,Fournier,Normand
+24035,Longueuil--Pierre-Boucher,Longueuil--Pierre-Boucher,Conservative,Bouchard,Jacques
+24035,Longueuil--Pierre-Boucher,Longueuil--Pierre-Boucher,Bloc,Dorion,Jean
+24035,Longueuil--Pierre-Boucher,Longueuil--Pierre-Boucher,Liberal,Hillier,Ryan
+24035,Longueuil--Pierre-Boucher,Longueuil--Pierre-Boucher,Green,Moreau,Danielle
+24035,Longueuil--Pierre-Boucher,Longueuil--Pierre-Boucher,Marxist-Leninist,Patenaude,Serge
+24035,Longueuil--Pierre-Boucher,Longueuil--Pierre-Boucher,NDP,St-Denis,Lise
+24036,Lotbinière--Chutes-de-la-Chaudière,Lotbinière--Chutes-de-la-Chaudière,NDP,Côté,Raymond
+24036,Lotbinière--Chutes-de-la-Chaudière,Lotbinière--Chutes-de-la-Chaudière,Conservative,Gourde,Jacques
+24036,Lotbinière--Chutes-de-la-Chaudière,Lotbinière--Chutes-de-la-Chaudière,Liberal,Hovington,Marie-Thérèse
+24036,Lotbinière--Chutes-de-la-Chaudière,Lotbinière--Chutes-de-la-Chaudière,Green,Picknell,Shirley
+24036,Lotbinière--Chutes-de-la-Chaudière,Lotbinière--Chutes-de-la-Chaudière,Bloc,Sarrazin-Bourgoin,Antoine
+24037,Louis-Hébert,Louis-Hébert,Liberal,Beaupré,Jean
+24037,Louis-Hébert,Louis-Hébert,NDP,Blanchette,Denis
+24037,Louis-Hébert,Louis-Hébert,Green,Fontaine,Michelle
+24037,Louis-Hébert,Louis-Hébert,Conservative,Harvey,Luc
+24037,Louis-Hébert,Louis-Hébert,Christian Heritage,Jetchick,Stefan
+24037,Louis-Hébert,Louis-Hébert,Bloc,Paillé,Pascal-Pierre
+24038,Louis-Saint-Laurent,Louis-Saint-Laurent,Green,Cloutier,Jean
+24038,Louis-Saint-Laurent,Louis-Saint-Laurent,Bloc,Gagné,France
+24038,Louis-Saint-Laurent,Louis-Saint-Laurent,NDP,Latendresse,Alexandrine
+24038,Louis-Saint-Laurent,Louis-Saint-Laurent,Liberal,Leone,Hélène H.
+24038,Louis-Saint-Laurent,Louis-Saint-Laurent,Conservative,Verner,Josée
+24039,Manicouagan,Manicouagan,Bloc,Asselin,Gérard
+24039,Manicouagan,Manicouagan,Conservative,Breton,Pierre
+24039,Manicouagan,Manicouagan,NDP,Chicoine,Michaël
+24039,Manicouagan,Manicouagan,Green,Gélineau,Jacques
+24039,Manicouagan,Manicouagan,Liberal,Jones,Randy
+24040,Marc-Aurèle-Fortin,Marc-Aurèle-Fortin,NDP,Beauchamp,Benoît
+24040,Marc-Aurèle-Fortin,Marc-Aurèle-Fortin,Green,Bissonnette,Lise
+24040,Marc-Aurèle-Fortin,Marc-Aurèle-Fortin,Liberal,Frégeau,Robert
+24040,Marc-Aurèle-Fortin,Marc-Aurèle-Fortin,Bloc,Ménard,Serge
+24040,Marc-Aurèle-Fortin,Marc-Aurèle-Fortin,Conservative,Moreau,Claude
+24041,Haute-Gaspésie--La Mitis--Matane--Matapédia,Haute-Gaspésie--La Mitis--Matane--Matapédia,Liberal,Charest,Nancy
+24041,Haute-Gaspésie--La Mitis--Matane--Matapédia,Haute-Gaspésie--La Mitis--Matane--Matapédia,NDP,Demers,Julie
+24041,Haute-Gaspésie--La Mitis--Matane--Matapédia,Haute-Gaspésie--La Mitis--Matane--Matapédia,Green,Drainville,Louis
+24041,Haute-Gaspésie--La Mitis--Matane--Matapédia,Haute-Gaspésie--La Mitis--Matane--Matapédia,Conservative,Landry,Jérôme
+24041,Haute-Gaspésie--La Mitis--Matane--Matapédia,Haute-Gaspésie--La Mitis--Matane--Matapédia,Independent,Potvin,Liliane
+24041,Haute-Gaspésie--La Mitis--Matane--Matapédia,Haute-Gaspésie--La Mitis--Matane--Matapédia,Bloc,Roy,Jean-Yves
+24042,Mégantic--L'Érable,Mégantic--L'Érable,Liberal,Champagne,Nicole
+24042,Mégantic--L'Érable,Mégantic--L'Érable,Green,Guernon,Jean-R.
+24042,Mégantic--L'Érable,Mégantic--L'Érable,Conservative,Paradis,Christian
+24042,Mégantic--L'Érable,Mégantic--L'Érable,Bloc,Turcotte,Pierre
+24042,Mégantic--L'Érable,Mégantic--L'Érable,NDP,Vézina,Bruno
+24043,Montcalm,Montcalm,NDP,Beauchamp,Marie-Josée
+24043,Montcalm,Montcalm,Conservative,Boudreau,Claude Marc
+24043,Montcalm,Montcalm,Bloc,Gaudet,Roger
+24043,Montcalm,Montcalm,Liberal,Grégoire,David
+24043,Montcalm,Montcalm,Green,Paulette,Michel
+24044,Mount Royal,Mont-Royal,Green,Alexander,Tyrell
+24044,Mount Royal,Mont-Royal,Communist,Artuso,Antonio
+24044,Mount Royal,Mont-Royal,Liberal,Cotler,Irwin
+24044,Mount Royal,Mont-Royal,Marxist-Leninist,Johnston,Diane
+24044,Mount Royal,Mont-Royal,Bloc,Lavallée,Maryse
+24044,Mount Royal,Mont-Royal,NDP,Thibodeau,Nicolas
+24044,Mount Royal,Mont-Royal,Conservative,Tzoubari,Rafael
+24045,Notre-Dame-de-Grâce--Lachine,Notre-Dame-de-Grâce--Lachine,NDP,Deslauriers,Peter
+24045,Notre-Dame-de-Grâce--Lachine,Notre-Dame-de-Grâce--Lachine,Green,Gal,Jessica
+24045,Notre-Dame-de-Grâce--Lachine,Notre-Dame-de-Grâce--Lachine,Marxist-Leninist,Hoffman,Rachel
+24045,Notre-Dame-de-Grâce--Lachine,Notre-Dame-de-Grâce--Lachine,Liberal,Jennings,Marlene
+24045,Notre-Dame-de-Grâce--Lachine,Notre-Dame-de-Grâce--Lachine,Conservative,Pontillo,Carmine
+24045,Notre-Dame-de-Grâce--Lachine,Notre-Dame-de-Grâce--Lachine,Bloc,Taillefer,Eric
+24046,Abitibi--Baie-James--Nunavik--Eeyou,Abitibi--Baie-James--Nunavik--Eeyou,Liberal,Canada,Mark
+24046,Abitibi--Baie-James--Nunavik--Eeyou,Abitibi--Baie-James--Nunavik--Eeyou,Bloc,Lévesque,Yvon
+24046,Abitibi--Baie-James--Nunavik--Eeyou,Abitibi--Baie-James--Nunavik--Eeyou,NDP,Martin,Erica
+24046,Abitibi--Baie-James--Nunavik--Eeyou,Abitibi--Baie-James--Nunavik--Eeyou,Conservative,Matte,Jean-Maurice
+24046,Abitibi--Baie-James--Nunavik--Eeyou,Abitibi--Baie-James--Nunavik--Eeyou,Green,Rancourt,Patrick
+24047,Outremont,Outremont,Liberal,Dhavernas,Sébastien
+24047,Outremont,Outremont,Conservative,Laloshi,Lulzim
+24047,Outremont,Outremont,NDP,Mulcair,Thomas
+24047,Outremont,Outremont,Green,Pilon,F. Monsieur Corde à Linge
+24047,Outremont,Outremont,Bloc,Valdivia,Marcela
+24048,Papineau,Papineau,Independent,Baig,Mahmood Raza
+24048,Papineau,Papineau,Bloc,Barbot,Vivian
+24048,Papineau,Papineau,Green,Hein,Ingrid
+24048,Papineau,Papineau,Conservative,Sarker,Mustaque
+24048,Papineau,Papineau,Liberal,Trudeau,Justin
+24048,Papineau,Papineau,NDP,Zafiropoulos,Costa
+24049,Pierrefonds--Dollard,Pierrefonds--Dollard,Conservative,Brunelle,Pierre-Olivier
+24049,Pierrefonds--Dollard,Pierrefonds--Dollard,Marxist-Leninist,Fine,Marsha
+24049,Pierrefonds--Dollard,Pierrefonds--Dollard,Bloc,Gagnon,Reny
+24049,Pierrefonds--Dollard,Pierrefonds--Dollard,Liberal,Patry,Bernard
+24049,Pierrefonds--Dollard,Pierrefonds--Dollard,NDP,Siddiqui,Shameem
+24049,Pierrefonds--Dollard,Pierrefonds--Dollard,Green,Young,Ryan
+24050,Pontiac,Pontiac,NDP,Brault,Céline
+24050,Pontiac,Pontiac,Conservative,Cannon,Lawrence
+24050,Pontiac,Pontiac,Liberal,Duncan McMillan,Cindy
+24050,Pontiac,Pontiac,Marxist-Leninist,Legros,Benoit
+24050,Pontiac,Pontiac,Green,Sylvestre,André
+24050,Pontiac,Pontiac,Bloc,Tremblay,Marius
+24051,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,Independent,Arthur,André
+24051,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,Liberal,Asselin,Stéphane
+24051,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,Bloc,Côté,Richard
+24051,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,Independent,Paradis,Jean
+24051,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,NDP,Turgeon,André
+24051,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,Green,Weatherdon,Nathan John
+24052,Québec,Québec,Green,Bonaventure,Yonnel
+24052,Québec,Québec,Bloc,Gagnon,Christiane
+24052,Québec,Québec,Liberal,Rousseau,Damien
+24052,Québec,Québec,NDP,Roy-Goyette,Catherine
+24052,Québec,Québec,Conservative,Taschereau,Myriam
+24053,Repentigny,Repentigny,NDP,Bellemare,Réjean
+24053,Repentigny,Repentigny,Bloc,Dufour,Nicolas
+24053,Repentigny,Repentigny,Green,Fournier,Paul W.
+24053,Repentigny,Repentigny,Conservative,Royer,Bruno
+24053,Repentigny,Repentigny,Liberal,Semegen,Robert
+24054,Bas-Richelieu--Nicolet--Bécancour,Bas-Richelieu--Nicolet--Bécancour,Conservative,Bériault,Réjean
+24054,Bas-Richelieu--Nicolet--Bécancour,Bas-Richelieu--Nicolet--Bécancour,Liberal,Cournoyer,Ghislaine
+24054,Bas-Richelieu--Nicolet--Bécancour,Bas-Richelieu--Nicolet--Bécancour,Green,Laplante,Rebecca
+24054,Bas-Richelieu--Nicolet--Bécancour,Bas-Richelieu--Nicolet--Bécancour,Bloc,Plamondon,Louis
+24054,Bas-Richelieu--Nicolet--Bécancour,Bas-Richelieu--Nicolet--Bécancour,NDP,Seddiki,Nourredine
+24055,Richmond--Arthabaska,Richmond--Arthabaska,Bloc,Bellavance,André
+24055,Richmond--Arthabaska,Richmond--Arthabaska,Green,Fillion,François
+24055,Richmond--Arthabaska,Richmond--Arthabaska,Liberal,Grant,Gwyneth Helen
+24055,Richmond--Arthabaska,Richmond--Arthabaska,Independent,Landry,Jean
+24055,Richmond--Arthabaska,Richmond--Arthabaska,Conservative,Lefebvre,Éric
+24055,Richmond--Arthabaska,Richmond--Arthabaska,NDP,Ricard,Stéphane
+24056,Rimouski-Neigette--Témiscouata--Les Basques,Rimouski-Neigette--Témiscouata--Les Basques,Liberal,Béland,Pierre
+24056,Rimouski-Neigette--Témiscouata--Les Basques,Rimouski-Neigette--Témiscouata--Les Basques,NDP,Caron,Guy
+24056,Rimouski-Neigette--Témiscouata--Les Basques,Rimouski-Neigette--Témiscouata--Les Basques,Bloc,Guimond,Claude
+24056,Rimouski-Neigette--Témiscouata--Les Basques,Rimouski-Neigette--Témiscouata--Les Basques,Green,Morrison,James D.
+24056,Rimouski-Neigette--Témiscouata--Les Basques,Rimouski-Neigette--Témiscouata--Les Basques,Conservative,Noël,Gaston
+24056,Rimouski-Neigette--Témiscouata--Les Basques,Rimouski-Neigette--Témiscouata--Les Basques,Independent,Thibault,Louise
+24057,Rivière-des-Mille-Îles,Rivière-des-Mille-Îles,NDP,Beaudet,Normand
+24057,Rivière-des-Mille-Îles,Rivière-des-Mille-Îles,Green,Bédard,Marie Martine
+24057,Rivière-des-Mille-Îles,Rivière-des-Mille-Îles,Conservative,Carignan,Claude
+24057,Rivière-des-Mille-Îles,Rivière-des-Mille-Îles,Bloc,Desnoyers,Luc
+24057,Rivière-des-Mille-Îles,Rivière-des-Mille-Îles,Liberal,Joannette,Denis
+24058,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Liberal,Bouchard,Jean
+24058,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Christian Heritage,Côté,Aubert
+24058,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Bloc,Crête,Paul
+24058,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Green,Gaumond,Claude
+24058,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,NDP,Hervieux,Gaston
+24058,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Conservative,Laflamme,Denis
+24059,Rivière-du-Nord,Rivière-du-Nord,NDP,Bernier,Simon
+24059,Rivière-du-Nord,Rivière-du-Nord,Conservative,Duguay,Gilles
+24059,Rivière-du-Nord,Rivière-du-Nord,Bloc,Guay,Monique
+24059,Rivière-du-Nord,Rivière-du-Nord,Independent,Leduc,Jocelyne
+24059,Rivière-du-Nord,Rivière-du-Nord,Liberal,Neves,Joao
+24059,Rivière-du-Nord,Rivière-du-Nord,Green,Piché,René
+24060,Roberval--Lac-Saint-Jean,Roberval--Lac-Saint-Jean,NDP,Forbes,Catherine
+24060,Roberval--Lac-Saint-Jean,Roberval--Lac-Saint-Jean,Liberal,Garneau,Bernard
+24060,Roberval--Lac-Saint-Jean,Roberval--Lac-Saint-Jean,Conservative,Lebel,Denis
+24060,Roberval--Lac-Saint-Jean,Roberval--Lac-Saint-Jean,Bloc,Pilote,Claude
+24060,Roberval--Lac-Saint-Jean,Roberval--Lac-Saint-Jean,Green,Tremblay,Jocelyn
+24061,Rosemont--La Petite-Patrie,Rosemont--La Petite-Patrie,neorhino.ca,Berthiaume,Jean-Patrick
+24061,Rosemont--La Petite-Patrie,Rosemont--La Petite-Patrie,Bloc,Bigras,Bernard
+24061,Rosemont--La Petite-Patrie,Rosemont--La Petite-Patrie,NDP,Boulerice,Alexandre
+24061,Rosemont--La Petite-Patrie,Rosemont--La Petite-Patrie,Conservative,Boulianne,Sylvie
+24061,Rosemont--La Petite-Patrie,Rosemont--La Petite-Patrie,Marxist-Leninist,Chénier,Stéphane
+24061,Rosemont--La Petite-Patrie,Rosemont--La Petite-Patrie,No Affiliation,Dugré,Michel
+24061,Rosemont--La Petite-Patrie,Rosemont--La Petite-Patrie,Green,Larochelle,Vincent
+24061,Rosemont--La Petite-Patrie,Rosemont--La Petite-Patrie,Liberal,Théodore,Marjorie
+24062,Saint-Bruno--Saint-Hubert,Saint-Bruno--Saint-Hubert,Green,Bernier,Simon
+24062,Saint-Bruno--Saint-Hubert,Saint-Bruno--Saint-Hubert,Conservative,Charbonneau Barron,Nicole
+24062,Saint-Bruno--Saint-Hubert,Saint-Bruno--Saint-Hubert,Liberal,Diamond,Pierre
+24062,Saint-Bruno--Saint-Hubert,Saint-Bruno--Saint-Hubert,Bloc,Lavallée,Carole
+24062,Saint-Bruno--Saint-Hubert,Saint-Bruno--Saint-Hubert,NDP,Vesic,Vesna
+24063,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,NDP,Sansoucy,Brigitte
+24063,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,Green,Tétreault,Jacques
+24063,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,Bloc,Thi Lac,Ève-Mary Thaï
+24063,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,Liberal,Tremblay,Denise
+24063,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,Conservative,Vincelette,René
+24064,Saint-Jean,Saint-Jean,Bloc,Bachand,Claude
+24064,Saint-Jean,Saint-Jean,Independent,Berger,Guy
+24064,Saint-Jean,Saint-Jean,Conservative,Mercier,Marie-Josée
+24064,Saint-Jean,Saint-Jean,NDP,Refghi,Philippe
+24064,Saint-Jean,Saint-Jean,Liberal,Ste-Marie,Claire
+24064,Saint-Jean,Saint-Jean,Green,Tremblay,Pierre
+24065,Saint-Lambert,Saint-Lambert,Bloc,Beaudin,Josée
+24065,Saint-Lambert,Saint-Lambert,Conservative,Clune,Patrick
+24065,Saint-Lambert,Saint-Lambert,Green,Joubert,Diane
+24065,Saint-Lambert,Saint-Lambert,NDP,Marois,Richard
+24065,Saint-Lambert,Saint-Lambert,Liberal,Stanners,Roxane
+24066,Saint-Laurent--Cartierville,Saint-Laurent--Cartierville,Marxist-Leninist,Deschamps,Fernand
+24066,Saint-Laurent--Cartierville,Saint-Laurent--Cartierville,Liberal,Dion,Stéphane
+24066,Saint-Laurent--Cartierville,Saint-Laurent--Cartierville,Conservative,Galiatsatos,Dennis
+24066,Saint-Laurent--Cartierville,Saint-Laurent--Cartierville,Bloc,Lachaîne,Jacques
+24066,Saint-Laurent--Cartierville,Saint-Laurent--Cartierville,NDP,Rodrigues,Jerome
+24067,Saint-Léonard--Saint-Michel,Saint-Léonard--Saint-Michel,NDP,Colella,Laura
+24067,Saint-Léonard--Saint-Michel,Saint-Léonard--Saint-Michel,Marxist-Leninist,Colly,Garnet
+24067,Saint-Léonard--Saint-Michel,Saint-Léonard--Saint-Michel,Conservative,Le Tourneau,Lucie
+24067,Saint-Léonard--Saint-Michel,Saint-Léonard--Saint-Michel,Green,Monteleone,Frank
+24067,Saint-Léonard--Saint-Michel,Saint-Léonard--Saint-Michel,Liberal,Pacetti,Massimo
+24067,Saint-Léonard--Saint-Michel,Saint-Léonard--Saint-Michel,Bloc,Salem,Farid
+24067,Saint-Léonard--Saint-Michel,Saint-Léonard--Saint-Michel,No Affiliation,Young,Joseph
+24068,Saint-Maurice--Champlain,Saint-Maurice--Champlain,NDP,Aubert,Anne Marie
+24068,Saint-Maurice--Champlain,Saint-Maurice--Champlain,Bloc,Laforest,Jean-Yves
+24068,Saint-Maurice--Champlain,Saint-Maurice--Champlain,Conservative,Roof,Stéphane
+24068,Saint-Maurice--Champlain,Saint-Maurice--Champlain,Liberal,St-Onge Lynch,Ronald
+24068,Saint-Maurice--Champlain,Saint-Maurice--Champlain,Green,Toupin,Martial
+24069,Shefford,Shefford,Green,Champagne,Michel.M.
+24069,Shefford,Shefford,Liberal,Demers,Bernard
+24069,Shefford,Shefford,NDP,Gnocchini Messier,Simon
+24069,Shefford,Shefford,Conservative,Lambert,Jean
+24069,Shefford,Shefford,Bloc,Vincent,Robert
+24070,Sherbrooke,Sherbrooke,Conservative,Bachand,André
+24070,Sherbrooke,Sherbrooke,Bloc,Cardin,Serge
+24070,Sherbrooke,Sherbrooke,neorhino.ca,Côrriveau,Sébastien
+24070,Sherbrooke,Sherbrooke,Liberal,Goguen,Nathalie
+24070,Sherbrooke,Sherbrooke,NDP,Mondoux,Yves
+24071,Terrebonne--Blainville,Terrebonne--Blainville,Bloc,Bourgeois,Diane
+24071,Terrebonne--Blainville,Terrebonne--Blainville,Independent,Cadieux,M. Zamboni
+24071,Terrebonne--Blainville,Terrebonne--Blainville,Green,Drapeau,Martin
+24071,Terrebonne--Blainville,Terrebonne--Blainville,Conservative,Lebel,Daniel
+24071,Terrebonne--Blainville,Terrebonne--Blainville,NDP,Le Clair,Michel
+24071,Terrebonne--Blainville,Terrebonne--Blainville,Liberal,Nassif,Eva
+24072,Trois-Rivières,Trois-Rivières,Green,Blais,Ariane
+24072,Trois-Rivières,Trois-Rivières,NDP,Boivin,Geneviève
+24072,Trois-Rivières,Trois-Rivières,Bloc,Brunelle,Paule
+24072,Trois-Rivières,Trois-Rivières,Conservative,Durand,Claude
+24072,Trois-Rivières,Trois-Rivières,Liberal,Simard,Marcos G.
+24073,Vaudreuil-Soulanges,Vaudreuil-Soulanges,Bloc,Faille,Meili
+24073,Vaudreuil-Soulanges,Vaudreuil-Soulanges,Conservative,Fortier,Michael M.
+24073,Vaudreuil-Soulanges,Vaudreuil-Soulanges,NDP,Héroux-Legault,Maxime
+24073,Vaudreuil-Soulanges,Vaudreuil-Soulanges,Liberal,Legault,Brigitte
+24073,Vaudreuil-Soulanges,Vaudreuil-Soulanges,Green,Massenet,Jean-Yves
+24074,Verchères--Les Patriotes,Verchères--Les Patriotes,Conservative,Dussault,Benoît
+24074,Verchères--Les Patriotes,Verchères--Les Patriotes,NDP,Fortin,Raphaël
+24074,Verchères--Les Patriotes,Verchères--Les Patriotes,Liberal,Fournier,François
+24074,Verchères--Les Patriotes,Verchères--Les Patriotes,Bloc,Malo,Luc
+24074,Verchères--Les Patriotes,Verchères--Les Patriotes,Green,Morel,Annie
+24075,Westmount--Ville-Marie,Westmount--Ville-Marie,Conservative,Dufort,Guy
+24075,Westmount--Ville-Marie,Westmount--Ville-Marie,Liberal,Garneau,Marc
+24075,Westmount--Ville-Marie,Westmount--Ville-Marie,Green,Genest,Claude William
+24075,Westmount--Ville-Marie,Westmount--Ville-Marie,NDP,Lagacé Dowson,Anne
+24075,Westmount--Ville-Marie,Westmount--Ville-Marie,Bloc,Larivée,Charles
+24075,Westmount--Ville-Marie,Westmount--Ville-Marie,Independent,Rovins,David Sommer
+24075,Westmount--Ville-Marie,Westmount--Ville-Marie,Communist,Sloan,Bill
+24075,Westmount--Ville-Marie,Westmount--Ville-Marie,Marxist-Leninist,Sullivan,Linda
+24075,Westmount--Ville-Marie,Westmount--Ville-Marie,neorhino.ca,Vienneau,Judith
+35001,Ajax--Pickering,Ajax--Pickering,Green,Harilaid,Mike
+35001,Ajax--Pickering,Ajax--Pickering,Liberal,Holland,Mark
+35001,Ajax--Pickering,Ajax--Pickering,Conservative,Johnson,Rick
+35001,Ajax--Pickering,Ajax--Pickering,Christian Heritage,Norng,Kevin
+35001,Ajax--Pickering,Ajax--Pickering,NDP,Thavarajasoorier,Bala
+35001,Ajax--Pickering,Ajax--Pickering,Libertarian,Wilson,Stephanie
+35002,Algoma--Manitoulin--Kapuskasing,Algoma--Manitoulin--Kapuskasing,NDP,Hughes,Carol
+35002,Algoma--Manitoulin--Kapuskasing,Algoma--Manitoulin--Kapuskasing,Conservative,Musgrove,Dianne
+35002,Algoma--Manitoulin--Kapuskasing,Algoma--Manitoulin--Kapuskasing,Green,Rekmans,Lorraine
+35002,Algoma--Manitoulin--Kapuskasing,Algoma--Manitoulin--Kapuskasing,Liberal,St. Denis,Brent
+35003,Ancaster--Dundas--Flamborough--Westdale,Ancaster--Dundas--Flamborough--Westdale,Marxist-Leninist,Ghaddar,Jamilé
+35003,Ancaster--Dundas--Flamborough--Westdale,Ancaster--Dundas--Flamborough--Westdale,NDP,Guyatt,Gordon
+35003,Ancaster--Dundas--Flamborough--Westdale,Ancaster--Dundas--Flamborough--Westdale,Liberal,MacFarlane-VanderBeek,Arlene
+35003,Ancaster--Dundas--Flamborough--Westdale,Ancaster--Dundas--Flamborough--Westdale,Green,Ormond,Peter
+35003,Ancaster--Dundas--Flamborough--Westdale,Ancaster--Dundas--Flamborough--Westdale,Conservative,Sweet,David
+35004,Barrie,Barrie,Conservative,Brown,Patrick
+35004,Barrie,Barrie,NDP,Clark,Myrna
+35004,Barrie,Barrie,Libertarian,Fabrizio,Paolo
+35004,Barrie,Barrie,Green,Jacoby-Hawkins,Erich
+35004,Barrie,Barrie,Liberal,Jones,Rick
+35004,Barrie,Barrie,Marxist-Leninist,Nugent,Christine Anne
+35005,Beaches--East York,Beaches--East York,Conservative,Alleslev,Caroline
+35005,Beaches--East York,Beaches--East York,Marxist-Leninist,Carter,Roger
+35005,Beaches--East York,Beaches--East York,NDP,Churley,Marilyn
+35005,Beaches--East York,Beaches--East York,Green,Markovski,Zoran
+35005,Beaches--East York,Beaches--East York,Liberal,Minna,Maria
+35006,Bramalea--Gore--Malton,Bramalea--Gore--Malton,Conservative,Ambler,Stella
+35006,Bramalea--Gore--Malton,Bramalea--Gore--Malton,Marxist-Leninist,Chilelli,Frank
+35006,Bramalea--Gore--Malton,Bramalea--Gore--Malton,Liberal,Malhi,Gurbax S.
+35006,Bramalea--Gore--Malton,Bramalea--Gore--Malton,Green,Pajot,Mark
+35006,Bramalea--Gore--Malton,Bramalea--Gore--Malton,NDP,Puniya,Jash
+35007,Brampton--Springdale,Brampton--Springdale,Liberal,Dhalla,Ruby
+35007,Brampton--Springdale,Brampton--Springdale,Green,Finlay,Dave
+35007,Brampton--Springdale,Brampton--Springdale,Conservative,Gill,Parm
+35007,Brampton--Springdale,Brampton--Springdale,Communist,Kabitsis,Dimitrios
+35007,Brampton--Springdale,Brampton--Springdale,NDP,Singh,Mani
+35008,Brampton West,Brampton-Ouest,Green,Chmelyk,Patti
+35008,Brampton West,Brampton-Ouest,Liberal,Kania,Andrew
+35008,Brampton West,Brampton-Ouest,Conservative,Seeback,Kyle
+35008,Brampton West,Brampton-Ouest,NDP,Shergill,Jagtar
+35009,Brant,Brant,Green,Fueten,Nora
+35009,Brant,Brant,Christian Heritage,Gots,John G.
+35009,Brant,Brant,Conservative,McColeman,Phil
+35009,Brant,Brant,Liberal,St. Amand,Lloyd
+35009,Brant,Brant,NDP,Van Tilborg,Brian
+35010,Burlington,Burlington,NDP,Laird,David
+35010,Burlington,Burlington,Green,Mellish,Marnie
+35010,Burlington,Burlington,Liberal,Torsney,Paddy
+35010,Burlington,Burlington,Conservative,Wallace,Mike
+35011,Cambridge,Cambridge,Green,Cosman,Scott
+35011,Cambridge,Cambridge,Conservative,Goodyear,Gary
+35011,Cambridge,Cambridge,NDP,Lombardi,Max
+35011,Cambridge,Cambridge,Liberal,Zeilstra,Gord
+35012,Carleton--Mississippi Mills,Carleton--Mississippi Mills,NDP,Arbour,Paul
+35012,Carleton--Mississippi Mills,Carleton--Mississippi Mills,Green,Cole,Jake
+35012,Carleton--Mississippi Mills,Carleton--Mississippi Mills,Liberal,MacKinnon,Justin
+35012,Carleton--Mississippi Mills,Carleton--Mississippi Mills,Conservative,O'Connor,Gordon
+35013,Chatham-Kent--Essex,Chatham-Kent--Essex,Green,Abbott,Alina
+35013,Chatham-Kent--Essex,Chatham-Kent--Essex,NDP,Cadotte,Ron
+35013,Chatham-Kent--Essex,Chatham-Kent--Essex,Liberal,Daudlin,Matt
+35013,Chatham-Kent--Essex,Chatham-Kent--Essex,Conservative,Van Kesteren,Dave
+35014,Durham,Durham,Green,Leahy,Stephen
+35014,Durham,Durham,NDP,McKeever,Andrew
+35014,Durham,Durham,Conservative,Oda,Bev
+35014,Durham,Durham,Liberal,Ransom,Bryan
+35014,Durham,Durham,Christian Heritage,Zekveld,Henry
+35015,Davenport,Davenport,NDP,Ferreira,Peter
+35015,Davenport,Davenport,Communist,Figueroa,Miguel
+35015,Davenport,Davenport,Independent,Forrest,Wendy
+35015,Davenport,Davenport,Animal Alliance Environment Voters,Luisi,Simon
+35015,Davenport,Davenport,Conservative,Rodrigues,Theresa
+35015,Davenport,Davenport,Green,Scott,Wayne
+35015,Davenport,Davenport,Liberal,Silva,Mario
+35015,Davenport,Davenport,Marxist-Leninist,Thompson,Sarah
+35016,Don Valley East,Don Valley-Est,Green,Clements,Wayne
+35016,Don Valley East,Don Valley-Est,NDP,Hynes,Mary Trapani
+35016,Don Valley East,Don Valley-Est,Christian Heritage,Kovalenko,Alex
+35016,Don Valley East,Don Valley-Est,Conservative,McDermott,Eugene
+35016,Don Valley East,Don Valley-Est,Liberal,Ratansi,Yasmin
+35017,Don Valley West,Don Valley-Ouest,Conservative,Carmichael,John
+35017,Don Valley West,Don Valley-Ouest,Communist,Holliday,Catherine
+35017,Don Valley West,Don Valley-Ouest,Liberal,Oliphant,Rob
+35017,Don Valley West,Don Valley-Ouest,NDP,Sparrow,David
+35017,Don Valley West,Don Valley-Ouest,Green,Wilcock,Georgina
+35018,Dufferin--Caledon,Dufferin--Caledon,NDP,Bissett,Jason
+35018,Dufferin--Caledon,Dufferin--Caledon,Liberal,Finch,Rebecca
+35018,Dufferin--Caledon,Dufferin--Caledon,Conservative,Tilson,David
+35018,Dufferin--Caledon,Dufferin--Caledon,Green,Van Leeuwen,Ard
+35018,Dufferin--Caledon,Dufferin--Caledon,Canadian Action,Woods,Dean
+35019,Eglinton--Lawrence,Eglinton--Lawrence,NDP,Chatwin,Justin
+35019,Eglinton--Lawrence,Eglinton--Lawrence,Green,James,Andrew
+35019,Eglinton--Lawrence,Eglinton--Lawrence,Conservative,Oliver,Joe
+35019,Eglinton--Lawrence,Eglinton--Lawrence,Liberal,Volpe,Joseph
+35020,Elgin--Middlesex--London,Elgin--Middlesex--London,Canadian Action,Arlow,Will
+35020,Elgin--Middlesex--London,Elgin--Middlesex--London,Green,Burgon,Noel
+35020,Elgin--Middlesex--London,Elgin--Middlesex--London,NDP,Dolby,Ryan
+35020,Elgin--Middlesex--London,Elgin--Middlesex--London,Christian Heritage,Hiemstra,Carl
+35020,Elgin--Middlesex--London,Elgin--Middlesex--London,Conservative,Preston,Joe
+35020,Elgin--Middlesex--London,Elgin--Middlesex--London,Liberal,van Bommel,Suzanne
+35020,Elgin--Middlesex--London,Elgin--Middlesex--London,Independent,van Holst,Michael
+35021,Essex,Essex,Green,Bachynsky,Richard
+35021,Essex,Essex,NDP,Natyshak,Taras
+35021,Essex,Essex,Conservative,Watson,Jeff
+35021,Essex,Essex,Liberal,Whelan,Susan
+35022,Etobicoke Centre,Etobicoke-Centre,Conservative,Kuhn,Axel
+35022,Etobicoke Centre,Etobicoke-Centre,Green,Schaffer,Marion
+35022,Etobicoke Centre,Etobicoke-Centre,NDP,Schwartz,Joseph
+35022,Etobicoke Centre,Etobicoke-Centre,Liberal,Wrzesnewskyj,Borys
+35023,Etobicoke--Lakeshore,Etobicoke--Lakeshore,Conservative,Boyer,Patrick
+35023,Etobicoke--Lakeshore,Etobicoke--Lakeshore,Green,Corail,Dave
+35023,Etobicoke--Lakeshore,Etobicoke--Lakeshore,Liberal,Ignatieff,Michael
+35023,Etobicoke--Lakeshore,Etobicoke--Lakeshore,NDP,McHugh-Russell,Liam
+35023,Etobicoke--Lakeshore,Etobicoke--Lakeshore,Marxist-Leninist,Murray,Janice
+35024,Etobicoke North,Etobicoke-Nord,Green,Barriffe,Nigel
+35024,Etobicoke North,Etobicoke-Nord,Marxist-Leninist,Di Carlo,Anna
+35024,Etobicoke North,Etobicoke-Nord,Liberal,Duncan,Kirsty
+35024,Etobicoke North,Etobicoke-Nord,NDP,Naqvi,Ali
+35024,Etobicoke North,Etobicoke-Nord,Conservative,Saroya,Bob
+35025,Glengarry--Prescott--Russell,Glengarry--Prescott--Russell,Liberal,Boudria,Dan
+35025,Glengarry--Prescott--Russell,Glengarry--Prescott--Russell,NDP,Caron,Jean-Sébastien
+35025,Glengarry--Prescott--Russell,Glengarry--Prescott--Russell,Conservative,Lemieux,Pierre
+35025,Glengarry--Prescott--Russell,Glengarry--Prescott--Russell,Green,Lemieux,Sylvie
+35026,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,Green,Hibma,Dick
+35026,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,Christian Heritage,Kidd,Joel
+35026,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,NDP,McIllwraith,Jill
+35026,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,Conservative,Miller,Larry
+35026,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,Liberal,Noble,Thom
+35027,Guelph,Guelph,Libertarian,Bender,Philip
+35027,Guelph,Guelph,Marxist-Leninist,Couto,Manuel
+35027,Guelph,Guelph,Communist,Garvie,Drew
+35027,Guelph,Guelph,NDP,King,Tom
+35027,Guelph,Guelph,Marijuana,Klevering,Kornelis
+35027,Guelph,Guelph,Conservative,Kovach,Gloria
+35027,Guelph,Guelph,Animal Alliance Environment Voters,Levenson,Karen
+35027,Guelph,Guelph,Green,Nagy,Mike
+35027,Guelph,Guelph,Independent,Turmel,John
+35027,Guelph,Guelph,Liberal,Valeriote,Frank
+35028,Haldimand--Norfolk,Haldimand--Norfolk,Christian Heritage,Elgersma,Steven
+35028,Haldimand--Norfolk,Haldimand--Norfolk,Conservative,Finley,Diane
+35028,Haldimand--Norfolk,Haldimand--Norfolk,Liberal,Hoskins,Eric
+35028,Haldimand--Norfolk,Haldimand--Norfolk,Green,Johnston,Stephana
+35028,Haldimand--Norfolk,Haldimand--Norfolk,Independent,McHale,Gary
+35028,Haldimand--Norfolk,Haldimand--Norfolk,NDP,Nichols,Ian
+35029,Haliburton--Kawartha Lakes--Brock,Haliburton--Kawartha Lakes--Brock,Green,Bell,Michael
+35029,Haliburton--Kawartha Lakes--Brock,Haliburton--Kawartha Lakes--Brock,Conservative,Devolin,Barry
+35029,Haliburton--Kawartha Lakes--Brock,Haliburton--Kawartha Lakes--Brock,Christian Heritage,Switzer,Dave
+35029,Haliburton--Kawartha Lakes--Brock,Haliburton--Kawartha Lakes--Brock,Liberal,White,Marlene
+35029,Haliburton--Kawartha Lakes--Brock,Haliburton--Kawartha Lakes--Brock,NDP,Yardy,Stephen
+35030,Halton,Halton,Green,Collard,Amy
+35030,Halton,Halton,Conservative,Raitt,Lisa
+35030,Halton,Halton,Christian Heritage,Rodrigues,Tony
+35030,Halton,Halton,Liberal,Turner,Garth
+35030,Halton,Halton,NDP,Wagner,Rob
+35031,Hamilton Centre,Hamilton-Centre,NDP,Christopherson,David
+35031,Hamilton Centre,Hamilton-Centre,Libertarian,Giles,Anthony
+35031,Hamilton Centre,Hamilton-Centre,Green,Livingstone,John
+35031,Hamilton Centre,Hamilton-Centre,Marxist-Leninist,Nussey,Lisa
+35031,Hamilton Centre,Hamilton-Centre,Conservative,O'Connor,Leon
+35031,Hamilton Centre,Hamilton-Centre,Communist,Sparrow,Ryan
+35031,Hamilton Centre,Hamilton-Centre,Liberal,Wilson,Helen M.
+35032,Hamilton East--Stoney Creek,Hamilton-Est--Stoney Creek,Independent,Cino,Sam
+35032,Hamilton East--Stoney Creek,Hamilton-Est--Stoney Creek,Liberal,Di Ianni,Larry
+35032,Hamilton East--Stoney Creek,Hamilton-Est--Stoney Creek,Green,Hart Dyke,David William
+35032,Hamilton East--Stoney Creek,Hamilton-Est--Stoney Creek,Progressive Canadian,Hill,Gord
+35032,Hamilton East--Stoney Creek,Hamilton-Est--Stoney Creek,NDP,Marston,Wayne
+35032,Hamilton East--Stoney Creek,Hamilton-Est--Stoney Creek,Conservative,Rukavina,Frank
+35033,Hamilton Mountain,Hamilton Mountain,Conservative,Anderson,Terry
+35033,Hamilton Mountain,Hamilton Mountain,Liberal,Banham,Tyler
+35033,Hamilton Mountain,Hamilton Mountain,Green,Brotherston,Stephen
+35033,Hamilton Mountain,Hamilton Mountain,NDP,Charlton,Chris
+35034,Huron--Bruce,Huron--Bruce,Christian Heritage,Joslin,Dave
+35034,Huron--Bruce,Huron--Bruce,Conservative,Lobb,Ben
+35034,Huron--Bruce,Huron--Bruce,Liberal,McClinchey,Greg
+35034,Huron--Bruce,Huron--Bruce,NDP,McQuail,Tony
+35034,Huron--Bruce,Huron--Bruce,Green,Smith,Glen
+35034,Huron--Bruce,Huron--Bruce,Independent,Valenta,Dennis
+35035,Kenora,Kenora,NDP,Cameron,Tania
+35035,Kenora,Kenora,Green,Holiday,JoJo
+35035,Kenora,Kenora,Conservative,Rickford,Greg
+35035,Kenora,Kenora,Liberal,Valley,Roger
+35036,Kingston and the Islands,Kingston et les Îles,Conservative,Abrams,Brian
+35036,Kingston and the Islands,Kingston et les Îles,NDP,Downes,Rick
+35036,Kingston and the Islands,Kingston et les Îles,Liberal,Milliken,Peter
+35036,Kingston and the Islands,Kingston et les Îles,Green,Walton,Eric
+35037,Kitchener Centre,Kitchener-Centre,Green,Bithell,John
+35037,Kitchener Centre,Kitchener-Centre,NDP,Cole-Arnal,Oz
+35037,Kitchener Centre,Kitchener-Centre,Independent,Lamka,Amanda
+35037,Kitchener Centre,Kitchener-Centre,Liberal,Redman,Karen
+35037,Kitchener Centre,Kitchener-Centre,Communist,Suter,Martin
+35037,Kitchener Centre,Kitchener-Centre,Conservative,Woodworth,Stephen
+35038,Kitchener--Conestoga,Kitchener--Conestoga,Conservative,Albrecht,Harold
+35038,Kitchener--Conestoga,Kitchener--Conestoga,Liberal,Da Silva,Orlando
+35038,Kitchener--Conestoga,Kitchener--Conestoga,Green,Kropf,Jamie
+35038,Kitchener--Conestoga,Kitchener--Conestoga,NDP,McNeil,Rod
+35039,Kitchener--Waterloo,Kitchener--Waterloo,Conservative,Braid,Peter
+35039,Kitchener--Waterloo,Kitchener--Waterloo,Independent,Corbiere,Mark
+35039,Kitchener--Waterloo,Kitchener--Waterloo,Libertarian,Cousineau,Jason
+35039,Kitchener--Waterloo,Kitchener--Waterloo,Canadian Action,Huntingdon,Kyle James
+35039,Kitchener--Waterloo,Kitchener--Waterloo,NDP,Jacobsen,Cindy
+35039,Kitchener--Waterloo,Kitchener--Waterloo,Green,MacLellan,Cathy
+35039,Kitchener--Waterloo,Kitchener--Waterloo,Communist,Portillo,Ramon
+35039,Kitchener--Waterloo,Kitchener--Waterloo,Liberal,Telegdi,Andrew
+35040,Lanark--Frontenac--Lennox and Addington,Lanark--Frontenac--Lennox and Addington,Marijuana,Rathwell,Ernest Oliver
+35040,Lanark--Frontenac--Lennox and Addington,Lanark--Frontenac--Lennox and Addington,Conservative,Reid,Scott
+35040,Lanark--Frontenac--Lennox and Addington,Lanark--Frontenac--Lennox and Addington,Liberal,Remington,David
+35040,Lanark--Frontenac--Lennox and Addington,Lanark--Frontenac--Lennox and Addington,Green,Walker,Chris
+35040,Lanark--Frontenac--Lennox and Addington,Lanark--Frontenac--Lennox and Addington,NDP,Willard,Sandra
+35041,Leeds--Grenville,Leeds--Grenville,NDP,Armstrong,Steve
+35041,Leeds--Grenville,Leeds--Grenville,Conservative,Brown,Gord
+35041,Leeds--Grenville,Leeds--Grenville,Liberal,Loveys,Marjory
+35041,Leeds--Grenville,Leeds--Grenville,Progressive Canadian,McCrea,John
+35041,Leeds--Grenville,Leeds--Grenville,Green,Warnock,Jeanie
+35042,London--Fanshawe,London--Fanshawe,Conservative,Ambrogio,Mary Lou
+35042,London--Fanshawe,London--Fanshawe,Liberal,Gauthier,Jacquie
+35042,London--Fanshawe,London--Fanshawe,NDP,Mathyssen,Irene
+35042,London--Fanshawe,London--Fanshawe,Green,O'Neail,Daniel
+35042,London--Fanshawe,London--Fanshawe,Christian Heritage,Vanderhoeven,Leonard
+35043,London North Centre,London-Centre-Nord,Green,Hodge,Mary Ann
+35043,London North Centre,London-Centre-Nord,NDP,Holmes,Steve
+35043,London North Centre,London-Centre-Nord,Liberal,Pearson,Glen
+35043,London North Centre,London-Centre-Nord,Conservative,Van Meerbergen,Paul
+35044,London West,London-Ouest,Liberal,Barnes,Sue
+35044,London West,London-Ouest,Christian Heritage,Bartley,Leslie
+35044,London West,London-Ouest,NDP,Ferguson,Peter Lawrence
+35044,London West,London-Ouest,Conservative,Holder,Ed
+35044,London West,London-Ouest,Progressive Canadian,Hunter,Steve
+35044,London West,London-Ouest,Green,Jarabek,Monica
+35045,Markham--Unionville,Markham--Unionville,Green,Aitken,Leonard
+35045,Markham--Unionville,Markham--Unionville,Conservative,Fletcher,Duncan
+35045,Markham--Unionville,Markham--Unionville,NDP,Hawkins,Nadine
+35045,Markham--Unionville,Markham--Unionville,Liberal,McCallum,John
+35045,Markham--Unionville,Markham--Unionville,Libertarian,Small,Allen
+35046,Lambton--Kent--Middlesex,Lambton--Kent--Middlesex,NDP,Hill,Joe
+35046,Lambton--Kent--Middlesex,Lambton--Kent--Middlesex,Christian Heritage,Janssens,Micheal
+35046,Lambton--Kent--Middlesex,Lambton--Kent--Middlesex,Green,Johnston,Jim
+35046,Lambton--Kent--Middlesex,Lambton--Kent--Middlesex,Conservative,Shipley,Bev
+35046,Lambton--Kent--Middlesex,Lambton--Kent--Middlesex,Liberal,Wesley,Jeff
+35047,Mississauga--Brampton South,Mississauga--Brampton-Sud,Conservative,Ataullahjan,Salma
+35047,Mississauga--Brampton South,Mississauga--Brampton-Sud,Liberal,Bains,Navdeep
+35047,Mississauga--Brampton South,Mississauga--Brampton-Sud,NDP,Pandher,Karan
+35047,Mississauga--Brampton South,Mississauga--Brampton-Sud,Marxist-Leninist,Sullivan,Tim
+35047,Mississauga--Brampton South,Mississauga--Brampton-Sud,Green,Yogaretnam,Grace
+35048,Mississauga East--Cooksville,Mississauga-Est--Cooksville,NDP,Balasunderam,Satish
+35048,Mississauga East--Cooksville,Mississauga-Est--Cooksville,Conservative,Bhagat,Melissa
+35048,Mississauga East--Cooksville,Mississauga-Est--Cooksville,Green,Bhikha,Jaymini
+35048,Mississauga East--Cooksville,Mississauga-Est--Cooksville,Marxist-Leninist,Chénier,Pierre
+35048,Mississauga East--Cooksville,Mississauga-Est--Cooksville,Liberal,Guarnieri,Albina
+35049,Mississauga--Erindale,Mississauga--Erindale,Liberal,Alghabra,Omar
+35049,Mississauga--Erindale,Mississauga--Erindale,Conservative,Dechert,Bob
+35049,Mississauga--Erindale,Mississauga--Erindale,Green,Pietro,Richard
+35049,Mississauga--Erindale,Mississauga--Erindale,NDP,Rizvi,Mustafa
+35049,Mississauga--Erindale,Mississauga--Erindale,Marxist-Leninist,Sullivan,Dagmar
+35050,Mississauga South,Mississauga-Sud,Conservative,Arrison,Hugh
+35050,Mississauga South,Mississauga-Sud,Green,Laushway,Richard
+35050,Mississauga South,Mississauga-Sud,Liberal,Szabo,Paul
+35050,Mississauga South,Mississauga-Sud,NDP,Turner,Matt
+35051,Mississauga--Streetsville,Mississauga--Streetsville,Independent,Bunag,Ralph
+35051,Mississauga--Streetsville,Mississauga--Streetsville,Green,Casanova,Otto
+35051,Mississauga--Streetsville,Mississauga--Streetsville,Liberal,Crombie,Bonnie
+35051,Mississauga--Streetsville,Mississauga--Streetsville,Conservative,Khan,Wajid
+35051,Mississauga--Streetsville,Mississauga--Streetsville,NDP,Pinto,Keith
+35051,Mississauga--Streetsville,Mississauga--Streetsville,Independent,Spanovic,Viktor
+35052,Nepean--Carleton,Nepean--Carleton,NDP,Brown,Phil
+35052,Nepean--Carleton,Nepean--Carleton,Green,Gadzala,Lori
+35052,Nepean--Carleton,Nepean--Carleton,Liberal,Mahfouz,Ed
+35052,Nepean--Carleton,Nepean--Carleton,Conservative,Poilievre,Pierre
+35053,Newmarket--Aurora,Newmarket--Aurora,Progressive Canadian,Baxter,Dorian
+35053,Newmarket--Aurora,Newmarket--Aurora,Conservative,Brown,Lois
+35053,Newmarket--Aurora,Newmarket--Aurora,Green,Hubbers,Glenn
+35053,Newmarket--Aurora,Newmarket--Aurora,Liberal,Jones,Tim
+35053,Newmarket--Aurora,Newmarket--Aurora,Christian Heritage,Luff,Ray
+35053,Newmarket--Aurora,Newmarket--Aurora,NDP,Seaward,Mike
+35054,Niagara Falls,Niagara Falls,NDP,Gillespie,Eric
+35054,Niagara Falls,Niagara Falls,Liberal,Morocco,Joyce
+35054,Niagara Falls,Niagara Falls,Conservative,Nicholson,Rob
+35054,Niagara Falls,Niagara Falls,Green,Willick,Shawn
+35055,Niagara West--Glanbrook,Niagara-Ouest--Glanbrook,Conservative,Allison,Dean
+35055,Niagara West--Glanbrook,Niagara-Ouest--Glanbrook,Christian Heritage,Bylsma,Dave
+35055,Niagara West--Glanbrook,Niagara-Ouest--Glanbrook,Liberal,Carter,Heather
+35055,Niagara West--Glanbrook,Niagara-Ouest--Glanbrook,Green,Frere,Sid
+35055,Niagara West--Glanbrook,Niagara-Ouest--Glanbrook,NDP,Heatley,Dave
+35056,Nickel Belt,Nickel Belt,NDP,Gravelle,Claude
+35056,Nickel Belt,Nickel Belt,Conservative,McCracken,Ian
+35056,Nickel Belt,Nickel Belt,Liberal,Portelance,Louise
+35056,Nickel Belt,Nickel Belt,Marxist-Leninist,Rutchinski,Steve
+35056,Nickel Belt,Nickel Belt,Green,Twilley,Fred
+35056,Nickel Belt,Nickel Belt,Independent,Villeneuve,Yves
+35057,Nipissing--Timiskaming,Nipissing--Timiskaming,NDP,Allen,Dianna
+35057,Nipissing--Timiskaming,Nipissing--Timiskaming,Green,Bridges,Craig
+35057,Nipissing--Timiskaming,Nipissing--Timiskaming,Canadian Action,Moulden,Andrew
+35057,Nipissing--Timiskaming,Nipissing--Timiskaming,Liberal,Rota,Anthony
+35057,Nipissing--Timiskaming,Nipissing--Timiskaming,Conservative,Sinicrope,Joe
+35058,Northumberland--Quinte West,Northumberland--Quinte West,NDP,Christianson,Russ
+35058,Northumberland--Quinte West,Northumberland--Quinte West,Liberal,Macklin,Paul
+35058,Northumberland--Quinte West,Northumberland--Quinte West,Conservative,Norlock,Rick
+35058,Northumberland--Quinte West,Northumberland--Quinte West,Green,Torrie,Ralph
+35059,Oak Ridges--Markham,Oak Ridges--Markham,NDP,Arifin,Andy
+35059,Oak Ridges--Markham,Oak Ridges--Markham,Conservative,Calandra,Paul
+35059,Oak Ridges--Markham,Oak Ridges--Markham,Green,Taylor,Richard
+35059,Oak Ridges--Markham,Oak Ridges--Markham,Liberal,Temelkovski,Lui
+35060,Oakville,Oakville,NDP,Bilek,Michelle
+35060,Oakville,Oakville,Liberal,Brown,M.A. Bonnie
+35060,Oakville,Oakville,Green,Poland,Blake
+35060,Oakville,Oakville,Conservative,Young,Terence
+35061,Oshawa,Oshawa,Conservative,Carrie,Colin
+35061,Oshawa,Oshawa,Marxist-Leninist,Gershuny,David
+35061,Oshawa,Oshawa,Liberal,Godfrey,Sean
+35061,Oshawa,Oshawa,Green,Gostlin,Pat
+35061,Oshawa,Oshawa,Canadian Action,Kreider,Alex
+35061,Oshawa,Oshawa,NDP,Shields,Mike
+35061,Oshawa,Oshawa,Christian Heritage,Vogel,Peter
+35062,Ottawa Centre,Ottawa-Centre,Marijuana,Akpata,John Andrew
+35062,Ottawa Centre,Ottawa-Centre,Liberal,Collenette,Penny
+35062,Ottawa Centre,Ottawa-Centre,NDP,Dewar,Paul
+35062,Ottawa Centre,Ottawa-Centre,Green,Hunter,Jen
+35062,Ottawa Centre,Ottawa-Centre,Conservative,McGarry,Brian
+35062,Ottawa Centre,Ottawa-Centre,Marxist-Leninist,Soublière,Pierre
+35063,Ottawa--Orléans,Ottawa--Orléans,Conservative,Galipeau,Royal
+35063,Ottawa--Orléans,Ottawa--Orléans,Liberal,Godbout,Marc
+35063,Ottawa--Orléans,Ottawa--Orléans,Green,Maillet,Paul
+35063,Ottawa--Orléans,Ottawa--Orléans,NDP,O'Dell,Amy
+35064,Ottawa South,Ottawa-Sud,Libertarian,Brisson,Jean-Serge
+35064,Ottawa South,Ottawa-Sud,NDP,De Sarkar,Hijal
+35064,Ottawa South,Ottawa-Sud,Green,Ghanem,Qais
+35064,Ottawa South,Ottawa-Sud,Progressive Canadian,Gullon,Al
+35064,Ottawa South,Ottawa-Sud,Liberal,McGuinty,David
+35064,Ottawa South,Ottawa-Sud,Conservative,Salibi,Elie
+35065,Ottawa--Vanier,Ottawa--Vanier,Liberal,Bélanger,Mauril
+35065,Ottawa--Vanier,Ottawa--Vanier,Conservative,Glémaud,Patrick
+35065,Ottawa--Vanier,Ottawa--Vanier,NDP,Haché,Trevor
+35065,Ottawa--Vanier,Ottawa--Vanier,Marxist-Leninist,Legeais,Christian
+35065,Ottawa--Vanier,Ottawa--Vanier,Green,Manoussi,Akbar
+35065,Ottawa--Vanier,Ottawa--Vanier,Canadian Action,St-Onge,Michel
+35065,Ottawa--Vanier,Ottawa--Vanier,Independent,Taylor-Larter,Robert
+35066,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Conservative,Baird,John
+35066,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Green,Coates,Frances
+35066,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Communist,McDonald,Alex
+35066,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Independent,Page,David
+35066,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Liberal,Pratt,David
+35066,Ottawa West--Nepean,Ottawa-Ouest--Nepean,NDP,Rivier,Marlene
+35067,Oxford,Oxford,NDP,Abbott,Diane
+35067,Oxford,Oxford,Liberal,Dennis,Martha
+35067,Oxford,Oxford,Christian Heritage,MacDonald,Shaun
+35067,Oxford,Oxford,Conservative,MacKenzie,Dave
+35067,Oxford,Oxford,Green,Mott,Cathy
+35068,Parkdale--High Park,Parkdale--High Park,Christian Heritage,Borkowski,Andrew
+35068,Parkdale--High Park,Parkdale--High Park,Marxist-Leninist,Gershuny,Lorne
+35068,Parkdale--High Park,Parkdale--High Park,Liberal,Kennedy,Gerard
+35068,Parkdale--High Park,Parkdale--High Park,NDP,Nash,Peggy
+35068,Parkdale--High Park,Parkdale--High Park,Marijuana,Parker,Terry
+35068,Parkdale--High Park,Parkdale--High Park,Green,Rishchynski,Robert
+35068,Parkdale--High Park,Parkdale--High Park,Conservative,Saweczko,Jilian
+35069,Parry Sound--Muskoka,Parry Sound--Muskoka,NDP,Boulding,Jo-Anne
+35069,Parry Sound--Muskoka,Parry Sound--Muskoka,Conservative,Clement,Tony
+35069,Parry Sound--Muskoka,Parry Sound--Muskoka,Green,Hodgson,Glen
+35069,Parry Sound--Muskoka,Parry Sound--Muskoka,Liberal,McGarvey,Jamie
+35069,Parry Sound--Muskoka,Parry Sound--Muskoka,Independent,Rowland,David
+35070,Perth--Wellington,Perth--Wellington,Green,Cowling,John
+35070,Perth--Wellington,Perth--Wellington,Christian Heritage,DeVries,Irma
+35070,Perth--Wellington,Perth--Wellington,Liberal,Gardiner,Sandra
+35070,Perth--Wellington,Perth--Wellington,Marxist-Leninist,Ichim,Julian
+35070,Perth--Wellington,Perth--Wellington,NDP,McManus,Kerry
+35070,Perth--Wellington,Perth--Wellington,Conservative,Schellenberger,Gary Ralph
+35071,Peterborough,Peterborough,Green,Berrigan,Emily
+35071,Peterborough,Peterborough,Marxist-Leninist,Couto,Elaine
+35071,Peterborough,Peterborough,Conservative,Del Mastro,Dean
+35071,Peterborough,Peterborough,Liberal,McGregor,Betsy
+35071,Peterborough,Peterborough,NDP,Sharpe,Steve
+35072,Pickering--Scarborough East,Pickering--Scarborough-Est,Green,Becevello,Jason
+35072,Pickering--Scarborough East,Pickering--Scarborough-Est,Christian Heritage,Chue,Rick
+35072,Pickering--Scarborough East,Pickering--Scarborough-Est,Canadian Action,Kalevar,Chai
+35072,Pickering--Scarborough East,Pickering--Scarborough-Est,Conservative,Khouri,George
+35072,Pickering--Scarborough East,Pickering--Scarborough-Est,Liberal,McTeague,Dan
+35072,Pickering--Scarborough East,Pickering--Scarborough-Est,NDP,Moffat,Andrea
+35073,Prince Edward--Hastings,Prince Edward--Hastings,Independent,Barnes,Paul
+35073,Prince Edward--Hastings,Prince Edward--Hastings,Liberal,Cole,Ken
+35073,Prince Edward--Hastings,Prince Edward--Hastings,Green,Coxwell,Alan
+35073,Prince Edward--Hastings,Prince Edward--Hastings,Conservative,Kramp,Daryl
+35073,Prince Edward--Hastings,Prince Edward--Hastings,NDP,McMahon,Michael
+35074,Renfrew--Nipissing--Pembroke,Renfrew--Nipissing--Pembroke,Liberal,Devine,Carole
+35074,Renfrew--Nipissing--Pembroke,Renfrew--Nipissing--Pembroke,Independent,Gagné,Denis
+35074,Renfrew--Nipissing--Pembroke,Renfrew--Nipissing--Pembroke,Conservative,Gallant,Cheryl
+35074,Renfrew--Nipissing--Pembroke,Renfrew--Nipissing--Pembroke,Green,Hoffman,Ben
+35074,Renfrew--Nipissing--Pembroke,Renfrew--Nipissing--Pembroke,NDP,McSheffrey,Sue
+35075,Richmond Hill,Richmond Hill,NDP,Dowsett,Wess
+35075,Richmond Hill,Richmond Hill,Conservative,Leung,Chungsen
+35075,Richmond Hill,Richmond Hill,Green,Marando,Dylan
+35075,Richmond Hill,Richmond Hill,Liberal,Wilfert,Bryon
+35076,St. Catharines,St. Catharines,NDP,Addison,George N.
+35076,St. Catharines,St. Catharines,Conservative,Dykstra,Rick
+35076,St. Catharines,St. Catharines,Green,Fannon,Jim
+35076,St. Catharines,St. Catharines,Communist,Hammond,Sam
+35076,St. Catharines,St. Catharines,Liberal,Lastewka,Walt
+35077,St. Paul's,St. Paul's,NDP,Agrawal,Anita
+35077,St. Paul's,St. Paul's,Liberal,Bennett,Carolyn
+35077,St. Paul's,St. Paul's,Green,Erdman,Justin
+35077,St. Paul's,St. Paul's,Conservative,Jewell,Heather
+35077,St. Paul's,St. Paul's,Libertarian,Kittredge,John
+35078,Sarnia--Lambton,Sarnia--Lambton,NDP,Bruziewicz,Andy
+35078,Sarnia--Lambton,Sarnia--Lambton,Conservative,Davidson,Pat
+35078,Sarnia--Lambton,Sarnia--Lambton,Christian Heritage,Desormeaux-Malm,Christopher
+35078,Sarnia--Lambton,Sarnia--Lambton,Liberal,Fugard,Tim
+35078,Sarnia--Lambton,Sarnia--Lambton,Green,McKeown,Allan
+35079,Sault Ste. Marie,Sault Ste. Marie,Liberal,Bichler,Paul
+35079,Sault Ste. Marie,Sault Ste. Marie,Green,Macmichael,Luke
+35079,Sault Ste. Marie,Sault Ste. Marie,NDP,Martin,Tony
+35079,Sault Ste. Marie,Sault Ste. Marie,First Peoples National,McLeod,Cory
+35079,Sault Ste. Marie,Sault Ste. Marie,Conservative,Ross,Cameron
+35079,Sault Ste. Marie,Sault Ste. Marie,Marxist-Leninist,Taffarel,Mike
+35080,Scarborough--Agincourt,Scarborough--Agincourt,NDP,Dougherty,Simon
+35080,Scarborough--Agincourt,Scarborough--Agincourt,Liberal,Karygiannis,Jim
+35080,Scarborough--Agincourt,Scarborough--Agincourt,Conservative,Lau,Benson
+35080,Scarborough--Agincourt,Scarborough--Agincourt,Green,Molder,Adrian
+35081,Scarborough Centre,Scarborough-Centre,Liberal,Cannis,John
+35081,Scarborough Centre,Scarborough-Centre,NDP,Hundt,Natalie
+35081,Scarborough Centre,Scarborough-Centre,Conservative,James,Roxanne
+35081,Scarborough Centre,Scarborough-Centre,Green,Ng,Ella
+35082,Scarborough--Guildwood,Scarborough--Guildwood,Green,Bartley,Alonzo
+35082,Scarborough--Guildwood,Scarborough--Guildwood,NDP,Khan,Sania
+35082,Scarborough--Guildwood,Scarborough--Guildwood,Conservative,Konkel,Chuck
+35082,Scarborough--Guildwood,Scarborough--Guildwood,Liberal,McKay,John
+35083,Scarborough--Rouge River,Scarborough--Rouge River,Conservative,Bance,Jerry
+35083,Scarborough--Rouge River,Scarborough--Rouge River,Liberal,Lee,Derek
+35083,Scarborough--Rouge River,Scarborough--Rouge River,Libertarian,Mercer,Alan
+35083,Scarborough--Rouge River,Scarborough--Rouge River,Green,Nagy,Attila
+35083,Scarborough--Rouge River,Scarborough--Rouge River,NDP,Sloan,Ryan
+35084,Scarborough Southwest,Scarborough-Sud-Ouest,Conservative,Crompton,Greg
+35084,Scarborough Southwest,Scarborough-Sud-Ouest,Green,Dixon,Stefan
+35084,Scarborough Southwest,Scarborough-Sud-Ouest,NDP,Hussain,Alamgir
+35084,Scarborough Southwest,Scarborough-Sud-Ouest,Independent,Kabir,M. H. Fatique Chowdhury
+35084,Scarborough Southwest,Scarborough-Sud-Ouest,Liberal,Simson,Michelle
+35085,Simcoe--Grey,Simcoe--Grey,NDP,Austin,Katy
+35085,Simcoe--Grey,Simcoe--Grey,Green,Ellis,Peter
+35085,Simcoe--Grey,Simcoe--Grey,Conservative,Guergis,Helena
+35085,Simcoe--Grey,Simcoe--Grey,Liberal,Matrosovs,Andrea
+35085,Simcoe--Grey,Simcoe--Grey,Libertarian,McKibbin,Caley
+35085,Simcoe--Grey,Simcoe--Grey,Christian Heritage,Vander Zaag,Peter
+35086,Simcoe North,Simcoe-Nord,NDP,Banigan,Richard
+35086,Simcoe North,Simcoe-Nord,Liberal,Clarke,Steve
+35086,Simcoe North,Simcoe-Nord,Green,Powell,Valerie
+35086,Simcoe North,Simcoe-Nord,Conservative,Stanton,Bruce
+35087,Stormont--Dundas--South Glengarry,Stormont--Dundas--South Glengarry,Canadian Action,Dugas,DWight
+35087,Stormont--Dundas--South Glengarry,Stormont--Dundas--South Glengarry,Independent,Galganov,Howard
+35087,Stormont--Dundas--South Glengarry,Stormont--Dundas--South Glengarry,NDP,Jalbert,Darlene
+35087,Stormont--Dundas--South Glengarry,Stormont--Dundas--South Glengarry,Conservative,Lauzon,Guy
+35087,Stormont--Dundas--South Glengarry,Stormont--Dundas--South Glengarry,Green,Rawnsley,David
+35087,Stormont--Dundas--South Glengarry,Stormont--Dundas--South Glengarry,Liberal,Sabourin,Denis
+35088,Sudbury,Sudbury,Green,Harris,Gordon
+35088,Sudbury,Sudbury,Conservative,Labelle,Gerry
+35088,Sudbury,Sudbury,Liberal,Marleau,Diane
+35088,Sudbury,Sudbury,First Peoples National,Morin,Will
+35088,Sudbury,Sudbury,Independent,Popescu,J. David
+35088,Sudbury,Sudbury,NDP,Thibeault,Glenn
+35089,Thornhill,Thornhill,Liberal,Kadis,Susan
+35089,Thornhill,Thornhill,Conservative,Kent,Peter
+35089,Thornhill,Thornhill,Green,Koehl,Norbert
+35089,Thornhill,Thornhill,NDP,Strelchik,Simon
+35090,Thunder Bay--Rainy River,Thunder Bay--Rainy River,Green,Aegard,Russ
+35090,Thunder Bay--Rainy River,Thunder Bay--Rainy River,Liberal,Boshcoff,Ken
+35090,Thunder Bay--Rainy River,Thunder Bay--Rainy River,Conservative,Neumann,Richard
+35090,Thunder Bay--Rainy River,Thunder Bay--Rainy River,NDP,Rafferty,John
+35091,Thunder Bay--Superior North,Thunder Bay--Superior-Nord,Marijuana,Carrière,Denis Andrew
+35091,Thunder Bay--Superior North,Thunder Bay--Superior-Nord,Green,Hughes,Brendan Daniel
+35091,Thunder Bay--Superior North,Thunder Bay--Superior-Nord,NDP,Hyer,Bruce
+35091,Thunder Bay--Superior North,Thunder Bay--Superior-Nord,Liberal,McArthur,Don
+35091,Thunder Bay--Superior North,Thunder Bay--Superior-Nord,Conservative,Sarafin,Bev
+35092,Timmins--James Bay,Timmins--Baie James,NDP,Angus,Charlie
+35092,Timmins--James Bay,Timmins--Baie James,Conservative,Greenberg,Bill
+35092,Timmins--James Bay,Timmins--Baie James,Liberal,Taillefer,Paul
+35092,Timmins--James Bay,Timmins--Baie James,Green,Verner,Larry
+35093,Toronto Centre,Toronto-Centre,Communist,Boyden,Johan
+35093,Toronto Centre,Toronto-Centre,Independent,Derome,Gerald
+35093,Toronto Centre,Toronto-Centre,Marxist-Leninist,Fernandez,Philip
+35093,Toronto Centre,Toronto-Centre,Conservative,Gentili,David Peter
+35093,Toronto Centre,Toronto-Centre,NDP,Khaki,El- Farouk
+35093,Toronto Centre,Toronto-Centre,Green,Michelson,Ellen
+35093,Toronto Centre,Toronto-Centre,Liberal,Rae,Bob
+35093,Toronto Centre,Toronto-Centre,Animal Alliance Environment Voters,White,Liz
+35094,Toronto--Danforth,Toronto--Danforth,Animal Alliance Environment Voters,Crawford,Marie
+35094,Toronto--Danforth,Toronto--Danforth,Green,Howarth,Sharon
+35094,Toronto--Danforth,Toronto--Danforth,Liberal,Lang,Andrew
+35094,Toronto--Danforth,Toronto--Danforth,NDP,Layton,Jack
+35094,Toronto--Danforth,Toronto--Danforth,Conservative,Perreault,Christina
+35094,Toronto--Danforth,Toronto--Danforth,Independent,Richardson,John
+35094,Toronto--Danforth,Toronto--Danforth,Marxist-Leninist,Rodden,Marcell
+35094,Toronto--Danforth,Toronto--Danforth,Canadian Action,Yazdanfar,Bahman
+35095,Trinity--Spadina,Trinity--Spadina,Independent,Almeida,Carlos Santos
+35095,Trinity--Spadina,Trinity--Spadina,Libertarian,Brown,Chester
+35095,Trinity--Spadina,Trinity--Spadina,NDP,Chow,Olivia
+35095,Trinity--Spadina,Trinity--Spadina,Independent,Illie,Val
+35095,Trinity--Spadina,Trinity--Spadina,Liberal,Innes,Christine
+35095,Trinity--Spadina,Trinity--Spadina,Green,La Frenie,Stephen
+35095,Trinity--Spadina,Trinity--Spadina,Conservative,McGirr,Christine
+35096,Vaughan,Vaughan,Liberal,Bevilacqua,Maurizio
+35096,Vaughan,Vaughan,Conservative,Lorello,Richard
+35096,Vaughan,Vaughan,Green,Visentin,Adrian
+35096,Vaughan,Vaughan,NDP,Wilkin,Vicky
+35097,Welland,Welland,NDP,Allen,Malcolm
+35097,Welland,Welland,Independent,Di Bartolomeo,Jody
+35097,Welland,Welland,Conservative,Kiers,Alf
+35097,Welland,Welland,Liberal,Maloney,John
+35097,Welland,Welland,Green,Mooradian,Jennifer
+35097,Welland,Welland,Marxist-Leninist,Walker,Ron
+35098,Wellington--Halton Hills,Wellington--Halton Hills,Green,Bouteiller,Brent
+35098,Wellington--Halton Hills,Wellington--Halton Hills,Liberal,Bowser,Bruce
+35098,Wellington--Halton Hills,Wellington--Halton Hills,Conservative,Chong,Michael
+35098,Wellington--Halton Hills,Wellington--Halton Hills,NDP,Duignan,Noel
+35098,Wellington--Halton Hills,Wellington--Halton Hills,Christian Heritage,Streutker,Jeffrey
+35099,Whitby--Oshawa,Whitby--Oshawa,Green,Anderson,Doug
+35099,Whitby--Oshawa,Whitby--Oshawa,Conservative,Flaherty,Jim
+35099,Whitby--Oshawa,Whitby--Oshawa,Christian Heritage,Forbes,Yvonne
+35099,Whitby--Oshawa,Whitby--Oshawa,Liberal,Fullard,Brent
+35099,Whitby--Oshawa,Whitby--Oshawa,NDP,Purdy,David
+35100,Willowdale,Willowdale,Green,Carcasole,Lou
+35100,Willowdale,Willowdale,Liberal,Hall Findlay,Martha
+35100,Willowdale,Willowdale,Conservative,Karns,Jake
+35100,Willowdale,Willowdale,Independent,Michael,Bernadette
+35100,Willowdale,Willowdale,Progressive Canadian,Roudgarnia,Bahman
+35100,Willowdale,Willowdale,NDP,Wallace,Susan
+35101,Windsor--Tecumseh,Windsor--Tecumseh,NDP,Comartin,Joe
+35101,Windsor--Tecumseh,Windsor--Tecumseh,Conservative,Ghanam,Denise
+35101,Windsor--Tecumseh,Windsor--Tecumseh,Liberal,Mastroianni,Steve
+35101,Windsor--Tecumseh,Windsor--Tecumseh,Green,Prestanski,Kyle
+35102,Windsor West,Windsor-Ouest,Green,Esposito,John
+35102,Windsor West,Windsor-Ouest,Liberal,Horwitz,Larry
+35102,Windsor West,Windsor-Ouest,Conservative,Lumley,Lisa
+35102,Windsor West,Windsor-Ouest,NDP,Masse,Brian
+35102,Windsor West,Windsor-Ouest,Communist,Rowley,Elizabeth
+35102,Windsor West,Windsor-Ouest,Marxist-Leninist,Villamizar,Margaret
+35103,York Centre,York-Centre,NDP,Baily,Kurtis
+35103,York Centre,York-Centre,Liberal,Dryden,Ken
+35103,York Centre,York-Centre,Green,Frei,Rosemary
+35103,York Centre,York-Centre,Conservative,Wilner,Rochelle
+35104,York--Simcoe,York--Simcoe,Green,Dewar,John
+35104,York--Simcoe,York--Simcoe,NDP,Gerl,Sylvia
+35104,York--Simcoe,York--Simcoe,Christian Heritage,Gunn,Vicki
+35104,York--Simcoe,York--Simcoe,Liberal,Moses,Judith
+35104,York--Simcoe,York--Simcoe,Progressive Canadian,Pisani,Paul
+35104,York--Simcoe,York--Simcoe,Conservative,Van Loan,Peter
+35105,York South--Weston,York-Sud--Weston,Conservative,Cocelli,Aydin
+35105,York South--Weston,York-Sud--Weston,Green,Papadimitriou,Andre
+35105,York South--Weston,York-Sud--Weston,NDP,Sullivan,Mike
+35105,York South--Weston,York-Sud--Weston,Liberal,Tonks,Alan
+35106,York West,York-Ouest,Green,Capra,Nick
+35106,York West,York-Ouest,NDP,Manfrini,Giulio
+35106,York West,York-Ouest,Conservative,Nguyen,Kevin
+35106,York West,York-Ouest,Liberal,Sgro,Judy
+46001,Brandon--Souris,Brandon--Souris,Green,Barnes,Dave
+46001,Brandon--Souris,Brandon--Souris,NDP,Bouché,John
+46001,Brandon--Souris,Brandon--Souris,Christian Heritage,Dondo,Jerome
+46001,Brandon--Souris,Brandon--Souris,Communist,Gallagher,Lisa
+46001,Brandon--Souris,Brandon--Souris,Conservative,Tweed,Merv
+46001,Brandon--Souris,Brandon--Souris,Liberal,Willard,Martha Jo
+46002,Charleswood--St. James--Assiniboia,Charleswood--St. James--Assiniboia,Conservative,Fletcher,Steven
+46002,Charleswood--St. James--Assiniboia,Charleswood--St. James--Assiniboia,Liberal,Friesen,Bob
+46002,Charleswood--St. James--Assiniboia,Charleswood--St. James--Assiniboia,Christian Heritage,Price,Mark
+46002,Charleswood--St. James--Assiniboia,Charleswood--St. James--Assiniboia,NDP,Shiells,Fiona
+46002,Charleswood--St. James--Assiniboia,Charleswood--St. James--Assiniboia,Green,Timlick,Brian
+46003,Churchill,Churchill,NDP,Ashton,Niki
+46003,Churchill,Churchill,Conservative,Daudrich,Wally
+46003,Churchill,Churchill,Green,Harvie,Saara
+46003,Churchill,Churchill,Liberal,Keeper,Tina
+46004,Dauphin--Swan River--Marquette,Dauphin--Swan River--Marquette,Christian Heritage,Andres,David
+46004,Dauphin--Swan River--Marquette,Dauphin--Swan River--Marquette,Conservative,Mark,Inky
+46004,Dauphin--Swan River--Marquette,Dauphin--Swan River--Marquette,Liberal,Menzies,Wendy
+46004,Dauphin--Swan River--Marquette,Dauphin--Swan River--Marquette,People's Political Power,Prefontaine,Charles
+46004,Dauphin--Swan River--Marquette,Dauphin--Swan River--Marquette,Green,Storey,Kate
+46004,Dauphin--Swan River--Marquette,Dauphin--Swan River--Marquette,NDP,Strynadka,Ron
+46005,Elmwood--Transcona,Elmwood--Transcona,Green,Hrynkow,Chris
+46005,Elmwood--Transcona,Elmwood--Transcona,NDP,Maloway,Jim
+46005,Elmwood--Transcona,Elmwood--Transcona,Liberal,Penner,Wes
+46005,Elmwood--Transcona,Elmwood--Transcona,Christian Heritage,Scott,Robert
+46005,Elmwood--Transcona,Elmwood--Transcona,Conservative,Steen,Thomas
+46006,Kildonan--St. Paul,Kildonan--St. Paul,Green,Bowkett,Kevan
+46006,Kildonan--St. Paul,Kildonan--St. Paul,NDP,Eadie,Ross
+46006,Kildonan--St. Paul,Kildonan--St. Paul,Independent,Hiebert,Eduard
+46006,Kildonan--St. Paul,Kildonan--St. Paul,Liberal,Hughes,Lesley
+46006,Kildonan--St. Paul,Kildonan--St. Paul,Christian Heritage,Loewen,Jordan
+46006,Kildonan--St. Paul,Kildonan--St. Paul,Conservative,Smith,Joy
+46007,Portage--Lisgar,Portage--Lisgar,NDP,Alli,Mohamed
+46007,Portage--Lisgar,Portage--Lisgar,Conservative,Hoeppner,Candice
+46007,Portage--Lisgar,Portage--Lisgar,Green,Howatt,Charlie
+46007,Portage--Lisgar,Portage--Lisgar,Liberal,Klassen,Ted
+46007,Portage--Lisgar,Portage--Lisgar,Christian Heritage,Lodder,Len
+46008,Provencher,Provencher,Green,Gibson,Janine
+46008,Provencher,Provencher,Liberal,Hiebert,Shirley
+46008,Provencher,Provencher,NDP,Martin,Ross
+46008,Provencher,Provencher,Christian Heritage,Reimer,David
+46008,Provencher,Provencher,Conservative,Toews,Vic
+46009,Saint Boniface,Saint-Boniface,Conservative,Glover,Shelly
+46009,Saint Boniface,Saint-Boniface,Christian Heritage,Gregoire,Justin
+46009,Saint Boniface,Saint-Boniface,Green,Payette,Marc
+46009,Saint Boniface,Saint-Boniface,NDP,Schaubroeck,Matt
+46009,Saint Boniface,Saint-Boniface,Liberal,Simard,Raymond
+46010,Selkirk--Interlake,Selkirk--Interlake,Conservative,Bezan,James
+46010,Selkirk--Interlake,Selkirk--Interlake,NDP,Cordner,Pat
+46010,Selkirk--Interlake,Selkirk--Interlake,Christian Heritage,MacDiarmid,Jane
+46010,Selkirk--Interlake,Selkirk--Interlake,Liberal,Walsh,Kevin
+46010,Selkirk--Interlake,Selkirk--Interlake,Green,Whiteman,Glenda
+46011,Winnipeg Centre,Winnipeg-Centre,Independent,Ackerman,Ed
+46011,Winnipeg Centre,Winnipeg-Centre,Independent,Chan,Joe
+46011,Winnipeg Centre,Winnipeg-Centre,Conservative,Daodu,Kenny
+46011,Winnipeg Centre,Winnipeg-Centre,Liberal,Hurley,Dan
+46011,Winnipeg Centre,Winnipeg-Centre,Green,Klassen,Jessie
+46011,Winnipeg Centre,Winnipeg-Centre,NDP,Martin,Pat
+46011,Winnipeg Centre,Winnipeg-Centre,First Peoples National,Morrisseau,Lyle
+46011,Winnipeg Centre,Winnipeg-Centre,Communist,Rankin,Darrell
+46012,Winnipeg North,Winnipeg-Nord,Green,Johannson,Catharine
+46012,Winnipeg North,Winnipeg-Nord,Communist,Komarniski,Frank
+46012,Winnipeg North,Winnipeg-Nord,Conservative,Larkin,Ray
+46012,Winnipeg North,Winnipeg-Nord,Liberal,Marion,Marcelle
+46012,Winnipeg North,Winnipeg-Nord,People's Political Power,Poisson,Roger F.
+46012,Winnipeg North,Winnipeg-Nord,NDP,Wasylycia-Leis,Judy
+46013,Winnipeg South,Winnipeg-Sud,Conservative,Bruinooge,Rod
+46013,Winnipeg South,Winnipeg-Sud,Green,Cosby,David
+46013,Winnipeg South,Winnipeg-Sud,Liberal,Loewen,John
+46013,Winnipeg South,Winnipeg-Sud,Christian Heritage,Loewen-Steffano,Heidi
+46013,Winnipeg South,Winnipeg-Sud,NDP,Robert,Sean
+46014,Winnipeg South Centre,Winnipeg-Centre-Sud,NDP,Heinrichs,Rachel
+46014,Winnipeg South Centre,Winnipeg-Centre-Sud,Conservative,Kennerd,Trevor
+46014,Winnipeg South Centre,Winnipeg-Centre-Sud,Liberal,Neville,Anita
+46014,Winnipeg South Centre,Winnipeg-Centre-Sud,Green,Scott,Vere
+47001,Battlefords--Lloydminster,Battlefords--Lloydminster,Green,Kratchmer,Norbert
+47001,Battlefords--Lloydminster,Battlefords--Lloydminster,Liberal,Nyholt,Gregory
+47001,Battlefords--Lloydminster,Battlefords--Lloydminster,Conservative,Ritz,Gerry
+47001,Battlefords--Lloydminster,Battlefords--Lloydminster,Christian Heritage,Stephan,Harold
+47001,Battlefords--Lloydminster,Battlefords--Lloydminster,NDP,Woloshyn,Bob
+47002,Blackstrap,Blackstrap,Liberal,Ehmann,Deb
+47002,Blackstrap,Blackstrap,NDP,Gieni,Patti
+47002,Blackstrap,Blackstrap,Green,Pallagi,Imre
+47002,Blackstrap,Blackstrap,Conservative,Yelich,Lynne
+47003,Desnethé--Missinippi--Churchill River,Desnethé--Missinippi--Rivière Churchill,First Peoples National,Ballantyne,Rob
+47003,Desnethé--Missinippi--Churchill River,Desnethé--Missinippi--Rivière Churchill,Conservative,Clarke,Rob
+47003,Desnethé--Missinippi--Churchill River,Desnethé--Missinippi--Rivière Churchill,NDP,Morin,Brian
+47003,Desnethé--Missinippi--Churchill River,Desnethé--Missinippi--Rivière Churchill,Green,Morin,George
+47003,Desnethé--Missinippi--Churchill River,Desnethé--Missinippi--Rivière Churchill,Liberal,Orchard,David
+47004,Cypress Hills--Grasslands,Cypress Hills--Grasslands,Conservative,Anderson,David
+47004,Cypress Hills--Grasslands,Cypress Hills--Grasslands,Green,Clary,Bill
+47004,Cypress Hills--Grasslands,Cypress Hills--Grasslands,Liberal,Filson,Duane
+47004,Cypress Hills--Grasslands,Cypress Hills--Grasslands,NDP,Wilson,Scott
+47005,Palliser,Palliser,Conservative,Boughen,Ray
+47005,Palliser,Palliser,Liberal,Johnston,Cal
+47005,Palliser,Palliser,NDP,Mitchell,Don
+47005,Palliser,Palliser,Green,Shasko,Larissa
+47006,Prince Albert,Prince Albert,Canadian Action,Batley,Craig
+47006,Prince Albert,Prince Albert,Liberal,Doderai,Lou
+47006,Prince Albert,Prince Albert,Conservative,Hoback,Randy
+47006,Prince Albert,Prince Albert,NDP,Mushinski,Valerie
+47006,Prince Albert,Prince Albert,Green,Smytaniuk,Amanda Judith Marie
+47007,Regina--Lumsden--Lake Centre,Regina--Lumsden--Lake Centre,NDP,Kress,Fred
+47007,Regina--Lumsden--Lake Centre,Regina--Lumsden--Lake Centre,Conservative,Lukiwski,Tom
+47007,Regina--Lumsden--Lake Centre,Regina--Lumsden--Lake Centre,Liberal,Lysack,Monica
+47007,Regina--Lumsden--Lake Centre,Regina--Lumsden--Lake Centre,Green,Stulberg,Nicolas
+47008,Regina--Qu'Appelle,Regina--Qu'Appelle,NDP,Bernier,Janice
+47008,Regina--Qu'Appelle,Regina--Qu'Appelle,Green,Chatterson,Greg
+47008,Regina--Qu'Appelle,Regina--Qu'Appelle,Liberal,Flaman,Rod
+47008,Regina--Qu'Appelle,Regina--Qu'Appelle,Conservative,Scheer,Andrew
+47009,Saskatoon--Humboldt,Saskatoon--Humboldt,Green,Ducasse,Jean-Pierre
+47009,Saskatoon--Humboldt,Saskatoon--Humboldt,Liberal,Parhar,Karen
+47009,Saskatoon--Humboldt,Saskatoon--Humboldt,NDP,Ruston,Scott
+47009,Saskatoon--Humboldt,Saskatoon--Humboldt,Conservative,Trost,Brad
+47010,Saskatoon--Rosetown--Biggar,Saskatoon--Rosetown--Biggar,Independent,Barsky,Rick
+47010,Saskatoon--Rosetown--Biggar,Saskatoon--Rosetown--Biggar,Conservative,Block,Kelly
+47010,Saskatoon--Rosetown--Biggar,Saskatoon--Rosetown--Biggar,Liberal,Bluehorn,Roy
+47010,Saskatoon--Rosetown--Biggar,Saskatoon--Rosetown--Biggar,Christian Heritage,Bourassa,Marcel Leon
+47010,Saskatoon--Rosetown--Biggar,Saskatoon--Rosetown--Biggar,Green,Jones,Amber
+47010,Saskatoon--Rosetown--Biggar,Saskatoon--Rosetown--Biggar,Libertarian,Stricker,Kevin
+47010,Saskatoon--Rosetown--Biggar,Saskatoon--Rosetown--Biggar,NDP,Wiebe,Nettie
+47011,Saskatoon--Wanuskewin,Saskatoon--Wanuskewin,NDP,Davidson,Clint
+47011,Saskatoon--Wanuskewin,Saskatoon--Wanuskewin,Green,Smith,Tobi-Dawne
+47011,Saskatoon--Wanuskewin,Saskatoon--Wanuskewin,Conservative,Vellacott,Maurice
+47011,Saskatoon--Wanuskewin,Saskatoon--Wanuskewin,Liberal,Zipchen,Patricia
+47012,Souris--Moose Mountain,Souris--Moose Mountain,Liberal,Belt,Marlin
+47012,Souris--Moose Mountain,Souris--Moose Mountain,Green,Deptuck,Bob
+47012,Souris--Moose Mountain,Souris--Moose Mountain,NDP,Fletcher,Raquel
+47012,Souris--Moose Mountain,Souris--Moose Mountain,Conservative,Komarnicki,Ed
+47013,Wascana,Wascana,Liberal,Goodale,Ralph
+47013,Wascana,Wascana,Conservative,Hunter,Michelle
+47013,Wascana,Wascana,NDP,Moore,Stephen
+47013,Wascana,Wascana,Green,Wooldridge,George-Richard
+47014,Yorkton--Melville,Yorkton--Melville,Green,Antony,Jen
+47014,Yorkton--Melville,Yorkton--Melville,Liberal,Bell,Bryan H.
+47014,Yorkton--Melville,Yorkton--Melville,Conservative,Breitkreuz,Garry
+47014,Yorkton--Melville,Yorkton--Melville,NDP,Ottenbreit,Doug
+48001,Fort McMurray--Athabasca,Fort McMurray--Athabasca,Conservative,Jean,Brian
+48001,Fort McMurray--Athabasca,Fort McMurray--Athabasca,First Peoples National,Malcolm,John
+48001,Fort McMurray--Athabasca,Fort McMurray--Athabasca,Independent,Reimer,Shawn
+48001,Fort McMurray--Athabasca,Fort McMurray--Athabasca,Green,Richards,Dylan
+48001,Fort McMurray--Athabasca,Fort McMurray--Athabasca,Christian Heritage,Strydhorst,Jacob
+48001,Fort McMurray--Athabasca,Fort McMurray--Athabasca,NDP,Voyageur,Mark
+48001,Fort McMurray--Athabasca,Fort McMurray--Athabasca,Liberal,Webb,John
+48002,Calgary East,Calgary-Est,Green,Coates,Nathan David
+48002,Calgary East,Calgary-Est,Communist,Devine,Jason
+48002,Calgary East,Calgary-Est,Liberal,Kennedy,Bernie
+48002,Calgary East,Calgary-Est,Conservative,Obhrai,Deepak
+48002,Calgary East,Calgary-Est,NDP,Vaughan,Ian
+48003,Calgary Centre-North,Calgary-Centre-Nord,Marxist-Leninist,Askin,Peggy
+48003,Calgary Centre-North,Calgary-Centre-Nord,NDP,Chan,John
+48003,Calgary Centre-North,Calgary-Centre-Nord,Green,Donovan,Eric
+48003,Calgary Centre-North,Calgary-Centre-Nord,Liberal,James,Doug
+48003,Calgary Centre-North,Calgary-Centre-Nord,Libertarian,McNeil,Jason E.
+48003,Calgary Centre-North,Calgary-Centre-Nord,Conservative,Prentice,Jim
+48004,Calgary Northeast,Calgary-Nord-Est,Green,Ahmad,Abeed Monty
+48004,Calgary Northeast,Calgary-Nord-Est,Marxist-Leninist,Blanchard,Daniel
+48004,Calgary Northeast,Calgary-Nord-Est,NDP,Dey,Vinay
+48004,Calgary Northeast,Calgary-Nord-Est,Liberal,Kang,Sanam S.
+48004,Calgary Northeast,Calgary-Nord-Est,No Affiliation,Richard,Roger
+48004,Calgary Northeast,Calgary-Nord-Est,Conservative,Shory,Devinder
+48005,Calgary--Nose Hill,Calgary--Nose Hill,Conservative,Ablonczy,Diane
+48005,Calgary--Nose Hill,Calgary--Nose Hill,Green,Hajj,Tony
+48005,Calgary--Nose Hill,Calgary--Nose Hill,Liberal,Newman,Anoush
+48005,Calgary--Nose Hill,Calgary--Nose Hill,NDP,Sundberg,Stephanie
+48006,Calgary Centre,Calgary-Centre,Independent,Grochowski,Antony Tony
+48006,Calgary Centre,Calgary-Centre,Liberal,Kim,Heesung
+48006,Calgary Centre,Calgary-Centre,NDP,Kinch,Tyler
+48006,Calgary Centre,Calgary-Centre,Green,Odd,Natalie
+48006,Calgary Centre,Calgary-Centre,Conservative,Richardson,Lee
+48007,Calgary Southeast,Calgary-Sud-Est,Liberal,Carroll,Brad
+48007,Calgary Southeast,Calgary-Sud-Est,Green,Chandler,Margaret
+48007,Calgary Southeast,Calgary-Sud-Est,Conservative,Kenney,Jason
+48007,Calgary Southeast,Calgary-Sud-Est,NDP,Willott,Chris
+48008,Calgary Southwest,Calgary-Sud-Ouest,Green,Christie,Kelly
+48008,Calgary Southwest,Calgary-Sud-Ouest,Conservative,Harper,Stephen
+48008,Calgary Southwest,Calgary-Sud-Ouest,Christian Heritage,Heather,Larry R.
+48008,Calgary Southwest,Calgary-Sud-Ouest,NDP,Heffernan,Holly
+48008,Calgary Southwest,Calgary-Sud-Ouest,Liberal,Lamontagne,Marlene
+48008,Calgary Southwest,Calgary-Sud-Ouest,Libertarian,Young,Dennis
+48009,Calgary West,Calgary-Ouest,Conservative,Anders,Rob
+48009,Calgary West,Calgary-Ouest,NDP,Phelps Bondaroff,Teale
+48009,Calgary West,Calgary-Ouest,Liberal,Pollock,Jennifer
+48009,Calgary West,Calgary-Ouest,Independent,Schmidt,Kirk
+48009,Calgary West,Calgary-Ouest,Marxist-Leninist,Vachon,André
+48009,Calgary West,Calgary-Ouest,Green,Weeks,Randy
+48010,Crowfoot,Crowfoot,Liberal,Howe,Sharon L.
+48010,Crowfoot,Crowfoot,Green,Kettenbach,Kaitlin
+48010,Crowfoot,Crowfoot,NDP,Parker,Ellen
+48010,Crowfoot,Crowfoot,Conservative,Sorenson,Kevin
+48011,Edmonton--Mill Woods--Beaumont,Edmonton--Mill Woods--Beaumont,NDP,Butler,Mike
+48011,Edmonton--Mill Woods--Beaumont,Edmonton--Mill Woods--Beaumont,Green,Hrushka,David Allan
+48011,Edmonton--Mill Woods--Beaumont,Edmonton--Mill Woods--Beaumont,Conservative,Lake,Mike
+48011,Edmonton--Mill Woods--Beaumont,Edmonton--Mill Woods--Beaumont,Communist,Rankin,Naomi
+48011,Edmonton--Mill Woods--Beaumont,Edmonton--Mill Woods--Beaumont,Liberal,Saroya,Indira
+48012,Edmonton Centre,Edmonton-Centre,Conservative,Hawn,Laurie
+48012,Edmonton Centre,Edmonton-Centre,NDP,Martyn,Donna
+48012,Edmonton Centre,Edmonton-Centre,Marxist-Leninist,Morton,Peggy
+48012,Edmonton Centre,Edmonton-Centre,Green,Parker,David James
+48012,Edmonton Centre,Edmonton-Centre,Liberal,Wachowich,Jim
+48013,Edmonton East,Edmonton-Est,Green,Capnerhurst,Trey
+48013,Edmonton East,Edmonton-Est,Conservative,Goldring,Peter
+48013,Edmonton East,Edmonton-Est,Liberal,Laskoski,Stephanie
+48013,Edmonton East,Edmonton-Est,NDP,Martin,Ray
+48014,Edmonton--Leduc,Edmonton--Leduc,Green,Kennedy,Valerie
+48014,Edmonton--Leduc,Edmonton--Leduc,Conservative,Rajotte,James
+48014,Edmonton--Leduc,Edmonton--Leduc,NDP,Razga,Hana
+48014,Edmonton--Leduc,Edmonton--Leduc,Liberal,Smith,Donna Lynn
+48015,Edmonton--St. Albert,Edmonton--St. Albert,NDP,Burkhart,Dave
+48015,Edmonton--St. Albert,Edmonton--St. Albert,Green,Johnston,Peter
+48015,Edmonton--St. Albert,Edmonton--St. Albert,Conservative,Rathgeber,Brent
+48015,Edmonton--St. Albert,Edmonton--St. Albert,Liberal,Sleiman,Sam
+48016,Edmonton--Sherwood Park,Edmonton--Sherwood Park,Green,Erfani,Nina
+48016,Edmonton--Sherwood Park,Edmonton--Sherwood Park,Independent,Ford,James
+48016,Edmonton--Sherwood Park,Edmonton--Sherwood Park,NDP,LaBelle,Brian
+48016,Edmonton--Sherwood Park,Edmonton--Sherwood Park,Liberal,Szostak,Rick
+48016,Edmonton--Sherwood Park,Edmonton--Sherwood Park,Conservative,Uppal,Tim
+48017,Edmonton--Spruce Grove,Edmonton--Spruce Grove,Conservative,Ambrose,Rona
+48017,Edmonton--Spruce Grove,Edmonton--Spruce Grove,Liberal,Austin,Chris
+48017,Edmonton--Spruce Grove,Edmonton--Spruce Grove,NDP,Phillips,Barb
+48017,Edmonton--Spruce Grove,Edmonton--Spruce Grove,Green,Walker,Wendy
+48018,Edmonton--Strathcona,Edmonton--Strathcona,NDP,Duncan,Linda
+48018,Edmonton--Strathcona,Edmonton--Strathcona,Marxist-Leninist,Hunter,Kevan
+48018,Edmonton--Strathcona,Edmonton--Strathcona,Conservative,Jaffer,Rahim
+48018,Edmonton--Strathcona,Edmonton--Strathcona,Liberal,Roy,Claudette
+48018,Edmonton--Strathcona,Edmonton--Strathcona,Green,Thrall,Jane
+48019,Lethbridge,Lethbridge,Christian Heritage,Capp,Geoffrey
+48019,Lethbridge,Lethbridge,Conservative,Casson,Rick
+48019,Lethbridge,Lethbridge,Liberal,Cormican,Michael Joseph
+48019,Lethbridge,Lethbridge,NDP,Sandilands,Mark
+48019,Lethbridge,Lethbridge,Green,Swagar,Amanda
+48020,Macleod,Macleod,NDP,Knowlton,Stan
+48020,Macleod,Macleod,Green,McCollum,Jared
+48020,Macleod,Macleod,Conservative,Menzies,Ted
+48020,Macleod,Macleod,Liberal,Paynter,Isabel
+48020,Macleod,Macleod,Christian Heritage,Slingerland,Marc
+48021,Medicine Hat,Medicine Hat,Liberal,Botter,Bev
+48021,Medicine Hat,Medicine Hat,Green,Dodd,Kevin
+48021,Medicine Hat,Medicine Hat,Independent,Patrick,David S.
+48021,Medicine Hat,Medicine Hat,Conservative,Payne,LaVar
+48021,Medicine Hat,Medicine Hat,NDP,Regehr,Wally
+48021,Medicine Hat,Medicine Hat,Independent,Shock,Dean
+48021,Medicine Hat,Medicine Hat,Christian Heritage,Vandestroet,Frans
+48022,Peace River,Peace River,NDP,Boucher Rymhs,Adele
+48022,Peace River,Peace River,Liberal,Maisonneuve,Liliane
+48022,Peace River,Peace River,Canadian Action,Siggelkow,Edwin
+48022,Peace River,Peace River,Libertarian,Simard,Mélanie
+48022,Peace River,Peace River,Green,Villebrun,Jennifer
+48022,Peace River,Peace River,Conservative,Warkentin,Chris
+48023,Red Deer,Red Deer,Green,Bedford,Evan
+48023,Red Deer,Red Deer,Conservative,Dreeshen,Earl
+48023,Red Deer,Red Deer,Liberal,Marks,Garfield
+48023,Red Deer,Red Deer,NDP,Somerville,Stuart
+48024,Vegreville--Wainwright,Vegreville--Wainwright,Conservative,Benoit,Leon
+48024,Vegreville--Wainwright,Vegreville--Wainwright,Liberal,Campbell,Adam
+48024,Vegreville--Wainwright,Vegreville--Wainwright,Green,Munsey,William
+48024,Vegreville--Wainwright,Vegreville--Wainwright,NDP,Stone,Ray
+48025,Westlock--St. Paul,Westlock--St. Paul,NDP,Drury,Della
+48025,Westlock--St. Paul,Westlock--St. Paul,Christian Heritage,Hofstede,Sip
+48025,Westlock--St. Paul,Westlock--St. Paul,Liberal,Houle,Leila
+48025,Westlock--St. Paul,Westlock--St. Paul,Green,Murphy,Aden
+48025,Westlock--St. Paul,Westlock--St. Paul,Conservative,Storseth,Brian
+48026,Wetaskiwin,Wetaskiwin,Conservative,Calkins,Blaine
+48026,Wetaskiwin,Wetaskiwin,Liberal,Dillon,Rita Katherine
+48026,Wetaskiwin,Wetaskiwin,Canadian Action,Mann,Shawn
+48026,Wetaskiwin,Wetaskiwin,Green,Parsons,Les
+48026,Wetaskiwin,Wetaskiwin,NDP,Robson,Tim
+48027,Wild Rose,Wild Rose,Green,Fox,Lisa
+48027,Wild Rose,Wild Rose,NDP,Horvath,Jeff
+48027,Wild Rose,Wild Rose,Conservative,Richards,Blake
+48027,Wild Rose,Wild Rose,Liberal,Turcott,Jenn
+48027,Wild Rose,Wild Rose,Libertarian,Zoobkoff,Krista
+48028,Yellowhead,Yellowhead,Canadian Action,Brade,Melissa
+48028,Yellowhead,Yellowhead,Liberal,El-Rafih,Mohamed
+48028,Yellowhead,Yellowhead,NDP,Kuzminski,Ken
+48028,Yellowhead,Yellowhead,Conservative,Merrifield,Rob
+48028,Yellowhead,Yellowhead,Green,Schaefer,Monika
+48028,Yellowhead,Yellowhead,Christian Heritage,Wierenga,John M.
+59001,Abbotsford,Abbotsford,Green,Durant,Karen
+59001,Abbotsford,Abbotsford,Conservative,Fast,Ed
+59001,Abbotsford,Abbotsford,Marijuana,Felger,Tim
+59001,Abbotsford,Abbotsford,NDP,Rai,Bonnie
+59001,Abbotsford,Abbotsford,Liberal,Traverse,Lionel Dominique
+59002,Burnaby--Douglas,Burnaby--Douglas,Liberal,Cunningham,Bill
+59002,Burnaby--Douglas,Burnaby--Douglas,Communist,Gidora,George
+59002,Burnaby--Douglas,Burnaby--Douglas,Conservative,Leung,Ronald
+59002,Burnaby--Douglas,Burnaby--Douglas,Green,Perry,Doug
+59002,Burnaby--Douglas,Burnaby--Douglas,NDP,Siksay,Bill
+59003,Burnaby--New Westminster,Burnaby--New Westminster,NDP,Julian,Peter
+59003,Burnaby--New Westminster,Burnaby--New Westminster,Liberal,Lenoski,Gerry
+59003,Burnaby--New Westminster,Burnaby--New Westminster,Green,McLaren,Carrie
+59003,Burnaby--New Westminster,Burnaby--New Westminster,Conservative,Rakhra,Sam
+59003,Burnaby--New Westminster,Burnaby--New Westminster,Marxist-Leninist,Theriault,Joseph
+59003,Burnaby--New Westminster,Burnaby--New Westminster,Libertarian,Yetisen,Ismet
+59004,Cariboo--Prince George,Cariboo--Prince George,Liberal,Adamick,Drew
+59004,Cariboo--Prince George,Cariboo--Prince George,NDP,Collins,Bev
+59004,Cariboo--Prince George,Cariboo--Prince George,Independent,Gook,Douglas
+59004,Cariboo--Prince George,Cariboo--Prince George,Conservative,Harris,Dick
+59004,Cariboo--Prince George,Cariboo--Prince George,Green,Van Drielen,Amber
+59005,Chilliwack--Fraser Canyon,Chilliwack--Fraser Canyon,NDP,Kormendy,Helen
+59005,Chilliwack--Fraser Canyon,Chilliwack--Fraser Canyon,Green,Lebeau,Barbara
+59005,Chilliwack--Fraser Canyon,Chilliwack--Fraser Canyon,Christian Heritage,Ludwig,Harold J.
+59005,Chilliwack--Fraser Canyon,Chilliwack--Fraser Canyon,Marxist-Leninist,O'Donnell,Dorothy-Jean
+59005,Chilliwack--Fraser Canyon,Chilliwack--Fraser Canyon,Conservative,Strahl,Chuck
+59005,Chilliwack--Fraser Canyon,Chilliwack--Fraser Canyon,Liberal,Sweeney,Myra
+59006,Delta--Richmond East,Delta--Richmond-Est,NDP,Barna,Szilvia
+59006,Delta--Richmond East,Delta--Richmond-Est,Conservative,Cummins,John
+59006,Delta--Richmond East,Delta--Richmond-Est,Green,Laine,Matthew
+59006,Delta--Richmond East,Delta--Richmond-Est,Liberal,Miller,Dana L.
+59007,Pitt Meadows--Maple Ridge--Mission,Pitt Meadows--Maple Ridge--Mission,NDP,Bocking,Mike
+59007,Pitt Meadows--Maple Ridge--Mission,Pitt Meadows--Maple Ridge--Mission,Green,Gildersleeve,Mike
+59007,Pitt Meadows--Maple Ridge--Mission,Pitt Meadows--Maple Ridge--Mission,Conservative,Kamp,Randy
+59007,Pitt Meadows--Maple Ridge--Mission,Pitt Meadows--Maple Ridge--Mission,Libertarian,Monds,Jeff
+59007,Pitt Meadows--Maple Ridge--Mission,Pitt Meadows--Maple Ridge--Mission,Independent,Nicholson,Evans
+59007,Pitt Meadows--Maple Ridge--Mission,Pitt Meadows--Maple Ridge--Mission,Liberal,Olson,Dan
+59007,Pitt Meadows--Maple Ridge--Mission,Pitt Meadows--Maple Ridge--Mission,Independent,Richardson,Chum
+59008,Esquimalt--Juan de Fuca,Esquimalt--Juan de Fuca,NDP,Burgis,Jennifer
+59008,Esquimalt--Juan de Fuca,Esquimalt--Juan de Fuca,Conservative,DeSouza,Troy
+59008,Esquimalt--Juan de Fuca,Esquimalt--Juan de Fuca,Green,Gordon,Brian G.
+59008,Esquimalt--Juan de Fuca,Esquimalt--Juan de Fuca,Liberal,Martin,Keith
+59008,Esquimalt--Juan de Fuca,Esquimalt--Juan de Fuca,Independent,Ney,Philip G.
+59008,Esquimalt--Juan de Fuca,Esquimalt--Juan de Fuca,Canadian Action,Rhodes,Brad
+59009,Fleetwood--Port Kells,Fleetwood--Port Kells,NDP,Fernando,Nao
+59009,Fleetwood--Port Kells,Fleetwood--Port Kells,Conservative,Grewal,Nina
+59009,Fleetwood--Port Kells,Fleetwood--Port Kells,Liberal,Locke,Brenda
+59009,Fleetwood--Port Kells,Fleetwood--Port Kells,Green,Newbold,Brian
+59010,Kamloops--Thompson--Cariboo,Kamloops--Thompson--Cariboo,Green,Cavers,Donovan Grube
+59010,Kamloops--Thompson--Cariboo,Kamloops--Thompson--Cariboo,NDP,Crawford,Michael
+59010,Kamloops--Thompson--Cariboo,Kamloops--Thompson--Cariboo,Conservative,McLeod,Cathy
+59010,Kamloops--Thompson--Cariboo,Kamloops--Thompson--Cariboo,Liberal,Sommerfeld,Ken
+59011,Kelowna--Lake Country,Kelowna--Lake Country,Liberal,Cabott,Diana
+59011,Kelowna--Lake Country,Kelowna--Lake Country,Conservative,Cannan,Ron
+59011,Kelowna--Lake Country,Kelowna--Lake Country,Communist,Haley,Mark
+59011,Kelowna--Lake Country,Kelowna--Lake Country,NDP,Lakes,Tish
+59011,Kelowna--Lake Country,Kelowna--Lake Country,Green,Reid,Angela
+59012,Kootenay--Columbia,Kootenay--Columbia,Conservative,Abbott,Jim
+59012,Kootenay--Columbia,Kootenay--Columbia,Liberal,Aitchison,Betty
+59012,Kootenay--Columbia,Kootenay--Columbia,Green,Moore,Ralph
+59012,Kootenay--Columbia,Kootenay--Columbia,NDP,Pendleton,Leon R.
+59013,Langley,Langley,NDP,Claxton,Andrew
+59013,Langley,Langley,Liberal,Gray,Jake
+59013,Langley,Langley,Christian Heritage,Gray,Ron
+59013,Langley,Langley,Green,Meyer,Patrick
+59013,Langley,Langley,Conservative,Warawa,Mark
+59014,Nanaimo--Alberni,Nanaimo--Alberni,Marxist-Leninist,Biley,Barbara
+59014,Nanaimo--Alberni,Nanaimo--Alberni,Green,Fryer,John
+59014,Nanaimo--Alberni,Nanaimo--Alberni,Conservative,Lunney,James
+59014,Nanaimo--Alberni,Nanaimo--Alberni,NDP,Maartman,Zeni
+59014,Nanaimo--Alberni,Nanaimo--Alberni,Liberal,Pesik,Richard
+59014,Nanaimo--Alberni,Nanaimo--Alberni,Christian Heritage,Wagner,Frank
+59015,Nanaimo--Cowichan,Nanaimo--Cowichan,NDP,Crowder,Jean
+59015,Nanaimo--Cowichan,Nanaimo--Cowichan,Marxist-Leninist,East,Jack
+59015,Nanaimo--Cowichan,Nanaimo--Cowichan,Conservative,Elley,Reed
+59015,Nanaimo--Cowichan,Nanaimo--Cowichan,Green,Knighton,Christina
+59015,Nanaimo--Cowichan,Nanaimo--Cowichan,Liberal,Scott,Brian
+59016,Newton--North Delta,Newton--Delta-Nord,Communist,Daudharia,Harjit
+59016,Newton--North Delta,Newton--Delta-Nord,Liberal,Dhaliwal,Sukh
+59016,Newton--North Delta,Newton--Delta-Nord,Independent,Miller-Cousineau,James William
+59016,Newton--North Delta,Newton--Delta-Nord,Conservative,Pandher,Sandeep
+59016,Newton--North Delta,Newton--Delta-Nord,Independent,Shavluk,John
+59016,Newton--North Delta,Newton--Delta-Nord,NDP,Townsley,Teresa
+59016,Newton--North Delta,Newton--Delta-Nord,Green,Walker,Liz
+59017,New Westminster--Coquitlam,New Westminster--Coquitlam,NDP,Black,Dawn
+59017,New Westminster--Coquitlam,New Westminster--Coquitlam,Libertarian,Dahlby,Lewis C.
+59017,New Westminster--Coquitlam,New Westminster--Coquitlam,Liberal,Hassen,Michelle
+59017,New Westminster--Coquitlam,New Westminster--Coquitlam,Conservative,Martin,Yonah
+59017,New Westminster--Coquitlam,New Westminster--Coquitlam,Green,Smith,Marshall
+59017,New Westminster--Coquitlam,New Westminster--Coquitlam,Marxist-Leninist,Verrier,Roland
+59018,Okanagan--Shuswap,Okanagan--Shuswap,Green,Allen,Huguette
+59018,Okanagan--Shuswap,Okanagan--Shuswap,NDP,Brown,Alice
+59018,Okanagan--Shuswap,Okanagan--Shuswap,No Affiliation,Campbell,Gordie
+59018,Okanagan--Shuswap,Okanagan--Shuswap,Liberal,Francis,Janna
+59018,Okanagan--Shuswap,Okanagan--Shuswap,Conservative,Mayes,Colin
+59018,Okanagan--Shuswap,Okanagan--Shuswap,Canadian Action,Seymour,Darren
+59019,North Vancouver,North Vancouver,Libertarian,Audain,Tunya
+59019,North Vancouver,North Vancouver,Liberal,Bell,Don
+59019,North Vancouver,North Vancouver,NDP,Charrois,Michael
+59019,North Vancouver,North Vancouver,Conservative,Saxton,Andrew
+59019,North Vancouver,North Vancouver,Green,Stephenson,Jim
+59020,Okanagan--Coquihalla,Okanagan--Coquihalla,Green,Bouchard,Dan
+59020,Okanagan--Coquihalla,Okanagan--Coquihalla,Conservative,Day,Stockwell
+59020,Okanagan--Coquihalla,Okanagan--Coquihalla,Liberal,Hallford,Valerie
+59020,Okanagan--Coquihalla,Okanagan--Coquihalla,NDP,Poynting,Ralph
+59021,Port Moody--Westwood--Port Coquitlam,Port Moody--Westwood--Port Coquitlam,Green,Brindamour,Rod
+59021,Port Moody--Westwood--Port Coquitlam,Port Moody--Westwood--Port Coquitlam,Libertarian,Gillespie,Rob
+59021,Port Moody--Westwood--Port Coquitlam,Port Moody--Westwood--Port Coquitlam,Liberal,McKinnon,Ron
+59021,Port Moody--Westwood--Port Coquitlam,Port Moody--Westwood--Port Coquitlam,Conservative,Moore,James
+59021,Port Moody--Westwood--Port Coquitlam,Port Moody--Westwood--Port Coquitlam,NDP,Royer,Zoë
+59022,Prince George--Peace River,Prince George--Peace River,NDP,Bekkering,Betty
+59022,Prince George--Peace River,Prince George--Peace River,Green,Crowley,Hilary
+59022,Prince George--Peace River,Prince George--Peace River,Liberal,Gidney,Lindsay
+59022,Prince George--Peace River,Prince George--Peace River,Conservative,Hill,Jay
+59023,Richmond,Richmond,Liberal,Chan,Raymond
+59023,Richmond,Richmond,Independent,Chen,Wei Ping
+59023,Richmond,Richmond,NDP,Jackaman,Dale
+59023,Richmond,Richmond,Independent,To,Dobie Yiu-Chung
+59023,Richmond,Richmond,Green,Wolfe,Michael Anthony
+59023,Richmond,Richmond,Conservative,Wong,Alice
+59024,Saanich--Gulf Islands,Saanich--Gulf Islands,Canadian Action,Arney,Jeremy
+59024,Saanich--Gulf Islands,Saanich--Gulf Islands,Libertarian,Leier,Dale P.
+59024,Saanich--Gulf Islands,Saanich--Gulf Islands,Green,Lewis,Andrew
+59024,Saanich--Gulf Islands,Saanich--Gulf Islands,Conservative,Lunn,Gary
+59024,Saanich--Gulf Islands,Saanich--Gulf Islands,Christian Heritage,Moreau,Dan
+59024,Saanich--Gulf Islands,Saanich--Gulf Islands,Western Block,O'Brien,Patricia
+59024,Saanich--Gulf Islands,Saanich--Gulf Islands,Liberal,Penn,Briony
+59024,Saanich--Gulf Islands,Saanich--Gulf Islands,NDP,West,Julian
+59025,Skeena--Bulkley Valley,Skeena--Bulkley Valley,Green,Arendt,Hondo
+59025,Skeena--Bulkley Valley,Skeena--Bulkley Valley,NDP,Cullen,Nathan
+59025,Skeena--Bulkley Valley,Skeena--Bulkley Valley,Canadian Action,Goodacre,Mary-Etta
+59025,Skeena--Bulkley Valley,Skeena--Bulkley Valley,Liberal,Morhart,Corinna
+59025,Skeena--Bulkley Valley,Skeena--Bulkley Valley,Conservative,Smith,Sharon
+59025,Skeena--Bulkley Valley,Skeena--Bulkley Valley,Christian Heritage,Taylor,Rod
+59026,British Columbia Southern Interior,Colombie-Britannique-Southern Interior,NDP,Atamanenko,Alex
+59026,British Columbia Southern Interior,Colombie-Britannique-Southern Interior,Liberal,Jagpal,Brenda
+59026,British Columbia Southern Interior,Colombie-Britannique-Southern Interior,Green,Morel,Andy
+59026,British Columbia Southern Interior,Colombie-Britannique-Southern Interior,Marxist-Leninist,Sproule,Brian
+59026,British Columbia Southern Interior,Colombie-Britannique-Southern Interior,Conservative,Zandee,Rob
+59027,South Surrey--White Rock--Cloverdale,Surrey-Sud--White Rock--Cloverdale,Green,Blair,David
+59027,South Surrey--White Rock--Cloverdale,Surrey-Sud--White Rock--Cloverdale,Conservative,Hiebert,Russ
+59027,South Surrey--White Rock--Cloverdale,Surrey-Sud--White Rock--Cloverdale,Liberal,Higginbotham,Judy
+59027,South Surrey--White Rock--Cloverdale,Surrey-Sud--White Rock--Cloverdale,Progressive Canadian,Marlatt,Brian
+59027,South Surrey--White Rock--Cloverdale,Surrey-Sud--White Rock--Cloverdale,NDP,Prontzos,Peter
+59028,Surrey North,Surrey-Nord,NDP,Arab,Rachid
+59028,Surrey North,Surrey-Nord,Conservative,Cadman,Dona
+59028,Surrey North,Surrey-Nord,Canadian Action,Frank,Psam
+59028,Surrey North,Surrey-Nord,Libertarian,Joehl,Alex
+59028,Surrey North,Surrey-Nord,Green,Kashagama,Dan
+59028,Surrey North,Surrey-Nord,Independent,Keenan,Bernadette
+59028,Surrey North,Surrey-Nord,Progressive Canadian,Langlands,Nikolas
+59028,Surrey North,Surrey-Nord,Liberal,Muhammad,Marc
+59028,Surrey North,Surrey-Nord,Christian Heritage,Pielak,Kevin
+59029,Vancouver Centre,Vancouver-Centre,NDP,Byers,Michael
+59029,Vancouver Centre,Vancouver-Centre,Green,Carr,Adriane
+59029,Vancouver Centre,Vancouver-Centre,Libertarian,Clarke,John
+59029,Vancouver Centre,Vancouver-Centre,Liberal,Fry,Hedy
+59029,Vancouver Centre,Vancouver-Centre,Marxist-Leninist,Hill,Michael
+59029,Vancouver Centre,Vancouver-Centre,Conservative,Mayencourt,Lorne
+59030,Vancouver East,Vancouver-Est,Green,Carr,Mike
+59030,Vancouver East,Vancouver-Est,NDP,Davies,Libby
+59030,Vancouver East,Vancouver-Est,Marxist-Leninist,Jamieson,Anne
+59030,Vancouver East,Vancouver-Est,Work Less,Krawczyk,Betty
+59030,Vancouver East,Vancouver-Est,Liberal,Low,Ken
+59030,Vancouver East,Vancouver-Est,Conservative,Warawa,Ryan
+59031,Vancouver Island North,Île de Vancouver-Nord,NDP,Bell,Catherine
+59031,Vancouver Island North,Île de Vancouver-Nord,Independent,Draper,Jason
+59031,Vancouver Island North,Île de Vancouver-Nord,Conservative,Duncan,John
+59031,Vancouver Island North,Île de Vancouver-Nord,Liberal,Fleischer,Geoff
+59031,Vancouver Island North,Île de Vancouver-Nord,Green,Stone,Philip
+59032,Vancouver Kingsway,Vancouver Kingsway,Communist,Cariou,Kimball
+59032,Vancouver Kingsway,Vancouver Kingsway,NDP,Davies,Don
+59032,Vancouver Kingsway,Vancouver Kingsway,Libertarian,Kadioglu,Matt
+59032,Vancouver Kingsway,Vancouver Kingsway,Marxist-Leninist,Petersen,Donna
+59032,Vancouver Kingsway,Vancouver Kingsway,Conservative,Rayek,Salomon
+59032,Vancouver Kingsway,Vancouver Kingsway,Green,Warkentin,Doug
+59032,Vancouver Kingsway,Vancouver Kingsway,Liberal,Yuan,Wendy
+59033,Vancouver Quadra,Vancouver Quadra,Libertarian,Barens,Norris
+59033,Vancouver Quadra,Vancouver Quadra,NDP,Caplan,David
+59033,Vancouver Quadra,Vancouver Quadra,Green,Grice,Dan
+59033,Vancouver Quadra,Vancouver Quadra,Conservative,Meredith,Deborah
+59033,Vancouver Quadra,Vancouver Quadra,Liberal,Murray,Joyce
+59034,Vancouver South,Vancouver-Sud,Marxist-Leninist,Boylan,Charles
+59034,Vancouver South,Vancouver-Sud,NDP,Chambers,Ann
+59034,Vancouver South,Vancouver-Sud,Liberal,Dosanjh,Ujjal
+59034,Vancouver South,Vancouver-Sud,Green,Gulyas,Csaba
+59034,Vancouver South,Vancouver-Sud,Conservative,Young,Wai
+59035,Victoria,Victoria,Christian Heritage,Cooper,John
+59035,Victoria,Victoria,Conservative,McClintock,Jack
+59035,Victoria,Victoria,Liberal,Park Shannon,Anne
+59035,Victoria,Victoria,Green,Saab,Adam
+59035,Victoria,Victoria,NDP,Savoie,Denise
+59036,West Vancouver--Sunshine Coast--Sea to Sky Country,West Vancouver--Sunshine Coast--Sea to Sky Country,NDP,Forst,Bill
+59036,West Vancouver--Sunshine Coast--Sea to Sky Country,West Vancouver--Sunshine Coast--Sea to Sky Country,Liberal,Sutherland,Ian
+59036,West Vancouver--Sunshine Coast--Sea to Sky Country,West Vancouver--Sunshine Coast--Sea to Sky Country,Conservative,Weston,John
+59036,West Vancouver--Sunshine Coast--Sea to Sky Country,West Vancouver--Sunshine Coast--Sea to Sky Country,Green,Wilson,Blair
+60001,Yukon,Yukon,Liberal,Bagnell,Larry
+60001,Yukon,Yukon,NDP,Bolton,Ken
+60001,Yukon,Yukon,Conservative,Pasloski,Darrell
+60001,Yukon,Yukon,Green,Streicker,John
+61001,Western Arctic,Western Arctic,Conservative,Bell,Brendan
+61001,Western Arctic,Western Arctic,NDP,Bevington,Dennis
+61001,Western Arctic,Western Arctic,Green,Gamble,Sam
+61001,Western Arctic,Western Arctic,Liberal,Mackenzie-Scott,Gabrielle
+61001,Western Arctic,Western Arctic,First Peoples National,Villebrun,Noeline
+62001,Nunavut,Nunavut,Conservative,Aglukkaq,Leona
+62001,Nunavut,Nunavut,Liberal,Ejesiak,Kirt Kootoo
+62001,Nunavut,Nunavut,NDP,Irngaut,Paul
+62001,Nunavut,Nunavut,Green,Ittinuar,Peter
