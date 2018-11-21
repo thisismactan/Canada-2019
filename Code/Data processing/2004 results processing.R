@@ -6,7 +6,7 @@ library(tidyverse)
 
 ## Candidates data
 candidates <- read.csv(paste0("Data/candidates_", election_year, ".csv"), stringsAsFactors = FALSE) %>%
-  mutate(candidate_name = case_when(candidate_middle == "" ~ paste(candidate_first, candidate_last),
+  mutate(candidate_name = case_when((candidate_middle == "") | is.na(candidate_middle) ~ paste(candidate_first, candidate_last),
                                     candidate_middle != "" ~ paste(candidate_first, candidate_middle, candidate_last)),
          candidate_name = gsub("[[:punct:]]", ".", candidate_name),
          candidate_name = gsub("[[:blank:]]", ".", candidate_name)) %>%
@@ -48,8 +48,9 @@ for(i in 1:length(district_codes)) {
 district_key <- read.csv(paste0("Data/electoral_districts_key_", ridings_year, ".csv"), stringsAsFactors = FALSE)
 pollresults <- bind_rows(district_data) %>%
   left_join(district_key, by = "district_code") %>%
-  dplyr::select(district_code, name_english, poll_name, poll_number, Liberal = votes.Liberal, Conservative = votes.Conservative, 
+  mutate(year = election_year) %>%
+  dplyr::select(year, district_code, name_english, poll_name, poll_number, Liberal = votes.Liberal, Conservative = votes.Conservative, 
                 NDP = votes.NDP, Green = votes.Green, Bloc = votes.Bloc, rejected_votes, registered_voters, total_votes, population) %>%
   as.tbl()
 
-write.csv(pollresults, file = paste0("Data/Processed/", election_year, "_results_by_precinct.csv"))
+write.csv(pollresults, file = paste0("Data/Processed/", election_year, "_results_by_precinct.csv"), row.names = FALSE)
