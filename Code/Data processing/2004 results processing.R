@@ -28,6 +28,7 @@ for(i in 1:length(district_codes)) {
   
   ## Replace candidates with party
   district_data_temp <- district_data_temp %>%
+    mutate_at(4:(n_fields-4), as.numeric) %>%
     melt(id.vars = c("district_code", "district_name_english_french", "poll_number", "poll_name",
                      "rejected_votes", "total_votes", "registered_voters"),
          variable.name = "candidate_name", value.name = "votes") %>%
@@ -37,8 +38,7 @@ for(i in 1:length(district_codes)) {
     left_join(candidates, by = c("district_code", "candidate_name")) %>%
     dplyr::select(-district_name_english_french, -candidate_name) %>%
     filter(party %in% c("Liberal", "Conservative", "NDP", "Bloc", "Green")) %>%
-    reshape(v.names = "votes", timevar = "party", idvar = c("district_code", "poll_number", "poll_name", 
-                                                            "rejected_votes", "total_votes", "registered_voters"), 
+    reshape(v.names = "votes", timevar = "party", idvar = c("district_code", "poll_number", "poll_name"), 
             direction = "wide")
   
   district_data[[i]] <- district_data_temp
