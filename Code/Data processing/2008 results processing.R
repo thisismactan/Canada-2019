@@ -1,5 +1,5 @@
-election_year = 2015 # election year
-ridings_year = 2013 # year ridings were drawn
+election_year = 2008 # election year
+ridings_year = 2003 # year ridings were drawn
 
 library(readr)
 library(reshape2)
@@ -7,6 +7,8 @@ library(tidyverse)
 
 ## Candidates data
 candidates <- read.csv(paste0("Data/candidates_", election_year, ".csv"), stringsAsFactors = FALSE) %>%
+  mutate(candidate_first = trimws(candidate_first, "right"),
+         candidate_last = trimws(candidate_last, "left")) %>%
   mutate(candidate_name = paste(candidate_first, candidate_last)) %>%
   dplyr::select(district_code, candidate_name, party)
 
@@ -16,12 +18,13 @@ district_data <- vector("list", length(district_codes))
 for(i in 1:length(district_codes)) {
   ## Read in data
   district_data_temp <- readr::read_csv(paste0("Data/Raw/", election_year, " results/pollbypoll_bureauparbureau", district_codes[i], ".csv"),
-                                        locale = locale(encoding = "UTF-8"))
+                                        locale = locale(encoding = "LATIN1"))
   n_fields <- ncol(district_data_temp)
   
   ## Change variable names
   names(district_data_temp)[1:4] <- c("district_code", "district_name_english_french", "poll_number", "poll_name")
   names(district_data_temp)[(n_fields-2):n_fields] <- c("rejected_votes", "total_votes", "registered_voters")
+  names(district_data_temp)[5:(n_fields-3)] <- enc2native(names(district_data_temp)[5:(n_fields-3)])
   
   ## Replace candidates with party
   district_data_temp <- district_data_temp %>%
@@ -31,7 +34,7 @@ for(i in 1:length(district_codes)) {
                      "rejected_votes", "total_votes", "registered_voters"),
          variable.name = "candidate_name", value.name = "votes") %>%
     mutate(poll_number = as.character(poll_number),
-           candidate_name = as.character(candidate_name)) %>%
+           candidate_name = as.character(candidate_name) %>% enc2native) %>%
     left_join(candidates, by = c("district_code", "candidate_name")) %>%
     dplyr::select(-district_name_english_french, -candidate_name, -rejected_votes) %>%
     filter(party %in% c("Liberal", "Conservative", "NDP", "Bloc", "Green")) %>%

@@ -7,9 +7,9 @@ library(tidyverse)
 
 ## Candidates data
 candidates <- read.csv(paste0("Data/candidates_", election_year, ".csv"), stringsAsFactors = FALSE) %>%
-  mutate(candidate_name = paste(candidate_first, candidate_last),
-         candidate_name = gsub("[[:punct:]]", ".", candidate_name),
-         candidate_name = gsub("[[:blank:]]", ".", candidate_name)) %>%
+  mutate(candidate_first = trimws(candidate_first, "right"),
+         candidate_last = trimws(candidate_last, "left")) %>%
+  mutate(candidate_name = paste(candidate_first, candidate_last)) %>%
   dplyr::select(district_code, candidate_name, party)
 
 ## Read in districts data
@@ -17,9 +17,8 @@ district_codes <- unique(candidates$district_code)
 district_data <- vector("list", length(district_codes))
 for(i in 1:length(district_codes)) {
   ## Read in data
-  # district_data_temp <- readr::read_csv(paste0("Data/Raw/", election_year, " results/pollbypoll_bureauparbureau", district_codes[i], ".csv"),
-                                       # locale = locale(encoding = "UTF-8"))
-  district_data_temp <- read.csv(paste0("Data/Raw/", election_year, " results/pollbypoll_bureauparbureau", district_codes[i], ".csv"))
+  district_data_temp <- readr::read_csv(paste0("Data/Raw/", election_year, " results/pollbypoll_bureauparbureau", district_codes[i], ".csv"),
+                                        locale = locale(encoding = "LATIN1"))
   n_fields <- ncol(district_data_temp)
   
   ## Change variable names
