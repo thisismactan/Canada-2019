@@ -55,7 +55,7 @@ results_pre2013 <- bind_rows(results_2004, results_2006, results_2008, results_2
   summarise_at(vars(c("Liberal", "Conservative", "NDP", "Green", "Bloc", "rejected_votes", "total_votes", "registered_voters")), sum, na.rm = TRUE) %>%
   left_join(cands_pre2013, by = c("district_code", "year")) %>%
   select(district_code, name_english, year, LPC_cand = Liberal.y, CPC_cand = Conservative.y, NDP_cand = NDP.y, Green_cand = Green.y, Bloc_cand = Bloc.y, 
-         registered_voters, total_votes, rejected_votes, LPC_votes = Liberal.x, CPC_votes = Conservative.x, NDP_votes = NDP.x, Green_votes = Green.x, 
+         registered_voters, total_votes, LPC_votes = Liberal.x, CPC_votes = Conservative.x, NDP_votes = NDP.x, Green_votes = Green.x, 
          Bloc_votes = Bloc.x) %>%
   ungroup() %>%
   mutate(total_major_votes = LPC_votes + CPC_votes + NDP_votes + Green_votes + Bloc_votes,
