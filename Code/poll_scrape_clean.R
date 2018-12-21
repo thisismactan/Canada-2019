@@ -1,5 +1,6 @@
-#### Scraping Wikipedia page for polls ####
+#### Scraping Wikipedia page for national polls ####
 library(httr)
+library(lubridate)
 library(rvest)
 library(tidyverse)
 library(xml2)
@@ -13,22 +14,41 @@ polls_GET <- httr::GET(polls_url) %>%
 
 ## Parse into data frame
 header_string <- '//*[@class = "wikitable sortable"]'
-poll_data <- rvest::html_nodes(polls_html, xpath = header_string)[1] %>%
+national_polls <- rvest::html_nodes(polls_html, xpath = header_string)[1] %>%
   # Parse as a table
   rvest::html_table() %>%
   
-  # Convert to tibble
-  as.data.frame() %>% as.tbl() %>%
+  # Convert to data frame
+  as.data.frame() %>%
   
   # Filter out those pesky "Maxime Bernier resigns from..."s
   filter(Polling.firm != Last.dateof.polling, Polling.firm != "2015 Election") %>%
   
   # Clean up
-  dplyr::select(pollster = Polling.firm, last_date = Last.dateof.polling, MOE = Marginof.error.1.,
+  dplyr::select(pollster = Polling.firm, last_date = Last.dateof.polling, MOE = Marginof.error.1., n = Samplesize.2.,
                 mode = Polling.method.3., LPC, CPC, NDP, BQ, GPC, PPC) %>%
   replace_na(list(pollster = "", last_date = NA, MOE = "0 pp", mode = "", LPC = NA, CPC = NA, NDP = NA, BQ = NA, GPC = NA, PPC = NA)) %>%
   mutate(last_date = as.Date(last_date, format = "%B %d, %Y"),
+         n = str_split(n, " \\(") %>% sapply(head, 1),
+         n = gsub(",", "", n),
          MOE = gsub("[[:alpha:]]|[[:space:]]", "", MOE),
-         MOE = sub("^.", "", MOE)) %>%
-  mutate_at(vars(c("MOE", "LPC", "CPC", "NDP", "BQ", "GPC", "PPC")), as.numeric)
+         MOE = sub("^.", "", MOE),
+         IVR = grepl("IVR", mode),
+         online = grepl("online", mode)) %>%
+  mutate_at(vars(c("MOE", "n", "LPC", "CPC", "NDP", "BQ", "GPC", "PPC")), as.numeric) %>%
+  
+  # Estimate MOE from n for polls which have no MOE
+  mutate(MOE = case_when(MOE != 0 ~ MOE,
+                         (MOE == 0 | is.na(MOE)) ~ 1.3*sqrt(2500/n))) %>%
+  
+  # Merge in date spreads by pollster
+  merge(read.csv("Data/poll_spreads.csv", stringsAsFactors = FALSE), by = "pollster", all.x = TRUE) %>%
+  
+  # Calculate poll age
+  mutate(date = last_date - floor(spread/2),
+         age = as.numeric(today() - date)) %>%
+  
+  arrange(age) %>%
+  dplyr::select(pollster, date, age, MOE, n, mode, IVR, LPC, CPC, NDP, BQ, GPC, PPC) %>%
+  as.tbl()
   
