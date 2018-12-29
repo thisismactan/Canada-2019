@@ -14,7 +14,7 @@ polls_GET <- httr::GET(polls_url) %>%
 
 ## Parse into data frame
 header_string <- '//*[@class = "wikitable sortable"]'
-national_polls <- rvest::html_nodes(polls_html, xpath = header_string)[1] %>%
+national_polls <- rvest::html_nodes(polls_GET, xpath = header_string)[1] %>%
   # Parse as a table
   rvest::html_table() %>%
   
