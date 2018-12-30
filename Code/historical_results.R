@@ -8,11 +8,11 @@ historical_results.nation <- results_pre2013_wide.votes %>%
   group_by(year) %>%
   summarise_at(vars(c("LPC", "CPC", "NDP", "Green", "Bloc", "total")), sum) %>%
   ungroup() %>%
-  mutate(LPC_national = LPC/total,
-         CPC_national = CPC/total,
-         NDP_national = NDP/total,
-         Green_national = Green/total,
-         Bloc_national = Bloc/total)
+  mutate(LPC_nation = LPC/total,
+         CPC_nation = CPC/total,
+         NDP_nation = NDP/total,
+         Green_nation = Green/total,
+         Bloc_nation = Bloc/total)
 
 ## Regional historical results
 
@@ -56,3 +56,23 @@ historical_results.district <- results_pre2013_wide %>%
          NDP_lag = lag(NDP)) %>%
   left_join(historical_results.region %>% dplyr::select(-LPC, -CPC, -NDP, -Green, -Bloc, -total), by = c("region", "year")) %>%
   left_join(historical_results.nation %>% dplyr::select(-LPC, -CPC, -NDP, -Green, -Bloc, -total), by = "year")
+
+## Define (inverse) logit function
+logit <- function(x) {
+  x <- log(x/(1-x))
+  return(x)
+}
+
+invlogit <- function(x) {
+  x <- exp(x)/(1 + exp(x))
+  return(x)
+}
+
+## Convert to logit
+historical_results.logit <- historical_results.district %>%
+  mutate_at(vars(c("Bloc", "CPC", "Green", "LPC", "max", "NDP", "Bloc_lag", "CPC_lag", "Green_lag", "LPC_lag", "NDP_lag", "LPC_region", "CPC_region",
+                   "NDP_region", "Green_region", "Bloc_region", "LPC_nation", "CPC_nation", "NDP_nation", "Green_nation", "Bloc_nation")),
+            logit) %>%
+  mutate_at(vars(c("Bloc", "CPC", "Green", "LPC", "max", "NDP", "Bloc_lag", "CPC_lag", "Green_lag", "LPC_lag", "NDP_lag", "LPC_region", "CPC_region",
+                   "NDP_region", "Green_region", "Bloc_region", "LPC_nation", "CPC_nation", "NDP_nation", "Green_nation", "Bloc_nation")),
+            function(x) ifelse(x == -Inf, NA, x))
