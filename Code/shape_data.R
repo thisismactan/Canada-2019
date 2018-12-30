@@ -111,10 +111,18 @@ results_pre2013_long <- results_pre2013 %>%
          variable = sub(".*_", "", variable)) %>%
   as.tbl()
 
-results_pre2013_wide <- results_pre2013_long %>%
+## Wide format
+results_pre2013_wide.pct <- results_pre2013_long %>%
   filter(variable == "pct") %>%
   mutate(pct = as.numeric(value)) %>%
   dplyr::select(-variable, -value) %>%
   group_by(district_code, name_english, year) %>%
   spread(party, pct)
 
+results_pre2013_wide.votes <- results_pre2013_long %>%
+  filter(variable == "votes") %>%
+  mutate(votes = as.numeric(value)) %>%
+  dplyr::select(-variable, -value) %>%
+  group_by(district_code, name_english, year) %>%
+  distinct(district_code, name_english, year, party, .keep_all = TRUE) %>%
+  spread(party, votes)
