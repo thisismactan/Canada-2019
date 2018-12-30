@@ -6,12 +6,13 @@ source("Code/shape_data.R")
 ## National historical results
 historical_results.nation <- results_pre2013_wide.votes %>%
   group_by(year) %>%
-  summarise_at(vars(c("LPC", "CPC", "NDP", "Green", "total")), sum) %>%
+  summarise_at(vars(c("LPC", "CPC", "NDP", "Green", "Bloc", "total")), sum) %>%
   ungroup() %>%
-  mutate(LPC_pct = LPC/total,
-         CPC_pct = CPC/total,
-         NDP_pct = NDP/total,
-         Green_pct = Green/total)
+  mutate(LPC_national = LPC/total,
+         CPC_national = CPC/total,
+         NDP_national = NDP/total,
+         Green_national = Green/total,
+         Bloc_national = Bloc/total)
 
 ## Regional historical results
 
@@ -37,11 +38,11 @@ historical_results.region <- results_pre2013_wide.votes %>%
   group_by(region, year) %>%
   summarise_at(vars(c("LPC", "CPC", "NDP", "Green", "Bloc", "total")), sum) %>%
   ungroup() %>%
-  mutate(LPC_pct = LPC/total,
-         CPC_pct = CPC/total,
-         NDP_pct = NDP/total,
-         Green_pct = Green/total,
-         Bloc_pct = Bloc/total)
+  mutate(LPC_region = LPC/total,
+         CPC_region = CPC/total,
+         NDP_region = NDP/total,
+         Green_region = Green/total,
+         Bloc_region = Bloc/total)
 
 ## District historical results
 historical_results.district <- results_pre2013_wide %>%
@@ -53,4 +54,5 @@ historical_results.district <- results_pre2013_wide %>%
          Green_lag = lag(Green),
          LPC_lag = lag(LPC),
          NDP_lag = lag(NDP)) %>%
-  left_join(historical_results.region %>% dplyr::select(-LPC, -CPC, -NDP, -Green, -Bloc, -total), by = c("region", "year"))
+  left_join(historical_results.region %>% dplyr::select(-LPC, -CPC, -NDP, -Green, -Bloc, -total), by = c("region", "year")) %>%
+  left_join(historical_results.nation %>% dplyr::select(-LPC, -CPC, -NDP, -Green, -Bloc, -total), by = "year")
