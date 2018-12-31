@@ -105,24 +105,17 @@ results_pre2013 <- bind_rows(results_2004, results_2006, results_2008, results_2
 
 ## Long format
 results_pre2013_long <- results_pre2013 %>%
-  melt(id.vars = c("district_code", "name_english", "year")) %>%
+  melt(id.vars = c("district_code", "name_english", "year", "incumbent")) %>%
   mutate(variable = as.character(variable),
          party = str_split(variable, "_") %>% sapply(head, n = 1),
          variable = sub(".*_", "", variable)) %>%
   as.tbl()
 
 ## Wide format
-results_pre2013_wide.pct <- results_pre2013_long %>%
-  filter(variable == "pct") %>%
-  mutate(pct = as.numeric(value)) %>%
-  dplyr::select(-variable, -value) %>%
-  group_by(district_code, name_english, year) %>%
-  spread(party, pct)
-
-results_pre2013_wide.votes <- results_pre2013_long %>%
+results_pre2013_wide <- results_pre2013_long %>%
   filter(variable == "votes") %>%
   mutate(votes = as.numeric(value)) %>%
   dplyr::select(-variable, -value) %>%
   group_by(district_code, name_english, year) %>%
-  distinct(district_code, name_english, year, party, .keep_all = TRUE) %>%
+  distinct(district_code, name_english, year, party, incumbent, .keep_all = TRUE) %>%
   spread(party, votes)
