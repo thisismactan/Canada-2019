@@ -1,5 +1,5 @@
 # Canada-2019
-## Last updated: 30 Dec 2018
+## Last updated: 2 Jan 2019
 This is the repository for the Election StatSheet 2019 Canadian election forecast. Hooray!
 
 Current status: data processing; figuring out how I actually plan to model this. Does anyone know how to use spTransform() to change a shapefile to Lambert Conformal Conic projection?
@@ -18,6 +18,7 @@ Current status: data processing; figuring out how I actually plan to model this.
       - **/2015 results**
       - **/Demographics**
     - **/Shapefiles**
+  - **/Miscellanea**
 
 ## Sources for raw data
 - **Election results data** are downloadable from Elections Canada: http://www.elections.ca/content.aspx?section=ele&lang=e
