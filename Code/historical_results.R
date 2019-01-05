@@ -60,7 +60,12 @@ historical_results.district <- results_pre2013_wide %>%
          LPC_lag = lag(LPC),
          NDP_lag = lag(NDP)) %>%
   left_join(historical_results.region %>% dplyr::select(-LPC, -CPC, -NDP, -Green, -Bloc, -total), by = c("region", "year")) %>%
-  left_join(historical_results.nation %>% dplyr::select(-LPC, -CPC, -NDP, -Green, -Bloc, -total), by = "year")
+  left_join(historical_results.nation %>% dplyr::select(-LPC, -CPC, -NDP, -Green, -Bloc, -total), by = "year") %>%
+  mutate(LPC_change = LPC - LPC_lag,
+         CPC_change = CPC - CPC_lag,
+         NDP_change = NDP - NDP_lag,
+         Green_change = Green - Green_lag,
+         Bloc_change = Bloc - Bloc_lag)
 
 ## Convert to logit
 historical_results.logit <- historical_results.district %>%
@@ -69,4 +74,9 @@ historical_results.logit <- historical_results.district %>%
             logit) %>%
   mutate_at(vars(c("Bloc", "CPC", "Green", "LPC", "NDP", "Bloc_lag", "CPC_lag", "Green_lag", "LPC_lag", "NDP_lag", "LPC_region", "CPC_region",
                    "NDP_region", "Green_region", "Bloc_region", "LPC_nation", "CPC_nation", "NDP_nation", "Green_nation", "Bloc_nation")),
-            function(x) ifelse(x == -Inf, NA, x))
+            function(x) ifelse(x == -Inf, NA, x)) %>%
+  mutate(LPC_change = LPC - LPC_lag,
+         CPC_change = CPC - CPC_lag,
+         NDP_change = NDP - NDP_lag,
+         Green_change = Green - Green_lag,
+         Bloc_change = Bloc - Bloc_lag)

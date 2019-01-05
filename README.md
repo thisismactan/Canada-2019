@@ -4,6 +4,9 @@ This is the repository for the Election StatSheet 2019 Canadian election forecas
 
 Current status: figuring out how I actually plan to model this. Does anyone know how to use spTransform() to change a shapefile to Lambert Conformal Conic projection?
 
+### Notes to self ###
+- Final model must predict all parties' share of the vote simultaneously allowing for correlations between parties
+
 ## Directory structure
 - **/Canada-2019**
   - **/Code**
