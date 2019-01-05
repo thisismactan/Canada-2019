@@ -24,3 +24,4 @@ Current status: figuring out how I actually plan to model this. Does anyone know
 - **Code**: All scripts, including data processing, model building, simulation, etc.
 - **Data**: Raw data downloaded from websites (see repo wiki). After processing, the processed versions are saved to the Processed directory. Also, shapefiles for creating maps.
 - **Miscellanea**: For now, these are just images I want to add to the wiki.
+
