@@ -62,17 +62,6 @@ historical_results.district <- results_pre2013_wide %>%
   left_join(historical_results.region %>% dplyr::select(-LPC, -CPC, -NDP, -Green, -Bloc, -total), by = c("region", "year")) %>%
   left_join(historical_results.nation %>% dplyr::select(-LPC, -CPC, -NDP, -Green, -Bloc, -total), by = "year")
 
-## Define (inverse) logit function
-logit <- function(x) {
-  x <- log(x/(1-x))
-  return(x)
-}
-
-invlogit <- function(x) {
-  x <- exp(x)/(1 + exp(x))
-  return(x)
-}
-
 ## Convert to logit
 historical_results.logit <- historical_results.district %>%
   mutate_at(vars(c("Bloc", "CPC", "Green", "LPC", "NDP", "Bloc_lag", "CPC_lag", "Green_lag", "LPC_lag", "NDP_lag", "LPC_region", "CPC_region",

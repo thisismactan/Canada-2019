@@ -1,6 +1,3 @@
-library(Hmisc)
-library(reshape2)
-
 #### NATIONAL ####
 source("Code/poll_scrape_clean.R")
 

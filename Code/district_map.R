@@ -1,9 +1,4 @@
-library(dplyr)
-library(leaflet)
-library(rgdal)
-library(rmapshaper)
-library(sf)
-library(sp)
+source("Code/library.R")
 
 ## Create Lambert conformal conic CRS for leaflet (see http://spatialreference.org/ref/esri/canada-lambert-conformal-conic/ )
 crs_lcc <- leafletCRS(code = "ESRI:102002", 

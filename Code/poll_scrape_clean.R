@@ -1,10 +1,6 @@
-#### Scraping Wikipedia page for national polls ####
-library(httr)
-library(lubridate)
-library(rvest)
-library(tidyverse)
-library(xml2)
+source("Code/library.R")
 
+#### Scraping Wikipedia page for national polls ####
 polls_url <- "https://en.wikipedia.org/wiki/Opinion_polling_in_the_43rd_Canadian_federal_election"
 
 ## Get the Wikipedia polls page

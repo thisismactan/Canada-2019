@@ -1,9 +1,7 @@
+source("Code/library.R")
+
 election_year = 2006 # election year
 ridings_year = 2003 # year ridings were drawn
-
-library(readr)
-library(reshape2)
-library(tidyverse)
 
 ## Candidates data
 candidates <- read.csv(paste0("Data/candidates_", election_year, ".csv"), stringsAsFactors = FALSE) %>%

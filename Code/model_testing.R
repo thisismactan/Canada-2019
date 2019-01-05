@@ -31,4 +31,4 @@ r.squareds[4,3] <- summary(lm(NDP~incumbent*(NDP_lag+NDP_region+NDP_nation), dat
 r.squareds[4,4] <- summary(lm(Bloc~incumbent*(Bloc_lag+Bloc_region+Bloc_nation), data = historical_results.logit))$adj.r.squared
 r.squareds[4,5] <- summary(lm(Green~incumbent*(Green_lag+Green_region+Green_nation), data = historical_results.logit))$adj.r.squared
 
-r.squareds %>% round(3)
+round(r.squareds, 3)
