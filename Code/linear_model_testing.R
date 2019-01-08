@@ -78,3 +78,16 @@ r.squareds[2,2] <- summary(lm(CPC~incumbent*(CPC_lag+CPC_region+CPC_nation)+CPC_
 r.squareds[2,3] <- summary(lm(NDP~incumbent*(NDP_lag+NDP_region+NDP_nation)+NDP_elast_avg:NDP_nation, data = historical_results.logit))$adj.r.squared
 r.squareds[2,4] <- summary(lm(Bloc~incumbent*(Bloc_lag+Bloc_region+Bloc_nation)+Green_elast_avg:Green_nation, data = historical_results.logit))$adj.r.squared
 r.squareds[2,5] <- summary(lm(Green~incumbent*(Green_lag+Green_region+Green_nation)+Bloc_elast_avg:Bloc_nation, data = historical_results.logit))$adj.r.squared
+
+#### Test RMSE ####
+results_2006 <- historical_results.district %>% filter(year == 2006)
+results_2008 <- historical_results.district %>% filter(year == 2008)
+results_2011 <- historical_results.district %>% filter(year == 2011)
+
+lm.LPC_2006 <- lm(LPC~incumbent*(LPC_region+LPC_nation)+LPC_lag, data = results_2006)
+lm.LPC_2008 <- lm(LPC~incumbent*(LPC_region+LPC_nation)+LPC_lag, data = results_2008)
+lm.LPC_2011 <- lm(LPC~incumbent*(LPC_region+LPC_nation)+LPC_lag, data = results_2011)
+
+results_2008.pred <- results_2008 %>%
+  mutate(LPC_pred = predict(lm.LPC_2006, newdata = .),
+         LPC_error = LPC_pred - LPC)

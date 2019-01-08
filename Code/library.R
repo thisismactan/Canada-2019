@@ -16,9 +16,12 @@ library(xml2)
 ## Data manipulation
 library(Hmisc)
 library(lubridate)
-suppressMessages(library(tidyverse))
+library(tidyverse)
 library(readr)
 library(reshape2)
+
+## Modeling
+library(randomForest)
 
 #### CUSTOM FUNCTIONS ####
 ## logit(): takes the logit of x

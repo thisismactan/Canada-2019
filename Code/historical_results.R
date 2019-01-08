@@ -53,6 +53,7 @@ historical_results.district <- results_pre2013_wide %>%
          Green = Green/total,
          province_code = floor(district_code/1000)) %>%
   left_join(province_key, by = "province_code") %>%
+  arrange(district_code, year) %>%
   group_by(district_code) %>%
   mutate(Bloc_lag = lag(Bloc),
          CPC_lag = lag(CPC),
@@ -79,4 +80,5 @@ historical_results.logit <- historical_results.district %>%
          CPC_change = CPC - CPC_lag,
          NDP_change = NDP - NDP_lag,
          Green_change = Green - Green_lag,
-         Bloc_change = Bloc - Bloc_lag)
+         Bloc_change = Bloc - Bloc_lag) %>%
+  ungroup()
