@@ -55,7 +55,8 @@ district_elasticity <- historical_results.district %>%
             CPC_elast_avg = mean(CPC_elast, na.rm = TRUE),
             NDP_elast_avg = mean(NDP_elast, na.rm = TRUE),
             Green_elast_avg = mean(Green_elast, na.rm = TRUE),
-            Bloc_elast_avg = mean(Bloc_elast, na.rm = TRUE))
+            Bloc_elast_avg = mean(Bloc_elast, na.rm = TRUE)) %>%
+  ungroup()
 
 historical_results.district_elast <- historical_results.district %>%
   left_join(district_elasticity, by = "district_code")
@@ -64,30 +65,32 @@ r.squareds <- matrix(NA, 2, 5)
 rownames(r.squareds) <- c("Linear", "Logit")
 colnames(r.squareds) <- c("LPC", "CPC", "NDP", "Bloc", "Green")
 
-## Add elasticity-adjusted national popular vote
-# Linear scale
-r.squareds[1,1] <- summary(lm(LPC~incumbent*(LPC_lag+LPC_region+LPC_nation+LPC_elast_avg), data = historical_results.district_elast))$adj.r.squared
-r.squareds[1,2] <- summary(lm(CPC~incumbent*(CPC_lag+CPC_region+CPC_nation+CPC_elast_avg), data = historical_results.district_elast))$adj.r.squared
-r.squareds[1,3] <- summary(lm(NDP~incumbent*(NDP_lag+NDP_region+NDP_nation+NDP_elast_avg), data = historical_results.district_elast))$adj.r.squared
-r.squareds[1,4] <- summary(lm(Bloc~incumbent*(Bloc_lag+Bloc_region+Bloc_nation+Bloc_elast_avg), data = historical_results.district_elast))$adj.r.squared
-r.squareds[1,5] <- summary(lm(Green~incumbent*(Green_lag+Green_region+Green_nation+Green_elast_avg), data = historical_results.district_elast))$adj.r.squared
-
-# Logit scale
-r.squareds[2,1] <- summary(lm(LPC~incumbent*(LPC_lag+LPC_region+LPC_nation)+LPC_elast_avg:LPC_nation, data = historical_results.logit))$adj.r.squared
-r.squareds[2,2] <- summary(lm(CPC~incumbent*(CPC_lag+CPC_region+CPC_nation)+CPC_elast_avg:CPC_nation, data = historical_results.logit))$adj.r.squared
-r.squareds[2,3] <- summary(lm(NDP~incumbent*(NDP_lag+NDP_region+NDP_nation)+NDP_elast_avg:NDP_nation, data = historical_results.logit))$adj.r.squared
-r.squareds[2,4] <- summary(lm(Bloc~incumbent*(Bloc_lag+Bloc_region+Bloc_nation)+Green_elast_avg:Green_nation, data = historical_results.logit))$adj.r.squared
-r.squareds[2,5] <- summary(lm(Green~incumbent*(Green_lag+Green_region+Green_nation)+Bloc_elast_avg:Bloc_nation, data = historical_results.logit))$adj.r.squared
-
 #### Test RMSE ####
 results_2006 <- historical_results.district %>% filter(year == 2006)
 results_2008 <- historical_results.district %>% filter(year == 2008)
 results_2011 <- historical_results.district %>% filter(year == 2011)
 
-lm.LPC_2006 <- lm(LPC~incumbent*(LPC_region+LPC_nation)+LPC_lag, data = results_2006)
-lm.LPC_2008 <- lm(LPC~incumbent*(LPC_region+LPC_nation)+LPC_lag, data = results_2008)
-lm.LPC_2011 <- lm(LPC~incumbent*(LPC_region+LPC_nation)+LPC_lag, data = results_2011)
+lm.LPC_2006 <- lm(I(LPC-LPC_nation)~incumbent*I(province == "Quebec")*(LPC_region+LPC_lag), data = results_2006)
+lm.LPC_2008 <- lm(I(LPC-LPC_nation)~incumbent*I(province == "Quebec")*(LPC_region+LPC_lag), data = results_2008)
 
 results_2008.pred <- results_2008 %>%
-  mutate(LPC_pred = predict(lm.LPC_2006, newdata = .),
+  ungroup() %>%
+  mutate(LPC_pred = predict(lm.LPC_2006, newdata = .) + LPC_nation,
          LPC_error = LPC_pred - LPC)
+
+results_2011.pred <- results_2011 %>%
+  ungroup() %>%
+  mutate(LPC_pred = predict(lm.LPC_2008, newdata = .) + LPC_nation,
+         LPC_error = LPC_pred - LPC)
+
+results_2008.pred %>%
+  ggplot(aes(x = LPC, y = LPC_error)) +
+  geom_text(aes(label = district_code, col = incumbent), alpha = 0.5) +
+  geom_smooth(col = "black") +
+  scale_colour_manual(name = "Incumbent", values = c("#8ECEF9", "blue", "red", "darkorange1", "black"))
+
+results_2011.pred %>%
+  ggplot(aes(x = LPC, y = LPC_error)) +
+  geom_text(aes(label = district_code, col = incumbent), alpha = 0.5) +
+  geom_smooth(col = "black") +
+  scale_colour_manual(name = "Incumbent", values = c("#8ECEF9", "blue", "red", "darkorange1", "black"))

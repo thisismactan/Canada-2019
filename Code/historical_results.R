@@ -12,7 +12,14 @@ historical_results.nation <- results_pre2013_wide.votes %>%
          CPC_nation = CPC/total,
          NDP_nation = NDP/total,
          Green_nation = Green/total,
-         Bloc_nation = Bloc/total)
+         Bloc_nation = Bloc/total) %>%
+  arrange(year) %>%
+  mutate(LPC_nation_lag = lag(LPC_nation),
+         CPC_nation_lag = lag(CPC_nation),
+         NDP_nation_lag = lag(NDP_nation),
+         Green_nation_lag = lag(Green_nation),
+         Bloc_nation_lag = lag(Bloc_nation)) %>%
+  ungroup()
 
 ## Regional historical results
 
@@ -42,7 +49,15 @@ historical_results.region <- results_pre2013_wide %>%
          CPC_region = CPC/total,
          NDP_region = NDP/total,
          Green_region = Green/total,
-         Bloc_region = Bloc/total)
+         Bloc_region = Bloc/total) %>%
+  arrange(region, year) %>%
+  group_by(region) %>%
+  mutate(LPC_region_lag = lag(LPC_region),
+         CPC_region_lag = lag(CPC_region),
+         NDP_region_lag = lag(NDP_region),
+         Green_region_lag = lag(Green_region),
+         Bloc_region_lag = lag(Bloc_region)) %>%
+  ungroup()
 
 ## District historical results
 historical_results.district <- results_pre2013_wide %>%
@@ -66,7 +81,9 @@ historical_results.district <- results_pre2013_wide %>%
          CPC_change = CPC - CPC_lag,
          NDP_change = NDP - NDP_lag,
          Green_change = Green - Green_lag,
-         Bloc_change = Bloc - Bloc_lag)
+         Bloc_change = Bloc - Bloc_lag) %>%
+  ungroup() %>%
+  mutate(incumbent = factor(incumbent))
 
 ## Convert to logit
 historical_results.logit <- historical_results.district %>%
