@@ -14,6 +14,7 @@ library(tidyverse)
 library(xml2)
 
 ## Data manipulation
+library(data.table)
 library(Hmisc)
 library(lubridate)
 library(tidyverse)
@@ -22,8 +23,19 @@ library(reshape2)
 
 ## Modeling
 library(randomForest)
+library(randomForestExplainer)
+library(xgboost)
+library(xgboostExplainer)
 
 #### CUSTOM FUNCTIONS ####
+## fread_to_tbl(): uses data.table::fread() for fast reading of data, then converts to tibble
+fread_to_tbl <- function(filepath) {
+  data <- fread(filepath) %>%
+    as.data.frame() %>%
+    as.tbl()
+  return(data)
+}
+
 ## logit(): takes the logit of x
 logit <- function(x) {
   x <- log(x/(1-x))

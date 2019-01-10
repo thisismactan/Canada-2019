@@ -52,11 +52,11 @@ results_2015 <- read_csv("Data/Processed/2015_results_by_precinct.csv") %>%
   mutate(province_code = round(district_code/1000)) %>%
   left_join(province_key, by = "province_code")
 
-cands_2004 <- read.csv("Data/candidates_2004.csv", stringsAsFactors = FALSE) %>% mutate(year = 2004)
-cands_2006 <- read.csv("Data/candidates_2006.csv", stringsAsFactors = FALSE) %>% mutate(year = 2006)
-cands_2008 <- read.csv("Data/candidates_2008.csv", stringsAsFactors = FALSE) %>% mutate(year = 2008)
-cands_2011 <- read.csv("Data/candidates_2011.csv", stringsAsFactors = FALSE) %>% mutate(year = 2011)
-cands_2015 <- read.csv("Data/candidates_2015.csv", stringsAsFactors = FALSE) %>% mutate(year = 2015)
+cands_2004 <- fread_to_tbl("Data/candidates_2004.csv") %>% mutate(year = 2004)
+cands_2006 <- fread_to_tbl("Data/candidates_2006.csv") %>% mutate(year = 2006)
+cands_2008 <- fread_to_tbl("Data/candidates_2008.csv") %>% mutate(year = 2008)
+cands_2011 <- fread_to_tbl("Data/candidates_2011.csv") %>% mutate(year = 2011)
+cands_2015 <- fread_to_tbl("Data/candidates_2015.csv") %>% mutate(year = 2015)
 
 ## Reshaping to district-year level
 cands_pre2013 <- bind_rows(cands_2004, cands_2006, cands_2008, cands_2011) %>%
@@ -66,6 +66,14 @@ cands_pre2013 <- bind_rows(cands_2004, cands_2006, cands_2008, cands_2011) %>%
                                candidate_middle != "" ~ paste(candidate_first, candidate_middle, candidate_last))) %>%
   dplyr::select(district_code, year, party, candidate) %>%
   spread(party, candidate)
+
+## Stitching on campaign finance numbers
+contribs_wide <- fread_to_tbl("Data/Processed/campaign_contributions_2004_2015.csv") %>%
+  group_by(election_year, district, party) %>%
+  summarise(contributions = sum(contributions, na.rm = TRUE)) %>%
+  ungroup() %>%
+  spread(party, contributions, fill = 0) %>%
+  rename(Bloc_funds = Bloc, CPC_funds = Conservative, Green_funds = Green, LPC_funds = Liberal, NDP_funds = NDP)
 
 ## Identifying incumbents
 results_pre2013 <- bind_rows(results_2004, results_2006, results_2008, results_2011) %>%
