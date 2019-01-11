@@ -9,6 +9,9 @@ province_key <- tibble(province_code = c(10, 11, 12, 13, 24, 35, 46, 47, 48, 59,
                        region = c("Atlantic", "Atlantic", "Atlantic", "Atlantic", "Quebec", "Ontario", "Prairie", "Prairie", "Alberta",
                                   "British Columbia", "The frigid northlands", "The frigid northlands", "The frigid northlands"))
 
+## District keys
+source("Code/Data processing/clean_district_keys.R")
+
 #### Data shaping ####
 ## Read in election results and candidates
 results_2004 <- read_csv("Data/Processed/2004_results_by_precinct.csv") %>%
@@ -68,12 +71,21 @@ cands_pre2013 <- bind_rows(cands_2004, cands_2006, cands_2008, cands_2011) %>%
   spread(party, candidate)
 
 ## Stitching on campaign finance numbers
-contribs_wide <- fread_to_tbl("Data/Processed/campaign_contributions_2004_2015.csv") %>%
-  group_by(election_year, district, party) %>%
+contribs_2004_2011 <- fread_to_tbl("Data/Processed/campaign_contributions_2004_2011.csv") %>%
+  group_by(election_year, name_english, party) %>%
   summarise(contributions = sum(contributions, na.rm = TRUE)) %>%
   ungroup() %>%
   spread(party, contributions, fill = 0) %>%
-  rename(Bloc_funds = Bloc, CPC_funds = Conservative, Green_funds = Green, LPC_funds = Liberal, NDP_funds = NDP)
+  rename(Bloc_funds = Bloc, CPC_funds = Conservative, Green_funds = Green, LPC_funds = Liberal, NDP_funds = NDP) %>%
+  left_join(district_key_2003, by = "name_english")
+
+contribs_2015 <- fread_to_tbl("Data/Processed/campaign_contributions_2015.csv") %>%
+  group_by(election_year, name_english, party) %>%
+  summarise(contributions = sum(contributions, na.rm = TRUE)) %>%
+  ungroup() %>%
+  spread(party, contributions, fill = 0) %>%
+  rename(Bloc_funds = Bloc, CPC_funds = Conservative, Green_funds = Green, LPC_funds = Liberal, NDP_funds = NDP) %>%
+  left_join(district_key_2013, by = "name_english")
 
 ## Identifying incumbents
 results_pre2013 <- bind_rows(results_2004, results_2006, results_2008, results_2011) %>%
