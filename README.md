@@ -1,8 +1,8 @@
 # Canada-2019
-## Last updated: 9 Jan 2019
+## Last updated: 11 Jan 2019
 This is the repository for the Election StatSheet 2019 Canadian election forecast. Hooray!
 
-Current status: testing out some models, shaping campaign contributions data.
+Current status: testing random forest models.
 
 Does anyone know how to use spTransform() to change a shapefile to Lambert Conformal Conic projection?
 
@@ -26,6 +26,7 @@ Does anyone know how to use spTransform() to change a shapefile to Lambert Confo
       - **/Demographics**
     - **/Shapefiles**
   - **/Miscellanea**
+    - **/Model graphs**
 
 ### What's in the box?
 - **Code**: All scripts, including data processing, model building, simulation, etc.

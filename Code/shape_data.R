@@ -84,6 +84,7 @@ contribs_2004_2011 <- fread_to_tbl("Data/Processed/campaign_contributions_2004_2
   ungroup() %>%
   spread(party, contributions, fill = 0) %>%
   rename(Bloc_funds = Bloc, CPC_funds = Conservative, Green_funds = Green, LPC_funds = Liberal, NDP_funds = NDP) %>%
+  mutate(total_funds = Bloc_funds + CPC_funds + Green_funds + LPC_funds + NDP_funds) %>%
   left_join(district_key_2003, by = "name_english")
 
 contribs_2015 <- fread_to_tbl("Data/Processed/campaign_contributions_2015.csv") %>%
@@ -92,6 +93,7 @@ contribs_2015 <- fread_to_tbl("Data/Processed/campaign_contributions_2015.csv") 
   ungroup() %>%
   spread(party, contributions, fill = 0) %>%
   rename(Bloc_funds = Bloc, CPC_funds = Conservative, Green_funds = Green, LPC_funds = Liberal, NDP_funds = NDP) %>%
+  mutate(total_funds = Bloc_funds + CPC_funds + Green_funds + LPC_funds + NDP_funds) %>%
   left_join(district_key_2013, by = "name_english")
 
 ## Identifying incumbents
@@ -138,7 +140,7 @@ results_pre2013_long <- results_pre2013 %>%
   as.tbl() %>%
   left_join(contribs_2004_2011, by = c("district_code", "year")) %>%
   dplyr::select(district_code, name_english = name_english.y, year, incumbent, variable, value, party, LPC_funds, 
-                CPC_funds, NDP_funds, Green_funds, Bloc_funds)
+                CPC_funds, NDP_funds, Green_funds, Bloc_funds, total_funds)
 
 ## Wide format
 results_pre2013_wide <- results_pre2013_long %>%
@@ -194,7 +196,7 @@ results_2015_long <- results_2015 %>%
   as.tbl() %>%
   left_join(contribs_2015, by = c("district_code", "year")) %>%
   dplyr::select(district_code, name_english = name_english.y, year, incumbent, variable, value, party, LPC_funds, 
-                CPC_funds, NDP_funds, Green_funds, Bloc_funds)
+                CPC_funds, NDP_funds, Green_funds, Bloc_funds, total_funds)
 
 ## Wide format
 results_pre2013_wide <- results_pre2013_long %>%

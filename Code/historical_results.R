@@ -4,7 +4,7 @@
 source("Code/shape_data.R")
 
 ## National historical results
-historical_results.nation <- results_pre2013_wide.votes %>%
+historical_results.nation <- results_pre2013_wide %>%
   group_by(year) %>%
   summarise_at(vars(c("LPC", "CPC", "NDP", "Green", "Bloc", "total")), sum) %>%
   ungroup() %>%
@@ -59,30 +59,6 @@ historical_results.region <- results_pre2013_wide %>%
          Bloc_region_lag = lag(Bloc_region)) %>%
   ungroup()
 
-## Demographics
-demographics <- fread("Data/Raw/Demographics/districts_sex_age_education_2016.csv") %>%
-  as.data.frame() %>%
-  as.tbl() %>%
-  filter(district_code > 10000, age %in% c("15 to 24 years", "25 to 29 years", "30 to 34 years", "35 to 44 years", "45 to 54 years",
-                                           "55 to 64 years", "65 to 74 years", "75 years and over", "Total")) %>%
-  mutate(education = case_when(education %in% c("No certificate, diploma or degree",
-                                                "Secondary (high) school diploma or equivalency certificate") ~ "HS or less",
-                               education %in% c("Apprenticeship or trades certificate or diploma",
-                                                "College, CEGEP or other non-university certificate or diploma",
-                                                "University certificate or diploma below bachelor level") ~ "College / some university",
-                               education %in% c("University certificate, diploma or degree at bachelor level or above") ~ "Bachelor's or above",
-                               education %in% c("Bachelor's degree") ~ "Bachelor's only",
-                               education %in% c("University certificate, diploma or degree above bachelor level") ~ "Graduate degree",
-                               education == "Total" ~ "Total"),
-         age = case_when(age %in% c("15 to 24 years", "25 to 29 years") ~ "15 to 29 years",
-                         age %in% c("30 to 34 years", "35 to 44 years") ~ "30 to 44 years",
-                         age %in% c("45 to 54 years", "55 to 64 years") ~ "45 to 64 years",
-                         age %in% c("65 to 74 years", "75 years and over") ~ "65 and older",
-                         age == "Total" ~ "Total")) %>%
-  group_by(year, district_code, district_name, age, sex, education) %>%
-  summarise(total_people = sum(total_people)) %>%
-  ungroup()
-
 ## District historical results
 historical_results.district <- results_pre2013_wide %>%
   mutate(LPC = LPC/total,
@@ -109,7 +85,12 @@ historical_results.district <- results_pre2013_wide %>%
   ungroup() %>%
   mutate(incumbent = factor(incumbent),
          census_year = case_when(year %in% c(2004, 2006, 2008) ~ 2006,
-                                 year == 2011 ~ 2011))
+                                 year == 2011 ~ 2011),
+         LPC_funds_frac = LPC_funds/total_funds,
+         CPC_funds_frac = CPC_funds/total_funds,
+         NDP_funds_frac = NDP_funds/total_funds,
+         Bloc_funds_frac = Bloc_funds/total_funds,
+         Green_funds_frac = Green_funds/total_funds)
 
 ## Convert to logit
 historical_results.logit <- historical_results.district %>%

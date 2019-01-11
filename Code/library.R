@@ -47,3 +47,10 @@ invlogit <- function(x) {
   x <- exp(x)/(1 + exp(x))
   return(x)
 }
+
+## sum_squares(): calculates sum of squares of a vector
+mean_squares <- function(x) {
+  ss <- sum(x^2, na.rm = TRUE)
+  n <- length(x[!is.na(x)])
+  return(ss/n)
+}
