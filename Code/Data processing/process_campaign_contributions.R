@@ -2,7 +2,7 @@
 source("Code/library.R")
 
 ## Read in
-contribs <- fread_to_tbl("Data/Raw/contribs_2004_2015.csv") %>%
+contribs <- fread_to_tbl("Data/Raw/contribs_2004_2015_submitted.csv") %>%  
   filter(grepl("candidate", `Political Entity`, ignore.case = TRUE)) %>%
   dplyr::select(candidate_id = `Recipient ID`,
                 candidate_name = Recipient,
