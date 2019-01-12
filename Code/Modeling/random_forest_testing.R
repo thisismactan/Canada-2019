@@ -197,7 +197,7 @@ rf.errors %>%
        subtitle = "Random forest 1",
        x = "Error", y = "Density")
 
-ggsave(filename = "Miscellanea/Model graphs/rf_errors_region.png", width = 16, height = 9)
+ggsave(filename = "Output/Model graphs/rf_errors_region.png", width = 16, height = 9)
 
 # Party, by year
 rf.errors %>%
@@ -211,7 +211,7 @@ rf.errors %>%
        subtitle = "Random forest 1",
        x = "Error", y = "Density")
 
-ggsave(filename = "Miscellanea/Model graphs/rf_errors_year.png", width = 16, height = 5)
+ggsave(filename = "Output/Model graphs/rf_errors_year.png", width = 16, height = 5)
 
 #### LOOCV on all years, all districts + population predictors
 results <- historical_results.district %>%
@@ -397,6 +397,8 @@ for(i in 1:n) {
          Bloc_error = Bloc_error) %>%
   dplyr::select(district_code, name_english, year, incumbent, province, region, LPC_error, CPC_error, NDP_error, Green_error, Bloc_error)
 
+write.csv(rf_pop.errors, file = "Output/Model testing/rf_pop_errors.csv", row.names = FALSE) 
+ 
 ## Error summary stats
 # RMSE by party
 rf_pop.errors %>%
@@ -441,7 +443,7 @@ rf_pop.errors %>%
        subtitle = "Random forest 2",
        x = "Error", y = "Observations")
 
-ggsave(filename = "Miscellanea/Model graphs/rf_pop_errors_region.png", width = 16, height = 9)
+ggsave(filename = "Output/Model graphs/rf_pop_errors_region.png", width = 16, height = 9)
 
 # Party, by year
 rf_pop.errors %>%
@@ -455,4 +457,4 @@ rf_pop.errors %>%
        subtitle = "Random forest 2",
        x = "Error", y = "Observations")
 
-ggsave(filename = "Miscellanea/Model graphs/rf_pop_errors_year.png", width = 16, height = 5)
+ggsave(filename = "Output/Model graphs/rf_pop_errors_year.png", width = 16, height = 5)

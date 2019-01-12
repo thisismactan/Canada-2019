@@ -106,39 +106,41 @@ xgb.errors <- results %>%
          Green = Green_error,
          Bloc = Bloc_error)
 
+write.csv(xgb.errors, file = "Output/Model testing/xgb_errors.csv", row.names = FALSE)
+
 ## Error summary stats
 # RMSE by party
-rf_pop.errors %>%
+xgb.errors %>%
   summarise(n = n(),
-            LPC = sqrt(mean_squares(LPC_error)),
-            CPC = sqrt(mean_squares(CPC_error)),
-            NDP = sqrt(mean_squares(NDP_error)),
-            Green = sqrt(mean_squares(Green_error)),
-            Bloc = sqrt(mean_squares(Bloc_error)))
+            LPC = sqrt(mean_squares(LPC)),
+            CPC = sqrt(mean_squares(CPC)),
+            NDP = sqrt(mean_squares(NDP)),
+            Green = sqrt(mean_squares(Green)),
+            Bloc = sqrt(mean_squares(Bloc)))
 
 # RMSE by party, region
-rf_pop.errors %>%
-  group_by(region) %>%
-  summarise(districts = n(),
-            LPC = sqrt(mean_squares(LPC_error)),
-            CPC = sqrt(mean_squares(CPC_error)),
-            NDP = sqrt(mean_squares(NDP_error)),
-            Green = sqrt(mean_squares(Green_error)),
-            Bloc = sqrt(mean_squares(Bloc_error)))
+xgb.errors %>%
+  dplyr::group_by(region) %>%
+  dplyr::summarise(districts = n(),
+            LPC = sqrt(mean_squares(LPC)),
+            CPC = sqrt(mean_squares(CPC)),
+            NDP = sqrt(mean_squares(NDP)),
+            Green = sqrt(mean_squares(Green)),
+            Bloc = sqrt(mean_squares(Bloc)))
 
 # RMSE by party, year
-rf_pop.errors %>%
+xgb.errors %>%
   group_by(year) %>%
   summarise(districts = n(),
-            LPC = sqrt(mean_squares(LPC_error)),
-            CPC = sqrt(mean_squares(CPC_error)),
-            NDP = sqrt(mean_squares(NDP_error)),
-            Green = sqrt(mean_squares(Green_error)),
-            Bloc = sqrt(mean_squares(Bloc_error)))
+            LPC = sqrt(mean_squares(LPC)),
+            CPC = sqrt(mean_squares(CPC)),
+            NDP = sqrt(mean_squares(NDP)),
+            Green = sqrt(mean_squares(Green)),
+            Bloc = sqrt(mean_squares(Bloc)))
 
 ## Density plots 
 # Party, by region
-rf_pop.errors %>%
+xgb.errors %>%
   filter(region != "The frigid northlands") %>%
   melt(id.vars = c("district_code", "name_english", "year", "incumbent", "province", "region"),
        variable.name = "party", value.name = "error") %>%
@@ -147,13 +149,13 @@ rf_pop.errors %>%
   geom_histogram(col = "black", binwidth = 0.02) +
   scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
   labs(title = "Distribution of errors by party and region",
-       subtitle = "Random forest 2",
+       subtitle = "Gradient boosting 1",
        x = "Error", y = "Observations")
 
-ggsave(filename = "Miscellanea/Model graphs/rf_pop_errors_region.png", width = 16, height = 9)
+ggsave(filename = "Output/Model graphs/xgb_errors_region.png", width = 16, height = 9)
 
 # Party, by year
-rf_pop.errors %>%
+xgb.errors %>%
   melt(id.vars = c("district_code", "name_english", "year", "incumbent", "province", "region"),
        variable.name = "party", value.name = "error") %>%
   ggplot(aes(x = error, fill = party)) +
@@ -164,4 +166,4 @@ rf_pop.errors %>%
        subtitle = "Random forest 2",
        x = "Error", y = "Observations")
 
-ggsave(filename = "Miscellanea/Model graphs/rf_pop_errors_year.png", width = 16, height = 5)
+ggsave(filename = "Output/Model graphs/xgb_errors_year.png", width = 16, height = 5)
