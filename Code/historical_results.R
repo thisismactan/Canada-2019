@@ -94,7 +94,9 @@ historical_results.district <- results_pre2013_wide %>%
          NDP_funds_frac = NDP_funds/total_funds,
          Bloc_funds_frac = Bloc_funds/total_funds,
          Green_funds_frac = Green_funds/total_funds) %>%
-  left_join(population, by = c("district_code", "census_year"))
+  left_join(population, by = c("district_code", "census_year")) %>%
+  mutate(years_since_census = year - census_year,
+         pop_growth = pop_growth_rate^years_since_census)
 
 ## Convert to logit
 historical_results.logit <- historical_results.district %>%
