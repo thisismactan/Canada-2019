@@ -3,15 +3,16 @@ source("Code/library.R")
 
 #### Population counts ####
 pop2006 <- fread_to_tbl("Data/Raw/Demographics/districts_pop_2006.csv") %>%
-  mutate(census_year = 2006)
+  mutate(census_year = 2006, census_year_lag = 2001)
 pop2011 <- fread_to_tbl("Data/Raw/Demographics/districts_pop_2011.csv") %>%
-  mutate(census_year = 2011)
+  mutate(census_year = 2011, census_year_lag = 2006)
 pop2016 <- fread_to_tbl("Data/Raw/Demographics/districts_pop_2016.csv") %>%
-  mutate(census_year = 2016)
+  mutate(census_year = 2016, census_year_lag = 2011)
 
 population <- bind_rows(pop2006, pop2011, pop2016) %>%
-  dplyr::select(census_year, district_code, pop, pop_lag, dwellings, occupied_dwellings) %>%
-  mutate()
+  dplyr::select(census_year, census_year_lag, district_code, pop, pop_lag, dwellings, occupied_dwellings) %>%
+  mutate(pop_change = pop/pop_lag,
+         pop_growth_rate = (pop_change)^(1/(census_year - census_year_lag)) - 1)
 
 #### Age, sex, and education for 2016 ####
 demographics <- fread("Data/Raw/Demographics/districts_sex_age_education_2016.csv") %>%

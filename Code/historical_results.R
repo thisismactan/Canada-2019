@@ -59,6 +59,9 @@ historical_results.region <- results_pre2013_wide %>%
          Bloc_region_lag = lag(Bloc_region)) %>%
   ungroup()
 
+## Population variables
+source("Code/Data processing/process_demographic_data.R")
+
 ## District historical results
 historical_results.district <- results_pre2013_wide %>%
   mutate(LPC = LPC/total,
@@ -90,7 +93,8 @@ historical_results.district <- results_pre2013_wide %>%
          CPC_funds_frac = CPC_funds/total_funds,
          NDP_funds_frac = NDP_funds/total_funds,
          Bloc_funds_frac = Bloc_funds/total_funds,
-         Green_funds_frac = Green_funds/total_funds)
+         Green_funds_frac = Green_funds/total_funds) %>%
+  left_join(population, by = c("district_code", "census_year"))
 
 ## Convert to logit
 historical_results.logit <- historical_results.district %>%
