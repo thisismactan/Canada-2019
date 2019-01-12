@@ -299,6 +299,20 @@ rf.errors %>%
             Bloc = sqrt(mean_squares(Bloc_error)))
 
 ## Density plots 
+# Party, overall
+rf.errors %>%
+  filter(region != "The frigid northlands") %>%
+  melt(id.vars = c("district_code", "name_english", "year", "incumbent", "province", "region"),
+       variable.name = "party", value.name = "error") %>%
+  ggplot(aes(x = error, fill = party)) +
+  geom_histogram(col = "black", binwidth = 0.02) +
+  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
+  labs(title = "Distribution of errors by party and region",
+       subtitle = "Random forest 1",
+       x = "Error", y = "Density")
+
+ggsave(filename = "Miscellanea/Model graphs/rf_errors_national.png", width = 7, height = 7)
+
 # Party, by region
 rf.errors %>%
   filter(region != "The frigid northlands") %>%
@@ -306,7 +320,7 @@ rf.errors %>%
        variable.name = "party", value.name = "error") %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~region) +
-  geom_histogram(col = "black", alpha = 0.7, binwidth = 0.02) +
+  geom_histogram(col = "black", binwidth = 0.02) +
   scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
   labs(title = "Distribution of errors by party and region",
        subtitle = "Random forest 1",
@@ -320,7 +334,7 @@ rf.errors %>%
        variable.name = "party", value.name = "error") %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~year) +
-  geom_histogram(col = "black", alpha = 0.7, binwidth = 0.02) +
+  geom_histogram(col = "black", binwidth = 0.02) +
   scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
   labs(title = "Distribution of errors by party and region",
        subtitle = "Random forest 1",
