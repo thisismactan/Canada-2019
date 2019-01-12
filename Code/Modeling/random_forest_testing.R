@@ -154,6 +154,8 @@ rf.errors <- results %>%
          Bloc_error = Bloc_error) %>%
   dplyr::select(district_code, name_english, year, incumbent, province, region, LPC_error, CPC_error, NDP_error, Green_error, Bloc_error)
 
+write.csv(rf.errors, file = "Output/Model testing/rf_errors.csv", row.names = FALSE)
+
 ## Error summary stats
 # RMSE by party
 rf.errors %>%
@@ -187,15 +189,16 @@ rf.errors %>%
 ## Density plots 
 # Party, by region
 rf.errors %>%
+  filter(region != "The frigid northlands") %>%
   melt(id.vars = c("district_code", "name_english", "year", "incumbent", "province", "region"),
        variable.name = "party", value.name = "error") %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~region) +
-  geom_histogram(col = "black", alpha = 0.5, binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "orange4", "green4"), labels = c("LPC", "CPC", "NDP", "Green")) +
+  geom_histogram(col = "black", binwidth = 0.02) +
+  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
   labs(title = "Distribution of errors by party and region",
        subtitle = "Random forest 1",
-       x = "Error", y = "Density")
+       x = "Error", y = "Observations")
 
 ggsave(filename = "Output/Model graphs/rf_errors_region.png", width = 16, height = 9)
 
@@ -205,11 +208,11 @@ rf.errors %>%
        variable.name = "party", value.name = "error") %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~year) +
-  geom_histogram(col = "black", alpha = 0.5, binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "orange4", "green4"), labels = c("LPC", "CPC", "NDP", "Green")) +
-  labs(title = "Distribution of errors by party and region",
+  geom_histogram(col = "black", binwidth = 0.02) +
+  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
+  labs(title = "Distribution of errors by party and year",
        subtitle = "Random forest 1",
-       x = "Error", y = "Density")
+       x = "Error", y = "Observations")
 
 ggsave(filename = "Output/Model graphs/rf_errors_year.png", width = 16, height = 5)
 
@@ -268,6 +271,8 @@ rf.errors <- results %>%
          Bloc_error = Bloc_error) %>%
   dplyr::select(district_code, name_english, year, incumbent, province, region, LPC_error, CPC_error, NDP_error, Green_error, Bloc_error)
 
+write.csv(rf.errors, file = "Output/Model testing/rf_errors/csv",) 
+
 ## Error summary stats
 # RMSE by party
 rf.errors %>%
@@ -311,8 +316,6 @@ rf.errors %>%
        subtitle = "Random forest 1",
        x = "Error", y = "Density")
 
-ggsave(filename = "Miscellanea/Model graphs/rf_errors_national.png", width = 7, height = 7)
-
 # Party, by region
 rf.errors %>%
   filter(region != "The frigid northlands") %>%
@@ -326,7 +329,7 @@ rf.errors %>%
        subtitle = "Random forest 1",
        x = "Error", y = "Observations")
 
-ggsave(filename = "Miscellanea/Model graphs/rf_errors_region.png", width = 20, height = 12)
+ggsave(filename = "Output/Model graphs/rf_errors_region.png", width = 20, height = 12)
 
 # Party, by year
 rf.errors %>%
@@ -340,7 +343,7 @@ rf.errors %>%
        subtitle = "Random forest 1",
        x = "Error", y = "Observations")
 
-ggsave(filename = "Miscellanea/Model graphs/rf_errors_year.png", width = 20, height = 7)
+ggsave(filename = "Output/Model graphs/rf_errors_year.png", width = 20, height = 7)
 
 #### LOOCV on all years with population predictors ####
 results <- historical_results.district %>%

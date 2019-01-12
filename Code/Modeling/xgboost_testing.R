@@ -163,7 +163,7 @@ xgb.errors %>%
   geom_histogram(col = "black", binwidth = 0.02) +
   scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
   labs(title = "Distribution of errors by party and year",
-       subtitle = "Random forest 2",
+       subtitle = "Gradient boosting 1",
        x = "Error", y = "Observations")
 
 ggsave(filename = "Output/Model graphs/xgb_errors_year.png", width = 16, height = 5)
