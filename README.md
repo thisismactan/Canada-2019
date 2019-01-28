@@ -1,14 +1,13 @@
 # Canada-2019
-## Last updated: 11 Jan 2019
+## Last updated: 28 Jan 2019
 This is the repository for the Election StatSheet 2019 Canadian election forecast. Hooray!
 
-Current status: testing random forest models.
+Current status: testing random forest models, estimating model error variances, figuring out how to scrape tables from a drop-down menu at this URL: https://www12.statcan.gc.ca/english/census01/products/standard/fedprofile/SelectFED.cfm?R=FED03 
 
 Does anyone know how to use spTransform() to change a shapefile to Lambert Conformal Conic projection?
 
 ### Notes to self ###
 - Final model must predict all parties' share of the vote simultaneously allowing for correlations between parties
-- Currently waiting on: **StatCan to get back to me on electoral district demographics 2001 - 2011**
 
 ## Directory structure
 - **/Canada-2019**
@@ -32,5 +31,5 @@ Does anyone know how to use spTransform() to change a shapefile to Lambert Confo
 ### What's in the box?
 - **Code**: All scripts, including data processing, model building, simulation, etc.
 - **Data**: Raw data downloaded from websites (see repo wiki). After processing, the processed versions are saved to the Processed directory. Also, shapefiles for creating maps.
-- **Miscellanea**: For now, these are just images I want to add to the wiki.
+- **Output**: Things generally for publication.
 

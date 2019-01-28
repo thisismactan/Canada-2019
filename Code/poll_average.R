@@ -45,7 +45,7 @@ ggplot(national_polls %>%
               variable.name = "Party", value.name = "Poll"), 
        aes(x = date, y = Poll, col = Party)) +
   geom_point(alpha = 0.4, size = 1) +
-  geom_smooth(method = "loess", span = 0.4, size = 1) +
+  geom_smooth(method = "loess", span = 0.3, size = 1) +
   scale_colour_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "midnightblue"),
                       labels = c("Liberal", "Conservative", "NDP", "Green", "People's")) +
   labs(title = "2019 Canadian federal election polling",
@@ -60,57 +60,25 @@ provincial_polls <- read_csv("Data/provincial_polling.csv") %>%
   # Calculate poll age
   mutate(last_date = as.Date(last_date, format = "%d-%b-%y"),
          date = last_date - floor(spread/2),
-         age = as.numeric(today() - date)) %>%
+         age = as.numeric(lubridate::today() - date)) %>%
   
   arrange(age) %>%
   dplyr::select(pollster, date, age, mode, province = time, LPC, CPC, NDP, BQ, GPC, PPC) %>%
+  mutate(province = case_when(province == "BC" ~ "British Columbia",
+                              province != "BC" ~ province)) %>%
   as.tbl()
 
 ## Plotting
-province_polls <- function(province) {
-  if(grepl("q", province, ignore.case = TRUE)) {
-    p <- provincial_polls %>%
-      rename(prov = province) %>%
-      filter(prov == province) %>%
-      melt(id.vars = c("pollster", "date", "age", "mode", "prov"), variable.name = "Party", value.name = "Poll") %>%
-      mutate(Poll = as.numeric(Poll)) %>%
-      ggplot(aes(x = date, y = Poll, col = Party)) +
-      geom_point(alpha = 0.4, size = 1) +
-      geom_smooth(method = "loess", span = 0.75, size = 1) +
-      scale_x_date(date_breaks = "months", date_labels = "%b %Y") +
-      labs(title = "2019 Canadian federal election polling",
-           subtitle = province, x = "Date", y = "%") +
-      scale_colour_manual(name = "Party", values = c("red", "blue", "darkorange1", "#8ECEF9", "green4", "midnightblue"),
-                          labels = c("Liberal", "Conservative", "NDP", "Bloc", "Green", "People's"))
-  } else if(!grepl("q", province, ignore.case = TRUE)) {
-    p <- provincial_polls %>%
-      rename(prov = province) %>%
-      filter(prov == province) %>%
-      melt(id.vars = c("pollster", "date", "age", "mode", "prov"), variable.name = "Party", value.name = "Poll") %>%
-      mutate(Poll = as.numeric(Poll)) %>%
-      filter(Party != "BQ") %>%
-      ggplot(aes(x = date, y = Poll, col = Party)) +
-      geom_point(alpha = 0.4, size = 1) +
-      geom_smooth(method = "loess", span = 0.75, size = 1) +
-      scale_x_date(date_breaks = "months", date_labels = "%b %Y") +
-      labs(title = "2019 Canadian federal election polling",
-           subtitle = province, x = "Date", y = "%") +
-      scale_colour_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "midnightblue"),
-                          labels = c("Liberal", "Conservative", "NDP", "Green", "People's"))
-  }
-  return(p)
-}
-
 provincial_polls %>%
   melt(id.vars = c("pollster", "date", "age", "mode", "province"), variable.name = "Party", value.name = "Poll") %>%
   mutate(Poll = as.numeric(Poll)) %>%
   ggplot(aes(x = date, y = Poll, col = Party)) +
   facet_wrap(~province) +
   geom_point(alpha = 0.4, size = 1) +
-  geom_smooth(method = "loess", span = 0.75, size = 1) +
+  geom_smooth(method = "loess", span = 2/3, size = 1) +
   scale_colour_manual(name = "Party", values = c("red", "blue", "darkorange1", "#8ECEF9", "green4", "midnightblue"),
                       labels = c("Liberal", "Conservative", "NDP", "Bloc", "Green", "People's")) +
   labs(title = "2019 Canadian federal election polling",
        subtitle = "By province", x = "Date", y = "%") +
   scale_x_date(date_breaks = "months", date_labels = "%b %Y") +
-  theme(axis.text.x = element_text(angle = 90))
+  theme(axis.text.x = element_text(angle = 90, size = 7))

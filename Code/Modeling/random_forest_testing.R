@@ -216,7 +216,7 @@ rf.errors %>%
 
 ggsave(filename = "Output/Model graphs/rf_errors_year.png", width = 16, height = 5)
 
-#### LOOCV on all years, all districts + population predictors
+#### LOOCV on all years, all districts + population predictors ####
 results <- historical_results.district %>%
   filter(year != 2004) %>%
   mutate_at(vars(contains("funds")), function(x) {
@@ -271,7 +271,7 @@ rf.errors <- results %>%
          Bloc_error = Bloc_error) %>%
   dplyr::select(district_code, name_english, year, incumbent, province, region, LPC_error, CPC_error, NDP_error, Green_error, Bloc_error)
 
-write.csv(rf.errors, file = "Output/Model testing/rf_errors/csv",) 
+write.csv(rf.errors, file = "Output/Model testing/rf_errors.csv", row.names = FALSE) 
 
 ## Error summary stats
 # RMSE by party
@@ -461,3 +461,5 @@ rf_pop.errors %>%
        x = "Error", y = "Observations")
 
 ggsave(filename = "Output/Model graphs/rf_pop_errors_year.png", width = 16, height = 5)
+
+#### LOOCV on all years with population predictors, tuning hyperparameters by 77-fold cross-validation ####
