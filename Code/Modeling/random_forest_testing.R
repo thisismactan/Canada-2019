@@ -78,7 +78,7 @@ rf.errors_anglo %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~region) +
   geom_histogram(col = "black", alpha = 0.5, binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "orange4", "green4"), labels = c("LPC", "CPC", "NDP", "Green")) +
+  scale_fill_manual(name = "Party", values = national_colors[1:4], labels = national_parties[1:4]) +
   labs(title = "Distribution of errors by party and region",
        subtitle = "Random forest 1",
        x = "Error", y = "Density")
@@ -92,7 +92,7 @@ rf.errors_anglo %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~year) +
   geom_histogram(col = "black", alpha = 0.5, binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "orange4", "green4"), labels = c("LPC", "CPC", "NDP", "Green")) +
+  scale_fill_manual(name = "Party", values = national_colors[1:4], labels = national_parties[1:4]) +
   labs(title = "Distribution of errors by party and region",
        subtitle = "Random forest 1",
        x = "Error", y = "Density")
@@ -195,7 +195,7 @@ rf.errors %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~region) +
   geom_histogram(col = "black", binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
+  scale_fill_manual(name = "Party", values = quebec_colors[1:5], labels = quebec_parties[1:5]) +
   labs(title = "Distribution of errors by party and region",
        subtitle = "Random forest 1",
        x = "Error", y = "Observations")
@@ -209,7 +209,7 @@ rf.errors %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~year) +
   geom_histogram(col = "black", binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
+  scale_fill_manual(name = "Party", values = quebec_colors[1:5], labels = quebec_parties[1:5]) +
   labs(title = "Distribution of errors by party and year",
        subtitle = "Random forest 1",
        x = "Error", y = "Observations")
@@ -311,7 +311,7 @@ rf.errors %>%
        variable.name = "party", value.name = "error") %>%
   ggplot(aes(x = error, fill = party)) +
   geom_histogram(col = "black", binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
+  scale_fill_manual(name = "Party", values = quebec_colors[1:5], labels = quebec_parties[1:5]) +
   labs(title = "Distribution of errors by party and region",
        subtitle = "Random forest 1",
        x = "Error", y = "Density")
@@ -324,7 +324,7 @@ rf.errors %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~region) +
   geom_histogram(col = "black", binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
+  scale_fill_manual(name = "Party", values = quebec_colors[1:5], labels = quebec_parties[1:5]) +
   labs(title = "Distribution of errors by party and region",
        subtitle = "Random forest 1",
        x = "Error", y = "Observations")
@@ -338,7 +338,7 @@ rf.errors %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~year) +
   geom_histogram(col = "black", binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
+  scale_fill_manual(name = "Party", values = quebec_colors[1:5], labels = quebec_parties[1:5]) +
   labs(title = "Distribution of errors by party and region",
        subtitle = "Random forest 1",
        x = "Error", y = "Observations")
@@ -441,7 +441,7 @@ rf_pop.errors %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~region) +
   geom_histogram(col = "black", binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
+  scale_fill_manual(name = "Party", values = quebec_colors[1:5], labels = quebec_parties[1:5]) +
   labs(title = "Distribution of errors by party and region",
        subtitle = "Random forest 2",
        x = "Error", y = "Observations")
@@ -455,7 +455,7 @@ rf_pop.errors %>%
   ggplot(aes(x = error, fill = party)) +
   facet_wrap(~year) +
   geom_histogram(col = "black", binwidth = 0.02) +
-  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "#8ECEF9"), labels = c("LPC", "CPC", "NDP", "Green", "Bloc")) +
+  scale_fill_manual(name = "Party", values = quebec_colors[1:5], labels = quebec_parties[1:5]) +
   labs(title = "Distribution of errors by party and year",
        subtitle = "Random forest 2",
        x = "Error", y = "Observations")

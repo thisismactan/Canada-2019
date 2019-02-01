@@ -29,6 +29,13 @@ library(randomForestExplainer)
 library(xgboost)
 library(xgboostExplainer)
 
+#### PARTY COLORS ####
+quebec_parties <- c("Liberal", "Conservative", "NDP", "Bloc", "Green", "People's")
+quebec_colors <- c("red", "blue", "darkorange1", "#8ECEF9", "green4", "midnightblue")
+
+national_parties <- c("Liberal", "Conservative", "NDP", "Green", "People's")
+national_colors <- c("red", "blue", "darkorange1", "green4", "midnightblue")
+
 #### CUSTOM FUNCTIONS ####
 ## fread_to_tbl(): uses data.table::fread() for fast reading of data, then converts to tibble
 fread_to_tbl <- function(filepath) {
@@ -113,8 +120,7 @@ province_polls <- function(province) {
       scale_x_date(date_breaks = "months", date_labels = "%b %Y") +
       labs(title = "2019 Canadian federal election polling",
            subtitle = province, x = "Date", y = "%") +
-      scale_colour_manual(name = "Party", values = c("red", "blue", "darkorange1", "#8ECEF9", "green4", "midnightblue"),
-                          labels = c("Liberal", "Conservative", "NDP", "Bloc", "Green", "People's"))
+      scale_colour_manual(name = "Party", values = quebec_colors, labels = quebec_parties)
   } else if(!grepl("q", province, ignore.case = TRUE)) {
     p <- provincial_polls %>%
       rename(prov = province) %>%
@@ -128,8 +134,8 @@ province_polls <- function(province) {
       scale_x_date(date_breaks = "months", date_labels = "%b %Y") +
       labs(title = "2019 Canadian federal election polling",
            subtitle = province, x = "Date", y = "%") +
-      scale_colour_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "midnightblue"),
-                          labels = c("Liberal", "Conservative", "NDP", "Green", "People's"))
+      scale_colour_manual(name = "Party", values = national_colors, labels = national_parties)
   }
   return(p)
 }
+
