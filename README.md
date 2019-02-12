@@ -1,5 +1,5 @@
 # Canada-2019
-## Last updated: 28 Jan 2019
+## Last updated: 12 Feb 2019
 This is the repository for the Election StatSheet 2019 Canadian election forecast. Hooray!
 
 Current status: testing random forest models, estimating model error variances, figuring out how to scrape tables from a drop-down menu at this URL: https://www12.statcan.gc.ca/english/census01/products/standard/fedprofile/SelectFED.cfm?R=FED03 
