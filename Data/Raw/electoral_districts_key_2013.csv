@@ -1,4 +1,4 @@
-district_code,name_english,population
+Ôªødistrict_code,name_english,population
 10001,Avalon,81540
 10002,Bonavista--Burin--Trinity,76704
 10003,Coast of Bays--Central--Notre Dame,78092
@@ -22,7 +22,7 @@ district_code,name_english,population
 12010,Sydney--Victoria,73328
 12011,West Nova,83654
 13001,Acadie--Bathurst,79340
-13002,BeausÈjour,80416
+13002,Beaus√©jour,80416
 13003,Fredericton,81759
 13004,Fundy Royal,79331
 13005,Madawaska--Restigouche,62540
@@ -32,82 +32,82 @@ district_code,name_english,population
 13009,Saint John--Rothesay,82129
 13010,Tobique--Mactaquac,70632
 24001,Abitibi--Baie-James--Nunavik--Eeyou,85475
-24002,Abitibi--TÈmiscamingue,102794
+24002,Abitibi--T√©miscamingue,102794
 24003,Ahuntsic-Cartierville,110473
 24004,Alfred-Pellan,98045
 24005,Argenteuil--La Petite-Nation,94208
-24006,Avignon--La Mitis--Matane--MatapÈdia,74547
+24006,Avignon--La Mitis--Matane--Matap√©dia,74547
 24007,Beauce,106337
 24008,Beauport--Limoilou,92944
-24009,BÈcancour--Nicolet--Saurel,93779
-24010,Bellechasse--Les Etchemins--LÈvis,112385
+24009,B√©cancour--Nicolet--Saurel,93779
+24010,Bellechasse--Les Etchemins--L√©vis,112385
 24011,Beloeil--Chambly,109955
-24012,Berthier--MaskinongÈ,98590
-24013,ThÈrËse-De Blainville,98499
-24014,Pierre-Boucher--Les Patriotes--VerchËres,95326
+24012,Berthier--Maskinong√©,98590
+24013,Th√©r√®se-De Blainville,98499
+24014,Pierre-Boucher--Les Patriotes--Verch√®res,95326
 24015,Bourassa,100286
 24016,Brome--Missisquoi,98616
 24017,Brossard--Saint-Lambert,100828
-24018,Rimouski-Neigette--TÈmiscouata--Les Basques,84809
+24018,Rimouski-Neigette--T√©miscouata--Les Basques,84809
 24019,Charlesbourg--Haute-Saint-Charles,103331
-24020,Beauport-CÙte-de-BeauprÈ-Œle d'OrlÈans-Charlevoix,92496
-24021,Ch‚teauguay--Lacolle,92169
+24020,Beauport-C√¥te-de-Beaupr√©-√éle d'Orl√©ans-Charlevoix,92496
+24021,Ch√¢teauguay--Lacolle,92169
 24022,Chicoutimi--Le Fjord,81501
 24023,Compton--Stanstead,101946
 24024,Dorval--Lachine--LaSalle,106886
 24025,Drummond,98681
-24026,GaspÈsie--Les Œles-de-la-Madeleine,78833
+24026,Gasp√©sie--Les √éles-de-la-Madeleine,78833
 24027,Gatineau,106424
 24028,Hochelaga,103436
-24029,HonorÈ-Mercier,102587
+24029,Honor√©-Mercier,102587
 24030,Hull--Aylmer,103447
 24031,Joliette,100683
-24032,JonquiËre,87596
-24033,La Pointe-de-l'Œle,103512
+24032,Jonqui√®re,87596
+24033,La Pointe-de-l'√éle,103512
 24034,La Prairie,99811
 24035,Lac-Saint-Jean,105783
 24036,Lac-Saint-Louis,108795
-24037,LaSalle--…mard--Verdun,105317
+24037,LaSalle--√âmard--Verdun,105317
 24038,Laurentides--Labelle,111357
 24039,Laurier--Sainte-Marie,107034
-24040,Laval--Les Œles,103053
+24040,Laval--Les √éles,103053
 24041,Longueuil--Charles-LeMoyne,104895
-24042,LÈvis--LotbiniËre,107593
+24042,L√©vis--Lotbini√®re,107593
 24043,Longueuil--Saint-Hubert,104366
-24044,Louis-HÈbert,104038
+24044,Louis-H√©bert,104038
 24045,Louis-Saint-Laurent,106888
 24046,Manicouagan,94766
-24047,MÈgantic--L'…rable,88745
+24047,M√©gantic--L'√ârable,88745
 24048,Mirabel,103536
 24049,Montarville,95095
 24050,Montcalm,99518
-24051,Montmagny--L'Islet--Kamouraska--RiviËre-du-Loup,97261
+24051,Montmagny--L'Islet--Kamouraska--Rivi√®re-du-Loup,97261
 24052,Mount Royal,101258
-24053,Notre-Dame-de-Gr‚ce--Westmount,104410
+24053,Notre-Dame-de-Gr√¢ce--Westmount,104410
 24054,Outremont,100916
 24055,Papineau,108977
 24056,Pierrefonds--Dollard,108740
 24057,Pontiac,106499
 24058,Portneuf--Jacques-Cartier,104394
-24059,QuÈbec,96525
+24059,Qu√©bec,96525
 24060,Repentigny,111191
 24061,Richmond--Arthabaska,103897
-24062,RiviËre-des-Mille-Œles,102816
-24063,RiviËre-du-Nord,102085
+24062,Rivi√®re-des-Mille-√éles,102816
+24063,Rivi√®re-du-Nord,102085
 24064,Rosemont--La Petite-Patrie,106293
-24065,Marc-AurËle-Fortin,96082
+24065,Marc-Aur√®le-Fortin,96082
 24066,Saint-Hyacinthe--Bagot,99629
 24067,Saint-Jean,108244
 24068,Saint-Laurent,93842
-24069,Saint-LÈonard--Saint-Michel,110649
+24069,Saint-L√©onard--Saint-Michel,110649
 24070,Saint-Maurice--Champlain,110273
-24071,Salaberry--SuroÓt,107036
+24071,Salaberry--Suro√Æt,107036
 24072,Shefford,107538
 24073,Sherbrooke,107988
 24074,Vaudreuil--Soulanges,111905
 24075,Terrebonne,106322
-24076,Trois-RiviËres,108774
-24077,Ville-Marie--Le Sud-Ouest--Œle-des-Soeurs,103070
+24076,Trois-Rivi√®res,108774
+24077,Ville-Marie--Le Sud-Ouest--√éle-des-Soeurs,103070
 24078,Vimy,104373
 35001,Ajax,109600
 35002,Algoma--Manitoulin--Kapuskasing,79801
@@ -184,7 +184,7 @@ district_code,name_english,population
 35073,Oakville North--Burlington,114378
 35074,Oshawa,125771
 35075,Ottawa Centre,113619
-35076,OrlÈans,119247
+35076,Orl√©ans,119247
 35077,Ottawa South,121894
 35078,Ottawa--Vanier,110999
 35079,Ottawa West--Nepean,111881
@@ -246,7 +246,7 @@ district_code,name_english,population
 46014,Winnipeg South Centre,90711
 47001,Battlefords--Lloydminster,70034
 47002,Cypress Hills--Grasslands,67834
-47003,DesnethÈ--Missinippi--Churchill River,69471
+47003,Desneth√©--Missinippi--Churchill River,69471
 47004,Carlton Trail--Eagle Creek,72607
 47005,Moose Jaw--Lake Centre--Lanigan,76106
 47006,Prince Albert,79344
