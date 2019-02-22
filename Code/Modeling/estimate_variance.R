@@ -11,7 +11,7 @@ rf_pop.errors %>%
   summarise(error_sd = sd(value)) %>%
   spread(variable, error_sd)
 
-## Error distributions
+## Error distributions - plots
 rf_pop.errors %>%
   ggplot(aes(x = LPC_error)) +
   facet_wrap(~region) +
@@ -36,3 +36,16 @@ rf_pop.errors %>%
   labs(title = "NDP leave-one-out errors", x = "Error in popular vote",
        y = "District-years")
 
+## Error covariance by region
+covariance_list <- vector("list", n_distinct(rf_pop.errors$region))
+regions <- unique(rf_pop.errors$region)
+
+for(i in 1:length(covariance_list)) {
+  covariance_list[[i]] <- rf_pop.errors %>%
+    filter(region == regions[i]) %>%
+    dplyr::select(ends_with("error")) %>%
+    as.matrix() %>%
+    cov()
+}
+
+names(covariance_list) <- regions
