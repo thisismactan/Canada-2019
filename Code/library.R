@@ -120,7 +120,8 @@ province_polls <- function(province) {
       scale_x_date(date_breaks = "months", date_labels = "%b %Y") +
       labs(title = "2019 Canadian federal election polling",
            subtitle = province, x = "Date", y = "%") +
-      scale_colour_manual(name = "Party", values = quebec_colors, labels = quebec_parties)
+      scale_colour_manual(name = "Party", values = quebec_colors, labels = quebec_parties) +
+      theme(axis.text.x = element_text(angle = 90))
   } else if(!grepl("q", province, ignore.case = TRUE)) {
     p <- provincial_polls %>%
       rename(prov = province) %>%
@@ -134,7 +135,8 @@ province_polls <- function(province) {
       scale_x_date(date_breaks = "months", date_labels = "%b %Y") +
       labs(title = "2019 Canadian federal election polling",
            subtitle = province, x = "Date", y = "%") +
-      scale_colour_manual(name = "Party", values = national_colors, labels = national_parties)
+      scale_colour_manual(name = "Party", values = national_colors, labels = national_parties) +
+      theme(axis.text.x = element_text(angle = 90))
   }
   return(p)
 }

@@ -45,7 +45,7 @@ ggplot(national_polls %>%
               variable.name = "Party", value.name = "Poll"), 
        aes(x = date, y = Poll, col = Party)) +
   geom_point(alpha = 0.4, size = 1) +
-  geom_smooth(method = "loess", span = 0.3, size = 1) +
+  geom_smooth(method = "loess", span = 0.2, size = 1) +
   scale_colour_manual(name = "Party", values = national_colors, labels = national_parties) +
   labs(title = "2019 Canadian federal election polling",
        subtitle = "National", x = "Date", y = "%")
