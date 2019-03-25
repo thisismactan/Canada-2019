@@ -5,7 +5,8 @@ source("Code/poll_scrape_clean.R")
 national_polls <- national_polls %>%
   mutate(numeric_date = as.numeric(date), 
          weight = (age < 90)*exp(-(age)^(1/3))/sqrt(MOE/100)/(ifelse(IVR, 3, 1)),
-         loess_weight = 1/sqrt(MOE/100)/(ifelse(IVR, 3, 1)))
+         loess_weight = 1/sqrt(MOE/100)/(ifelse(IVR, 3, 1))) %>%
+  filter(!(pollster == "Abacus Data" & date %in% as.Date(paste0("2019-03-0", c(7, 6, 4, 3)))))
 
 ## Weighted average
 national_polls %>% 

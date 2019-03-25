@@ -20,7 +20,7 @@ for(i in 1:308) {
   header_string <- '//table//table'
   census_table <- (rvest::html_nodes(census_GET, xpath = header_string) %>%
                      # Parse as a table
-                     rvest::html_table(fill = TRUE))[[1]] %>%
+                     rvest::html_table(fill = TRUE))[[1]][,1:2] %>%
     as.tbl() %>%
     dplyr::select(characteristic = 1, pop = 2) %>%
     mutate(pop = gsub(",", "", pop) %>% as.numeric())
@@ -51,3 +51,54 @@ for(i in 1:308) {
 }
 
 names(education_table_list) <- names(age_table_list) <- names(sex_table_list) <- district_names_2003
+
+education_pct_list <- education_table_list %>%
+  lapply(function(df) {
+    pct_df <- df %>%
+      mutate(pct = pop/sum(pop),
+             education = case_when(grepl("Less than", characteristic) ~ "educ_hsless",
+                                   grepl("some post", characteristic) ~ "educ_hsless",
+                                   grepl("Trades", characteristic) ~ "educ_college",
+                                   grepl("College", characteristic) ~ "educ_college",
+                                   grepl("University", characteristic) ~ "educ_university")) %>%
+      group_by(education) %>%
+      summarise(pct = sum(pct)) %>%
+      spread(education, pct)
+    return(pct_df)
+  })
+
+age_pct_list <- age_table_list %>%
+  lapply(function(df) {
+    pct_df <- df %>%
+      filter(grepl("29|44|64|65", age)) %>%
+      mutate(age = case_when(age == "15 to 29 years" ~ "age_1529",
+                             age == "30 to 44 years" ~ "age_3044",
+                             age == "45 to 64 years" ~ "age_4564",
+                             age == "65 and older" ~ "age_65"),
+             pct = pop/sum(pop)) %>%
+      group_by(age) %>%
+      summarise(pct = sum(pct)) %>%
+      spread(age, pct)
+    return(pct_df)
+  })
+
+sex_pct_list <- sex_table_list %>%
+  lapply(function(df) {
+    pct_df <- df %>%
+      mutate(pct = pop/sum(pop)) %>%
+      dplyr::select(sex, pct) %>%
+      mutate(sex = case_when(sex == "Female" ~ "sex_female",
+                             sex == "Male" ~ "sex_male")) %>%
+      spread(sex, pct)
+    return(pct_df)
+  })
+
+## Make into a tibble
+educ_pct_tbl <- bind_rows(education_pct_list)
+age_pct_tbl <- bind_rows(age_pct_list)
+sex_pct_tbl <- bind_rows(sex_pct_list)
+
+demographics_2001 <- bind_cols(educ_pct_tbl, age_pct_tbl, sex_pct_tbl) %>%
+  mutate(district_code = district_ids_2003) %>%
+  dplyr::select(district_code, name_english, everything())
+  
