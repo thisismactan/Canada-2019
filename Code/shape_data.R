@@ -46,20 +46,11 @@ results_2011 <- read.csv("Data/Processed/2011_results_by_precinct.csv") %>%
          Bloc_total = sum(as.numeric(Bloc), na.rm = TRUE)) %>%
   mutate(province_code = round(district_code/1000)) %>%
   left_join(province_key, by = "province_code")
-results_2015 <- read.csv("Data/Processed/2015_results_by_precinct.csv") %>%
-  mutate(Liberal_total = sum(Liberal, na.rm = TRUE),
-         Conservative_total = sum(Conservative, na.rm = TRUE),
-         NDP_total = sum(NDP, na.rm = TRUE),
-         Green_total = sum(Green, na.rm = TRUE),
-         Bloc_total = sum(as.numeric(Bloc), na.rm = TRUE)) %>%
-  mutate(province_code = round(district_code/1000)) %>%
-  left_join(province_key, by = "province_code")
 
 cands_2004 <- fread_to_tbl("Data/candidates_2004.csv") %>% mutate(year = 2004)
 cands_2006 <- fread_to_tbl("Data/candidates_2006.csv") %>% mutate(year = 2006)
 cands_2008 <- fread_to_tbl("Data/candidates_2008.csv") %>% mutate(year = 2008)
 cands_2011 <- fread_to_tbl("Data/candidates_2011.csv") %>% mutate(year = 2011)
-cands_2015 <- fread_to_tbl("Data/candidates_2015.csv") %>% mutate(year = 2015)
 
 ## Reshaping to district-year level
 cands_pre2013 <- bind_rows(cands_2004, cands_2006, cands_2008, cands_2011) %>%
@@ -71,7 +62,8 @@ cands_pre2013 <- bind_rows(cands_2004, cands_2006, cands_2008, cands_2011) %>%
   dplyr::select(district_code, year, party, candidate) %>%
   spread(party, candidate)
 
-cands_2015 <- cands_2015 %>%
+cands_2015 <- fread_to_tbl("Data/candidates_2015.csv") %>% 
+  mutate(year = 2015) %>%
   filter(party %in% c("Liberal", "Conservative", "NDP", "Green", "Bloc")) %>%
   as.tbl() %>%
   mutate(candidate = paste(candidate_first, candidate_last)) %>%
@@ -154,7 +146,14 @@ results_pre2013_wide <- results_pre2013_long %>%
 
 #### Now the same for 2015 ####
 ## Identifying incumbents
-results_2015 <- results_2015 %>%
+results_2015 <- read.csv("Data/Processed/2015_results_by_precinct.csv") %>%
+  mutate(Liberal_total = sum(Liberal, na.rm = TRUE),
+         Conservative_total = sum(Conservative, na.rm = TRUE),
+         NDP_total = sum(NDP, na.rm = TRUE),
+         Green_total = sum(Green, na.rm = TRUE),
+         Bloc_total = sum(as.numeric(Bloc), na.rm = TRUE)) %>%
+  mutate(province_code = round(district_code/1000)) %>%
+  left_join(province_key, by = "province_code") %>%
   as.tbl() %>%
   group_by(district_code, name_english, year) %>%
   mutate_at(vars(c("Liberal", "Conservative", "NDP", "Green", "Bloc", "total_votes", "registered_voters")), as.numeric) %>%
@@ -213,4 +212,23 @@ results_pre2013_wide <- results_pre2013_long %>%
 national_results_pre2013 <- results_pre2013 %>%
   group_by(year) %>%
   summarise_at(vars(c("LPC_votes", "CPC_votes", "NDP_votes", "Green_votes", "Bloc_votes")), sum) %>%
-  mutate_at
+  mutate(total = LPC_votes + CPC_votes + NDP_votes + Green_votes + Bloc_votes) %>%
+  mutate(LPC_pct_national = LPC_votes/total,
+         CPC_pct_national = CPC_votes/total,
+         NDP_pct_national = NDP_votes/total,
+         Green_pct_national = Green_votes/total) %>%
+  dplyr::select(year, LPC_pct_national, CPC_pct_national, NDP_pct_national, Green_pct_national)
+
+## Regional results
+regional_results_pre2013 <- results_pre2013 %>%
+  mutate(province_code = floor(district_code/1000)) %>%
+  left_join(province_key, by = "province_code") %>%
+  group_by(region, province_code, year) %>%
+  summarise_at(vars(c("LPC_votes", "CPC_votes", "NDP_votes", "Green_votes", "Bloc_votes")), sum) %>%
+  mutate(total = LPC_votes + CPC_votes + NDP_votes + Green_votes + Bloc_votes) %>%
+  mutate(LPC_pct_regional = LPC_votes/total,
+         CPC_pct_regional = CPC_votes/total,
+         NDP_pct_regional = NDP_votes/total,
+         Green_pct_regional = Green_votes/total,
+         Bloc_pct_regional = Bloc_votes/total) %>%
+  dplyr::select(year, province_code, region, LPC_pct_regional, CPC_pct_regional, NDP_pct_regional, Green_pct_regional, Bloc_pct_regional)
