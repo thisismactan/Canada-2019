@@ -1,5 +1,5 @@
 # Canada-2019
-## Last updated: 5 Mar 2019
+## Last updated: 2 Apr 2019
 This is the repository for the Election StatSheet 2019 Canadian election forecast. Hooray!
 
 Current status: testing random forest models, estimating model error variances, compiling federal electoral district demographic data from the 2001 census.

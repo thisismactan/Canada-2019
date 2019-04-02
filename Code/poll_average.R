@@ -48,6 +48,7 @@ ggplot(national_polls %>%
   geom_point(alpha = 0.4, size = 1) +
   geom_smooth(method = "loess", span = 0.2, size = 1) +
   scale_colour_manual(name = "Party", values = national_colors, labels = national_parties) +
+  lims(x = c(as.Date("2018-01-01"), today())) +
   labs(title = "2019 Canadian federal election polling",
        subtitle = "National", x = "Date", y = "%")
 
@@ -75,7 +76,8 @@ provincial_polls %>%
   ggplot(aes(x = date, y = Poll, col = Party)) +
   facet_wrap(~province) +
   geom_point(alpha = 0.4, size = 1) +
-  geom_smooth(method = "loess", span = 2/3, size = 1) +
+  geom_smooth(method = "loess", span = 0.5, size = 1) +
+  geom_vline(xintercept = as.Date("2019-02-07")) +
   scale_colour_manual(name = "Party", values = quebec_colors, labels = quebec_parties) +
   labs(title = "2019 Canadian federal election polling",
        subtitle = "By province", x = "Date", y = "%") +
