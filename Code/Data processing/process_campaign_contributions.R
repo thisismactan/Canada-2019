@@ -14,11 +14,11 @@ contribs <- fread_to_tbl("Data/Raw/contribs_2004_2015_submitted.csv") %>%
   group_by(candidate_id, candidate_name, candidate_lastname, party, district, election) %>%
   summarise(contributions = sum(amount, na.rm = TRUE)) %>%
   ungroup() %>%
-  mutate(election_year = case_when(election == "38th general election" ~ 2004,
-                                   election == "39th general election" ~ 2006,
-                                   election == "40th general election" ~ 2008,
-                                   election == "41st general election" ~ 2011,
-                                   election == "42nd general election" ~ 2015)) %>%
+  mutate(year = case_when(election == "38th general election" ~ 2004,
+                          election == "39th general election" ~ 2006,
+                          election == "40th general election" ~ 2008,
+                          election == "41st general election" ~ 2011,
+                          election == "42nd general election" ~ 2015)) %>%
   na.omit() %>%
   mutate(party = case_when(party == "Conservative Party of Canada" ~ "Conservative",
                            party == "Liberal Party of Canada" ~ "Liberal",
@@ -26,7 +26,7 @@ contribs <- fread_to_tbl("Data/Raw/contribs_2004_2015_submitted.csv") %>%
                            grepl("Bloc", party) ~ "Bloc",
                            party == "Green Party of Canada" ~ "Green")) %>%
   na.omit() %>%
-  arrange(election_year, district, party)
+  arrange(year, district, party)
 
 ## Fix district names UGH
 contribs <- contribs %>%
@@ -36,7 +36,8 @@ contribs <- contribs %>%
          name_english = gsub("ÃŽ", "Î", name_english),
          name_english = gsub("Ã‰", "É", name_english),
          name_english = gsub("Ã¢", "â", name_english),
-         name_english = gsub("Ã´", "ô", name_english)) %>%
+         name_english = gsub("Ã´", "ô", name_english),
+         name_english = gsub("Ã®", "î", name_english)) %>%
   mutate(candidate_name = gsub("--", "–", candidate_name),
          candidate_name = gsub("Ã©", "é", candidate_name),
          candidate_name = gsub("Ã¨", "è", candidate_name),
@@ -53,7 +54,7 @@ contribs <- contribs %>%
          candidate_lastname = gsub("Ã´", "ô", candidate_lastname))
 
 contribs_2004_2011 <- contribs %>%
-  filter(election_year <= 2011) %>%
+  filter(year <= 2011) %>%
   mutate(name_english = gsub("^Argenteuil–Mirabel$", "Argenteuil–Papineau–Mirabel", name_english),
          name_english = gsub("^Athabasca$", "Fort McMurray–Athabasca", name_english),
          name_english = gsub("^Beauport$", "Beauport–Limoilou", name_english),
@@ -90,11 +91,12 @@ contribs_2004_2011 <- contribs %>%
          name_english = gsub("^St. John's North$", "St. John's East", name_english),
          name_english = gsub("^St. John's South$", "St. John's South–Mount Pearl", name_english),
          name_english = gsub("^West Vancouver–Sunshine Coast$", "West Vancouver–Sunshine Coast–Sea to Sky Country", name_english),
-         name_english = gsub("^Western Arctic$", "Northwest Territories", name_english))
+         name_english = gsub("^Western Arctic$", "Northwest Territories", name_english)) %>%
+  left_join(district_key_2003, by = "name_english")
 
 contribs_2015 <- contribs %>%
-  filter(election_year == 2015) %>%
-  mutate(name_english = gsub("Ã®", "î", name_english))
+  filter(year == 2015) %>%
+  left_join(district_key_2013, by = "name_english")
 
 write.csv(contribs_2004_2011, "Data/Processed/campaign_contributions_2004_2011.csv", row.names = FALSE)
 write.csv(contribs_2015, "Data/Processed/campaign_contributions_2015.csv", row.names = FALSE)
