@@ -5,7 +5,7 @@ district_names_2003 <- read_csv("Data/Raw/electoral_districts_key_2003.csv")$nam
 Encoding(district_names_2003) <- "UTF-8"
 district_ids_2003 <- read_csv("Data/Raw/electoral_districts_key_2003.csv")$district_code
 
-education_table_list <- age_table_list <- sex_table_list <- vector("list", 308)
+education_table_list_2001 <- age_table_list_2001 <- sex_table_list_2001 <- vector("list", 308)
 
 ## Run through districts
 for(i in 1:308) {
@@ -26,10 +26,10 @@ for(i in 1:308) {
     mutate(pop = gsub(",", "", pop) %>% as.numeric())
   
   ## Extract education, age, and sex tables
-  education_table_list[[i]] <- census_table %>%
+  education_table_list_2001[[i]] <- census_table %>%
     filter(grepl("high school|diploma", characteristic, ignore.case = TRUE))
   
-  age_table_list[[i]] <- census_table %>%
+  age_table_list_2001[[i]] <- census_table %>%
     filter(!grepl("[[:alpha:]]", characteristic)) %>%
     group_by(characteristic) %>%
     mutate(sex = 1:n(),
@@ -45,14 +45,14 @@ for(i in 1:308) {
     summarise(pop = sum(pop)) %>%
     ungroup()
   
-  sex_table_list[[i]] <- age_table_list[[i]] %>%
+  sex_table_list_2001[[i]] <- age_table_list_2001[[i]] %>%
     group_by(sex) %>%
     summarise(pop = sum(pop))
 }
 
-names(education_table_list) <- names(age_table_list) <- names(sex_table_list) <- district_names_2003
+names(education_table_list_2001) <- names(age_table_list_2001) <- names(sex_table_list_2001) <- district_names_2003
 
-education_pct_list <- education_table_list %>%
+education_pct_list_2001 <- education_table_list_2001 %>%
   lapply(function(df) {
     pct_df <- df %>%
       mutate(pct = pop/sum(pop),
@@ -67,7 +67,7 @@ education_pct_list <- education_table_list %>%
     return(pct_df)
   })
 
-age_pct_list <- age_table_list %>%
+age_pct_list_2001 <- age_table_list_2001 %>%
   lapply(function(df) {
     pct_df <- df %>%
       filter(grepl("29|44|64|65", age)) %>%
@@ -82,7 +82,7 @@ age_pct_list <- age_table_list %>%
     return(pct_df)
   })
 
-sex_pct_list <- sex_table_list %>%
+sex_pct_list_2001 <- sex_table_list_2001 %>%
   lapply(function(df) {
     pct_df <- df %>%
       mutate(pct = pop/sum(pop)) %>%
@@ -94,11 +94,12 @@ sex_pct_list <- sex_table_list %>%
   })
 
 ## Make into a tibble
-educ_pct_tbl <- bind_rows(education_pct_list)
-age_pct_tbl <- bind_rows(age_pct_list)
-sex_pct_tbl <- bind_rows(sex_pct_list)
+educ_pct_tbl_2001 <- bind_rows(education_pct_list_2001)
+age_pct_tbl_2001 <- bind_rows(age_pct_list_2001)
+sex_pct_tbl_2001 <- bind_rows(sex_pct_list_2001)
 
-demographics_2001 <- bind_cols(educ_pct_tbl, age_pct_tbl, sex_pct_tbl) %>%
+demographics_2001 <- bind_cols(educ_pct_tbl_2001, age_pct_tbl_2001, sex_pct_tbl_2001) %>%
   mutate(district_code = district_ids_2003) %>%
-  dplyr::select(district_code, name_english, everything())
-  
+  dplyr::select(district_code, everything())
+
+write_csv(demographics_2001, "Data/Processed/2001_demographics.csv")
