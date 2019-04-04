@@ -14,24 +14,47 @@ population <- bind_rows(pop2006, pop2011, pop2016) %>%
   mutate(pop_change = pop/pop_lag,
          pop_growth_rate = (pop_change)^(1/(census_year - census_year_lag)) - 1)
 
-#### Age, sex, and education for 2016 ####
-demographics <- fread("Data/Raw/Demographics/districts_sex_age_education_2016.csv") %>%
-  as.data.frame() %>%
-  as.tbl() %>%
-  filter(district_code > 10000, age %in% c("15 to 24 years", "25 to 29 years", "30 to 34 years", "35 to 44 years", "45 to 54 years",
-                                           "55 to 64 years", "65 to 74 years", "75 years and over"),
-         sex != "Total", education != "Total") %>%
-  mutate(education = case_when(education %in% c("No certificate, diploma or degree",
-                                                "Secondary (high) school diploma or equivalency certificate") ~ "HS or less",
-                               education %in% c("Apprenticeship or trades certificate or diploma",
-                                                "College, CEGEP or other non-university certificate or diploma",
-                                                "University certificate or diploma below bachelor level") ~ "College / some university",
-                               education %in% c("University certificate, diploma or degree at bachelor level or above") ~ "Bachelor's or above"),
-         age = case_when(age %in% c("15 to 24 years", "25 to 29 years") ~ "15 to 29 years",
-                         age %in% c("30 to 34 years", "35 to 44 years") ~ "30 to 44 years",
-                         age %in% c("45 to 54 years", "55 to 64 years") ~ "45 to 64 years",
-                         age %in% c("65 to 74 years", "75 years and over") ~ "65 and older")) %>%
+#### Age, sex, and education for 2011 ####
+demographics_2016_raw <- fread_to_tbl("Data/Raw/Demographics/district_profiles_2016.csv")
+
+names(demographics_2016_raw) <- c("year", "district_code", "geo_level", "name_english", "gnr", "gnr_lf", "data_quality_flag", "alt_district_code", 
+                                  "characteristic", "characteristic_id", "notes_profile", "pop", "male_pop", "female_pop")
+
+demographics_2016 <- demographics_2016_raw %>%
+  filter(district_code > 10000 & district_code < 99999,
+         characteristic_id %in% c(6, 8, 14:24, 695:705, 1337, 1684:1685, 1687, 1690:1692)) %>%
+  dplyr::select(-notes_profile) %>%
+  mutate_at(vars(c("pop", "male_pop", "female_pop")), as.numeric) 
+  
+age_2016 <- demographics_2016 %>%
+  mutate(age = case_when(characteristic_id %in% 14:16 ~ "age_1529",
+                         characteristic_id %in% 17:19 ~ "age_3044",
+                         characteristic_id %in% 20:23 ~ "age_4564",
+                         characteristic_id == 24 ~ "age_65")) %>%
   na.omit() %>%
-  group_by(year, district_code, district_name, age, sex, education) %>%
-  summarise(total_people = sum(total_people)) %>%
-  ungroup()
+  group_by(district_code, age) %>%
+  summarise(pop = sum(pop)) %>%
+  mutate(pct = pop/sum(pop)) %>%
+  dplyr::select(district_code, age, pct) %>%
+  spread(age, pct)
+
+education_2016 <- demographics_2016 %>%
+  mutate(education = case_when(characteristic_id %in% 1684:1685 ~ "educ_hsless",
+                               characteristic_id %in% 1687:1691 ~ "educ_college",
+                               characteristic_id == 1692 ~ "educ_university")) %>%
+  na.omit() %>%
+  group_by(district_code, education) %>%
+  summarise(pop = sum(pop)) %>%
+  mutate(pct = pop/sum(pop)) %>%
+  dplyr::select(district_code, education, pct) %>%
+  spread(education, pct)
+
+sex_2016 <- demographics_2016 %>%
+  filter(characteristic_id == 8) %>%
+  mutate(sex_male = male_pop/(male_pop + female_pop),
+         sex_female = female_pop/(male_pop + female_pop)) %>%
+  dplyr::select(district_code, sex_male, sex_female)
+
+race_2016 <- demographics_2016 %>%
+  filter(characteristic_id == 1337) %>%
+  
