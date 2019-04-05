@@ -50,9 +50,9 @@ for(i in 1:308) {
     summarise(pop = sum(pop))
   
   minority_table_list_2001[[i]] <- census_table %>%
-    filter(grepl("Total visible minority population|Not a visible minority", characteristic)) %>%
+    filter(grepl("Total visible minority population", characteristic) | characteristic == "All others") %>%
     mutate(minority = case_when(grepl("Total visible minority population", characteristic) ~ "minority",
-                                grepl("Not a visible minority", characteristic) ~ "white"))
+                                characteristic == "All others" ~ "white"))
 }
 
 names(education_table_list_2001) <- names(age_table_list_2001) <- names(sex_table_list_2001) <- names(minority_table_list_2001) <- district_names_2003
