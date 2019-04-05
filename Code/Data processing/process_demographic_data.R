@@ -40,8 +40,8 @@ age_2016 <- demographics_2016 %>%
 
 education_2016 <- demographics_2016 %>%
   mutate(education = case_when(characteristic_id %in% 1684:1685 ~ "educ_hsless",
-                               characteristic_id %in% 1687:1691 ~ "educ_college",
-                               characteristic_id == 1692 ~ "educ_university")) %>%
+                               characteristic_id %in% 1687:1690 ~ "educ_college",
+                               characteristic_id %in% 1691:1692 ~ "educ_university")) %>%
   na.omit() %>%
   group_by(district_code, education) %>%
   summarise(pop = sum(pop)) %>%
@@ -106,8 +106,8 @@ age_2011 <- demographics_2011_raw %>%
 
 education_2011 <- demographics_2011_raw %>%
   mutate(education = case_when(grepl("No certificate|High school diploma", characteristic) ~ "educ_hsless",
-                               grepl("Apprenticeship|CEGEP|diploma below bachelor level", characteristic) ~ "educ_college",
-                               grepl("degree at bachelor level or above", characteristic) ~ "educ_university")) %>%
+                               grepl("Apprenticeship|CEGEP", characteristic) ~ "educ_college",
+                               grepl("bachelor level", characteristic) ~ "educ_university")) %>%
   na.omit() %>%
   group_by(district_code, education) %>%
   summarise(pop = sum(pop)) %>%

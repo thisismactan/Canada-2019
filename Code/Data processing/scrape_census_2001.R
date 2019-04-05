@@ -113,7 +113,7 @@ age_pct_tbl_2001 <- bind_rows(age_pct_list_2001)
 sex_pct_tbl_2001 <- bind_rows(sex_pct_list_2001)
 minority_pct_tbl_2001 <- bind_rows(minority_pct_list_2001)
 
-demographics_2001 <- bind_cols(educ_pct_tbl_2001, age_pct_tbl_2001, sex_pct_tbl_2001, minority_pct_tbl_2001) %>%
+demographics_2001 <- bind_cols(age_pct_tbl_2001, educ_pct_tbl_2001, sex_pct_tbl_2001, minority_pct_tbl_2001) %>%
   mutate(district_code = district_ids_2003) %>%
   dplyr::select(district_code, everything())
 

@@ -29,8 +29,8 @@ for(i in 1:308) {
   ## Extract education, age, and sex tables
   education_table_list_2006[[i]] <- census_table %>%
     mutate(education = case_when(grepl("No certificate|High school", characteristic) ~ "educ_hsless",
-                                 grepl("Apprentice|College, CEGEP|below bachelor", characteristic) ~ "educ_college",
-                                 grepl("at bachelor's level or above", characteristic) ~ "educ_university")) %>%
+                                 grepl("Apprentice|College, CEGEP", characteristic) ~ "educ_college",
+                                 grepl("bachelor", characteristic) ~ "educ_university")) %>%
     na.omit() %>%
     distinct(characteristic, .keep_all = TRUE) %>%
     group_by(education) %>%
@@ -104,7 +104,7 @@ age_pct_tbl_2006 <- bind_rows(age_pct_list_2006)
 sex_pct_tbl_2006 <- bind_rows(sex_pct_list_2006)
 minority_pct_tbl_2006 <- bind_rows(minority_pct_list_2006)
 
-demographics_2006 <- bind_cols(educ_pct_tbl_2006, age_pct_tbl_2006, sex_pct_tbl_2006, minority_pct_tbl_2006) %>%
+demographics_2006 <- bind_cols(age_pct_tbl_2006, educ_pct_tbl_2006, sex_pct_tbl_2006, minority_pct_tbl_2006) %>%
   mutate(district_code = district_ids_2003) %>%
   dplyr::select(district_code, everything())
 
