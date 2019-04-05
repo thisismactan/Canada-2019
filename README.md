@@ -1,10 +1,8 @@
 # Canada-2019
-## Last updated: 2 Apr 2019
+## Last updated: 5 Apr 2019
 This is the repository for the Election StatSheet 2019 Canadian election forecast. Hooray!
 
-Current status: testing random forest models, estimating model error variances, compiling federal electoral district demographic data from the 2001 census.
-
-Does anyone know how to use spTransform() to change a shapefile to Lambert Conformal Conic projection?
+Current status: estimating model error variances, compiling federal electoral district demographic data.
 
 ### Notes to self ###
 - Final model must predict all parties' share of the vote simultaneously allowing for correlations between parties

@@ -5,7 +5,7 @@ district_names_2003 <- read_csv("Data/Raw/electoral_districts_key_2003.csv")$nam
 Encoding(district_names_2003) <- "UTF-8"
 district_ids_2003 <- read_csv("Data/Raw/electoral_districts_key_2003.csv")$district_code
 
-education_table_list_2001 <- age_table_list_2001 <- sex_table_list_2001 <- vector("list", 308)
+education_table_list_2001 <- age_table_list_2001 <- sex_table_list_2001 <- minority_table_list_2001 <- vector("list", 308)
 
 ## Run through districts
 for(i in 1:308) {
@@ -25,7 +25,7 @@ for(i in 1:308) {
     dplyr::select(characteristic = 1, pop = 2) %>%
     mutate(pop = gsub(",", "", pop) %>% as.numeric())
   
-  ## Extract education, age, and sex tables
+  ## Extract education, age, sex, and visible minority tables
   education_table_list_2001[[i]] <- census_table %>%
     filter(grepl("high school|diploma", characteristic, ignore.case = TRUE))
   
@@ -48,9 +48,14 @@ for(i in 1:308) {
   sex_table_list_2001[[i]] <- age_table_list_2001[[i]] %>%
     group_by(sex) %>%
     summarise(pop = sum(pop))
+  
+  minority_table_list_2001[[i]] <- census_table %>%
+    filter(grepl("Total visible minority population|Not a visible minority", characteristic)) %>%
+    mutate(minority = case_when(grepl("Total visible minority population", characteristic) ~ "minority",
+                                grepl("Not a visible minority", characteristic) ~ "white"))
 }
 
-names(education_table_list_2001) <- names(age_table_list_2001) <- names(sex_table_list_2001) <- district_names_2003
+names(education_table_list_2001) <- names(age_table_list_2001) <- names(sex_table_list_2001) <- names(minority_table_list_2001) <- district_names_2003
 
 education_pct_list_2001 <- education_table_list_2001 %>%
   lapply(function(df) {
@@ -93,12 +98,22 @@ sex_pct_list_2001 <- sex_table_list_2001 %>%
     return(pct_df)
   })
 
+minority_pct_list_2001 <- minority_table_list_2001 %>%
+  lapply(function(df) {
+    pct_df <- df %>%
+      mutate(pct = pop/sum(pop)) %>%
+      dplyr::select(minority, pct) %>%
+      spread(minority, pct)
+    return(pct_df)
+  })
+
 ## Make into a tibble
 educ_pct_tbl_2001 <- bind_rows(education_pct_list_2001)
 age_pct_tbl_2001 <- bind_rows(age_pct_list_2001)
 sex_pct_tbl_2001 <- bind_rows(sex_pct_list_2001)
+minority_pct_tbl_2001 <- bind_rows(minority_pct_list_2001)
 
-demographics_2001 <- bind_cols(educ_pct_tbl_2001, age_pct_tbl_2001, sex_pct_tbl_2001) %>%
+demographics_2001 <- bind_cols(educ_pct_tbl_2001, age_pct_tbl_2001, sex_pct_tbl_2001, minority_pct_tbl_2001) %>%
   mutate(district_code = district_ids_2003) %>%
   dplyr::select(district_code, everything())
 

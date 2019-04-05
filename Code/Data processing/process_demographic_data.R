@@ -14,7 +14,7 @@ population <- bind_rows(pop2006, pop2011, pop2016) %>%
   mutate(pop_change = pop/pop_lag,
          pop_growth_rate = (pop_change)^(1/(census_year - census_year_lag)) - 1)
 
-#### Age, sex, and education for 2011 ####
+#### Age, sex, education, and race for 2016 ####
 demographics_2016_raw <- fread_to_tbl("Data/Raw/Demographics/district_profiles_2016.csv")
 
 names(demographics_2016_raw) <- c("year", "district_code", "geo_level", "name_english", "gnr", "gnr_lf", "data_quality_flag", "alt_district_code", 
@@ -22,7 +22,7 @@ names(demographics_2016_raw) <- c("year", "district_code", "geo_level", "name_en
 
 demographics_2016 <- demographics_2016_raw %>%
   filter(district_code > 10000 & district_code < 99999,
-         characteristic_id %in% c(6, 8, 14:24, 695:705, 1337, 1684:1685, 1687, 1690:1692)) %>%
+         characteristic_id %in% c(6, 8, 14:24, 695:705, 1324, 1337, 1684:1685, 1687, 1690:1692)) %>%
   dplyr::select(-notes_profile) %>%
   mutate_at(vars(c("pop", "male_pop", "female_pop")), as.numeric) 
   
@@ -56,5 +56,75 @@ sex_2016 <- demographics_2016 %>%
   dplyr::select(district_code, sex_male, sex_female)
 
 race_2016 <- demographics_2016 %>%
-  filter(characteristic_id == 1337) %>%
+  filter(characteristic_id %in% c(1324, 1337)) %>%
+  mutate(minority = case_when(characteristic_id == 1324 ~ "minority",
+                              characteristic_id == 1337 ~ "white")) %>%
+  na.omit() %>%
+  group_by(district_code, minority) %>%
+  summarise(pop = sum(pop)) %>%
+  mutate(pct = pop/sum(pop)) %>%
+  dplyr::select(district_code, minority, pct) %>%
+  spread(minority, pct)
   
+demographics_2016 <- age_2016 %>%
+  left_join(education_2016, by = "district_code") %>%
+  left_join(sex_2016, by = "district_code") %>%
+  left_join(race_2016, by = "district_code")
+
+
+#### Age, sex, education, and race for 2011 ####
+demographics_2011_raw <- fread_to_tbl("Data/Raw/Demographics/district_profiles_2011.csv")
+
+names(demographics_2011_raw) <- c("year", "district_code", "geo_level", "name_english", "gnr", "gnr_lf", "data_quality_flag", "alt_district_code", 
+                                  "characteristic", "characteristic_id", "notes_profile", "pop", "male_pop", "female_pop")
+
+demographics_2011 <- demographics_2011_raw %>%
+  filter(district_code > 10000 & district_code < 99999,
+         characteristic_id %in% c(6, 8, 14:24, 695:705, 1324, 1337, 1684:1685, 1687, 1690:1692)) %>%
+  dplyr::select(-notes_profile) %>%
+  mutate_at(vars(c("pop", "male_pop", "female_pop")), as.numeric) 
+
+age_2016 <- demographics_2016 %>%
+  mutate(age = case_when(characteristic_id %in% 14:16 ~ "age_1529",
+                         characteristic_id %in% 17:19 ~ "age_3044",
+                         characteristic_id %in% 20:23 ~ "age_4564",
+                         characteristic_id == 24 ~ "age_65")) %>%
+  na.omit() %>%
+  group_by(district_code, age) %>%
+  summarise(pop = sum(pop)) %>%
+  mutate(pct = pop/sum(pop)) %>%
+  dplyr::select(district_code, age, pct) %>%
+  spread(age, pct)
+
+education_2016 <- demographics_2016 %>%
+  mutate(education = case_when(characteristic_id %in% 1684:1685 ~ "educ_hsless",
+                               characteristic_id %in% 1687:1691 ~ "educ_college",
+                               characteristic_id == 1692 ~ "educ_university")) %>%
+  na.omit() %>%
+  group_by(district_code, education) %>%
+  summarise(pop = sum(pop)) %>%
+  mutate(pct = pop/sum(pop)) %>%
+  dplyr::select(district_code, education, pct) %>%
+  spread(education, pct)
+
+sex_2016 <- demographics_2016 %>%
+  filter(characteristic_id == 8) %>%
+  mutate(sex_male = male_pop/(male_pop + female_pop),
+         sex_female = female_pop/(male_pop + female_pop)) %>%
+  dplyr::select(district_code, sex_male, sex_female)
+
+race_2016 <- demographics_2016 %>%
+  filter(characteristic_id %in% c(1324, 1337)) %>%
+  mutate(minority = case_when(characteristic_id == 1324 ~ "minority",
+                              characteristic_id == 1337 ~ "white")) %>%
+  na.omit() %>%
+  group_by(district_code, minority) %>%
+  summarise(pop = sum(pop)) %>%
+  mutate(pct = pop/sum(pop)) %>%
+  dplyr::select(district_code, minority, pct) %>%
+  spread(minority, pct)
+
+demographics_2016 <- age_2016 %>%
+  left_join(education_2016, by = "district_code") %>%
+  left_join(sex_2016, by = "district_code") %>%
+  left_join(race_2016, by = "district_code")

@@ -5,7 +5,7 @@ district_names_2003 <- read_csv("Data/Raw/electoral_districts_key_2003.csv")$nam
 Encoding(district_names_2003) <- "UTF-8"
 district_ids_2003 <- read_csv("Data/Raw/electoral_districts_key_2003.csv")$district_code
 
-education_table_list_2006 <- age_table_list_2006 <- sex_table_list_2006 <- vector("list", 308)
+education_table_list_2006 <- age_table_list_2006 <- sex_table_list_2006 <- minority_table_list_2006 <- vector("list", 308)
 
 ## Run through districts
 for(i in 1:308) {
@@ -52,9 +52,14 @@ for(i in 1:308) {
                            characteristic == "Female, total" ~ "sex_female")) %>%
     na.omit() %>%
     dplyr::select(sex, pop)
+  
+  minority_table_list_2006[[i]] <- census_table %>%
+    filter(grepl("Total visible minority population|Not a visible minority", characteristic)) %>%
+    mutate(minority = case_when(grepl("Total visible minority population", characteristic) ~ "minority",
+                                grepl("Not a visible minority", characteristic) ~ "white"))
 }
 
-names(education_table_list_2006) <- names(age_table_list_2006) <- names(sex_table_list_2006) <- district_names_2003
+names(education_table_list_2006) <- names(age_table_list_2006) <- names(sex_table_list_2006) <- names(minority_table_list_2006) <- district_names_2003
 
 education_pct_list_2006 <- education_table_list_2006 %>%
   lapply(function(df) {
@@ -83,12 +88,23 @@ sex_pct_list_2006 <- sex_table_list_2006 %>%
     return(pct_df)
   })
 
+minority_pct_list_2006 <- minority_table_list_2006 %>%
+  lapply(function(df) {
+    pct_df <- df %>%
+      mutate(pct = pop/sum(pop)) %>%
+      dplyr::select(minority, pct) %>%
+      spread(minority, pct)
+    return(pct_df)
+  })
+
+
 ## Make into a tibble
 educ_pct_tbl_2006 <- bind_rows(education_pct_list_2006)
 age_pct_tbl_2006 <- bind_rows(age_pct_list_2006)
 sex_pct_tbl_2006 <- bind_rows(sex_pct_list_2006)
+minority_pct_tbl_2006 <- bind_rows(minority_pct_list_2006)
 
-demographics_2006 <- bind_cols(educ_pct_tbl_2006, age_pct_tbl_2006, sex_pct_tbl_2006) %>%
+demographics_2006 <- bind_cols(educ_pct_tbl_2006, age_pct_tbl_2006, sex_pct_tbl_2006, minority_pct_tbl_2006) %>%
   mutate(district_code = district_ids_2003) %>%
   dplyr::select(district_code, everything())
 
