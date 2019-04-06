@@ -75,7 +75,7 @@ demographics_2016 <- age_2016 %>%
 write_csv(demographics_2016, "Data/Processed/2016_demographics.csv")
 
 
-#### Age, sex, education, and race for 2011 ####
+#### Age, sex, education, and race for 2011 (2003 representation order) ####
 long_form_2011 <- fread_to_tbl("Data/Raw/Demographics/district_long_form_2011.csv") %>%
   dplyr::select(-GNR) # contains race and education
 
@@ -141,3 +141,71 @@ demographics_2011 <- age_2011 %>%
   ungroup()
 
 write_csv(demographics_2011, "Data/Processed/2011_demographics.csv")
+
+
+#### Age, sex, education, and race for 2011 (2013 representation order) ####
+long_form_2011_2013_order <- fread_to_tbl("Data/Raw/Demographics/district_2013_long_form_2011.csv") %>%
+  dplyr::select(-GNR) # contains race and education
+
+names(long_form_2011_2013_order) <- c("district_code", "province_name", "name_english", "topic", "characteristic", "footnote", "pop", 
+                                      "flag_total", "male_pop", "flag_male", "female_pop", "flag_female")
+
+short_form_2011_2013_order <- fread_to_tbl("Data/Raw/Demographics/district_2013_short_form_2011.csv") # contains age and sex
+
+names(short_form_2011_2013_order) <- c("district_code", "province_name", "name_english", "topic", "characteristic", "footnote", "pop", 
+                                       "flag_total", "male_pop", "flag_male", "female_pop", "flag_female")
+
+demographics_2011_raw_2013_order <- bind_rows(long_form_2011, short_form_2011_2013_order) %>%
+  filter(topic %in% c("Age characteristics", "Visible minority population", "Education")) %>%
+  dplyr::select(district_code, topic, characteristic, pop, male_pop, female_pop)
+
+age_2011_2013_order <- demographics_2011_raw_2013_order %>%
+  mutate(age = case_when(grepl("15 to 19|20 to 24|25 to 29", characteristic) ~ "age_1529",
+                         grepl("30 to 34|35 to 39|40 to 44", characteristic) ~ "age_3044",
+                         grepl("45 to 49|50 to 54|55 to 59|60 to 64", characteristic) ~ "age_4564",
+                         grepl("65 to 69|70 to 74|75 to 79|80 to 84|85 years", characteristic) ~ "age_65")) %>%
+  na.omit() %>%
+  group_by(district_code, age) %>%
+  summarise(pop = sum(pop)) %>%
+  mutate(pct = pop/sum(pop)) %>%
+  dplyr::select(district_code, age, pct) %>%
+  spread(age, pct) %>%
+  ungroup()
+
+education_2011_2013_order <- demographics_2011_raw_2013_order %>%
+  mutate(education = case_when(grepl("No certificate|High school diploma", characteristic) ~ "educ_hsless",
+                               grepl("Apprenticeship|CEGEP", characteristic) ~ "educ_college",
+                               grepl("bachelor level", characteristic) ~ "educ_university")) %>%
+  na.omit() %>%
+  group_by(district_code, education) %>%
+  summarise(pop = sum(pop)) %>%
+  mutate(pct = pop/sum(pop)) %>%
+  dplyr::select(district_code, education, pct) %>%
+  spread(education, pct) %>%
+  ungroup()
+
+sex_2011_2013_order <- demographics_2011_raw_2013_order %>%
+  filter(characteristic == "Total population by age groups") %>%
+  mutate(sex_male = male_pop/(male_pop + female_pop),
+         sex_female = female_pop/(male_pop + female_pop)) %>%
+  dplyr::select(district_code, sex_male, sex_female) %>%
+  ungroup()
+
+race_2011_2013_order <- demographics_2011_raw_2013_order %>%
+  mutate(minority = case_when(characteristic == "Total visible minority population" ~ "minority",
+                              characteristic == "Not a visible minority" ~ "white")) %>%
+  na.omit() %>%
+  group_by(district_code, minority) %>%
+  summarise(pop = sum(pop)) %>%
+  mutate(pct = pop/sum(pop)) %>%
+  dplyr::select(district_code, minority, pct) %>%
+  spread(minority, pct) %>%
+  ungroup()
+
+demographics_2011_2013_order <- age_2011_2013_order %>%
+  left_join(education_2011, by = "district_code") %>%
+  left_join(sex_2011, by = "district_code") %>%
+  left_join(race_2011, by = "district_code") %>%
+  ungroup()
+
+write_csv(demographics_2011_2013_order, "Data/Processed/2011_demographics_2013_order.csv")

@@ -20,56 +20,67 @@ LPC_error <- CPC_error <- NDP_error <- Green_error <- Bloc_error <- rep(NA, n)
 ## Choosing features
 LPC.x <- results %>%
   dplyr::select(incumbent, LPC_lag, CPC_lag, NDP_lag, Green_lag, Bloc_lag, Quebec, LPC_nation, LPC_region, LPC_nation_lag, LPC_region_lag,
-                LPC_funds, LPC_funds_frac, pop, pop_growth_rate)
+                LPC_funds, LPC_funds_frac, pop_growth_rate, age_65, educ_university, sex_female, minority)
 CPC.x <- results %>%
   dplyr::select(incumbent, LPC_lag, CPC_lag, NDP_lag, Green_lag, Bloc_lag, Quebec, CPC_nation, CPC_region, CPC_nation_lag, CPC_region_lag,
-                CPC_funds, CPC_funds_frac, pop, pop_growth_rate)
+                CPC_funds, CPC_funds_frac, pop_growth_rate, age_65, educ_university, sex_female, minority)
 NDP.x <- results %>%
   dplyr::select(incumbent, LPC_lag, CPC_lag, NDP_lag, Green_lag, Bloc_lag, Quebec, NDP_nation, NDP_region, NDP_nation_lag, NDP_region_lag,
-                NDP_funds, NDP_funds_frac, pop, pop_growth_rate)
+                NDP_funds, NDP_funds_frac, pop_growth_rate, age_65, educ_university, sex_female, minority)
 Green.x <- results %>%
   dplyr::select(incumbent, LPC_lag, CPC_lag, NDP_lag, Green_lag, Bloc_lag, Quebec, Green_nation, Green_region, Green_nation_lag, Green_region_lag,
-                Green_funds, Green_funds_frac, pop, pop_growth_rate)
+                Green_funds, Green_funds_frac, pop_growth_rate, age_65, educ_university, sex_female, minority)
 Bloc.x <- results %>%
   dplyr::select(incumbent, LPC_lag, CPC_lag, NDP_lag, Green_lag, Bloc_lag, Quebec, Bloc_nation, Bloc_region, Bloc_nation_lag, Bloc_region_lag,
-                Bloc_funds, Bloc_funds_frac, pop, pop_growth_rate)
+                Bloc_funds, Bloc_funds_frac, pop_growth_rate, age_65, educ_university, sex_female, minority)
 
-## Convert to sparse matrix
-LPC.matrix <- model.matrix(~., LPC.x)
-CPC.matrix <- model.matrix(~., CPC.x)
-NDP.matrix <- model.matrix(~., NDP.x)
-Green.matrix <- model.matrix(~., Green.x)
-Bloc.matrix <- model.matrix(~., Bloc.x)
+## 12-fold cross-validation
+n <- nrow(results)
+folds <- 12
+fold_size <- n/folds
+
+LPC_error <- CPC_error <- NDP_error <- Green_error <- Bloc_error <- rep(NA, folds)
 
 set.seed(2019)
-for(i in 1:n) {
-  cat(i, "\n")
+shuffle <- sample(n)
+
+## Convert to xgb.DMatrix
+LPC.matrix <- model.matrix(~.-1, LPC.x)[shuffle,]
+CPC.matrix <- model.matrix(~.-1, CPC.x)[shuffle,]
+NDP.matrix <- model.matrix(~.-1, NDP.x)[shuffle,]
+Green.matrix <- model.matrix(~.-1, Green.x)[shuffle,]
+Bloc.matrix <- model.matrix(~.-1, Bloc.x)[shuffle,]
+
+for(i in 1:folds) {
+  cat("Fold ", i, "\n")
+  start_idx <- (i - 1)*fold_size + 1
+  end_idx <- i*fold_size
   
   ## Subset training features (x) and labels (y)
-  train_LPC.x <- LPC.matrix[-i,]
-  train_CPC.x <- CPC.matrix[-i,]
-  train_NDP.x <- NDP.matrix[-i,]
-  train_Green.x <- Green.matrix[-i,]
-  train_Bloc.x <- Bloc.matrix[-i,]
+  train_LPC.x <- LPC.matrix[-(start_idx:end_idx),]
+  train_CPC.x <- CPC.matrix[-(start_idx:end_idx),]
+  train_NDP.x <- NDP.matrix[-(start_idx:end_idx),]
+  train_Green.x <- Green.matrix[-(start_idx:end_idx),]
+  train_Bloc.x <- Bloc.matrix[-(start_idx:end_idx),]
   
-  train_LPC.y <- results$LPC[-i]
-  train_CPC.y <- results$CPC[-i]
-  train_NDP.y <- results$NDP[-i]
-  train_Green.y <- results$Green[-i]
-  train_Bloc.y <- results$Bloc[-i]
+  train_LPC.y <- results$LPC[-(start_idx:end_idx)]
+  train_CPC.y <- results$CPC[-(start_idx:end_idx)]
+  train_NDP.y <- results$NDP[-(start_idx:end_idx)]
+  train_Green.y <- results$Green[-(start_idx:end_idx)]
+  train_Bloc.y <- results$Bloc[-(start_idx:end_idx)]
   
   ## Subset test features (x) and labels (y)
-  test_LPC.x <- t(as.matrix(LPC.matrix[i,]))
-  test_CPC.x <- t(as.matrix(CPC.matrix[i,]))
-  test_NDP.x <- t(as.matrix(NDP.matrix[i,]))
-  test_Green.x <- t(as.matrix(Green.matrix[i,]))
-  test_Bloc.x <- t(as.matrix(Bloc.matrix[i,]))
+  test_LPC.x <- LPC.matrix[start_idx:end_idx,]
+  test_CPC.x <- CPC.matrix[start_idx:end_idx,]
+  test_NDP.x <- NDP.matrix[start_idx:end_idx,]
+  test_Green.x <- Green.matrix[start_idx:end_idx,]
+  test_Bloc.x <- Bloc.matrix[start_idx:end_idx,]
   
-  test_LPC.y <- results$LPC[i]
-  test_CPC.y <- results$CPC[i]
-  test_NDP.y <- results$NDP[i]
-  test_Green.y <- results$Green[i]
-  test_Bloc.y <- results$Bloc[i]
+  test_LPC.y <- results$LPC[start_idx:end_idx]
+  test_CPC.y <- results$CPC[start_idx:end_idx]
+  test_NDP.y <- results$NDP[start_idx:end_idx]
+  test_Green.y <- results$Green[start_idx:end_idx]
+  test_Bloc.y <- results$Bloc[start_idx:end_idx]
   
   ## Fit models
   xgb.LPC <- xgboost(data = train_LPC.x, label = train_LPC.y, nrounds = 300, eta = 0.2, max_depth = 2, early_stopping_rounds = 20,
@@ -91,11 +102,11 @@ for(i in 1:n) {
   Bloc_pred <- predict(xgb.Bloc, newdata = test_Bloc.x)
   
   ## Compute error
-  LPC_error[i] <- LPC_pred - test_LPC.y
-  CPC_error[i] <- CPC_pred - test_CPC.y
-  NDP_error[i] <- NDP_pred - test_NDP.y
-  Green_error[i] <- Green_pred - test_Green.y
-  Bloc_error[i] <- Bloc_pred - test_Bloc.y
+  LPC_error[i] <- mean((LPC_pred - test_LPC.y)^2)
+  CPC_error[i] <- mean((CPC_pred - test_CPC.y)^2)
+  NDP_error[i] <- mean((NDP_pred - test_NDP.y)^2)
+  Green_error[i] <- mean((Green_pred - test_Green.y)^2)
+  Bloc_error[i] <- mean((Bloc_pred - test_Bloc.y)^2)
 }
 
 xgb.errors <- results %>%

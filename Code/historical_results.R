@@ -59,8 +59,26 @@ historical_results.region <- results_pre2013_wide %>%
          Bloc_region_lag = lag(Bloc_region)) %>%
   ungroup()
 
-## Population variables
-source("Code/Data processing/process_demographic_data.R")
+## Estimate demographics by year
+demographics_2001 <- read_csv("Data/Processed/2001_demographics.csv") %>%
+  mutate(year = 2001)
+demographics_2006 <- read_csv("Data/Processed/2006_demographics.csv") %>%
+  mutate(year = 2006)
+demographics_2011 <- read_csv("Data/Processed/2011_demographics.csv") %>%
+  mutate(year = 2011)
+demographics_2011_2013_order <- read_csv("Data/Processed/2011_demographics_2013_order.csv") %>%
+  mutate(year = 2011)
+demographics_2016 <- read_csv("Data/Processed/2016_demographics.csv") %>%
+  mutate(year = 2016)
+
+demographics_2004 <- as.tbl(((1/(2004-2001))*demographics_2001 + (1/(2006-2004))*demographics_2006)/(1/(2004-2001) + 1/(2006-2004))) %>%
+  mutate_at(vars(c("year", "district_code")), as.integer)
+demographics_2008 <- as.tbl(((1/(2008-2006))*demographics_2006 + (1/(2011-2008))*demographics_2011)/(1/(2008-2006) + 1/(2011-2008))) %>%
+  mutate_at(vars(c("year", "district_code")), as.integer)
+demographics_2015 <- as.tbl(((1/(2015-2011))*demographics_2011_2013_order + (1/(2016-2015))*demographics_2016)/(1/(2015-2011) + 1/(2016-2015))) %>%
+  mutate_at(vars(c("year", "district_code")), as.integer)
+
+demographics_pre2013 <- bind_rows(demographics_2004, demographics_2006, demographics_2008, demographics_2011)
 
 ## District historical results
 historical_results.district <- results_pre2013_wide %>%
@@ -96,7 +114,8 @@ historical_results.district <- results_pre2013_wide %>%
          Green_funds_frac = Green_funds/total_funds) %>%
   left_join(population, by = c("district_code", "census_year")) %>%
   mutate(years_since_census = year - census_year,
-         pop_growth = pop_growth_rate^years_since_census)
+         pop_growth = pop_growth_rate^years_since_census) %>%
+  left_join(demographics_pre2013, by = c("district_code", "year"))
 
 ## Convert to logit
 historical_results.logit <- historical_results.district %>%
