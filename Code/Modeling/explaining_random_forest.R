@@ -33,3 +33,16 @@ explain_forest(model_CPC)
 explain_forest(model_NDP)
 explain_forest(model_Green)
 explain_forest(model_Bloc)
+
+#### Minimal depth distributions ####
+LPC_min_depth_df <- min_depth_distribution(model_LPC)
+CPC_min_depth_df <- min_depth_distribution(model_CPC)
+NDP_min_depth_df <- min_depth_distribution(model_NDP)
+Green_min_depth_df <- min_depth_distribution(model_Green)
+Bloc_min_depth_df <- min_depth_distribution(model_Bloc)
+
+plot_min_depth_distribution(LPC_min_depth_df, k = 18)
+plot_min_depth_distribution(CPC_min_depth_df, k = 18)
+plot_min_depth_distribution(NDP_min_depth_df, k = 18)
+plot_min_depth_distribution(Bloc_min_depth_df, k = 18)
+plot_min_depth_distribution(Green_min_depth_df, k = 18)
