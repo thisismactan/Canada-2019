@@ -223,7 +223,8 @@ results <- historical_results.district %>%
     x[is.na(x)] <- 0
     return(x)
   }) %>%
-  mutate(Quebec = (province == "Quebec"))
+  mutate(Quebec = (province == "Quebec"),
+         Atlantic = (region == "Atlantic"))
 
 results$Bloc[is.na(results$Bloc)] <- 0
 results$Bloc[is.na(results$Bloc)] <- 0
@@ -231,7 +232,7 @@ results$Bloc[is.na(results$Bloc)] <- 0
 n <- nrow(results)
 
 ## Tuning
-tunegrid <- expand.grid(mtry = 5:25)
+tunegrid <- expand.grid(mtry = 5:20)
 control <- trainControl(method = "cv", number = 10)
 set.seed(2019)
 rf.LPC_tune <- train(LPC~incumbent+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+LPC_nation+LPC_region+LPC_nation_lag+LPC_region_lag+
