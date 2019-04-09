@@ -46,3 +46,16 @@ plot_min_depth_distribution(CPC_min_depth_df, k = 18)
 plot_min_depth_distribution(NDP_min_depth_df, k = 18)
 plot_min_depth_distribution(Bloc_min_depth_df, k = 18)
 plot_min_depth_distribution(Green_min_depth_df, k = 18)
+
+LPC_importance_df <- measure_importance(model_LPC)
+plot_multi_way_importance(LPC_importance_df, x_measure = "node_purity_increase", y_measure = "mse_increase", 
+                          size_measure = "no_of_nodes", no_of_labels = 6)
+
+LPC_important_vars <- important_variables(LPC_importance_df, k = 6)
+LPC_interactions_df <- min_depth_interactions(model_LPC, vars = LPC_important_vars)
+LPC_interactions_df %>%
+  arrange(mean_min_depth) %>%
+  head(20)
+
+plot_predict_interaction(model_LPC, data = results, variable1 = "LPC_region", variable2 = "LPC_lag")
+plot_predict_interaction(model_LPC, data = results, variable1 = "CPC_lag", variable2 = "NDP_lag")
