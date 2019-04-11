@@ -51,7 +51,7 @@ LPC_importance_df <- measure_importance(model_LPC)
 plot_multi_way_importance(LPC_importance_df, x_measure = "node_purity_increase", y_measure = "mse_increase", 
                           size_measure = "no_of_nodes", no_of_labels = 6)
 
-LPC_important_vars <- important_variables(LPC_importance_df, k = 6)
+LPC_important_vars <- important_variables(LPC_importance_df, k = 4)
 LPC_interactions_df <- min_depth_interactions(model_LPC, vars = LPC_important_vars)
 LPC_interactions_df %>%
   arrange(mean_min_depth) %>%
