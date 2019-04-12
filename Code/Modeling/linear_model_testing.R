@@ -1,58 +1,137 @@
 #### Testing linear regression models ####
 source("Code/historical_results.R")
 
-## Compute district elasticities (or swinginess) ##
-district_elasticity <- historical_results.district %>%
-  # Compute national (or regional for Bloc) changes
-  mutate(LPC_nation_change = LPC_nation - lag(LPC_nation),
-         CPC_nation_change = CPC_nation - lag(CPC_nation),
-         NDP_nation_change = NDP_nation - lag(NDP_nation),
-         Green_nation_change = Green_nation - lag(Green_nation),
-         Bloc_region_change = Bloc_region - lag(Bloc_region)) %>%
-  mutate(lag_incumbent = lag(incumbent),
-         incumbent_run = incumbent == lag_incumbent,
-         LPC_elast = LPC_change/LPC_nation_change,
-         CPC_elast = CPC_change/CPC_nation_change,
-         NDP_elast = NDP_change/NDP_nation_change,
-         Green_elast = Green_change/Green_nation_change,
-         Bloc_elast = Bloc_change/Bloc_region_change) %>%
-  group_by(district_code) %>%
-  summarise(LPC_elast_avg = mean(LPC_elast, na.rm = TRUE),
-            CPC_elast_avg = mean(CPC_elast, na.rm = TRUE),
-            NDP_elast_avg = mean(NDP_elast, na.rm = TRUE),
-            Green_elast_avg = mean(Green_elast, na.rm = TRUE),
-            Bloc_elast_avg = mean(Bloc_elast, na.rm = TRUE)) %>%
-  ungroup()
+results <- historical_results.district %>%
+  filter(year != 2004) %>%
+  mutate_at(vars(contains("funds")), function(x) {
+    x[is.na(x)] <- 0
+    return(x)
+  }) %>%
+  mutate(Quebec = (province == "Quebec"),
+         Atlantic = (region == "Atlantic"),
+         incumbent_LPC = incumbent == "Liberal",
+         incumbent_CPC = incumbent == "Conservative",
+         incumbent_NDP = incumbent == "NDP",
+         incumbent_Bloc = incumbent == "Bloc",
+         incumbent_Green = incumbent == "Green")
 
-historical_results.district_elast <- historical_results.district %>%
-  left_join(district_elasticity, by = "district_code")
+results$Bloc[is.na(results$Bloc)] <- 0
+results$Bloc[is.na(results$Bloc)] <- 0
 
-r.squareds <- matrix(NA, 2, 5)
-rownames(r.squareds) <- c("Linear", "Logit")
-colnames(r.squareds) <- c("LPC", "CPC", "NDP", "Bloc", "Green")
+n <- nrow(results)
+LPC_error <- CPC_error <- NDP_error <- Green_error <- Bloc_error <- rep(NA, n)
 
-#### Test RMSE ####
-lm.LPC_2006 <- lm(I(LPC-LPC_nation)~incumbent*I(province == "Quebec")*(LPC_region+LPC_lag), data = results_2006)
-lm.LPC_2008 <- lm(I(LPC-LPC_nation)~incumbent*I(province == "Quebec")*(LPC_region+LPC_lag), data = results_2008)
+for(i in 1:n) {
+  cat("District ", results$district_code[i], ": ", results$name_english[i], " (", results$year[i], ")", "\n", sep = "")
+  # Train/test split
+  train <- results[-i,]
+  test <- results[i,]
+  
+  # Fit linear models
+  model_LPC.linear <- lm(LPC~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+LPC_nation+
+                           LPC_region+LPC_region_lag+educ_university+minority, data = train)
+  model_CPC.linear <- lm(CPC~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+CPC_nation+
+                           CPC_region+CPC_nation_lag+CPC_region_lag+minority, data = train)
+  model_NDP.linear <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+NDP_nation+
+                           NDP_region+NDP_nation_lag+NDP_region_lag, data = train)
+  model_Green.linear <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Green_nation+
+                             Green_region+Green_nation_lag+Green_region_lag+minority, data = train)
+  model_Bloc.linear <- lm(Bloc~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Bloc_region+
+                            Bloc_region_lag, data = train)
+  
+  # Make test prediction and compute error
+  test <- test %>%
+    mutate(LPC.pred = predict(model_LPC.linear, newdata = .), LPC.error = LPC.pred - LPC,
+           CPC.pred = predict(model_CPC.linear, newdata = .), CPC.error = CPC.pred - CPC,
+           NDP.pred = predict(model_NDP.linear, newdata = .), NDP.error = NDP.pred - NDP,
+           Green.pred = predict(model_Green.linear, newdata = .), Green.error = Green.pred - Green,
+           Bloc.pred = predict(model_Bloc.linear, newdata = .), Bloc.error = Bloc.pred - Bloc)
+  
+  LPC_error[i] <- test$LPC.error[1]
+  CPC_error[i] <- test$CPC.error[1]
+  NDP_error[i] <- test$NDP.error[1]
+  Green_error[i] <- test$Green.error[1]
+  Bloc_error[i] <- test$Bloc.error[1]
+}
 
-results_2008.pred <- results_2008 %>%
-  ungroup() %>%
-  mutate(LPC_pred = predict(lm.LPC_2006, newdata = .) + LPC_nation,
-         LPC_error = LPC_pred - LPC)
+linear_model.errors <- results %>%
+  mutate(LPC_error = LPC_error,
+         CPC_error = CPC_error,
+         NDP_error = NDP_error,
+         Green_error = Green_error,
+         Bloc_error = Bloc_error) %>%
+  dplyr::select(district_code, name_english, year, incumbent, province, region, LPC_error, CPC_error, NDP_error, Green_error, Bloc_error)
 
-results_2011.pred <- results_2011 %>%
-  ungroup() %>%
-  mutate(LPC_pred = predict(lm.LPC_2008, newdata = .) + LPC_nation,
-         LPC_error = LPC_pred - LPC)
+write.csv(linear_model.errors, file = "Output/Model testing/linear_model_errors.csv", row.names = FALSE) 
 
-results_2008.pred %>%
-  ggplot(aes(x = LPC, y = LPC_error)) +
-  geom_text(aes(label = district_code, col = incumbent), alpha = 0.5) +
-  geom_smooth(col = "black") +
-  scale_colour_manual(name = "Incumbent", values = c("#8ECEF9", "blue", "red", "darkorange1", "black"))
+## RMSE
+linear_model.errors %>%
+  summarise(n = n(),
+            LPC = sqrt(mean_squares(LPC_error)),
+            CPC = sqrt(mean_squares(CPC_error)),
+            NDP = sqrt(mean_squares(NDP_error)),
+            Green = sqrt(mean_squares(Green_error)),
+            Bloc = sqrt(mean_squares(Bloc_error)))
 
-results_2011.pred %>%
-  ggplot(aes(x = LPC, y = LPC_error)) +
-  geom_text(aes(label = district_code, col = incumbent), alpha = 0.5) +
-  geom_smooth(col = "black") +
-  scale_colour_manual(name = "Incumbent", values = c("#8ECEF9", "blue", "red", "darkorange1", "black"))
+# RMSE by party, region
+linear_model.errors %>%
+  group_by(region) %>%
+  summarise(districts = n(),
+            LPC = sqrt(mean_squares(LPC_error)),
+            CPC = sqrt(mean_squares(CPC_error)),
+            NDP = sqrt(mean_squares(NDP_error)),
+            Green = sqrt(mean_squares(Green_error)),
+            Bloc = sqrt(mean_squares(Bloc_error)))
+
+# RMSE by party, year
+linear_model.errors %>%
+  group_by(year) %>%
+  summarise(districts = n(),
+            LPC = sqrt(mean_squares(LPC_error)),
+            CPC = sqrt(mean_squares(CPC_error)),
+            NDP = sqrt(mean_squares(NDP_error)),
+            Green = sqrt(mean_squares(Green_error)),
+            Bloc = sqrt(mean_squares(Bloc_error)))
+
+## Density plots 
+# Party, overall
+linear_model.errors %>%
+  filter(region != "The frigid northlands") %>%
+  melt(id.vars = c("district_code", "name_english", "year", "incumbent", "province", "region"),
+       variable.name = "party", value.name = "error") %>%
+  ggplot(aes(x = error, fill = party)) +
+  geom_histogram(col = "black", binwidth = 0.02) +
+  scale_fill_manual(name = "Party", values = quebec_colors[1:5], labels = quebec_parties[1:5]) +
+  labs(title = "Distribution of errors by party and region",
+       subtitle = "Linear regression model",
+       x = "Error", y = "Density")
+
+# Party, by region
+linear_model.errors %>%
+  filter(region != "The frigid northlands") %>%
+  melt(id.vars = c("district_code", "name_english", "year", "incumbent", "province", "region"),
+       variable.name = "party", value.name = "error") %>%
+  ggplot(aes(x = error, fill = party)) +
+  facet_wrap(~region) +
+  geom_histogram(col = "black", binwidth = 0.02) +
+  scale_fill_manual(name = "Party", values = quebec_colors[1:5], labels = quebec_parties[1:5]) +
+  labs(title = "Distribution of errors by party and region",
+       subtitle = "Linear regression model",
+       x = "Error", y = "Observations")
+
+ggsave(filename = "Output/Model graphs/linear_model_errors_region.png", width = 20, height = 12)
+
+# Party, by year
+linear_model.errors %>%
+  melt(id.vars = c("district_code", "name_english", "year", "incumbent", "province", "region"),
+       variable.name = "party", value.name = "error") %>%
+  ggplot(aes(x = error, fill = party)) +
+  facet_wrap(~year) +
+  geom_histogram(col = "black", binwidth = 0.02) +
+  scale_fill_manual(name = "Party", values = quebec_colors[1:5], labels = quebec_parties[1:5]) +
+  labs(title = "Distribution of errors by party and region",
+       subtitle = "Linear regression model",
+       x = "Error", y = "Observations")
+
+ggsave(filename = "Output/Model graphs/linear_model_errors_year.png", width = 20, height = 7)
+
