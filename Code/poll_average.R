@@ -4,24 +4,8 @@ source("Code/poll_scrape_clean.R")
 ## Add weights
 national_polls <- national_polls %>%
   mutate(numeric_date = as.numeric(date), 
-         weight = (age <= 60)*exp(-(age)^(1/3))/sqrt(MOE/100)/(ifelse(IVR, 3, 1)),
          loess_weight = 1/sqrt(MOE/100)/(ifelse(IVR, 3, 1))) %>%
   filter(!(pollster == "Abacus Data" & date %in% as.Date(paste0("2019-03-0", c(7, 6, 4, 3)))))
-
-## Weighted average
-national_polls %>% 
-  melt(id.vars = c("pollster", "date", "age", "MOE", "n", "mode", "IVR", "weight")) %>%
-  filter(variable %in% c("LPC", "CPC", "NDP", "BQ", "GPC", "PPC")) %>%
-  group_by(party = variable) %>%
-  summarise(average = Hmisc::wtd.mean(value, weights = weight, na.rm = TRUE),
-            sd = sqrt(Hmisc::wtd.var(value, weights = weight, na.rm = TRUE)))
-
-## Weighted covariance (except People's Party)
-national_polls_matrix <- national_polls %>%
-  dplyr::select(weight, LPC, CPC, NDP, BQ, GPC, PPC) %>%
-  na.omit()
-  
-national_polls_covariance <- cov.wt(national_polls_matrix %>% dplyr::select(-weight), national_polls_matrix$weight)$cov
 
 ## Fit loess models
 national_loess.LPC <- loess(LPC~numeric_date, data = national_polls, weights = loess_weight)
@@ -47,15 +31,37 @@ house_effects <- national_polls %>%
   ungroup() %>%
   mutate(full_house = (3*abs(LPC_house) + 3*abs(CPC_house) + 2*abs(NDP_house) + abs(GPC_house))/9 + 1)
 
+national_polls.adjusted <- national_polls %>%
+  left_join(house_effects, by = "pollster") %>%
+  mutate(weight = 3*(age <= 60)*exp(-(age)^(1/3))/sqrt(MOE/100)/(ifelse(IVR, 3, 1))/sqrt(full_house),
+         LPC = LPC - LPC_house/2,
+         CPC = CPC - CPC_house/2,
+         NDP = NDP - NDP_house/2,
+         GPC = GPC - GPC_house/2)
+
+## Weighted average
+national_polls.adjusted %>% 
+  melt(id.vars = c("pollster", "date", "age", "MOE", "n", "mode", "IVR", "weight")) %>%
+  filter(variable %in% c("LPC", "CPC", "NDP", "BQ", "GPC", "PPC")) %>%
+  group_by(party = variable) %>%
+  summarise(average = Hmisc::wtd.mean(value, weights = weight, na.rm = TRUE),
+            sd = sqrt(Hmisc::wtd.var(value, weights = weight, na.rm = TRUE)))
+
+## Weighted covariance (except People's Party)
+national_polls_matrix <- national_polls.adjusted %>%
+  dplyr::select(weight, LPC, CPC, NDP, BQ, GPC, PPC) %>%
+  na.omit()
+  
+national_polls_covariance <- cov.wt(national_polls_matrix %>% dplyr::select(-weight), national_polls_matrix$weight)$cov
+
 ## Plot national polls
-ggplot(national_polls %>%
+ggplot(national_polls.adjusted %>%
          melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
               variable.name = "Party", value.name = "Poll"), 
        aes(x = date, y = Poll, col = Party)) +
   geom_point(alpha = 0.4, size = 1) +
   geom_smooth(method = "loess", span = 0.2, size = 1) +
   scale_colour_manual(name = "Party", values = national_colors, labels = national_parties) +
-  lims(x = c(as.Date("2018-01-01"), today())) +
   labs(title = "2019 Canadian federal election polling",
        subtitle = "National", x = "Date", y = "%")
 
@@ -79,7 +85,7 @@ provincial_polls <- read_csv("Data/provincial_polling.csv") %>%
 
 ## Plotting
 provincial_polls %>%
-  melt(id.vars = c("pollster", "date", "age", "mode", "province"), variable.name = "Party", value.name = "Poll") %>%
+  melt(id.vars = c("pollster", "date", "age", "mode", "province", "weight"), variable.name = "Party", value.name = "Poll") %>%
   mutate(Poll = as.numeric(Poll)) %>%
   ggplot(aes(x = date, y = Poll, col = Party)) +
   facet_wrap(~province) +
@@ -123,6 +129,7 @@ bc_polls <- provincial_polls %>%
   dplyr::select(weight, LPC, CPC, NDP, GPC, PPC) %>%
   na.omit()
 
+## Poll covariances
 ontario_poll_covariance <- cov.wt(ontario_polls %>% dplyr::select(-weight), wt = ontario_polls$weight)$cov
 atlantic_poll_covariance <- cov.wt(atlantic_polls %>% dplyr::select(-weight), wt = atlantic_polls$weight)$cov
 quebec_poll_covariance <- cov.wt(quebec_polls %>% dplyr::select(-weight), wt = quebec_polls$weight)$cov

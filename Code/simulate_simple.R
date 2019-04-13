@@ -4,6 +4,16 @@ source("Code/Modeling/poll_error_variance.R")
 source("Code/Modeling/model_error_variance.R")
 source("Code/shape_2019_data.R")
 
+## Simulate draws from national polling
+means <- national_polls.adjusted %>% 
+  melt(id.vars = c("pollster", "date", "age", "MOE", "n", "mode", "IVR", "weight")) %>%
+  filter(variable %in% c("LPC", "CPC", "NDP", "BQ", "GPC", "PPC")) %>%
+  group_by(party = variable) %>%
+  summarise(average = Hmisc::wtd.mean(value, weights = weight, na.rm = TRUE)) %>%
+  pull(average)
+
+national_poll_sims <- mvrnorm(10000, means, national_polls_covariance)
+
 ## 
 LPC_preds <- predict(model_LPC.linear, newdata = data_2019.simple)
 CPC_preds <- predict(model_CPC.linear, newdata = data_2019.simple)
