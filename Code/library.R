@@ -29,6 +29,9 @@ library(randomForestExplainer)
 library(xgboost)
 library(xgboostExplainer)
 
+## Simulating
+library(mvnfast)
+
 #### PARTY COLORS ####
 quebec_parties <- c("Liberal", "Conservative", "NDP", "Bloc", "Green", "People's")
 quebec_colors <- c("red", "blue", "darkorange1", "#8ECEF9", "green4", "midnightblue")

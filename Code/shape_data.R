@@ -72,23 +72,7 @@ cands_2015 <- fread_to_tbl("Data/candidates_2015.csv") %>%
   spread(party, candidate)
 
 ## Stitching on campaign finance numbers
-contribs_2004_2011 <- fread_to_tbl("Data/Processed/campaign_contributions_2004_2011.csv") %>%
-  group_by(year, name_english, party) %>%
-  summarise(contributions = sum(contributions, na.rm = TRUE)) %>%
-  ungroup() %>%
-  spread(party, contributions, fill = 0) %>%
-  rename(Bloc_funds = Bloc, CPC_funds = Conservative, Green_funds = Green, LPC_funds = Liberal, NDP_funds = NDP) %>%
-  mutate(total_funds = Bloc_funds + CPC_funds + Green_funds + LPC_funds + NDP_funds) %>%
-  left_join(district_key_2003, by = "name_english")
-
-contribs_2015 <- fread_to_tbl("Data/Processed/campaign_contributions_2015.csv") %>%
-  group_by(year = election_year, name_english, party) %>%
-  summarise(contributions = sum(contributions, na.rm = TRUE)) %>%
-  ungroup() %>%
-  spread(party, contributions, fill = 0) %>%
-  rename(Bloc_funds = Bloc, CPC_funds = Conservative, Green_funds = Green, LPC_funds = Liberal, NDP_funds = NDP) %>%
-  mutate(total_funds = Bloc_funds + CPC_funds + Green_funds + LPC_funds + NDP_funds) %>%
-  left_join(district_key_2013, by = "name_english")
+contribs_2004_2011 <- fread_to_tbl("Data/Processed/campaign_contributions_2004_2011.csv")
 
 ## Identifying incumbents
 results_pre2013 <- bind_rows(results_2004, results_2006, results_2008, results_2011) %>%
@@ -222,7 +206,6 @@ results_2015_long <- results_2015 %>%
          variable = sub(".*_", "", variable),
          merge_name = name_english) %>%
   as.tbl() %>%
-  left_join(contribs_2015, by = c("name_english", "year", "party")) %>%
   dplyr::select(district_code, district = merge_name, year, incumbent, variable, value, party)
 
 ## Wide format
@@ -230,7 +213,7 @@ results_2015_wide <- results_2015_long %>%
   filter(variable == "votes") %>%
   mutate(votes = as.numeric(value)) %>%
   dplyr::select(-variable, -value) %>%
-  group_by(district_code, name_english, year) %>%
+  group_by(district_code, name_english = district, year) %>%
   distinct(district_code, name_english, year, party, incumbent, .keep_all = TRUE) %>%
   spread(party, votes)
 
