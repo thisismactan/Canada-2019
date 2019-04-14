@@ -47,4 +47,4 @@ poll_errors <- bind_rows(polls_2006, polls_2008, polls_2011, polls_2015) %>%
   dplyr::select(weight, LPC_error, CPC_error, NDP_error, Bloc_error, Green_error) %>%
   na.omit()
 
-poll_error_covariance <- cov.wt(poll_errors %>% dplyr::select(-weight), wt = poll_errors$weight)$cov
+poll_error_covariance <- cov.wt(poll_errors %>% dplyr::select(-weight), wt = poll_errors$weight)$cov 

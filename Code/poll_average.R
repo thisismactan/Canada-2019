@@ -130,9 +130,9 @@ bc_polls <- provincial_polls %>%
   na.omit()
 
 ## Poll covariances
-ontario_poll_covariance <- cov.wt(ontario_polls %>% dplyr::select(-weight), wt = ontario_polls$weight)$cov
-atlantic_poll_covariance <- cov.wt(atlantic_polls %>% dplyr::select(-weight), wt = atlantic_polls$weight)$cov
-quebec_poll_covariance <- cov.wt(quebec_polls %>% dplyr::select(-weight), wt = quebec_polls$weight)$cov
-prairie_poll_covariance <- cov.wt(prairie_polls %>% dplyr::select(-weight), wt = prairie_polls$weight)$cov
-alberta_poll_covariance <- cov.wt(alberta_polls %>% dplyr::select(-weight), wt = alberta_polls$weight)$cov
-bc_poll_covariance <- cov.wt(bc_polls %>% dplyr::select(-weight), wt = bc_polls$weight)$cov
+ontario_polls_covariance <- cov.wt(ontario_polls %>% dplyr::select(-weight), wt = ontario_polls$weight)$cov
+atlantic_polls_covariance <- cov.wt(atlantic_polls %>% dplyr::select(-weight), wt = atlantic_polls$weight)$cov
+quebec_polls_covariance <- cov.wt(quebec_polls %>% dplyr::select(-weight), wt = quebec_polls$weight)$cov
+prairie_polls_covariance <- cov.wt(prairie_polls %>% dplyr::select(-weight), wt = prairie_polls$weight)$cov
+alberta_polls_covariance <- cov.wt(alberta_polls %>% dplyr::select(-weight), wt = alberta_polls$weight)$cov
+bc_polls_covariance <- cov.wt(bc_polls %>% dplyr::select(-weight), wt = bc_polls$weight)$cov

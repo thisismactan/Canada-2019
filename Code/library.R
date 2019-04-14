@@ -144,3 +144,23 @@ province_polls <- function(province) {
   return(p)
 }
 
+## Calculate provincial means
+region_wtd_mean <- function(region_polls) {
+  means <- region_polls %>%
+    summarise(LPC = wtd.mean(LPC, weights = weight),
+              CPC = wtd.mean(CPC, weights = weight),
+              NDP = wtd.mean(NDP, weights = weight),
+              GPC = wtd.mean(GPC, weights = weight),
+              PPC = wtd.mean(PPC, weights = weight)) %>%
+    t() %>%
+    t() %>%
+    as.vector()
+  return(means)
+}
+
+## Compute district summary statistics
+compute_district_stats <- function(sim_matrix, FUN, ...) {
+  district_stats <- apply(sim_matrix, MARGIN = 1, FUN = FUN, ...)
+  district_stats <- pmax(district_stats, 0)
+  return(district_stats)
+}

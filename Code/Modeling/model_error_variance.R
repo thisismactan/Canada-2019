@@ -52,15 +52,7 @@ linear_model.errors %>%
   labs(title = "Bloc Québécois leave-one-out errors", x = "Error in popular vote",
        y = "District-years")
 
-## Error covariance by region
-covariance_list <- vector("list", n_distinct(rf2_demographics.errors$region))
-regions <- unique(rf_pop.errors$region)
-
-for(i in 1:length(covariance_list)) {
-  covariance_list[[i]] <- rf2_demographics.errors %>%
-    filter(region == regions[i]) %>%
-    dplyr::select(ends_with("error")) %>%
-    cov()
-}
-
-names(covariance_list) <- regions
+## Checked linear mixed models on errors with random intercepts for region; we can ignore region effects
+linear_model.error_covariance <- linear_model.errors %>%
+  dplyr::select(LPC_error, CPC_error, NDP_error, Bloc_error, Green_error) %>%
+  cov()
