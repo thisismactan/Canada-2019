@@ -1,0 +1,339 @@
+﻿district_code,name_english,last_winner
+10001,Avalon,Liberal
+10002,Bonavista--Burin--Trinity,Liberal
+10003,Coast of Bays--Central--Notre Dame,Liberal
+10004,Labrador,Liberal
+10005,Long Range Mountains,Liberal
+10006,St. John's East,Liberal
+10007,St. John's South--Mount Pearl,Liberal
+11001,Cardigan,Liberal
+11002,Charlottetown,Liberal
+11003,Egmont,Liberal
+11004,Malpeque,Liberal
+12001,Cape Breton--Canso,Liberal
+12002,Central Nova,Liberal
+12003,Cumberland--Colchester,Liberal
+12004,Dartmouth--Cole Harbour,Liberal
+12005,Halifax,Liberal
+12006,Halifax West,Liberal
+12007,Kings--Hants,Liberal
+12008,Sackville--Preston--Chezzetcook,Liberal
+12009,South Shore--St. Margarets,Liberal
+12010,Sydney--Victoria,Liberal
+12011,West Nova,Liberal
+13001,Acadie--Bathurst,Liberal
+13002,Beauséjour,Liberal
+13003,Fredericton,Liberal
+13004,Fundy Royal,Liberal
+13005,Madawaska--Restigouche,Liberal
+13006,Miramichi--Grand Lake,Liberal
+13007,Moncton--Riverview--Dieppe,Liberal
+13008,New Brunswick Southwest,Liberal
+13009,Saint John--Rothesay,Liberal
+13010,Tobique--Mactaquac,Liberal
+24001,Abitibi--Baie-James--Nunavik--Eeyou,NDP
+24002,Abitibi--Témiscamingue,NDP
+24003,Ahuntsic-Cartierville,Liberal
+24004,Alfred-Pellan,Liberal
+24005,Argenteuil--La Petite-Nation,Liberal
+24006,Avignon--La Mitis--Matane--Matapédia,Liberal
+24007,Beauce,Conservative
+24008,Beauport--Limoilou,Conservative
+24009,Bécancour--Nicolet--Saurel,Bloc
+24010,Bellechasse--Les Etchemins--Lévis,Conservative
+24011,Beloeil--Chambly,NDP
+24012,Berthier--Maskinongé,NDP
+24013,Thérèse-De Blainville,Liberal
+24014,Pierre-Boucher--Les Patriotes--Verchères,Bloc
+24015,Bourassa,Liberal
+24016,Brome--Missisquoi,Liberal
+24017,Brossard--Saint-Lambert,Liberal
+24018,Rimouski-Neigette--Témiscouata--Les Basques,NDP
+24019,Charlesbourg--Haute-Saint-Charles,Conservative
+24020,Beauport-Côte-de-Beaupré-Île d'Orléans-Charlevoix,Conservative
+24021,Châteauguay--Lacolle,Liberal
+24022,Chicoutimi--Le Fjord,Conservative
+24023,Compton--Stanstead,Liberal
+24024,Dorval--Lachine--LaSalle,Liberal
+24025,Drummond,NDP
+24026,Gaspésie--Les Îles-de-la-Madeleine,Liberal
+24027,Gatineau,Liberal
+24028,Hochelaga,NDP
+24029,Honoré-Mercier,Liberal
+24030,Hull--Aylmer,Liberal
+24031,Joliette,Bloc
+24032,Jonquière,NDP
+24033,La Pointe-de-l'Île,Bloc
+24034,La Prairie,Liberal
+24035,Lac-Saint-Jean,Liberal
+24036,Lac-Saint-Louis,Liberal
+24037,LaSalle--Émard--Verdun,Liberal
+24038,Laurentides--Labelle,Liberal
+24039,Laurier--Sainte-Marie,NDP
+24040,Laval--Les Îles,Liberal
+24041,Longueuil--Charles-LeMoyne,Liberal
+24042,Lévis--Lotbinière,Conservative
+24043,Longueuil--Saint-Hubert,NDP
+24044,Louis-Hébert,Liberal
+24045,Louis-Saint-Laurent,Conservative
+24046,Manicouagan,Bloc
+24047,Mégantic--L'Érable,Conservative
+24048,Mirabel,Bloc
+24049,Montarville,Liberal
+24050,Montcalm,Bloc
+24051,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Conservative
+24052,Mount Royal,Liberal
+24053,Notre-Dame-de-Grâce--Westmount,Liberal
+24054,Outremont,Liberal
+24055,Papineau,Liberal
+24056,Pierrefonds--Dollard,Liberal
+24057,Pontiac,Liberal
+24058,Portneuf--Jacques-Cartier,Conservative
+24059,Québec,Liberal
+24060,Repentigny,Bloc
+24061,Richmond--Arthabaska,Conservative
+24062,Rivière-des-Mille-Îles,Liberal
+24063,Rivière-du-Nord,Bloc
+24064,Rosemont--La Petite-Patrie,NDP
+24065,Marc-Aurèle-Fortin,Liberal
+24066,Saint-Hyacinthe--Bagot,NDP
+24067,Saint-Jean,Liberal
+24068,Saint-Laurent,Liberal
+24069,Saint-Léonard--Saint-Michel,Liberal
+24070,Saint-Maurice--Champlain,Liberal
+24071,Salaberry--Suroît,NDP
+24072,Shefford,Liberal
+24073,Sherbrooke,NDP
+24074,Vaudreuil--Soulanges,Liberal
+24075,Terrebonne,Bloc
+24076,Trois-Rivières,NDP
+24077,Ville-Marie--Le Sud-Ouest--Île-des-Soeurs,Liberal
+24078,Vimy,Liberal
+35001,Ajax,Liberal
+35002,Algoma--Manitoulin--Kapuskasing,NDP
+35003,Aurora--Oak Ridges--Richmond Hill,Conservative
+35004,Barrie--Innisfil,Conservative
+35005,Barrie--Springwater--Oro-Medonte,Conservative
+35006,Bay of Quinte,Liberal
+35007,Beaches--East York,Liberal
+35008,Brampton Centre,Liberal
+35009,Brampton East,Liberal
+35010,Brampton North,Liberal
+35011,Brampton South,Liberal
+35012,Brampton West,Liberal
+35013,Brantford--Brant,Conservative
+35014,Bruce--Grey--Owen Sound,Conservative
+35015,Burlington,Liberal
+35016,Cambridge,Liberal
+35017,Chatham-Kent--Leamington,Conservative
+35018,Davenport,Liberal
+35019,Don Valley East,Liberal
+35020,Don Valley North,Liberal
+35021,Don Valley West,Liberal
+35022,Dufferin--Caledon,Conservative
+35023,Durham,Conservative
+35024,Eglinton--Lawrence,Liberal
+35025,Elgin--Middlesex--London,Conservative
+35026,Essex,NDP
+35027,Etobicoke Centre,Liberal
+35028,Etobicoke--Lakeshore,Liberal
+35029,Etobicoke North,Liberal
+35030,Flamborough--Glanbrook,Conservative
+35031,Glengarry--Prescott--Russell,Liberal
+35032,Guelph,Liberal
+35033,Haldimand--Norfolk,Conservative
+35034,Haliburton--Kawartha Lakes--Brock,Conservative
+35035,Hamilton Centre,NDP
+35036,Hamilton East--Stoney Creek,Liberal
+35037,Hamilton Mountain,NDP
+35038,Hamilton West--Ancaster--Dundas,Liberal
+35039,Hastings--Lennox and Addington,Liberal
+35040,Huron--Bruce,Conservative
+35041,Kanata--Carleton,Liberal
+35042,Kenora,Liberal
+35043,King--Vaughan,Liberal
+35044,Kingston and the Islands,Liberal
+35045,Kitchener Centre,Liberal
+35046,Kitchener--Conestoga,Conservative
+35047,Kitchener South--Hespeler,Liberal
+35048,Lambton--Kent--Middlesex,Conservative
+35049,Lanark--Frontenac--Kingston,Conservative
+35050,Leeds-Grenville-Thousand Islands and Rideau Lakes,Conservative
+35051,London--Fanshawe,NDP
+35052,London North Centre,Liberal
+35053,London West,Liberal
+35054,Markham--Stouffville,Liberal
+35055,Markham--Thornhill,Liberal
+35056,Markham--Unionville,Conservative
+35057,Milton,Conservative
+35058,Mississauga Centre,Liberal
+35059,Mississauga East--Cooksville,Liberal
+35060,Mississauga--Erin Mills,Liberal
+35061,Mississauga--Lakeshore,Liberal
+35062,Mississauga--Malton,Liberal
+35063,Mississauga--Streetsville,Liberal
+35064,Nepean,Liberal
+35065,Newmarket--Aurora,Liberal
+35066,Niagara Centre,Liberal
+35067,Niagara Falls,Conservative
+35068,Niagara West,Conservative
+35069,Nickel Belt,Liberal
+35070,Nipissing--Timiskaming,Liberal
+35071,Northumberland--Peterborough South,Liberal
+35072,Oakville,Liberal
+35073,Oakville North--Burlington,Liberal
+35074,Oshawa,Conservative
+35075,Ottawa Centre,Liberal
+35076,Orléans,Liberal
+35077,Ottawa South,Liberal
+35078,Ottawa--Vanier,Liberal
+35079,Ottawa West--Nepean,Liberal
+35080,Oxford,Conservative
+35081,Parkdale--High Park,Liberal
+35082,Parry Sound--Muskoka,Conservative
+35083,Perth--Wellington,Conservative
+35084,Peterborough--Kawartha,Liberal
+35085,Pickering--Uxbridge,Liberal
+35086,Renfrew--Nipissing--Pembroke,Conservative
+35087,Richmond Hill,Liberal
+35088,Carleton,Conservative
+35089,St. Catharines,Liberal
+35090,Toronto--St. Paul's,Liberal
+35091,Sarnia--Lambton,Conservative
+35092,Sault Ste. Marie,Liberal
+35093,Scarborough--Agincourt,Liberal
+35094,Scarborough Centre,Liberal
+35095,Scarborough--Guildwood,Liberal
+35096,Scarborough North,Liberal
+35097,Scarborough--Rouge Park,Liberal
+35098,Scarborough Southwest,Liberal
+35099,Simcoe--Grey,Conservative
+35100,Simcoe North,Conservative
+35101,Spadina--Fort York,Liberal
+35102,Stormont--Dundas--South Glengarry,Conservative
+35103,Sudbury,Liberal
+35104,Thornhill,Conservative
+35105,Thunder Bay--Rainy River,Liberal
+35106,Thunder Bay--Superior North,Liberal
+35107,Timmins--James Bay,NDP
+35108,Toronto Centre,Liberal
+35109,Toronto--Danforth,Liberal
+35110,University--Rosedale,Liberal
+35111,Vaughan--Woodbridge,Liberal
+35112,Waterloo,Liberal
+35113,Wellington--Halton Hills,Conservative
+35114,Whitby,Liberal
+35115,Willowdale,Liberal
+35116,Windsor--Tecumseh,NDP
+35117,Windsor West,NDP
+35118,York Centre,Liberal
+35119,York--Simcoe,Conservative
+35120,York South--Weston,Liberal
+35121,Humber River--Black Creek,Liberal
+46001,Brandon--Souris,Conservative
+46002,Charleswood--St. James--Assiniboia--Headingley,Liberal
+46003,Churchill--Keewatinook Aski,NDP
+46004,Dauphin--Swan River--Neepawa,Conservative
+46005,Elmwood--Transcona,NDP
+46006,Kildonan--St. Paul,Liberal
+46007,Portage--Lisgar,Conservative
+46008,Provencher,Conservative
+46009,Saint Boniface--Saint Vital,Liberal
+46010,Selkirk--Interlake--Eastman,Conservative
+46011,Winnipeg Centre,Liberal
+46012,Winnipeg North,Liberal
+46013,Winnipeg South,Liberal
+46014,Winnipeg South Centre,Liberal
+47001,Battlefords--Lloydminster,Conservative
+47002,Cypress Hills--Grasslands,Conservative
+47003,Desnethé--Missinippi--Churchill River,NDP
+47004,Carlton Trail--Eagle Creek,Conservative
+47005,Moose Jaw--Lake Centre--Lanigan,Conservative
+47006,Prince Albert,Conservative
+47007,Regina--Lewvan,NDP
+47008,Regina--Qu'Appelle,Conservative
+47009,Regina--Wascana,Liberal
+47010,Saskatoon--Grasswood,Conservative
+47011,Saskatoon--University,Conservative
+47012,Saskatoon West,NDP
+47013,Souris--Moose Mountain,Conservative
+47014,Yorkton--Melville,Conservative
+48001,Banff--Airdrie,Conservative
+48002,Battle River--Crowfoot,Conservative
+48003,Bow River,Conservative
+48004,Calgary Centre,Liberal
+48005,Calgary Confederation,Conservative
+48006,Calgary Forest Lawn,Conservative
+48007,Calgary Heritage,Conservative
+48008,Calgary Midnapore,Conservative
+48009,Calgary Nose Hill,Conservative
+48010,Calgary Rocky Ridge,Conservative
+48011,Calgary Shepard,Conservative
+48012,Calgary Signal Hill,Conservative
+48013,Calgary Skyview,Liberal
+48014,Edmonton Centre,Liberal
+48015,Edmonton Griesbach,Conservative
+48016,Edmonton Manning,Conservative
+48017,Edmonton Mill Woods,Liberal
+48018,Edmonton Riverbend,Conservative
+48019,Edmonton Strathcona,NDP
+48020,Edmonton West,Conservative
+48021,Edmonton--Wetaskiwin,Conservative
+48022,Foothills,Conservative
+48023,Fort McMurray--Cold Lake,Conservative
+48024,Grande Prairie--Mackenzie,Conservative
+48025,Lakeland,Conservative
+48026,Lethbridge,Conservative
+48027,Medicine Hat--Cardston--Warner,Conservative
+48028,Peace River--Westlock,Conservative
+48029,Red Deer--Mountain View,Conservative
+48030,Red Deer--Lacombe,Conservative
+48031,St. Albert--Edmonton,Conservative
+48032,Sherwood Park--Fort Saskatchewan,Conservative
+48033,Sturgeon River--Parkland,Conservative
+48034,Yellowhead,Conservative
+59001,Abbotsford,Conservative
+59002,Burnaby North--Seymour,Liberal
+59003,Burnaby South,NDP
+59004,Cariboo--Prince George,Conservative
+59005,Central Okanagan--Similkameen--Nicola,Conservative
+59006,Chilliwack--Hope,Conservative
+59007,Cloverdale--Langley City,Liberal
+59008,Coquitlam--Port Coquitlam,Liberal
+59009,Courtenay--Alberni,NDP
+59010,Cowichan--Malahat--Langford,NDP
+59011,Delta,Liberal
+59012,Fleetwood--Port Kells,Liberal
+59013,Kamloops--Thompson--Cariboo,Conservative
+59014,Kelowna--Lake Country,Liberal
+59015,Kootenay--Columbia,NDP
+59016,Langley--Aldergrove,Conservative
+59017,Mission--Matsqui--Fraser Canyon,Liberal
+59018,Nanaimo--Ladysmith,NDP
+59019,New Westminster--Burnaby,NDP
+59020,North Okanagan--Shuswap,Conservative
+59021,North Vancouver,Liberal
+59022,Pitt Meadows--Maple Ridge,Liberal
+59023,Port Moody--Coquitlam,NDP
+59024,Prince George--Peace River--Northern Rockies,Conservative
+59025,Richmond Centre,Conservative
+59026,Esquimalt--Saanich--Sooke,NDP
+59027,Saanich--Gulf Islands,Green
+59028,Skeena--Bulkley Valley,NDP
+59029,South Okanagan--West Kootenay,NDP
+59030,South Surrey--White Rock,Liberal
+59031,Steveston--Richmond East,Liberal
+59032,Surrey Centre,Liberal
+59033,Surrey--Newton,Liberal
+59034,Vancouver Centre,Liberal
+59035,Vancouver East,NDP
+59036,Vancouver Granville,Liberal
+59037,North Island--Powell River,NDP
+59038,Vancouver Kingsway,NDP
+59039,Vancouver Quadra,Liberal
+59040,Vancouver South,Liberal
+59041,Victoria,NDP
+59042,West Vancouver--Sunshine Coast--Sea to Sky Country,Liberal
+60001,Yukon,Liberal
+61001,Northwest Territories,Liberal
+62001,Nunavut,Liberal
