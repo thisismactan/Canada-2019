@@ -120,74 +120,38 @@ for(i in 1:num.iter) {
 
 Sys.time() - start_time
 
-## Compute summary statistics
-## 5th percentile
-pct_05.LPC <- pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05))
-pct_05.CPC <- pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05))
-pct_05.NDP <- pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05))
-pct_05.Bloc <- pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05))
-pct_05.Green <- pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05))
-
-## 25th percentile
-pct_25.LPC <- pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25))
-pct_25.CPC <- pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25))
-pct_25.NDP <- pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25))
-pct_25.Bloc <- pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25))
-pct_25.Green <- pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25))
-
-## 50th percentile
-pct_50.LPC <- pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = median))
-pct_50.CPC <- pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = median))
-pct_50.NDP <- pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = median))
-pct_50.Bloc <- pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = median))
-pct_50.Green <- pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = median))
-
-## 75th percentile
-pct_75.LPC <- pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75))
-pct_75.CPC <- pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75))
-pct_75.NDP <- pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75))
-pct_75.Bloc <- pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75))
-pct_75.Green <- pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75))
-
-## 95th percentile
-pct_95.LPC <- pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))
-pct_95.CPC <- pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))
-pct_95.NDP <- pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))
-pct_95.Bloc <- pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))
-pct_95.Green <- pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))
-
 ## Vote distributions
 LPC_distribution <- tibble(district_code = data_2019.simple$district_code,
                            name_english = district_key_2013$name_english,
-                           pct_05.LPC,
-                           pct_25.LPC,
-                           pct_50.LPC,
-                           pct_75.LPC,
-                           pct_95.LPC)
+                           pct_05.LPC = pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
+                           pct_25.LPC = pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25)),
+                           pct_50.LPC = pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
+                           pct_75.LPC = pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
+                           pct_95.LPC = pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
 
 CPC_distribution <- tibble(district_code = data_2019.simple$district_code,
                            name_english = district_key_2013$name_english,
-                           pct_05.CPC,
-                           pct_25.CPC,
-                           pct_50.CPC,
-                           pct_75.CPC,
-                           pct_95.CPC)
+                           pct_05.CPC = pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
+                           pct_25.CPC = pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25)),
+                           pct_50.CPC = pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
+                           pct_75.CPC = pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
+                           pct_95.CPC = pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
 
 NDP_distribution <- tibble(district_code = data_2019.simple$district_code,
                            name_english = district_key_2013$name_english,
-                           pct_05.NDP,
-                           pct_25.NDP,
-                           pct_50.NDP,
-                           pct_75.NDP,
-                           pct_95.NDP)
+                           pct_05.NDP = pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
+                           pct_25.NDP = pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25)),
+                           pct_50.NDP = pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
+                           pct_75.NDP = pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
+                           pct_95.NDP = pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
 
 Bloc_distribution <- tibble(district_code = data_2019.simple$district_code,
                             name_english = district_key_2013$name_english,
-                            pct_05.Bloc,
-                            pct_25.Bloc,
-                            pct_50.Bloc,
-                            pct_75.Bloc,
-                            pct_95.Bloc) %>%
+                            pct_05.Bloc = pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
+                            pct_25.Bloc = pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25)),
+                            pct_50.Bloc = pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
+                            pct_75.Bloc = pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
+                            pct_95.Bloc = pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))) %>%
   mutate(pct_05.Bloc = pct_05.Bloc*(1 - (floor(district_code/1000) != 24)),
          pct_25.Bloc = pct_25.Bloc*(1 - (floor(district_code/1000) != 24)),
          pct_50.Bloc = pct_50.Bloc*(1 - (floor(district_code/1000) != 24)),
@@ -196,11 +160,11 @@ Bloc_distribution <- tibble(district_code = data_2019.simple$district_code,
 
 Green_distribution <- tibble(district_code = data_2019.simple$district_code,
                              name_english = district_key_2013$name_english,
-                             pct_05.Green,
-                             pct_25.Green,
-                             pct_50.Green,
-                             pct_75.Green,
-                             pct_95.Green)
+                             pct_05.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
+                             pct_25.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25)),
+                             pct_50.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
+                             pct_75.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
+                             pct_95.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
 
 ## Winners by district by simulation
 LPC_wins <- (LPC_district_simulations > CPC_district_simulations) &

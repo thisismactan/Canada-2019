@@ -157,10 +157,3 @@ region_wtd_mean <- function(region_polls) {
     as.vector()
   return(means)
 }
-
-## Compute district summary statistics
-compute_district_stats <- function(sim_matrix, FUN, ...) {
-  district_stats <- apply(sim_matrix, MARGIN = 1, FUN = FUN, ...)
-  district_stats <- pmax(district_stats, 0)
-  return(district_stats)
-}
