@@ -1,8 +1,8 @@
 # Canada-2019
-## Last updated: 6 Apr 2019
+## Last updated: 13 Apr 2019
 This is the repository for the Election StatSheet 2019 Canadian election forecast. Hooray!
 
-Current status: estimating model error variances and decomposition, trying out this cool randomForestExplainer package.
+Current status: writing the simulator.
 
 ### Notes to self ###
 - Final model must predict all parties' share of the vote simultaneously allowing for correlations between parties
