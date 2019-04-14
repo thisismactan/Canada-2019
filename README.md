@@ -1,8 +1,8 @@
 # Canada-2019
-## Last updated: 13 Apr 2019
+## Last updated: 14 Apr 2019
 This is the repository for the Election StatSheet 2019 Canadian election forecast. Hooray!
 
-Current status: writing the simulator.
+Current status: prettifying the RShiny app.
 
 ### Notes to self ###
 - Final model must predict all parties' share of the vote simultaneously allowing for correlations between parties
@@ -25,6 +25,7 @@ Current status: writing the simulator.
   - **/Output**
     - **/Model graphs**
     - **/Model testing**
+  - **/Shiny-app
 
 ### What's in the box?
 - **Code**: All scripts, including data processing, model building, simulation, etc.
