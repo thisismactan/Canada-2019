@@ -8,7 +8,6 @@ crs_lcc <- leafletCRS(code = "ESRI:102002", proj4def = crs_proj)
 canada_districts <- readOGR(dsn = "Data/Shapefiles", layer = "FED_CA_2_2_ENG") %>%
   ms_simplify()
 
-
 ## Transform to lat-long
 canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0")) %>%
   st_as_sf() %>%
@@ -122,7 +121,7 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
   ) %>%
   st_as_sf()
 
-write_rds(canada_districts_latlong)
+write_rds(canada_districts_latlong, "Shiny-app/canada_districts.rds")
 
 canada_flips <- canada_districts_latlong %>%
   filter(predicted_winner != last_winner)
@@ -130,7 +129,8 @@ canada_flips <- canada_districts_latlong %>%
 ## Leaflet map
 leaflet() %>%
   addPolygons(data = canada_districts_latlong, weight = 1, color = "#666666", opacity = 1, fillColor = ~fill_color, 
-              fillOpacity = ~max_prob^1.5, label = ~name_english, popup = ~district_info,
+              fillOpacity = ~(pmax(2*max_prob - 1, 0.01))^0.5, label = ~name_english, popup = ~district_info,
               highlightOptions = highlightOptions(weight = 3, color = "black", bringToFront = TRUE)) %>%
-  addPolylines(data = canada_flips, weight = 2, color = "black", opacity = 1, fillOpacity = 0, dashArray = "3")
+  addPolylines(data = canada_flips, weight = 2, color = "black", opacity = 1, fillOpacity = 0, dashArray = "3") %>%
+  setView(lng = -96.5, lat = 55, zoom = 4)
   

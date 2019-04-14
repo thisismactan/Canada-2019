@@ -112,16 +112,16 @@ data_2019.simple <- district_key_2013 %>%
   left_join(cands_2019, by = "district_code") %>%
   left_join(results_2015_regional, by = "region") %>%
   left_join(demographics_2019, by = "district_code") %>%
+  left_join(read_csv("Data/incumbents.csv") %>% dplyr::select(district_code, last_winner, incumbent_running)) %>%
   left_join(population %>%
               filter(census_year == 2016) %>%
               dplyr::select(district_code, pop_growth_rate),
             by = "district_code") %>%
   mutate(Quebec = province == "Quebec") %>%
-  mutate(incumbent = case_when(winner_last == LPC_cand ~ "Liberal",
-                               winner_last == CPC_cand ~ "Conservative",
-                               winner_last == NDP_cand ~ "NDP",
-                               winner_last == Bloc_cand ~ "Bloc",
-                               winner_last == Green_cand ~ "Green"),
-         incumbent = case_when(is.na(incumbent) ~ "None",
-                               !is.na(incumbent) ~ incumbent),
+  mutate(incumbent = case_when(!incumbent_running ~ "None",
+                               incumbent_running & last_winner == "Liberal" ~ "Liberal",
+                               incumbent_running & last_winner == "Conservative" ~ "Conservative",
+                               incumbent_running & last_winner == "NDP" ~ "NDP",
+                               incumbent_running & last_winner == "Bloc" ~ "Bloc",
+                               incumbent_running & last_winner == "Green" ~ "Green"),
          incumbent = as.factor(incumbent))

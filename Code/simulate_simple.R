@@ -223,10 +223,14 @@ seat_simulations <- tibble(simulation = 1:num.iter,
                                  pmax(LPC, CPC, NDP, Bloc, Green) > 338/2 ~ "Majority"))
 
 ## Outcome probabilities
-seat_simulations %>%
+outcome_probs <- seat_simulations %>%
   group_by(most_seats, type_of_win) %>%
   summarise(prob = n()/num.iter) %>%
   spread(type_of_win, prob)
+
+outcome_probs
+
+write_rds(outcome_probs, "Shiny-app/outcome_probs.rds")
 
 seat_simulations %>%
   group_by(most_seats) %>%
