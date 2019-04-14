@@ -33,13 +33,14 @@ results_2015_regional <- results_2015 %>%
 cands_2019 <- read_csv("Data/candidates_2019.csv") %>%
   filter(party %in% c("Liberal", "Conservative", "NDP", "Bloc", "Green", "People's")) %>%
   mutate(candidate = case_when(!is.na(candidate_last) ~ paste(candidate_first, candidate_last),
-                               is.na(candidate_last) ~ as.character(NA))) %>%
+                               is.na(candidate_last) ~ "  ")) %>%
   dplyr::select(district_code, party, candidate) %>%
   spread(party, candidate) %>%
   dplyr::select(district_code, LPC_cand = Liberal, CPC_cand = Conservative, NDP_cand = NDP, Green_cand = Green, 
                 Bloc_cand = Bloc, PPC_cand = `People's`) %>%
   mutate_at(vars(ends_with("cand")), function(x) {
     x[is.na(x)] <- "TBD"
+    x[x == "  "] <- "TBD"
     return(x)
   })
 
@@ -123,5 +124,6 @@ data_2019.simple <- district_key_2013 %>%
                                incumbent_running & last_winner == "Conservative" ~ "Conservative",
                                incumbent_running & last_winner == "NDP" ~ "NDP",
                                incumbent_running & last_winner == "Bloc" ~ "Bloc",
-                               incumbent_running & last_winner == "Green" ~ "Green"),
+                               incumbent_running & last_winner == "Green" ~ "Green",
+                               incumbent_running & last_winner == "People's Party" ~ "Conservative"),
          incumbent = as.factor(incumbent))

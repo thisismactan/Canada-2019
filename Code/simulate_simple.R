@@ -62,7 +62,8 @@ bc_poll_sims <- (rmvn(num.iter, bc_means, bc_polls_covariance) + national_poll_e
 frigid_northlands_sims <- (rmvn(num.iter, frigid_northlands_means, frigid_northlands_covariance) + national_poll_errors[, c(1:3, 5)])/100
 
 LPC_district_simulations <- CPC_district_simulations <- NDP_district_simulations <- Bloc_district_simulations <- 
-  Green_district_simulations <-matrix(NA, 338, num.iter)
+  Green_district_simulations <- matrix(NA, 338, num.iter)
+PPC_district_simulations <- matrix(0, 338, num.iter)
 
 ## Simulation
 start_time <- Sys.time()
@@ -120,6 +121,9 @@ for(i in 1:num.iter) {
 
 Sys.time() - start_time
 
+PPC_district_simulations[39,] <- ((67.02 - 6.64 - 17.09)/(67.02 - 6.64))*CPC_district_simulations[39,]
+CPC_district_simulations[39,] <- (17.09/(67.02 - 6.64))*CPC_district_simulations[39,]
+
 ## Vote distributions
 LPC_distribution <- tibble(district_code = data_2019.simple$district_code,
                            name_english = district_key_2013$name_english,
@@ -166,31 +170,48 @@ Green_distribution <- tibble(district_code = data_2019.simple$district_code,
                              pct_75.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
                              pct_95.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
 
+PPC_distribution <- tibble(district_code = data_2019.simple$district_code,
+                           name_english = district_key_2013$name_english,
+                           pct_05.PPC = pmax(0, apply(PPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
+                           pct_50.PPC = pmax(0, apply(PPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
+                           pct_95.PPC = pmax(0, apply(PPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
+
 ## Winners by district by simulation
 LPC_wins <- (LPC_district_simulations > CPC_district_simulations) &
   (LPC_district_simulations > NDP_district_simulations) &
   (LPC_district_simulations > Bloc_district_simulations) &
-  (LPC_district_simulations > Green_district_simulations)
+  (LPC_district_simulations > Green_district_simulations) &
+  (LPC_district_simulations > PPC_district_simulations)
 
 CPC_wins <- (CPC_district_simulations > LPC_district_simulations) &
   (CPC_district_simulations > NDP_district_simulations) &
   (CPC_district_simulations > Bloc_district_simulations) &
-  (CPC_district_simulations > Green_district_simulations)
+  (CPC_district_simulations > Green_district_simulations) &
+  (CPC_district_simulations > PPC_district_simulations)
 
 NDP_wins <- (NDP_district_simulations > LPC_district_simulations) &
   (NDP_district_simulations > CPC_district_simulations) &
   (NDP_district_simulations > Bloc_district_simulations) &
-  (NDP_district_simulations > Green_district_simulations)
+  (NDP_district_simulations > Green_district_simulations) &
+  (NDP_district_simulations > PPC_district_simulations)
 
 Bloc_wins <- (Bloc_district_simulations > LPC_district_simulations) &
   (Bloc_district_simulations > CPC_district_simulations) &
   (Bloc_district_simulations > NDP_district_simulations) &
-  (Bloc_district_simulations > Green_district_simulations)
+  (Bloc_district_simulations > Green_district_simulations) &
+  (Bloc_district_simulations > PPC_district_simulations)
 
 Green_wins <- (Green_district_simulations > LPC_district_simulations) &
   (Green_district_simulations > CPC_district_simulations) &
   (Green_district_simulations > NDP_district_simulations) &
-  (Green_district_simulations > Bloc_district_simulations)
+  (Green_district_simulations > Bloc_district_simulations) &
+  (Green_district_simulations > PPC_district_simulations)
+
+PPC_wins <- (PPC_district_simulations > LPC_district_simulations) &
+  (PPC_district_simulations > CPC_district_simulations) &
+  (PPC_district_simulations > NDP_district_simulations) &
+  (PPC_district_simulations > Bloc_district_simulations) &
+  (PPC_district_simulations > Green_district_simulations)
 
 ## Win probabilities by district
 district_probs <- tibble(district_code = data_2019.simple$district_code,
@@ -199,7 +220,8 @@ district_probs <- tibble(district_code = data_2019.simple$district_code,
                          CPC_prob = rowMeans(CPC_wins),
                          NDP_prob = rowMeans(NDP_wins),
                          Bloc_prob = rowMeans(Bloc_wins),
-                         Green_prob = rowMeans(Green_wins))
+                         Green_prob = rowMeans(Green_wins),
+                         PPC_prob = rowMeans(PPC_wins))
 
 ## Seat counts by simulation
 LPC_seats <- colSums(LPC_wins)
@@ -207,6 +229,7 @@ CPC_seats <- colSums(CPC_wins)
 NDP_seats <- colSums(NDP_wins)
 Bloc_seats <- colSums(Bloc_wins)
 Green_seats <- colSums(Green_wins)
+PPC_seats <- colSums(PPC_wins)
 
 seat_simulations <- tibble(simulation = 1:num.iter,
                            LPC = LPC_seats,
@@ -253,3 +276,27 @@ seat_simulations %>%
   scale_x_continuous(breaks = seq(0, 300, by = 50)) +
   labs(title = "Distribution of seat counts by party", x = "Seats", y = "Probability",
        subtitle = paste0(month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today())))
+
+## Seat distribution scatterplot: Liberals vs. Conservatives
+seat_simulations %>%
+  ggplot(aes(x = LPC, y = CPC, col = most_seats)) +
+  geom_point(alpha = 0.1, size = 1) +
+  scale_colour_manual(name = "Most seats", values = c("blue", "red", "darkorange1"), labels = c("Conservative", "Liberal", "NDP")) +
+  labs(title = "Distribution of seat counts across simulations",
+       subtitle = "Liberal vs. Conservative", x = "Liberal seats", y = "Conservative seats")
+
+## Liberals vs. NDP
+seat_simulations %>%
+  ggplot(aes(x = LPC, y = NDP, col = most_seats)) +
+  geom_point(alpha = 0.1, size = 1) +
+  scale_colour_manual(name = "Most seats", values = c("blue", "red", "darkorange1"), labels = c("Conservative", "Liberal", "NDP")) +
+  labs(title = "Distribution of seat counts across simulations",
+       subtitle = "Liberal vs. NDP", x = "Liberal seats", y = "NDP seats")
+
+## Conservatives vs. NDP
+seat_simulations %>%
+  ggplot(aes(x = CPC, y = NDP, col = most_seats)) +
+  geom_point(alpha = 0.1, size = 1) +
+  scale_colour_manual(name = "Most seats", values = c("blue", "red", "darkorange1"), labels = c("Conservative", "Liberal", "NDP")) +
+  labs(title = "Distribution of seat counts across simulations",
+       subtitle = "Conservative vs. NDP", x = "Conservative seats", y = "NDP seats")

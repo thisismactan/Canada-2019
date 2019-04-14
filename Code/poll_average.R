@@ -59,9 +59,13 @@ ggplot(national_polls.adjusted %>%
          melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
               variable.name = "Party", value.name = "Poll"), 
        aes(x = date, y = Poll, col = Party)) +
-  geom_point(alpha = 0.4, size = 1) +
-  geom_smooth(method = "loess", span = 0.2, size = 1) +
+  geom_point(aes(size = sqrt(loess_weight)), alpha = 0.4) +
+  geom_smooth(method = "loess", span = 0.25, size = 1) +
   scale_colour_manual(name = "Party", values = national_colors, labels = national_parties) +
+  scale_size_continuous(name = "Weight", range = c(0.1, 2)) +
+  scale_x_date(date_breaks = "3 months", date_labels = "%b %Y") +
+  theme(axis.text.x = element_text(angle = 90, size = 7)) +
+  scale_y_continuous(breaks = 10*(0:6)) +
   labs(title = "2019 Canadian federal election polling",
        subtitle = "National", x = "Date", y = "%")
 
