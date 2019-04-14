@@ -22,7 +22,7 @@ district_key_2013 <- district_key_2013 %>%
          name_english = gsub("Ã®", "î", name_english))
 
 ## Simulate draws from national and regional polling
-num.iter <- 10000
+num.iter <- 25000
 
 set.seed(2019)
 national_means <- national_polls.adjusted %>% 
@@ -122,39 +122,39 @@ Sys.time() - start_time
 
 ## Compute summary statistics
 ## 5th percentile
-pct_05.LPC <- compute_district_stats(LPC_district_simulations, FUN = quantile, prob = 0.05)
-pct_05.CPC <- compute_district_stats(CPC_district_simulations, FUN = quantile, prob = 0.05)
-pct_05.NDP <- compute_district_stats(NDP_district_simulations, FUN = quantile, prob = 0.05)
-pct_05.Bloc <- compute_district_stats(Bloc_district_simulations, FUN = quantile, prob = 0.05)
-pct_05.Green <- compute_district_stats(Green_district_simulations, FUN = quantile, prob = 0.05)
+pct_05.LPC <- pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05))
+pct_05.CPC <- pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05))
+pct_05.NDP <- pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05))
+pct_05.Bloc <- pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05))
+pct_05.Green <- pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05))
 
 ## 25th percentile
-pct_25.LPC <- compute_district_stats(LPC_district_simulations, FUN = quantile, prob = 0.25)
-pct_25.CPC <- compute_district_stats(CPC_district_simulations, FUN = quantile, prob = 0.25)
-pct_25.NDP <- compute_district_stats(NDP_district_simulations, FUN = quantile, prob = 0.25)
-pct_25.Bloc <- compute_district_stats(Bloc_district_simulations, FUN = quantile, prob = 0.25)
-pct_25.Green <- compute_district_stats(Green_district_simulations, FUN = quantile, prob = 0.25)
+pct_25.LPC <- pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25))
+pct_25.CPC <- pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25))
+pct_25.NDP <- pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25))
+pct_25.Bloc <- pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25))
+pct_25.Green <- pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25))
 
 ## 50th percentile
-pct_50.LPC <- compute_district_stats(LPC_district_simulations, FUN = median)
-pct_50.CPC <- compute_district_stats(CPC_district_simulations, FUN = median)
-pct_50.NDP <- compute_district_stats(NDP_district_simulations, FUN = median)
-pct_50.Bloc <- compute_district_stats(Bloc_district_simulations, FUN = median)
-pct_50.Green <- compute_district_stats(Green_district_simulations, FUN = median)
+pct_50.LPC <- pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = median))
+pct_50.CPC <- pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = median))
+pct_50.NDP <- pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = median))
+pct_50.Bloc <- pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = median))
+pct_50.Green <- pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = median))
 
 ## 75th percentile
-pct_75.LPC <- compute_district_stats(LPC_district_simulations, FUN = quantile, prob = 0.75)
-pct_75.CPC <- compute_district_stats(CPC_district_simulations, FUN = quantile, prob = 0.75)
-pct_75.NDP <- compute_district_stats(NDP_district_simulations, FUN = quantile, prob = 0.75)
-pct_75.Bloc <- compute_district_stats(Bloc_district_simulations, FUN = quantile, prob = 0.75)
-pct_75.Green <- compute_district_stats(Green_district_simulations, FUN = quantile, prob = 0.75)
+pct_75.LPC <- pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75))
+pct_75.CPC <- pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75))
+pct_75.NDP <- pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75))
+pct_75.Bloc <- pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75))
+pct_75.Green <- pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75))
 
 ## 95th percentile
-pct_95.LPC <- compute_district_stats(LPC_district_simulations, FUN = quantile, prob = 0.95)
-pct_95.CPC <- compute_district_stats(CPC_district_simulations, FUN = quantile, prob = 0.95)
-pct_95.NDP <- compute_district_stats(NDP_district_simulations, FUN = quantile, prob = 0.95)
-pct_95.Bloc <- compute_district_stats(Bloc_district_simulations, FUN = quantile, prob = 0.95)
-pct_95.Green <- compute_district_stats(Green_district_simulations, FUN = quantile, prob = 0.95)
+pct_95.LPC <- pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))
+pct_95.CPC <- pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))
+pct_95.NDP <- pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))
+pct_95.Bloc <- pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))
+pct_95.Green <- pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))
 
 ## Vote distributions
 LPC_distribution <- tibble(district_code = data_2019.simple$district_code,
@@ -269,3 +269,19 @@ seat_simulations %>%
   summarise(prob = n()/num.iter)
 
 ## Seat distributions by party
+seat_simulations %>%
+  dplyr::select(-most_seats, -type_of_win) %>%
+  melt(id.var = "simulation", variable.name = "party", value.name = "seats") %>%
+  filter(party %in% c("LPC", "CPC", "NDP")) %>%
+  ggplot() +
+  geom_histogram(aes(x = seats, y = ..density.., fill = party),
+                 binwidth = 3, col = "black", alpha = 0.5, position = "identity") +
+  geom_vline(xintercept = 170, size = 1) +
+  geom_text(data = data.frame(x = 200,
+                              y = 0.02,
+                              label = "170 seats needed\n for a majority"),
+            aes(x = x, y = y, label = label), size = 3) +
+  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1"), labels = c("Liberal", "Conservative", "NDP")) +
+  scale_x_continuous(breaks = seq(0, 300, by = 50)) +
+  labs(title = "Distribution of seat counts by party", x = "Seats", y = "Probability",
+       subtitle = paste0(month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today())))

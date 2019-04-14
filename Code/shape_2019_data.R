@@ -37,7 +37,11 @@ cands_2019 <- read_csv("Data/candidates_2019.csv") %>%
   dplyr::select(district_code, party, candidate) %>%
   spread(party, candidate) %>%
   dplyr::select(district_code, LPC_cand = Liberal, CPC_cand = Conservative, NDP_cand = NDP, Green_cand = Green, 
-                Bloc_cand = Bloc, PPC_cand = `People's`)
+                Bloc_cand = Bloc, PPC_cand = `People's`) %>%
+  mutate_at(vars(ends_with("cand")), function(x) {
+    x[is.na(x)] <- "TBD"
+    return(x)
+  })
 
 national_results_2019 <- national_polls.adjusted %>% 
   melt(id.vars = c("pollster", "date", "age", "MOE", "n", "mode", "IVR", "weight")) %>%
