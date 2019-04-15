@@ -28,24 +28,24 @@ for(i in 1:n) {
   test <- results[i,]
   
   # Fit linear models
-  model_LPC.linear <- lm(LPC~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+LPC_nation+
-                           LPC_region+LPC_region_lag+educ_university+minority, data = train)
-  model_CPC.linear <- lm(CPC~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+CPC_nation+
-                           CPC_region+CPC_nation_lag+CPC_region_lag+minority, data = train)
-  model_NDP.linear <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+NDP_nation+
-                           NDP_region+NDP_nation_lag+NDP_region_lag, data = train)
-  model_Green.linear <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Green_nation+
-                             Green_region+Green_nation_lag+Green_region_lag+minority, data = train)
-  model_Bloc.linear <- lm(Bloc~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Bloc_region+
-                            Bloc_region_lag, data = train)
+  model_LPC.linear_test <- lm(LPC~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+LPC_nation+
+                                LPC_region+LPC_region_lag+educ_university+minority, data = train)
+  model_CPC.linear_test <- lm(CPC~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+CPC_nation+
+                                CPC_region+CPC_nation_lag+CPC_region_lag+minority, data = train)
+  model_NDP.linear_test <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+NDP_nation+
+                                NDP_region+NDP_nation_lag+NDP_region_lag, data = train)
+  model_Green.linear_test <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Green_nation+
+                                  Green_region+Green_nation_lag+Green_region_lag+minority, data = train)
+  model_Bloc.linear_test <- lm(Bloc~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Bloc_region+
+                                 Bloc_region_lag, data = train)
   
   # Make test prediction and compute error
   test <- test %>%
-    mutate(LPC.pred = predict(model_LPC.linear, newdata = .), LPC.error = LPC.pred - LPC,
-           CPC.pred = predict(model_CPC.linear, newdata = .), CPC.error = CPC.pred - CPC,
-           NDP.pred = predict(model_NDP.linear, newdata = .), NDP.error = NDP.pred - NDP,
-           Green.pred = predict(model_Green.linear, newdata = .), Green.error = Green.pred - Green,
-           Bloc.pred = predict(model_Bloc.linear, newdata = .), Bloc.error = Bloc.pred - Bloc)
+    mutate(LPC.pred = predict(model_LPC.linear_test, newdata = .), LPC.error = LPC.pred - LPC,
+           CPC.pred = predict(model_CPC.linear_test, newdata = .), CPC.error = CPC.pred - CPC,
+           NDP.pred = predict(model_NDP.linear_test, newdata = .), NDP.error = NDP.pred - NDP,
+           Green.pred = predict(model_Green.linear_test, newdata = .), Green.error = Green.pred - Green,
+           Bloc.pred = predict(model_Bloc.linear_test, newdata = .), Bloc.error = Bloc.pred - Bloc)
   
   LPC_error[i] <- test$LPC.error[1]
   CPC_error[i] <- test$CPC.error[1]

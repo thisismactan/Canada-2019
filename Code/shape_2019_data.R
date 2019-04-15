@@ -126,4 +126,5 @@ data_2019.simple <- district_key_2013 %>%
                                incumbent_running & last_winner == "Bloc" ~ "Bloc",
                                incumbent_running & last_winner == "Green" ~ "Green",
                                incumbent_running & last_winner == "People's Party" ~ "Conservative"),
-         incumbent = as.factor(incumbent))
+         incumbent = as.factor(incumbent),
+         incumbent_LPC)

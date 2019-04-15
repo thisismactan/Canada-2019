@@ -1,14 +1,27 @@
 library(lubridate)
 library(tidyverse)
 library(shiny)
+library(shinythemes)
 library(sp)
 library(sf)
 library(leaflet)
 
 ui <- fluidPage(
-  titlePanel(paste0("Forecast as of ", month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today()))),
+  theme = shinytheme("flatly"),
+  tags$head(
+    tags$style(HTML("
+                    table {
+                      border-spacing: 3px;
+                    }
+                    
+                    th, td {
+                      padding: 5px;
+                    }
+                    "))
+    ), 
+  titlePanel(HTML(paste0("<b>Forecast as of ", month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today()))), "</b>"),
   sidebarLayout(
-    mainPanel = mainPanel(leafletOutput("forecastmap", height = 800, width = "100%")),
+    mainPanel = mainPanel(leafletOutput("forecastmap", height = 900, width = "100%")),
     ## Sidebar
     sidebarPanel(tags$h3("Current forecast"),
                  tags$h4("Outcome probabilities"),
@@ -28,7 +41,7 @@ ui <- fluidPage(
                               "</tr>",
                              "</table>")
                     ),
-                 width = 3),
+                 width = 2),
     position = "right"
     )
 )
