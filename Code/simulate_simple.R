@@ -261,6 +261,16 @@ seat_simulations %>%
 
 ## Seat distributions by party
 seat_simulations %>%
+  reshape2::melt(id.vars = c("simulation", "most_seats", "type_of_win"), variable.name = "party", value.name = "seats") %>%
+  group_by(party) %>%
+  summarise(mean = mean(seats),
+            pct_05 = quantile(seats, 0.05),
+            pct_25 = quantile(seats, 0.25),
+            pct_50 = quantile(seats, 0.5),
+            pct_75 = quantile(seats, 0.75),
+            pct_95 = quantile(seats, 0.9))
+
+seat_simulations %>%
   dplyr::select(-most_seats, -type_of_win) %>%
   melt(id.var = "simulation", variable.name = "party", value.name = "seats") %>%
   filter(party %in% c("LPC", "CPC", "NDP")) %>%

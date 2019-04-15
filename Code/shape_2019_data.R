@@ -50,7 +50,8 @@ national_results_2019 <- national_polls.adjusted %>%
   group_by(party = variable) %>%
   summarise(average = Hmisc::wtd.mean(value, weights = weight, na.rm = TRUE)/100) %>%
   spread(party, average) %>%
-  dplyr::select(LPC_nation = LPC, CPC_nation = CPC, NDP_nation = NDP, Bloc_nation = BQ, Green_nation = GPC)
+  dplyr::select(LPC_nation = LPC, CPC_nation = CPC, NDP_nation = NDP, Bloc_nation = BQ, Green_nation = GPC) %>%
+  mutate(Green_nation = 0.7*Green_nation)
 
 
 ## How do the frigid northlands lean?
@@ -91,7 +92,7 @@ frigid_northlands_covariance <- (frigid_northlands %>%
   mutate_all(function(x) x*100) %>%
   cov.wt(wt = frigid_northlands$weight))$cov
 
-regional_vote <- provincial_polls %>%
+regional_vote <- provincial_polls_adjusted %>%
   group_by(region = province) %>%
   summarise(LPC_region = wtd.mean(LPC, weight)/100,
             CPC_region = wtd.mean(CPC, weight)/100,
@@ -100,7 +101,8 @@ regional_vote <- provincial_polls %>%
             Bloc_region = wtd.mean(BQ, weight)/100) %>%
   bind_rows(frigid_northlands_mean) %>%
   mutate(Bloc_region = case_when(is.na(Bloc_region) ~ 0,
-                                 !is.na(Bloc_region) ~ Bloc_region))
+                                 !is.na(Bloc_region) ~ Bloc_region),
+         Green_region = Green_region*0.7)
   
 ## Simple data (no fundraising)
 data_2019.simple <- district_key_2013 %>%

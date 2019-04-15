@@ -11,6 +11,7 @@ national_polls <- national_polls %>%
 national_loess.LPC <- loess(LPC~numeric_date, data = national_polls, weights = loess_weight)
 national_loess.CPC <- loess(CPC~numeric_date, data = national_polls, weights = loess_weight)
 national_loess.NDP <- loess(NDP~numeric_date, data = national_polls, weights = loess_weight)
+national_loess.BQ <- loess(BQ~numeric_date, data = national_polls, weights = loess_weight)
 national_loess.GPC <- loess(GPC~numeric_date, data = national_polls, weights = loess_weight)
 national_loess.PPC <- loess(PPC~numeric_date, data = national_polls, weights = loess_weight)
 
@@ -20,12 +21,14 @@ house_effects <- national_polls %>%
          LPC_pred = predict(national_loess.LPC, newdata = .),
          CPC_pred = predict(national_loess.CPC, newdata = .),
          NDP_pred = predict(national_loess.NDP, newdata = .),
+         BQ_pred = predict(national_loess.BQ, newdata = .),
          GPC_pred = predict(national_loess.GPC, newdata = .),
          PPC_pred = predict(national_loess.PPC, newdata = .)) %>%
   group_by(pollster) %>%
   summarise(LPC_house = wtd.mean(LPC - LPC_pred, weights = loess_weight, na.rm = TRUE),
             CPC_house = wtd.mean(CPC - CPC_pred, weights = loess_weight, na.rm = TRUE),
             NDP_house = wtd.mean(NDP - NDP_pred, weights = loess_weight, na.rm = TRUE),
+            BQ_house = wtd.mean(BQ - BQ_pred, weights = loess_weight, na.rm = TRUE),
             GPC_house = wtd.mean(GPC - GPC_pred, weights = loess_weight, na.rm = TRUE),
             PPC_house = wtd.mean(PPC - PPC_pred, weights = loess_weight, na.rm = TRUE)) %>%
   ungroup() %>%
@@ -36,6 +39,7 @@ national_polls.adjusted <- national_polls %>%
   mutate(weight = 3*(age <= 60)*exp(-(age)^(1/3))/sqrt(MOE/100)/(ifelse(IVR, 3, 1))/sqrt(full_house),
          LPC = LPC - LPC_house/2,
          CPC = CPC - CPC_house/2,
+         BQ = BQ - BQ_house/2,
          NDP = NDP - NDP_house/2,
          GPC = GPC - GPC_house/2)
 
@@ -72,7 +76,7 @@ ggplot(national_polls.adjusted %>%
 #### PROVINCIAL ####
 provincial_polls <- read_csv("Data/provincial_polling.csv") %>%
   reshape(varying = grep("\\.", names(read_csv("Data/provincial_polling.csv")), value = TRUE), 
-          idvar = c("pollster", "last_date", "mode"), direction = "long") %>%
+          idvar = c("pollster", "last_date", "mode", "n"), direction = "long") %>%
   left_join(read_csv("Data/poll_spreads.csv"), by = "pollster", all.x = TRUE) %>%
   
   # Calculate poll age
@@ -81,20 +85,30 @@ provincial_polls <- read_csv("Data/provincial_polling.csv") %>%
          age = as.numeric(lubridate::today() - date)) %>%
   
   arrange(age) %>%
-  dplyr::select(pollster, date, age, mode, province = time, LPC, CPC, NDP, BQ, GPC, PPC) %>%
+  dplyr::select(pollster, date, age, mode, n, province = time, LPC, CPC, NDP, BQ, GPC, PPC) %>%
   mutate(province = case_when(province == "BC" ~ "British Columbia",
                               province != "BC" ~ province)) %>%
   as.tbl() %>%
-  mutate(weight = (age <= 60)*exp(-age^(1/3))/ifelse(mode == "IVR", 3, 1))
+  left_join(house_effects, by = "pollster") %>%
+  mutate(weight = 100*(age <= 60)*exp(-age^(1/3))/ifelse(mode == "IVR", 3, 1)/sqrt(sqrt(n))/full_house,
+         loess_weight = 100/ifelse(mode == "IVR", 3, 1)/sqrt(sqrt(n))/full_house)
+
+provincial_polls_adjusted <- provincial_polls %>%
+  mutate(LPC = LPC - 0.5*LPC_house,
+         CPC = CPC - 0.5*CPC_house,
+         NDP = NDP - 0.5*NDP_house,
+         BQ = BQ - 2.055*BQ_house,
+         GPC = GPC - 0.5*GPC_house)
 
 ## Plotting
-provincial_polls %>%
-  melt(id.vars = c("pollster", "date", "age", "mode", "province", "weight"), variable.name = "Party", value.name = "Poll") %>%
+provincial_polls_adjusted %>%
+  melt(id.vars = c("pollster", "date", "age", "n", "mode", "province", "weight", "loess_weight", "LPC_house", "CPC_house", "NDP_house",
+                   "GPC_house", "BQ_house", "PPC_house", "full_house"), variable.name = "Party", value.name = "Poll") %>%
   mutate(Poll = as.numeric(Poll)) %>%
   ggplot(aes(x = date, y = Poll, col = Party)) +
   facet_wrap(~province) +
   geom_point(alpha = 0.4, size = 1) +
-  geom_smooth(method = "loess", span = 0.5, size = 1) +
+  geom_smooth(aes(weight = loess_weight), method = "loess", span = 0.4, size = 1) +
   geom_vline(xintercept = as.Date("2019-02-07")) +
   scale_colour_manual(name = "Party", values = quebec_colors, labels = quebec_parties) +
   labs(title = "2019 Canadian federal election polling",
@@ -103,32 +117,32 @@ provincial_polls %>%
   theme(axis.text.x = element_text(angle = 90, size = 7))
 
 ## Regional covariances
-ontario_polls <- provincial_polls %>%
+ontario_polls <- provincial_polls_adjusted %>%
   filter(province == "Ontario") %>%
   dplyr::select(weight, LPC, CPC, NDP, GPC, PPC) %>%
   na.omit()
 
-atlantic_polls <- provincial_polls %>%
+atlantic_polls <- provincial_polls_adjusted %>%
   filter(province == "Atlantic") %>%
   dplyr::select(weight, LPC, CPC, NDP, GPC, PPC) %>%
   na.omit()
 
-quebec_polls <- provincial_polls %>%
+quebec_polls <- provincial_polls_adjusted %>%
   filter(province == "Quebec") %>%
   dplyr::select(weight, LPC, CPC, NDP, BQ, GPC, PPC) %>%
   na.omit()
 
-prairie_polls <- provincial_polls %>%
+prairie_polls <- provincial_polls_adjusted %>%
   filter(province == "Prairie") %>%
   dplyr::select(weight, LPC, CPC, NDP, GPC, PPC) %>%
   na.omit()
 
-alberta_polls <- provincial_polls %>%
+alberta_polls <- provincial_polls_adjusted %>%
   filter(province == "Alberta") %>%
   dplyr::select(weight, LPC, CPC, NDP, GPC, PPC) %>%
   na.omit()
 
-bc_polls <- provincial_polls %>%
+bc_polls <- provincial_polls_adjusted %>%
   filter(province == "British Columbia") %>%
   dplyr::select(weight, LPC, CPC, NDP, GPC, PPC) %>%
   na.omit()
