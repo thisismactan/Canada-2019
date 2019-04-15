@@ -19,7 +19,7 @@ ui <- fluidPage(
                     }
                     "))
     ), 
-  titlePanel(HTML(paste0("<b>Forecast as of ", month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today()))), "</b>"),
+  titlePanel(HTML(paste0("<b>Forecast as of ", month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today())), "</b>")),
   sidebarLayout(
     mainPanel = mainPanel(leafletOutput("forecastmap", height = 900, width = "100%")),
     ## Sidebar
@@ -41,7 +41,7 @@ ui <- fluidPage(
                               "</tr>",
                              "</table>")
                     ),
-                 width = 2),
+                 width = 3),
     position = "right"
     )
 )
