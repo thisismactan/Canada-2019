@@ -50,9 +50,15 @@ national_results_2019 <- national_polls.adjusted %>%
   group_by(party = variable) %>%
   summarise(average = Hmisc::wtd.mean(value, weights = weight, na.rm = TRUE)/100) %>%
   spread(party, average) %>%
-  dplyr::select(LPC_nation = LPC, CPC_nation = CPC, NDP_nation = NDP, Bloc_nation = BQ, Green_nation = GPC) %>%
-  mutate(Green_nation = 0.7*Green_nation)
-
+  dplyr::select(LPC_nation = LPC, CPC_nation = CPC, NDP_nation = NDP, Bloc_nation = BQ, Green_nation = GPC,
+                PPC_nation = PPC) %>%
+  mutate(Green_nation = 0.7*Green_nation,
+         major_total = LPC_nation + CPC_nation + NDP_nation + Bloc_nation + Green_nation + PPC_nation,
+         LPC_nation = LPC_nation/major_total,
+         CPC_nation = CPC_nation/major_total,
+         NDP_nation = NDP_nation/major_total,
+         Bloc_nation = Bloc_nation/major_total) %>%
+  dplyr::select(-major_total, -PPC_nation)
 
 ## How do the frigid northlands lean?
 national_results <- bind_rows(national_results_pre2013, national_results_2015)
@@ -98,11 +104,20 @@ regional_vote <- provincial_polls_adjusted %>%
             CPC_region = wtd.mean(CPC, weight)/100,
             NDP_region = wtd.mean(NDP, weight)/100,
             Green_region = wtd.mean(GPC, weight)/100,
-            Bloc_region = wtd.mean(BQ, weight)/100) %>%
+            Bloc_region = wtd.mean(BQ, weight)/100,
+            PPC_region = wtd.mean(PPC, weight)/100) %>%
   bind_rows(frigid_northlands_mean) %>%
   mutate(Bloc_region = case_when(is.na(Bloc_region) ~ 0,
                                  !is.na(Bloc_region) ~ Bloc_region),
-         Green_region = Green_region*0.7)
+         PPC_region = case_when(is.na(PPC_region) ~ 0,
+                                !is.na(PPC_region) ~ PPC_region),
+         Green_region = Green_region*0.7,
+         major_total = LPC_region + CPC_region + NDP_region + Bloc_region + Green_region + PPC_region,
+         LPC_region = LPC_region/major_total,
+         CPC_region = CPC_region/major_total,
+         NDP_region = NDP_region/major_total,
+         Bloc_region = Bloc_region/major_total) %>%
+  dplyr::select(-major_total, -PPC_region)
   
 ## Simple data (no fundraising)
 data_2019.simple <- district_key_2013 %>%
@@ -128,5 +143,4 @@ data_2019.simple <- district_key_2013 %>%
                                incumbent_running & last_winner == "Bloc" ~ "Bloc",
                                incumbent_running & last_winner == "Green" ~ "Green",
                                incumbent_running & last_winner == "People's Party" ~ "Conservative"),
-         incumbent = as.factor(incumbent),
-         incumbent_LPC)
+         incumbent = as.factor(incumbent))
