@@ -1,0 +1,309 @@
+﻿district_code,name_english,population,last_winner,incumbent_running
+10001,Avalon,78381,Conservative,TRUE
+10002,Bonavista–Gander–Grand Falls–Windsor1,86394,Liberal,TRUE
+10003,Humber–St. Barbe–Baie Verte,73171,Liberal,TRUE
+10004,Labrador,26364,Liberal,TRUE
+10005,Random–Burin–St. George's,71219,Liberal,FALSE
+10006,St. John's East 1,88002,Conservative,FALSE
+10007,St. John's South–Mount Pearl1,81938,Conservative,FALSE
+11001,Cardigan,35067,Liberal,TRUE
+11002,Charlottetown,32174,Liberal,TRUE
+11003,Egmont,34814,Liberal,FALSE
+11004,Malpeque,33796,Liberal,TRUE
+12001,Cape Breton–Canso,71968,Liberal,TRUE
+12002,Central Nova,72966,Conservative,TRUE
+12003,Dartmouth–Cole Harbour,87886,Liberal,TRUE
+12004,Halifax,89448,NDP,FALSE
+12005,Halifax West,88756,Liberal,TRUE
+12006,Kings–Hants,81531,Liberal,TRUE
+12007,Cumberland–Colchester–Musquodoboit Valley1,87895,Conservative,FALSE
+12008,Sackville–Eastern Shore,86963,NDP,TRUE
+12009,South Shore–St. Margaret's,82855,Conservative,TRUE
+12010,Sydney–Victoria,76801,Liberal,TRUE
+12011,West Nova,86393,Liberal,TRUE
+13001,Acadie–Bathurst,78948,NDP,TRUE
+13002,Beauséjour,76259,Liberal,TRUE
+13003,Fredericton,85886,Liberal,FALSE
+13004,Fundy Royal1,69471,Conservative,TRUE
+13005,Madawaska–Restigouche,62593,Liberal,TRUE
+13006,Miramichi,53844,Liberal,TRUE
+13007,Moncton–Riverview–Dieppe,89334,Liberal,TRUE
+13008,New Brunswick Southwest 1,63232,Conservative,TRUE
+13009,Saint John,82078,Liberal,TRUE
+13010,Tobique–Mactaquac,68352,Conservative,TRUE
+24001,Abitibi–Témiscamingue,102795,Bloc,TRUE
+24002,Ahuntsic,100471,Bloc,TRUE
+24003,Alfred-Pellan,104765,Bloc,TRUE
+24004,Argenteuil–Papineau–Mirabel1,111534,Bloc,TRUE
+24005,Beauce,103617,Conservative,TRUE
+24006,Beauharnois–Salaberry,106856,Bloc,TRUE
+24007,Beauport–Limoilou1,101331,Conservative,TRUE
+24008,Berthier–Maskinongé,107911,Bloc,TRUE
+24009,Bourassa,100683,Liberal,TRUE
+24010,Brome–Missisquoi,92591,Bloc,FALSE
+24011,Brossard–La Prairie,113985,Liberal,TRUE
+24012,Chambly–Borduas,116925,Bloc,TRUE
+24013,Charlesbourg–Haute-Saint-Charles1,94522,Conservative,TRUE
+24014,Montmorency–Charlevoix–Haute-Côte-Nord1,90535,Bloc,TRUE
+24015,Châteauguay–Saint-Constant,107165,Bloc,TRUE
+24016,Chicoutimi–Le Fjord,96483,Bloc,TRUE
+24017,Compton–Stanstead,100148,Bloc,TRUE
+24018,Drummond,92982,Bloc,FALSE
+24019,Gaspésie–Îles-de-la-Madeleine,82007,Bloc,TRUE
+24020,Gatineau,108742,Bloc,TRUE
+24021,Hochelaga,100915,Bloc,TRUE
+24022,Honoré-Mercier,106196,Liberal,TRUE
+24023,Hull–Aylmer,110902,Liberal,TRUE
+24024,Jeanne-Le Ber,112863,Bloc,TRUE
+24025,Joliette,108169,Bloc,TRUE
+24026,Jonquière–Alma,97232,Conservative,TRUE
+24027,Lac-Saint-Louis,105622,Liberal,TRUE
+24028,La Pointe-de-l'Île,99685,Bloc,TRUE
+24029,LaSalle–Émard,100327,Liberal,FALSE
+24030,Laurentides–Labelle,105884,Bloc,TRUE
+24031,Laurier–Sainte-Marie1,101758,Bloc,TRUE
+24032,Laval,102230,Bloc,TRUE
+24033,Laval–Les Îles,111958,Liberal,TRUE
+24034,Lévis–Bellechasse,105927,Conservative,TRUE
+24035,Longueuil–Pierre-Boucher1,98032,Bloc,FALSE
+24036,Lotbinière–Chutes-de-la-Chaudière,100454,Conservative,TRUE
+24037,Louis-Hébert,101730,Conservative,TRUE
+24038,Louis-Saint-Laurent,96286,Conservative,TRUE
+24039,Manicouagan,83608,Bloc,TRUE
+24040,Marc-Aurèle-Fortin,107149,Bloc,TRUE
+24041,Haute-Gaspésie–La Mitis–Matane–Matapédia1,73140,Bloc,TRUE
+24042,Mégantic–L'Érable,87078,Conservative,TRUE
+24043,Montcalm,122825,Bloc,TRUE
+24044,Mount Royal,98888,Liberal,TRUE
+24045,Notre-Dame-de-Grâce–Lachine,104715,Liberal,TRUE
+24046,Abitibi–Baie-James–Nunavik–Eeyou1,80894,Bloc,TRUE
+24047,Outremont,95771,NDP,TRUE
+24048,Papineau,101019,Bloc,TRUE
+24049,Pierrefonds–Dollard,105504,Liberal,TRUE
+24050,Pontiac,99589,Conservative,TRUE
+24051,Portneuf–Jacques-Cartier1,93526,None,FALSE
+24052,Québec,95433,Bloc,TRUE
+24053,Repentigny,109636,Bloc,FALSE
+24054,Bas-Richelieu–Nicolet–Bécancour1,91745,Bloc,TRUE
+24055,Richmond–Arthabaska,100116,Bloc,TRUE
+24056,Rimouski-Neigette–Témiscouata–Les Basques1,84453,Bloc,FALSE
+24057,Rivière-des-Mille-Îles,97258,Bloc,FALSE
+24058,Montmagny–L'Islet–Kamouraska–Rivière-du-Loup1,97492,Bloc,TRUE
+24059,Rivière-du-Nord,101576,Bloc,TRUE
+24060,Roberval–Lac-Saint-Jean1,78895,Conservative,TRUE
+24061,Rosemont–La Petite-Patrie,105864,Bloc,TRUE
+24062,Saint-Bruno–Saint-Hubert,101416,Bloc,TRUE
+24063,Saint-Hyacinthe–Bagot,95983,Bloc,TRUE
+24064,Saint-Jean,102902,Bloc,TRUE
+24065,Saint-Lambert,94541,Bloc,FALSE
+24066,Saint-Laurent–Cartierville,109015,Liberal,TRUE
+24067,Saint-Léonard–Saint-Michel,104786,Liberal,TRUE
+24068,Saint-Maurice–Champlain,96968,Bloc,TRUE
+24069,Shefford,100000,Bloc,TRUE
+24070,Sherbrooke,101681,Bloc,TRUE
+24071,Terrebonne–Blainville,107694,Bloc,TRUE
+24072,Trois-Rivières,94272,Bloc,TRUE
+24073,Vaudreuil-Soulanges,120395,Bloc,TRUE
+24074,Verchères–Les Patriotes,97726,Bloc,TRUE
+24075,Westmount–Ville-Marie,100360,Liberal,FALSE
+35001,Ajax–Pickering,117183,Liberal,TRUE
+35002,Algoma–Manitoulin–Kapuskasing,77961,Liberal,TRUE
+35003,Ancaster–Dundas–Flamborough–Westdale,111844,Conservative,TRUE
+35004,Barrie,128430,Conservative,TRUE
+35005,Beaches–East York,104831,Liberal,TRUE
+35006,Bramalea–Gore–Malton,152698,Liberal,TRUE
+35007,Brampton–Springdale,131797,Liberal,TRUE
+35008,Brampton West,170422,Liberal,FALSE
+35009,Brant,125136,Liberal,TRUE
+35010,Burlington,118310,Conservative,TRUE
+35011,Cambridge,129434,Conservative,TRUE
+35012,Carleton–Mississippi Mills1,128915,Conservative,TRUE
+35013,Chatham-Kent–Essex,109484,Conservative,TRUE
+35014,Durham1,118500,Conservative,TRUE
+35015,Davenport,104615,Liberal,TRUE
+35016,Don Valley East,109640,Liberal,TRUE
+35017,Don Valley West,117083,Liberal,TRUE
+35018,Dufferin–Caledon,111486,Conservative,TRUE
+35019,Eglinton–Lawrence,110066,Liberal,TRUE
+35020,Elgin–Middlesex–London,110028,Conservative,TRUE
+35021,Essex,123872,Conservative,TRUE
+35022,Etobicoke Centre,111349,Liberal,TRUE
+35023,Etobicoke–Lakeshore,114641,Liberal,TRUE
+35024,Etobicoke North,108501,Liberal,FALSE
+35025,Glengarry–Prescott–Russell,104309,Conservative,TRUE
+35026,Bruce–Grey–Owen Sound1,105947,Conservative,TRUE
+35027,Guelph,114943,Liberal,FALSE
+35028,Haldimand–Norfolk,107775,Conservative,TRUE
+35029,Haliburton–Kawartha Lakes–Brock,119141,Conservative,TRUE
+35030,Halton,151943,Liberal,TRUE
+35031,Hamilton Centre,117509,NDP,TRUE
+35032,Hamilton East–Stoney Creek,116434,NDP,TRUE
+35033,Hamilton Mountain,122729,NDP,TRUE
+35034,Huron–Bruce,104313,Liberal,FALSE
+35035,Kenora,64291,Liberal,TRUE
+35036,Kingston and the Islands,119069,Liberal,TRUE
+35037,Kitchener Centre,107540,Liberal,TRUE
+35038,Kitchener–Conestoga2,114405,Conservative,TRUE
+35039,Kitchener–Waterloo,126742,Liberal,TRUE
+35040,Lanark–Frontenac–Lennox and Addington,117389,Conservative,TRUE
+35041,Leeds–Grenville,99206,Conservative,TRUE
+35042,London–Fanshawe,107218,NDP,TRUE
+35043,London North Centre,115250,Liberal,TRUE
+35044,London West,118335,Liberal,TRUE
+35045,Markham–Unionville,127191,Liberal,TRUE
+35046,Lambton–Kent–Middlesex1,107635,Conservative,TRUE
+35047,Mississauga–Brampton South,136470,Liberal,TRUE
+35048,Mississauga East–Cooksville,126642,Liberal,TRUE
+35049,Mississauga–Erindale,143361,Liberal,TRUE
+35050,Mississauga South,110932,Liberal,TRUE
+35051,Mississauga–Streetsville,130033,Conservative,TRUE
+35052,Nepean–Carleton,133245,Conservative,TRUE
+35053,Newmarket–Aurora,121924,Liberal,FALSE
+35054,Niagara Falls,126696,Conservative,TRUE
+35055,Niagara West–Glanbrook,111024,Conservative,TRUE
+35056,Nickel Belt,89377,Liberal,FALSE
+35057,Nipissing–Timiskaming,90963,Liberal,TRUE
+35058,Northumberland–Quinte West,123706,Conservative,TRUE
+35059,Oak Ridges–Markham,169642,Liberal,TRUE
+35060,Oakville,113714,Liberal,TRUE
+35061,Oshawa,116881,Conservative,TRUE
+35062,Ottawa Centre,109336,NDP,TRUE
+35063,Ottawa–Orléans,109950,Conservative,TRUE
+35064,Ottawa South,117581,Liberal,TRUE
+35065,Ottawa–Vanier,101611,Liberal,TRUE
+35066,Ottawa West–Nepean,109735,Conservative,TRUE
+35067,Oxford,102756,Conservative,TRUE
+35068,Parkdale–High Park,102142,NDP,TRUE
+35069,Parry Sound–Muskoka,90281,Conservative,TRUE
+35070,Perth–Wellington,103874,Conservative,TRUE
+35071,Peterborough,116626,Conservative,TRUE
+35072,Pickering–Scarborough East,106602,Liberal,TRUE
+35073,Prince Edward–Hastings,113227,Conservative,TRUE
+35074,Renfrew–Nipissing–Pembroke,98803,Conservative,TRUE
+35075,Richmond Hill,122614,Liberal,TRUE
+35076,St. Catharines,112869,Conservative,TRUE
+35077,St. Paul's,111131,Liberal,TRUE
+35078,Sarnia–Lambton,105360,Conservative,TRUE
+35079,Sault Ste. Marie,89028,NDP,TRUE
+35080,Scarborough–Agincourt,111867,Liberal,TRUE
+35081,Scarborough Centre,108010,Liberal,TRUE
+35082,Scarborough–Guildwood,108813,Liberal,TRUE
+35083,Scarborough–Rouge River,130974,Liberal,TRUE
+35084,Scarborough Southwest,102196,Liberal,FALSE
+35085,Simcoe–Grey,125985,Conservative,TRUE
+35086,Simcoe North,119400,Conservative,TRUE
+35087,Stormont–Dundas–South Glengarry,99764,Conservative,TRUE
+35088,Sudbury,92161,Liberal,TRUE
+35089,Thornhill,131978,Liberal,TRUE
+35090,Thunder Bay–Rainy River,85153,Liberal,TRUE
+35091,Thunder Bay–Superior North,82589,Conservative,FALSE
+35092,Timmins–James Bay,80791,NDP,TRUE
+35093,Toronto Centre,121407,Liberal,TRUE
+35094,Toronto–Danforth,103655,NDP,TRUE
+35095,Trinity–Spadina,115361,NDP,TRUE
+35096,Vaughan,154206,Liberal,TRUE
+35097,Welland,112875,Liberal,TRUE
+35098,Wellington–Halton Hills,111241,Conservative,TRUE
+35099,Whitby–Oshawa,135893,Conservative,TRUE
+35100,Willowdale,129356,Liberal,TRUE
+35101,Windsor–Tecumseh,118478,NDP,TRUE
+35102,Windsor West,122219,NDP,TRUE
+35103,York Centre,113457,Liberal,TRUE
+35104,York–Simcoe,120371,Conservative,TRUE
+35105,York South–Weston,114458,Liberal,TRUE
+35106,York West,103948,Liberal,TRUE
+46001,Brandon–Souris,84602,Conservative,TRUE
+46002,Charleswood–St. James–Assiniboia1,81469,Conservative,TRUE
+46003,Churchill,75232,Liberal,TRUE
+46004,Dauphin–Swan River–Marquette1,75103,Conservative,TRUE
+46005,Elmwood–Transcona,78700,NDP,FALSE
+46006,Kildonan–St. Paul,81532,Conservative,TRUE
+46007,Portage–Lisgar,85653,Conservative,FALSE
+46008,Provencher,87737,Conservative,TRUE
+46009,Saint Boniface,84473,Liberal,TRUE
+46010,Selkirk–Interlake,90807,Conservative,TRUE
+46011,Winnipeg Centre,81017,NDP,TRUE
+46012,Winnipeg North,79366,NDP,TRUE
+46013,Winnipeg South,84424,Conservative,TRUE
+46014,Winnipeg South Centre,78286,Liberal,TRUE
+47001,Battlefords–Lloydminster,71184,Conservative,TRUE
+47002,Blackstrap,76273,Conservative,TRUE
+47003,Desnethé–Missinippi–Churchill River1,67937,Conservative,TRUE
+47004,Cypress Hills–Grasslands,60551,Conservative,TRUE
+47005,Palliser,65956,Conservative,FALSE
+47006,Prince Albert,71159,Conservative,FALSE
+47007,Regina–Lumsden–Lake Centre,65885,Conservative,TRUE
+47008,Regina–Qu'Appelle,66698,Conservative,TRUE
+47009,Saskatoon–Humboldt,75051,Conservative,TRUE
+47010,Saskatoon–Rosetown–Biggar,69547,Conservative,FALSE
+47011,Saskatoon–Wanuskewin,72867,Conservative,TRUE
+47012,Souris–Moose Mountain,63238,Conservative,TRUE
+47013,Wascana,75717,Liberal,TRUE
+47014,Yorkton–Melville,66094,Conservative,TRUE
+48001,Fort McMurray–Athabasca1,100805,Conservative,TRUE
+48002,Calgary East,110479,Conservative,TRUE
+48003,Calgary Centre-North 1,114615,Conservative,TRUE
+48004,Calgary Northeast,129015,Conservative,FALSE
+48005,Calgary–Nose Hill,130942,Conservative,TRUE
+48006,Calgary Centre1,124197,Conservative,TRUE
+48007,Calgary Southeast,125738,Conservative,TRUE
+48008,Calgary Southwest,120750,Conservative,TRUE
+48009,Calgary West,132162,Conservative,TRUE
+48010,Crowfoot,114825,Conservative,TRUE
+48011,Edmonton–Mill Woods–Beaumont1,112919,Conservative,TRUE
+48012,Edmonton Centre,120326,Conservative,TRUE
+48013,Edmonton East,128199,Conservative,TRUE
+48014,Edmonton–Leduc,116986,Conservative,TRUE
+48015,Edmonton–St. Albert,126447,Conservative,FALSE
+48016,Edmonton–Sherwood Park,118073,Conservative,FALSE
+48017,Edmonton–Spruce Grove,128945,Conservative,TRUE
+48018,Edmonton–Strathcona,99267,Conservative,TRUE
+48019,Lethbridge,113531,Conservative,TRUE
+48020,Macleod,107638,Conservative,TRUE
+48021,Medicine Hat,113085,Conservative,FALSE
+48022,Peace River,138009,Conservative,TRUE
+48023,Red Deer,124063,Conservative,FALSE
+48024,Vegreville–Wainwright,111427,Conservative,TRUE
+48025,Westlock–St. Paul3,101010,Conservative,TRUE
+48026,Wetaskiwin,107914,Conservative,TRUE
+48027,Wild Rose,115872,Conservative,FALSE
+48028,Yellowhead,103111,Conservative,TRUE
+59001,Abbotsford,124515,Conservative,TRUE
+59002,Burnaby–Douglas,112119,NDP,TRUE
+59003,Burnaby–New Westminster,118713,NDP,TRUE
+59004,Cariboo–Prince George,106382,Conservative,TRUE
+59005,Chilliwack–Fraser Canyon,112118,Conservative,TRUE
+59006,Delta–Richmond East,106103,Conservative,TRUE
+59007,Pitt Meadows–Maple Ridge–Mission1,120662,Conservative,TRUE
+59008,Esquimalt–Juan de Fuca,120669,Liberal,TRUE
+59009,Fleetwood–Port Kells,123243,Conservative,TRUE
+59010,Kamloops–Thompson–Cariboo1,114675,Conservative,FALSE
+59011,Kelowna–Lake Country1,122214,Conservative,TRUE
+59012,Kootenay–Columbia,86811,Conservative,TRUE
+59013,Langley,117858,Conservative,TRUE
+59014,Nanaimo–Alberni,121434,Conservative,TRUE
+59015,Nanaimo–Cowichan,125149,NDP,TRUE
+59016,Newton–North Delta,118649,Liberal,TRUE
+59017,New Westminster–Coquitlam,111231,NDP,TRUE
+59018,Okanagan–Shuswap1,116236,Conservative,TRUE
+59019,North Vancouver,122371,Liberal,TRUE
+59020,Okanagan–Coquihalla,107316,Conservative,TRUE
+59021,Port Moody–Westwood–Port Coquitlam,116563,Conservative,TRUE
+59022,Prince George–Peace River,105865,Conservative,FALSE
+59023,Richmond,114137,Liberal,TRUE
+59024,Saanich–Gulf Islands,115724,Conservative,TRUE
+59025,Skeena–Bulkley Valley,91926,NDP,TRUE
+59026,British Columbia Southern Interior1,95477,NDP,TRUE
+59027,South Surrey–White Rock–Cloverdale,111756,Conservative,TRUE
+59028,Surrey North,111960,NDP,FALSE
+59029,Vancouver Centre,123701,Liberal,TRUE
+59030,Vancouver East,106816,NDP,TRUE
+59031,Vancouver Island North,113356,NDP,TRUE
+59032,Vancouver Kingsway,119815,Conservative,FALSE
+59033,Vancouver Quadra,119627,Liberal,TRUE
+59034,Vancouver South,120284,Liberal,TRUE
+59035,Victoria,108771,NDP,TRUE
+59036,West Vancouver–Sunshine Coast–Sea to Sky Country1,129241,Green,TRUE
+60001,Yukon,30372,Liberal,TRUE
+61001,Northwest Territories4,41464,NDP,TRUE
+62001,Nunavut,29474,Liberal,FALSE
