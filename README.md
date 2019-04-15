@@ -5,7 +5,6 @@ This is the repository for the Election StatSheet 2019 Canadian election forecas
 Current status: prettifying the RShiny app.
 
 ### Notes to self ###
-- Final model must predict all parties' share of the vote simultaneously allowing for correlations between parties
 
 ## Directory structure
 - **/Canada-2019**
@@ -25,7 +24,7 @@ Current status: prettifying the RShiny app.
   - **/Output**
     - **/Model graphs**
     - **/Model testing**
-  - **/Shiny-app
+  - **/Shiny-app**
 
 ### What's in the box?
 - **Code**: All scripts, including data processing, model building, simulation, etc.
