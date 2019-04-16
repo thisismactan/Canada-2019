@@ -43,6 +43,8 @@ national_polls.adjusted <- national_polls %>%
          NDP = NDP - NDP_house/2,
          GPC = GPC - GPC_house/2)
 
+write_rds(national_polls.adjusted, "Shiny-app/national_polls.rds")
+
 ## Weighted average
 national_polls.adjusted %>% 
   melt(id.vars = c("pollster", "date", "age", "MOE", "n", "mode", "IVR", "weight")) %>%
