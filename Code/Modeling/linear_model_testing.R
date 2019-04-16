@@ -135,3 +135,134 @@ linear_model.errors %>%
 
 ggsave(filename = "Output/Model graphs/linear_model_errors_year.png", width = 20, height = 7)
 
+## Use AIC and BIC for model selection
+
+#### Liberals ####
+model_LPC.initial <- lm(LPC~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+LPC_nation+
+                          LPC_region+LPC_nation_lag+LPC_region_lag+CPC_nation+CPC_region+sex_female+age_65+educ_university+minority+
+                          pop_growth_rate, 
+                        data = results)
+
+## AIC
+LPC.stepAIC <- step(model_LPC.initial, scope = ~., direction = "both")
+
+## BIC
+LPC.stepBIC <- step(model_LPC.initial, scope = ~., direction = "both", k = log(n))
+
+#### Conservatives ####
+model_CPC.initial <- lm(CPC~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+CPC_nation+
+                          CPC_region+CPC_nation_lag+CPC_region_lag+LPC_nation+LPC_region+LPC_region_lag+sex_female+age_65+educ_university+minority+
+                          pop_growth_rate, 
+                        data = results)
+
+## AIC
+CPC.stepAIC <- step(model_CPC.initial, scope = ~., direction = "both")
+
+## BIC
+CPC.stepBIC <- step(model_CPC.initial, scope = ~., direction = "both", k = log(n))
+
+#### NDP ####
+model_NDP.initial <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+NDP_nation+
+                          NDP_region+NDP_lag+NDP_nation_lag+NDP_region+LPC_nation_lag+LPC_region_lag+CPC_nation+CPC_region+sex_female+age_65+
+                          educ_university+minority+pop_growth_rate,  
+                        data = results)
+
+## AIC
+NDP.stepAIC <- step(model_NDP.initial, scope = ~., direction = "both")
+
+## BIC
+NDP.stepBIC <- step(model_NDP.initial, scope = ~., direction = "both", k = log(n))
+
+#### Green ####
+model_Green.initial <- lm(Green~incumbent_Green+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+Green_nation+Green_region+Green_lag+Green_nation_lag+
+                            Green_region_lag+LPC_nation+LPC_region+CPC_nation+CPC_region+sex_female+age_65+educ_university+minority+pop_growth_rate,  
+                          data = results)
+
+## AIC
+Green.stepAIC <- step(model_Green.initial, scope = ~., direction = "both")
+
+## BIC
+Green.stepBIC <- step(model_Green.initial, scope = ~., direction = "both", k = log(n))
+
+#### Bloc ####
+model_Bloc.initial <- lm(Bloc~Quebec*(incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Bloc_nation+
+                           Bloc_region+Bloc_lag+Bloc_nation_lag+Bloc_region+LPC_nation_lag+LPC_region_lag+CPC_nation+CPC_region+sex_female+age_65+
+                           educ_university+minority+pop_growth_rate), 
+                         data = results)
+
+## AIC
+Bloc.stepAIC <- step(model_Bloc.initial, scope = ~., direction = "both")
+
+## BIC
+Bloc.stepBIC <- step(model_Bloc.initial, scope = ~., direction = "both", k = log(n))
+
+#### Selected models ####
+n <- nrow(results)
+LPC_error.AIC <- LPC_error.BIC <- CPC_error.AIC <- CPC_error.BIC <- NDP_error.AIC <- Green_error.AIC <- Green_error.BIC <- Bloc_error.AIC <- 
+  Bloc_error.BIC <- rep(NA, n)
+
+for(i in 1:n) {
+  cat("District ", results$district_code[i], ": ", results$name_english[i], " (", results$year[i], ")\n", sep = "")
+  ## Train/test split
+  train <- results[-i,]
+  test <- results[i,]
+  
+  ## Models (AIC and BIC agree on the NDP model)
+  LPC_model_cv.AIC <- lm(LPC~incumbent_LPC+incumbent_NDP+LPC_lag+CPC_lag+NDP_lag+Bloc_lag+LPC_nation+LPC_nation_lag+LPC_region+LPC_region_lag+
+                           educ_university+minority+pop_growth_rate, data = train)
+  
+  LPC_model_cv.BIC <- lm(LPC~incumbent_LPC+LPC_lag+CPC_lag+NDP_lag+Bloc_lag+LPC_nation+LPC_nation_lag+LPC_region+LPC_region_lag+minority, 
+                         data = train)
+  
+  CPC_model_cv.AIC <- lm(CPC~incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+CPC_lag+CPC_region+CPC_region_lag+
+                           CPC_nation+CPC_nation_lag+Quebec+educ_university, data = train)
+  
+  CPC_model_cv.BIC <- lm(CPC~incumbent_CPC+LPC_lag+CPC_lag+NDP_lag+Bloc_lag+CPC_nation+CPC_nation_lag+CPC_region+CPC_region_lag+Quebec+educ_university,
+                         data = train)
+  
+  NDP_model_cv.AIC <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+NDP_lag+Quebec+NDP_nation+NDP_region+NDP_nation_lag+NDP_region_lag+
+                           LPC_region_lag+CPC_region+age_65, data = train)
+  
+  Green_model_cv.AIC <- lm(Green~incumbent_Green+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Green_region+Green_region_lag+Green_nation_lag+
+                             age_65+educ_university+minority, data = train)
+  
+  Green_model_cv.BIC <- lm(Green~Green_lag+Green_region+Green_region_lag+educ_university+minority, data = train)
+  
+  Bloc_model_cv.AIC <- lm(Bloc~Quebec+Quebec:(incumbent_LPC+incumbent_CPC+incumbent_NDP+LPC_lag+CPC_lag+NDP_lag+Bloc_nation+educ_university+age_65)+
+                            Bloc_lag+Bloc_region, data = train)
+  
+  Bloc_model_cv.BIC <- lm(Bloc~Quebec+Quebec:(NDP_lag+Bloc_nation+educ_university)+Bloc_lag+Bloc_region, data = train)
+  
+  ## LOOCV
+  LPC_error.AIC[i] <- predict(LPC_model_cv.AIC, data = test) - test$LPC
+  LPC_error.BIC[i] <- predict(LPC_model_cv.BIC, data = test) - test$LPC
+  CPC_error.AIC[i] <- predict(CPC_model_cv.AIC, data = test) - test$CPC
+  CPC_error.BIC[i] <- predict(CPC_model_cv.BIC, data = test) - test$CPC
+  NDP_error.AIC[i] <- predict(NDP_model_cv.AIC, data = test) - test$NDP
+  Green_error.AIC[i] <- predict(Green_model_cv.AIC, data = test) - test$Green
+  Green_error.BIC[i] <- predict(Green_model_cv.BIC, data = test) - test$Green
+  Bloc_error.AIC[i] <- predict(Bloc_model_cv.AIC, data = test) - test$Bloc
+  Bloc_error.BIC[i] <- predict(Bloc_model_cv.BIC, data = test) - test$Bloc
+}
+
+#### RMSE ####
+## Liberal
+sqrt(mean(LPC_error.AIC^2))
+sqrt(mean(LPC_error.BIC^2))
+
+## Conservative
+sqrt(mean(CPC_error.AIC^2))
+sqrt(mean(CPC_error.BIC^2))
+
+## NDP
+sqrt(mean(NDP_error.AIC^2))
+
+## Green
+sqrt(mean(Green_error.AIC^2))
+sqrt(mean(Green_error.BIC^2))
+
+## Bloc
+sqrt(mean(Bloc_error.AIC^2))
+sqrt(mean(Bloc_error.BIC^2))
+
+## THIS IS A DISASTER AND I HAVE NO IDEA WHY AHHHHHH
