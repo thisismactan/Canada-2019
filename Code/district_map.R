@@ -11,7 +11,8 @@ canada_districts <- readOGR(dsn = "Data/Shapefiles", layer = "FED_CA_2_2_ENG") %
 ## Transform to lat-long
 canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0")) %>%
   st_as_sf() %>%
-  merge(district_key_2013, by.x = "FED_NUM", by.y = "district_code", all = FALSE)  %>%
+  merge(district_key_2013, by.x = "FED_NUM", by.y = "district_code", all = FALSE) %>%
+  merge(province_key, by.x = "PROVCODE", by.y = "province_abbr", all.x = TRUE) %>%
   merge(LPC_distribution %>% dplyr::select(-name_english), by.x = "FED_NUM", by.y = "district_code", all.x = TRUE) %>%
   merge(CPC_distribution %>% dplyr::select(-name_english), by.x = "FED_NUM", by.y = "district_code", all.x = TRUE) %>%
   merge(NDP_distribution %>% dplyr::select(-name_english), by.x = "FED_NUM", by.y = "district_code", all.x = TRUE) %>%
@@ -169,6 +170,18 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
            )
   ) %>%
   st_as_sf()
+
+## Add centroids
+coords_df <- st_coordinates(canada_districts_latlong) %>%
+  as.data.frame() %>%
+  as.tbl() %>%
+  group_by(L2) %>%
+  summarise(lng = mean(X), lat = mean(Y)) %>%
+  mutate(FED_NUM = canada_districts_latlong$FED_NUM) %>%
+  dplyr::select(FED_NUM, lng, lat)
+
+canada_districts_latlong <- canada_districts_latlong %>%
+  left_join(coords_df, by = "FED_NUM")
 
 write_rds(canada_districts_latlong, "Shiny-app/canada_districts.rds")
 
