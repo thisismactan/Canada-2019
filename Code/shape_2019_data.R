@@ -143,4 +143,9 @@ data_2019.simple <- district_key_2013 %>%
                                incumbent_running & last_winner == "Bloc" ~ "Bloc",
                                incumbent_running & last_winner == "Green" ~ "Green",
                                incumbent_running & last_winner == "People's Party" ~ "Conservative"),
-         incumbent = as.factor(incumbent))
+         incumbent = relevel(factor(as.character(incumbent)), ref = "None"),
+         incumbent_LPC = incumbent == "Liberal",
+         incumbent_CPC = incumbent == "Conservative",
+         incumbent_NDP = incumbent == "NDP",
+         incumbent_Green = incumbent == "Green",
+         incumbent_Bloc = incumbent == "Bloc")
