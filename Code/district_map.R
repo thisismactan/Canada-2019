@@ -48,6 +48,7 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                                 Bloc_prob == max_prob ~ "#8B008B",
                                 Green_prob == max_prob ~ "#008B00",
                                 PPC_prob == max_prob ~ "#191970"),
+         FED_NUM = as.numeric(as.character(FED_NUM)),
          district_info = case_when(
            ## Holds in Quebec
            PROVCODE == "QC" & name_english != "Beauce" & predicted_winner == last_winner ~

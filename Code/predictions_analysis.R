@@ -9,6 +9,7 @@ predictions <- tibble(district_code = data_2019.simple$district_code,
                       name_english = data_2019.simple$name_english,
                       region = data_2019.simple$region,
                       population = data_2019.simple$population,
+                      total_votes_2015 = results_2015$total_votes,
                       LPC_cand = data_2019.simple$LPC_cand,
                       CPC_cand = data_2019.simple$CPC_cand,
                       NDP_cand = data_2019.simple$NDP_cand,
@@ -32,6 +33,29 @@ predictions <- tibble(district_code = data_2019.simple$district_code,
                             Green_vote == pmax(LPC_vote, CPC_vote, NDP_vote, Bloc_vote, Green_vote) ~ "Green")
          ) %>%
   left_join(read_csv("Data/incumbents.csv") %>% dplyr::select(-name_english), by = "district_code")
+
+## Distribution of vote in seats that the party won
+predictions %>%
+  mutate(winner_vote = pmax(LPC_vote, CPC_vote, NDP_vote, Bloc_vote, Green_vote)) %>%
+  group_by(winner) %>%
+  summarise(mean = mean(winner_vote),
+            pct_05 = quantile(winner_vote, 0.05),
+            pct_25 = quantile(winner_vote, 0.25),
+            pct_50 = quantile(winner_vote, 0.5),
+            pct_75 = quantile(winner_vote, 0.75),
+            pct_95 = quantile(winner_vote, 0.9))
+
+predictions %>%
+  mutate(winner_vote = pmax(LPC_vote, CPC_vote, NDP_vote, Bloc_vote, Green_vote)) %>%
+  dplyr::select(district_code, Liberal = LPC_vote, Conservative = CPC_vote, NDP =  NDP_vote, Bloc = Bloc_vote, winner, winner_vote) %>%
+  melt(id.vars = c("district_code", "winner", "winner_vote"), variable.name = "party", value.name = "vote") %>%
+  filter(winner != "Green") %>%
+  ggplot(aes(x = winner_vote, fill = winner)) +
+  facet_wrap(~winner) +
+  geom_histogram(col = "black", binwidth = 0.03) +
+  scale_fill_manual(name = "Winner", labels = c("Bloc", "Conservative", "Liberal", "NDP"), values = c("#8ECEF9", "blue", "red", "darkorange1")) +
+  labs(title = "Distribution of vote in seats won", subtitle = "By party",
+       x = "Share of vote", y = "Number of districts")
 
 ## Predicted seats
 predictions %>%
@@ -93,14 +117,29 @@ predictions %>%
 
 ## Estimated nationwide vote
 predictions %>%
-  summarise(LPC_votes = sum(LPC_vote*population),
-            CPC_votes = sum(CPC_vote*population),
-            NDP_votes = sum(NDP_vote*population),
-            Bloc_votes = sum(Bloc_vote*population),
-            Green_votes = sum(Green_vote*population)) %>%
+  summarise(LPC_votes = sum(LPC_vote*total_votes_2015),
+            CPC_votes = sum(CPC_vote*total_votes_2015),
+            NDP_votes = sum(NDP_vote*total_votes_2015),
+            Bloc_votes = sum(Bloc_vote*total_votes_2015),
+            Green_votes = sum(Green_vote*total_votes_2015)) %>%
   mutate(LPC_pct = LPC_votes/(LPC_votes+CPC_votes+NDP_votes+Bloc_votes+Green_votes),
          CPC_pct = CPC_votes/(LPC_votes+CPC_votes+NDP_votes+Bloc_votes+Green_votes),
          NDP_pct = NDP_votes/(LPC_votes+CPC_votes+NDP_votes+Bloc_votes+Green_votes),
          Bloc_pct = Bloc_votes/(LPC_votes+CPC_votes+NDP_votes+Bloc_votes+Green_votes),
          Green_pct = Green_votes/(LPC_votes+CPC_votes+NDP_votes+Bloc_votes+Green_votes)) %>%
   dplyr::select(ends_with("pct"))
+
+## Estimated vote by province
+predictions %>%
+  group_by(region) %>%
+  summarise(LPC_votes = sum(LPC_vote*total_votes_2015),
+            CPC_votes = sum(CPC_vote*total_votes_2015),
+            NDP_votes = sum(NDP_vote*total_votes_2015),
+            Bloc_votes = sum(Bloc_vote*total_votes_2015),
+            Green_votes = sum(Green_vote*total_votes_2015)) %>%
+  mutate(LPC_pct = LPC_votes/(LPC_votes+CPC_votes+NDP_votes+Bloc_votes+Green_votes),
+         CPC_pct = CPC_votes/(LPC_votes+CPC_votes+NDP_votes+Bloc_votes+Green_votes),
+         NDP_pct = NDP_votes/(LPC_votes+CPC_votes+NDP_votes+Bloc_votes+Green_votes),
+         Bloc_pct = Bloc_votes/(LPC_votes+CPC_votes+NDP_votes+Bloc_votes+Green_votes),
+         Green_pct = Green_votes/(LPC_votes+CPC_votes+NDP_votes+Bloc_votes+Green_votes)) %>%
+  dplyr::select(region, ends_with("pct"))
