@@ -10,7 +10,20 @@ library(leaflet)
 
 ## Read in things
 outcome_probs <- read_rds("outcome_probs.rds")
-national_polls <- read_rds("national_polls.rds")
+national_polls_unadjusted <- read_rds("national_polls.rds")
+national_polls_adjusted <- read_rds("national_polls_adjusted.rds")
+poll_sds_unadjusted <- read_csv("poll_sds_unadjusted.csv")
+poll_sds_adjusted <- read_csv("poll_sds_adjusted.csv")
+poll_averages_unadjusted <- read_csv("poll_averages_unadjusted.csv") %>%
+  mutate(lower = pct - 1.644*poll_sds_unadjusted$sd,
+         upper = pct + 1.644*poll_sds_unadjusted$sd,
+         Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's")))
+
+poll_averages_adjusted <- read_csv("poll_averages_adjusted.csv")  %>%
+  mutate(lower = pct - 1.644*poll_sds_adjusted$sd,
+         upper = pct + 1.644*poll_sds_adjusted$sd,
+         Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's")))
+
 forecast_timeline <- read_csv("forecast_timeline.csv")
 canada_districts_latlong <- read_rds("canada_districts.rds")
 canada_flips <- canada_districts_latlong %>%
@@ -127,7 +140,11 @@ ui <- fluidPage(
                                                                       choices = c("Choose a riding", districts[provinces == "Nunavut"])
                                                           )
                                          ),
-                                         conditionalPanel(condition = "input.riding_select != 'Choose a riding'",
+                                         conditionalPanel(condition = "input.riding_select != 'Choose a riding' & input.riding_select != 'Quebec'",
+                                                          selectInput(inputId = "party_select", label = "Party",
+                                                                      choices = c("Choose a party", "Liberal", "Conservative", "NDP", "Green"),
+                                                                      width = "400px")),
+                                         conditionalPanel(condition = "input.riding_select == 'Quebec'",
                                                           selectInput(inputId = "party_select", label = "Party",
                                                                       choices = c("Choose a party", "Liberal", "Conservative", "NDP", "Green", "Bloc"),
                                                                       width = "400px")),
@@ -154,7 +171,20 @@ ui <- fluidPage(
                                                  label = "Graph",
                                                  choices = c("National polls",
                                                              "Forecast over time")
-                                                 )
+                                                 ),
+                                    conditionalPanel(condition = "input.graph_type == 'National polls'",
+                                                     sliderInput("date_range_polls", "Date range", min = as.Date("2015-10-19"), max = as.Date("2019-10-21"),
+                                                                 value = as.Date(c("2015-10-19", "2019-10-21"))
+                                                                 )
+                                    ),
+                                    conditionalPanel(condition = "input.graph_type == 'National polls'",
+                                                     checkboxInput("house_adjust", "Adjust for pollster house effects?", value = T)
+                                    ),
+                                    conditionalPanel(condition = "input.graph_type == 'Forecast over time'",
+                                                     sliderInput("date_range_probs", "Date range", min = as.Date("2019-04-17"), max = as.Date("2019-10-21"),
+                                                                 value = as.Date(c("2019-04-17", "2019-10-21"))
+                                                     )
+                                    )
                                     ),
         position = "right")
       )
@@ -204,28 +234,67 @@ server <- function(input, output) {
   observeEvent(input$go_district,
                handlerExpr = {
                  output$forecast_breakdown <- renderPlot({
-                   make_waterfall_plot(input$riding_select, make_waterfall_data(input$riding_select, input$party_select), input$party_select)
+                   make_waterfall_plot(make_waterfall_data(input$riding_select, input$party_select))
                  })
                })
   
   ## Graphs
   output$forecastgraph <- renderPlot({
-    if(input$graph_type == "National polls") {
-      national_polls %>%
+    if(input$graph_type == "National polls" & input$house_adjust) {
+      national_polls_adjusted %>%
         reshape2::melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
                        variable.name = "Party", value.name = "Poll") %>%
+        mutate(Party = case_when(Party == "LPC" ~ "Liberal",
+                                 Party == "CPC" ~ "Conservative",
+                                 Party == "NDP" ~ "NDP",
+                                 Party == "GPC" ~ "Green",
+                                 Party == "PPC" ~ "People's"),
+               Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's"))) %>%
+        arrange(Party) %>%
         ggplot(aes(x = date, y = Poll, col = Party)) +
         geom_vline(xintercept = as.Date("2019-10-21")) +
         geom_point(aes(size = sqrt(loess_weight)), alpha = 0.4) +
-        geom_smooth(method = "loess", span = 0.25, size = 1) +
-        scale_colour_manual(name = "Party", values = c("red", "blue", "darkorange1", "green4", "midnightblue"),
-                            labels = c("Liberal", "Conservative", "NDP", "Green", "People's")) +
+        geom_ribbon(data = poll_averages_adjusted %>% arrange(Party), aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
+                    alpha = 1/3, show.legend = FALSE) +
+        geom_line(data = poll_averages_unadjusted %>% arrange(Party), aes(y = pct, col = Party), size = 1) +
+        scale_colour_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
+                                                       "People's" = "midnightblue")) +
+        scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
+                                                     "People's" = "midnightblue")) +
         scale_size_continuous(name = "Weight", range = c(0.1, 2)) +
-        scale_x_date(date_breaks = "3 months", date_labels = "%b %Y", limits = as.Date(c("2015-10-19", "2019-10-21"))) +
+        scale_x_date(date_breaks = "3 months", date_labels = "%b %Y", limits = input$date_range_polls) +
         theme(axis.text.x = element_text(angle = 90, size = 7)) +
         scale_y_continuous(breaks = 10*(0:6)) +
         labs(title = "2019 Canadian federal election polling", x = "Date", y = "% of vote")
-    } else if(input$graph_type == "Forecast over time") {
+      
+    } else if(input$graph_type == "National polls" & !input$house_adjust) {
+      national_polls_unadjusted %>%
+        reshape2::melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
+                       variable.name = "Party", value.name = "Poll") %>%
+        mutate(Party = case_when(Party == "LPC" ~ "Liberal",
+                                 Party == "CPC" ~ "Conservative",
+                                 Party == "NDP" ~ "NDP",
+                                 Party == "GPC" ~ "Green",
+                                 Party == "PPC" ~ "People's"),
+               Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's"))) %>%
+        arrange(Party) %>%
+        ggplot(aes(x = date, y = Poll, col = Party)) +
+        geom_vline(xintercept = as.Date("2019-10-21")) +
+        geom_point(aes(size = sqrt(loess_weight)), alpha = 0.4) +
+        geom_ribbon(data = poll_averages_unadjusted %>% arrange(Party), aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
+                    alpha = 1/3, show.legend = FALSE) +
+        geom_line(data = poll_averages_unadjusted %>% arrange(Party), aes(y = pct, col = Party), size = 1) +
+        scale_colour_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
+                                                       "People's" = "midnightblue")) +
+        scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
+                                                     "People's" = "midnightblue")) +
+        scale_size_continuous(name = "Weight", range = c(0.1, 2)) +
+        scale_x_date(date_breaks = "3 months", date_labels = "%b %Y", limits = input$date_range_polls) +
+        theme(axis.text.x = element_text(angle = 90, size = 7)) +
+        scale_y_continuous(breaks = 10*(0:6)) +
+        labs(title = "2019 Canadian federal election polling", x = "Date", y = "% of vote")
+      
+      } else if(input$graph_type == "Forecast over time") {
         forecast_timeline %>%
         ggplot(aes(x = date, y = prob, col = outcome)) +
         geom_line(size = 1) +
@@ -233,7 +302,7 @@ server <- function(input, output) {
         scale_colour_manual(name = "Outcome", values = c("blue", "#AAAAFF", "red", "#FFAAAA", "darkorange1", "#FFBB77"),
                             labels = c("Conservative majority", "Conservative minority", "Liberal majority", "Liberal minority", 
                                        "NDP majority", "NDP minority")) +
-        scale_x_date(limits = as.Date(c("2019-04-17", "2019-10-21")), breaks = "1 week", date_labels = "%b %e") +
+        scale_x_date(breaks = "1 week", date_labels = "%b %e, %Y", limits = input$date_range_probs) +
         scale_y_continuous(breaks = 0.05*(0:10), limits = c(0, 0.5)) +
         theme(axis.text.x = element_text(angle = 90)) +
         labs(title = "Forecast over time", x = "Date", y = "Probability")

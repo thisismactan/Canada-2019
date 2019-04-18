@@ -1,8 +1,15 @@
 ## make_waterfall_data: function that creates a data frame for waterfall plotting
 make_waterfall_data <- function(district_selection, party, models = models_list, data = data_2019) {
   ## Subset data to the district of interest
-  district_data.2019 <- data_2019 %>%
-    filter(name_english == district_selection) 
+  if(is.numeric(district_selection)) {
+    district_data.2019 <- data_2019 %>%
+      filter(district_code == district_selection) 
+    district_name <- district_data.2019$name_english
+  } else if(is.character(district_selection)) {
+    district_data.2019 <- data_2019 %>%
+      filter(name_english == district_selection)
+    district_name <- district_data.2019$name_english
+  }
   
   ## Extract coefficients from model list
   coefs.LPC <- coef(models$LPC)
@@ -141,9 +148,9 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
       mutate(cumulative_effect = cumsum(effect),
              description = case_when(
                variable_group == "Baseline" ~ paste0("The Conservative Party's baseline is ", round(effect, 1), "% of the vote."),
-               variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:3]) == 0 & district_selection != "Beauce" ~ 
+               variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:3]) == 0 & district_name != "Beauce" ~ 
                  "The incumbent is not running for reelection.",
-               variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:3]) == 0 & district_selection == "Beauce" ~ 
+               variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:3]) == 0 & district_name == "Beauce" ~ 
                  "The People's Party incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[2,3]) ~ "The Liberal incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[3,3]) ~ "The Conservative incumbent is running for reelection.",
@@ -407,22 +414,25 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
     
     waterfall_data$variable_group <- ordered(waterfall_data$variable_group, levels = rev(waterfall_data$variable_group))
   }
+  
+  waterfall_data <- waterfall_data %>%
+    mutate(district = district_name,
+           party = party)
+  
   return(waterfall_data)
 }
 
 ## make_waterfall_plot: takes data frame created by make_waterfall_data and 
-make_waterfall_plot <- function(district_selection, waterfall_data, party) {
-  waterfall_data <- make_waterfall_data(district_selection, party = party)
-  
+make_waterfall_plot <- function(waterfall_data, party) {
   waterfall_plot <- ggplot(waterfall_data, aes(variable_group, fill = factor(sign(effect)))) +
     geom_hline(data = waterfall_data %>% tail(1), aes(yintercept = cumulative_effect, col = variable_group), show.legend = FALSE) +
     geom_rect(aes(x = variable_group, xmin = order - 0.5, xmax = order + 0.5, ymin = previous_cumulative_effect, ymax = cumulative_effect),
               col = "black") +
     coord_flip() +
     scale_fill_manual(name = "Effect direction", labels = c("Negative", "Positive"), values = c("red", "green4")) +
-    scale_colour_manual(name = "", labels = paste0("Predicted ", party,  " %"), values = "black") +
-    labs(title = paste0("Forecast components for the ", party, " share of the vote"),
-         subtitle = district_selection, x = "Predictor", y = "Cumulative effect (percentage points)")
+    scale_colour_manual(name = "", labels = paste0("Predicted ", waterfall_data$party[1],  " %"), values = "black") +
+    labs(title = paste0("Forecast components for the ", waterfall_data$party[1], " share of the vote"),
+         subtitle = waterfall_data$district[1], x = "Predictor", y = "Cumulative effect (percentage points)")
   
   return(waterfall_plot)
 }
