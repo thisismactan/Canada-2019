@@ -415,13 +415,13 @@ make_waterfall_plot <- function(district_selection, waterfall_data, party) {
   waterfall_data <- make_waterfall_data(district_selection, party = party)
   
   waterfall_plot <- ggplot(waterfall_data, aes(variable_group, fill = factor(sign(effect)))) +
-    geom_hline(data = waterfall_data %>% tail(1), aes(yintercept = cumulative_effect, col = variable_group)) +
+    geom_hline(data = waterfall_data %>% tail(1), aes(yintercept = cumulative_effect, col = variable_group), show.legend = FALSE) +
     geom_rect(aes(x = variable_group, xmin = order - 0.5, xmax = order + 0.5, ymin = previous_cumulative_effect, ymax = cumulative_effect),
               col = "black") +
     coord_flip() +
     scale_fill_manual(name = "Effect direction", labels = c("Negative", "Positive"), values = c("red", "green4")) +
-    scale_colour_manual(name = "", labels = "Predicted Liberal %", values = "black") +
-    labs(title = paste0("Forecast components for the Liberal share of the vote"),
+    scale_colour_manual(name = "", labels = paste0("Predicted ", party,  " %"), values = "black") +
+    labs(title = paste0("Forecast components for the ", party, " share of the vote"),
          subtitle = district_selection, x = "Predictor", y = "Cumulative effect (percentage points)")
   
   return(waterfall_plot)
