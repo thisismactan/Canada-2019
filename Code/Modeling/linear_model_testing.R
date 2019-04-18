@@ -165,12 +165,13 @@ for(i in 1:n) {
   # Fit linear models
   model_LPC.linear_test2 <- lm(LPC~incumbent+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+I(LPC_nation-LPC_nation_lag)+I(LPC_region-LPC_region_lag)+
                                 educ_university+minority, data = train)
-  model_CPC.linear_test2 <- lm(CPC~LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+CPC_nation+I(CPC_region-CPC_region_lag)+minority, 
+  model_CPC.linear_test2 <- lm(CPC~incumbent_LPC+incumbent_CPC+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+CPC_nation+I(CPC_region-CPC_region_lag)+minority, 
                                data = train)
   model_NDP.linear_test2 <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
                                  I(NDP_nation-NDP_nation_lag)+I(NDP_region-NDP_region_lag)+age_65, data = train)
-  model_Green.linear_test2 <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Green_nation+
-                                  Green_region+Green_nation_lag+Green_region_lag+minority+educ_university, data = train)
+  model_Green.linear_test2 <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Green+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+
+                                   Bloc_lag+Green_nation+I(Green_nation-Green_nation_lag)+I(Green_region-Green_region_lag)+minority+educ_university, 
+                                 data = train)
   model_Bloc.linear_test2 <- lm(Bloc~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
                                   I(Bloc_nation-Bloc_nation_lag)+I(Bloc_region-Bloc_region_lag), data = train)
   

@@ -8,7 +8,13 @@ results <- historical_results.district %>%
   }) %>%
   mutate(Quebec = (province == "Quebec"),
          Atlantic = (region == "Atlantic"),
-         incumbent = relevel(incumbent, ref = "None"))
+         incumbent = relevel(incumbent, ref = "None"),
+         incumbent_LPC = incumbent == "Liberal",
+         incumbent_CPC = incumbent == "Conservative",
+         incumbent_NDP = incumbent == "NDP",
+         incumbent_Green = incumbent == "Green",
+         incumbent_Bloc = incumbent == "Bloc",
+         incumbent_PPC = name_english == "Beauce")
 
 results$Bloc[is.na(results$Bloc)] <- 0
 results$Bloc[is.na(results$Bloc)] <- 0
@@ -32,11 +38,11 @@ model_Bloc.simple <- randomForest(Bloc~LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_la
 ## Linear regression models for comparison
 model_LPC.linear <- lm(LPC~incumbent+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+I(LPC_nation-LPC_nation_lag)+I(LPC_region-LPC_region_lag)+
                          educ_university+minority, data = results)
-model_CPC.linear <- lm(CPC~LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+CPC_nation+I(CPC_region-CPC_region_lag)+minority, 
+model_CPC.linear <- lm(CPC~incumbent_LPC+incumbent_CPC+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+CPC_nation+I(CPC_region-CPC_region_lag)+minority, 
                        data = results)
 model_NDP.linear <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+I(NDP_nation-NDP_nation_lag)+
                          I(NDP_region-NDP_region_lag)+age_65, data = results)
-model_Green.linear <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Green_nation+
-                           Green_region+Green_nation_lag+Green_region_lag+minority+educ_university, data = results)
+model_Green.linear <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Green+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
+                           I(Green_nation-Green_nation_lag)+I(Green_region-Green_region_lag)+minority+educ_university, data = results)
 model_Bloc.linear <- lm(Bloc~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
                           I(Bloc_nation-Bloc_nation_lag)+I(Bloc_region-Bloc_region_lag), data = results)
