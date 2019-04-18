@@ -149,3 +149,5 @@ data_2019.simple <- district_key_2013 %>%
          incumbent_NDP = incumbent == "NDP",
          incumbent_Green = incumbent == "Green",
          incumbent_Bloc = incumbent == "Bloc")
+
+write_rds(data_2019.simple, "Shiny-app/data_2019.rds")

@@ -255,9 +255,42 @@ outcome_probs
 
 write_rds(outcome_probs, "Shiny-app/outcome_probs.rds")
 
+## Add forecast to timeline
+forecast_today <- outcome_probs %>%
+  melt(id.vars = c("most_seats"), variable.name = "type", value.name = "prob") %>%
+  mutate(outcome = paste(most_seats, tolower(type)),
+         date = today()) %>%
+  dplyr::select(date, outcome, prob)
+
+forecast_yesterday <- read_csv("Output/forecast_timeline.csv")
+
+## Write the timeline to the output folder and also the Shiny app
+bind_rows(forecast_yesterday, forecast_today) %>%
+  distinct(date, outcome, .keep_all = TRUE) %>%
+  write_csv("Output/forecast_timeline.csv")
+
+bind_rows(forecast_yesterday, forecast_today) %>%
+  distinct(date, outcome, .keep_all = TRUE) %>%
+  write_csv("Shiny-app/forecast_timeline.csv")
+
 seat_simulations %>%
   group_by(most_seats) %>%
   summarise(prob = n()/num.iter)
+
+## Forecast over time
+forecast_timeline <- read_csv("Output/forecast_timeline.csv") %>%
+  replace(is.na(.), 0)
+
+forecast_timeline %>%
+  ggplot(aes(x = date, y = prob, col = outcome)) +
+  geom_line(size = 1) +
+  geom_vline(xintercept = as.Date("2019-10-21")) +
+  scale_colour_manual(name = "Outcome", values = c("blue", "#AAAAFF", "red", "#FFAAAA", "darkorange1", "#FFBB77"),
+                      labels = c("Conservative majority", "Conservative minority", "Liberal majority", "Liberal minority", 
+                                 "NDP majority", "NDP minority")) +
+  scale_x_date(limits = as.Date(c("2019-04-17", "2019-10-21")), breaks = "1 week", date_labels = "%b %e") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(title = "Forecast over time", x = "Date", y = "Probability")
 
 ## Seat distributions by party
 seat_simulations %>%
