@@ -1,5 +1,6 @@
 ## make_waterfall_data: function that creates a data frame for waterfall plotting
 make_waterfall_data <- function(district_selection, party, models = models_list, data = data_2019) {
+  require(tidyverse)
   ## Subset data to the district of interest
   if(is.numeric(district_selection)) {
     district_data.2019 <- data_2019 %>%
@@ -61,10 +62,10 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
       group_by(variable_group) %>%
       summarise(effect = 100*sum(effect)) %>%
       arrange(desc(abs(effect + (variable_group == "Baseline")*1000))) %>%
-      filter(effect != 0 | variable_group == "Incumbency") %>%
+      filter(effect != 0) %>%
       mutate(cumulative_effect = cumsum(effect),
              description = case_when( 
-               variable_group == "Baseline" ~ paste0("The Liberal Party's baseline is ", round(effect, 1), "% of the vote."),
+               variable_group == "Baseline" ~ paste0("The Liberal Party baseline is ", round(effect, 1), "% of the vote."),
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection != "Beauce" ~ 
                  "The incumbent is not running for reelection.",
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection == "Beauce" ~ 
@@ -79,21 +80,21 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                variable_group == "Quebec" & as.logical(waterfall_data_ungrouped[12,3]) ~ "This riding is in Quebec.",
                variable_group == "Quebec" & !as.logical(waterfall_data_ungrouped[12,3]) ~ "This riding is not in Quebec.",
                variable_group == "National swing" & (as.numeric(waterfall_data_ungrouped[13,3]) < 0) ~ 
-                 paste0("According to polls, the Liberals' share of the nationwide vote will decrease by ",
+                 paste0("According to polls, the Liberal share of the nationwide vote will decrease by ",
                         -round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
                variable_group == "National swing" & (as.numeric(waterfall_data_ungrouped[13,3]) > 0) ~ 
-                 paste0("According to polls, the Liberals' share of the nationwide vote will increase by ",
+                 paste0("According to polls, the Liberal share of the nationwide vote will increase by ",
                         round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[14,3]) < 0) ~
-                 paste0("According to polls, the Liberals' share of the regional vote will decrease by ",
+                 paste0("According to polls, the Liberal share of the regional vote will decrease by ",
                         -round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), " percentage points."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[14,3]) > 0) ~
-                 paste0("According to polls, the Liberals' share of the regional vote will increase by ",
+                 paste0("According to polls, the Liberal share of the regional vote will increase by ",
                         round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), " percentage points."),
                variable_group == "University education" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[15,3]), 1), 
-                                                                 "% of the district's adult population has a university diploma."),
+                                                                 "% of the adult population has a university diploma."),
                variable_group == "Visible minority" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[16,3]), 1), 
-                                                             "% of the district's population are visible minorities.")
+                                                             "% of the population are visible minorities.")
              ),
              previous_cumulative_effect = lag(cumulative_effect),
              previous_cumulative_effect = case_when(is.na(previous_cumulative_effect) ~ 0,
@@ -144,14 +145,14 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
       group_by(variable_group) %>%
       summarise(effect = 100*sum(effect)) %>%
       arrange(desc(abs(effect + (variable_group == "Baseline")*1000))) %>%
-      filter(effect != 0 | variable_group == "Incumbency") %>%
+      filter(effect != 0) %>%
       mutate(cumulative_effect = cumsum(effect),
              description = case_when(
-               variable_group == "Baseline" ~ paste0("The Conservative Party's baseline is ", round(effect, 1), "% of the vote."),
+               variable_group == "Baseline" ~ paste0("The Conservative Party baseline is ", round(effect, 1), "% of the vote."),
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:3]) == 0 & district_name != "Beauce" ~ 
                  "The incumbent is not running for reelection.",
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:3]) == 0 & district_name == "Beauce" ~ 
-                 "The People's Party incumbent is running for reelection.",
+                 "The Peoples Party incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[2,3]) ~ "The Liberal incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[3,3]) ~ "The Conservative incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[4,3]) ~ "The NDP incumbent is running for reelection.",
@@ -162,13 +163,13 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                variable_group == "Nationwide vote" ~ paste0("According to polls, the Conservatives will win ", 
                                                             round(100*as.numeric(waterfall_data_ungrouped[12,3]), 1), "% of the nationwide vote."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) < 0) ~
-                 paste0("According to polls, the Conservatives' share of the regional vote will decrease by ",
+                 paste0("According to polls, the Conservative share of the regional vote will decrease by ",
                         -round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) > 0) ~
-                 paste0("According to polls, the Conservatives' share of the regional vote will increase by ",
+                 paste0("According to polls, the Conservative share of the regional vote will increase by ",
                         round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
                variable_group == "Visible minority" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), 
-                                                             "% of the district's population are visible minorities.")
+                                                             "% of the population are visible minorities.")
              ),
              previous_cumulative_effect = lag(cumulative_effect),
              previous_cumulative_effect = case_when(is.na(previous_cumulative_effect) ~ 0,
@@ -219,14 +220,14 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
       group_by(variable_group) %>%
       summarise(effect = 100*sum(effect)) %>%
       arrange(desc(abs(effect + (variable_group == "Baseline")*1000))) %>%
-      filter(effect != 0 | variable_group == "Incumbency") %>%
+      filter(effect != 0) %>%
       mutate(cumulative_effect = cumsum(effect),
              description = case_when( 
-               variable_group == "Baseline" ~ paste0("The NDP's baseline is ", round(effect, 1), "% of the vote."),
+               variable_group == "Baseline" ~ paste0("The NDP baseline is ", round(effect, 1), "% of the vote."),
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection != "Beauce" ~ 
                  "The incumbent is not running for reelection.",
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection == "Beauce" ~ 
-                 "The People's Party incumbent is running for reelection.",
+                 "The Peoples Party incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[2,3]) ~ "The Liberal incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[3,3]) ~ "The Conservative incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[4,3]) ~ "The NDP incumbent is running for reelection.",
@@ -235,19 +236,19 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                variable_group == "Last election result" ~ paste0("The NDP candidate won ", round(100*as.numeric(waterfall_data_ungrouped[9,3]), 1),
                                                                  "% of the vote in 2015."),
                variable_group == "National swing" & (as.numeric(waterfall_data_ungrouped[12,3]) < 0) ~ 
-                 paste0("According to polls, the NDP's share of the nationwide vote will decrease by ",
+                 paste0("According to polls, the NDP share of the nationwide vote will decrease by ",
                         -round(100*as.numeric(waterfall_data_ungrouped[12,3]), 1), " percentage points."),
                variable_group == "National swing" & (as.numeric(waterfall_data_ungrouped[12,3]) > 0) ~ 
-                 paste0("According to polls, the NDP's share of the nationwide vote will increase by ",
+                 paste0("According to polls, the NDP share of the nationwide vote will increase by ",
                         round(100*as.numeric(waterfall_data_ungrouped[12,3]), 1), " percentage points."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) < 0) ~
-                 paste0("According to polls, the NDP's share of the regional vote will decrease by ",
+                 paste0("According to polls, the NDP share of the regional vote will decrease by ",
                         -round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) > 0) ~
-                 paste0("According to polls, the NDP's share of the regional vote will increase by ",
+                 paste0("According to polls, the NDP share of the regional vote will increase by ",
                         round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
                variable_group == "Retiree population" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), 
-                                                               "% of the district's population is over the age of 65.")
+                                                               "% of the population is over the age of 65.")
              ),
              previous_cumulative_effect = lag(cumulative_effect),
              previous_cumulative_effect = case_when(is.na(previous_cumulative_effect) ~ 0,
@@ -299,14 +300,14 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
       group_by(variable_group) %>%
       summarise(effect = 100*sum(effect)) %>%
       arrange(desc(abs(effect + (variable_group == "Baseline")*1000))) %>%
-      filter(effect != 0 | variable_group == "Incumbency") %>%
+      filter(effect != 0) %>%
       mutate(cumulative_effect = cumsum(effect),
              description = case_when( 
-               variable_group == "Baseline" ~ paste0("The Green Party's baseline is ", round(effect, 1), "% of the vote."),
+               variable_group == "Baseline" ~ paste0("The Green Party baseline is ", round(effect, 1), "% of the vote."),
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection != "Beauce" ~ 
                  "The incumbent is not running for reelection.",
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection == "Beauce" ~ 
-                 "The People's Party incumbent is running for reelection.",
+                 "The Peoples Party incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[2,3]) ~ "The Liberal incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[3,3]) ~ "The Conservative incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[4,3]) ~ "The NDP incumbent is running for reelection.",
@@ -315,21 +316,21 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                variable_group == "Last election result" ~ paste0("The Green Party candidate won ", round(100*as.numeric(waterfall_data_ungrouped[10,3]), 1),
                                                                  "% of the vote in 2015."),
                variable_group == "National swing" & (as.numeric(waterfall_data_ungrouped[12,3]) < 0) ~ 
-                 paste0("According to polls, the Green Party's share of the nationwide vote will decrease by ",
+                 paste0("According to polls, the Green Party share of the nationwide vote will decrease by ",
                         -round(100*as.numeric(waterfall_data_ungrouped[12,3]), 1), " percentage points."),
                variable_group == "National swing" & (as.numeric(waterfall_data_ungrouped[12,3]) > 0) ~ 
-                 paste0("According to polls, the Green Party's share of the nationwide vote will increase by ",
+                 paste0("According to polls, the Green Party share of the nationwide vote will increase by ",
                         round(100*as.numeric(waterfall_data_ungrouped[12,3]), 1), " percentage points."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) < 0) ~
-                 paste0("According to polls, the Green Party's share of the regional vote will decrease by ",
+                 paste0("According to polls, the Green Party share of the regional vote will decrease by ",
                         -round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) > 0) ~
-                 paste0("According to polls, the Green Party's share of the regional vote will increase by ",
+                 paste0("According to polls, the Green Party share of the regional vote will increase by ",
                         round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
                variable_group == "Visible minority" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), 
-                                                             "% of the district's population are visible minorities."),
+                                                             "% of the population are visible minorities."),
                variable_group == "University education" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[15,3]), 1),
-                                                                 "% of the district's adult population has a university diploma.")
+                                                                 "% of the adult population has a university diploma.")
              ),
              previous_cumulative_effect = lag(cumulative_effect),
              previous_cumulative_effect = case_when(is.na(previous_cumulative_effect) ~ 0,
@@ -377,14 +378,14 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
       group_by(variable_group) %>%
       summarise(effect = 100*sum(effect)) %>%
       arrange(desc(abs(effect + (variable_group == "Baseline")*1000))) %>%
-      filter(effect != 0 | variable_group == "Incumbency") %>%
+      filter(effect != 0) %>%
       mutate(cumulative_effect = cumsum(effect),
              description = case_when( 
-               variable_group == "Baseline" ~ paste0("The Bloc Québécois' baseline is ", round(effect, 1), "% of the vote."),
+               variable_group == "Baseline" ~ paste0("The Bloc Québécois baseline is ", round(effect, 1), "% of the vote."),
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection != "Beauce" ~ 
                  "The incumbent is not running for reelection.",
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection == "Beauce" ~ 
-                 "The People's Party incumbent is running for reelection.",
+                 "The Peoples Party incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[2,3]) ~ "The Liberal incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[3,3]) ~ "The Conservative incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[4,3]) ~ "The NDP incumbent is running for reelection.",
@@ -393,16 +394,16 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                variable_group == "Last election result" ~ paste0("The Bloc Québécois candidate won ", round(100*as.numeric(waterfall_data_ungrouped[11,3]), 1),
                                                                  "% of the vote in 2015."),
                variable_group == "National swing" & (as.numeric(waterfall_data_ungrouped[12,3]) < 0) ~ 
-                 paste0("According to polls, the Bloc Québécois' share of the nationwide vote will decrease by ",
+                 paste0("According to polls, the Bloc Québécois share of the nationwide vote will decrease by ",
                         -round(100*as.numeric(waterfall_data_ungrouped[12,3]), 1), " percentage points."),
                variable_group == "National swing" & (as.numeric(waterfall_data_ungrouped[12,3]) > 0) ~ 
-                 paste0("According to polls, the Bloc Québécois' share of the nationwide vote will increase by ",
+                 paste0("According to polls, the Bloc Québécois share of the nationwide vote will increase by ",
                         round(100*as.numeric(waterfall_data_ungrouped[12,3]), 1), " percentage points."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) < 0) ~
-                 paste0("According to polls, the Bloc Québécois' share of the regional vote will decrease by ",
+                 paste0("According to polls, the Bloc Québécois share of the regional vote will decrease by ",
                         -round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) > 0) ~
-                 paste0("According to polls, the Bloc Québécois' share of the regional vote will increase by ",
+                 paste0("According to polls, the Bloc Québécois share of the regional vote will increase by ",
                         round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points.")
              ),
              previous_cumulative_effect = lag(cumulative_effect),
@@ -423,11 +424,16 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
 }
 
 ## make_waterfall_plot: takes data frame created by make_waterfall_data and 
-make_waterfall_plot <- function(waterfall_data, party) {
+make_waterfall_plot <- function(waterfall_data) {
+  require(tidyverse)
+  require(ggiraph)
   waterfall_plot <- ggplot(waterfall_data, aes(variable_group, fill = factor(sign(effect)))) +
-    geom_hline(data = waterfall_data %>% tail(1), aes(yintercept = cumulative_effect, col = variable_group), show.legend = FALSE) +
-    geom_rect(aes(x = variable_group, xmin = order - 0.5, xmax = order + 0.5, ymin = previous_cumulative_effect, ymax = cumulative_effect),
-              col = "black") +
+    geom_hline(data = waterfall_data %>% 
+                 tail(1) %>% 
+                 mutate(description = paste0("The ", party, " candidate is projected to win ", cumulative_effect, "% of the vote.")), 
+               aes(yintercept = cumulative_effect, col = variable_group), show.legend = FALSE) +
+    geom_rect_interactive(aes(x = variable_group, xmin = order - 0.5, xmax = order + 0.5, ymin = previous_cumulative_effect, ymax = cumulative_effect,
+                              tooltip = description), col = "black") +
     coord_flip() +
     scale_fill_manual(name = "Effect direction", labels = c("Negative", "Positive"), values = c("red", "green4")) +
     scale_colour_manual(name = "", labels = paste0("Predicted ", waterfall_data$party[1],  " %"), values = "black") +
