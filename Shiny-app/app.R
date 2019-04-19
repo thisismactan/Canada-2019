@@ -83,7 +83,9 @@ ui <- fluidPage(
       sidebarLayout(
         
         ## Main panel: can display map or graphs
-        mainPanel = mainPanel(leafletOutput("forecastmap", height = 720, width = "100%")),
+        mainPanel = mainPanel(leafletOutput("forecastmap", height = 720, width = "100%"),
+                              hr(),
+                              ggiraphOutput("forecast_breakdown", width = "150%", height = "400px")),
         
         ## Sidebar
         sidebarPanel(tags$h4("Current forecast"),
@@ -175,9 +177,11 @@ ui <- fluidPage(
                                                                       width = "400px")),
                                          conditionalPanel(condition = "input.party_select != 'Choose a party'",
                                                           actionButton("go_district", "Go!")))
-                                )
                                 ),
-                     ggiraphOutput("forecast_breakdown", width = "800px", height = "260px"),
+                                hr(),
+                                hr(),
+                                hr()
+                                ),
                      width = 3.01),
         position = "right"
       )
@@ -187,7 +191,7 @@ ui <- fluidPage(
     tabPanel("Graphs",
       sidebarLayout(
         ## Main panel: display graphs
-        mainPanel = mainPanel(ggiraphOutput("forecastgraph", height = 750, width = "100%")),
+        mainPanel = mainPanel(ggiraphOutput("forecastgraph")),
         
         ## Sidebar panel: choose between timeline of probabilities, national polls over time, and provincial polls over time
         sidebarPanel = sidebarPanel(tags$h3("Choose a graph"),
@@ -257,7 +261,8 @@ server <- function(input, output) {
   ## Forecast breakdown
   forecastBreakdown <- eventReactive(input$go_district,
                                      valueExpr = {
-                                       ggiraph(ggobj = make_waterfall_plot(make_waterfall_data(input$riding_select, input$party_select)))
+                                       girafe(ggobj = make_waterfall_plot(make_waterfall_data(input$riding_select, input$party_select)),
+                                              pointsize = 16, width_svg = 12, height_svg = 4)
                                        })
   
   output$forecast_breakdown <- renderggiraph({
@@ -267,7 +272,7 @@ server <- function(input, output) {
   ## Graphs
   output$forecastgraph <- renderggiraph({
     if(input$graph_type == "National polls" & input$house_adjust) {
-      ggiraph(ggobj = (national_polls_adjusted %>%
+      girafe(ggobj = (national_polls_adjusted %>%
         reshape2::melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
                        variable.name = "Party", value.name = "Poll") %>%
         mutate(Party = case_when(Party == "LPC" ~ "Liberal",
@@ -292,11 +297,11 @@ server <- function(input, output) {
         theme(axis.text.x = element_text(angle = 90, size = 7)) +
         scale_y_continuous(breaks = 10*(0:6)) +
         labs(title = "2019 Canadian federal election polling", subtitle = "Adjusted for house effects", x = "Date", y = "% of vote")),
-        width = 1
+        width_svg = 11
       )
       
     } else if(input$graph_type == "National polls" & !input$house_adjust) {
-      ggiraph(ggobj = (national_polls_unadjusted %>%
+      girafe(ggobj = (national_polls_unadjusted %>%
         reshape2::melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
                        variable.name = "Party", value.name = "Poll") %>%
         mutate(Party = case_when(Party == "LPC" ~ "Liberal",
@@ -321,11 +326,11 @@ server <- function(input, output) {
         theme(axis.text.x = element_text(angle = 90, size = 7)) +
         scale_y_continuous(breaks = 10*(0:6)) +
         labs(title = "2019 Canadian federal election polling", subtitle = "Unadjusted for house effects", x = "Date", y = "% of vote")),
-        width = 1
+        width_svg = 11
       )
       
       } else if(input$graph_type == "Forecast over time") {
-        ggiraph(ggobj = (forecast_timeline %>%
+        girafe(ggobj = (forecast_timeline %>%
         ggplot() +
         geom_line_interactive(aes(x = date, y = prob, group = outcome, col = outcome, tooltip = description)) +
         geom_vline(xintercept = as.Date("2019-10-21")) +
@@ -336,7 +341,7 @@ server <- function(input, output) {
         scale_y_continuous(breaks = 0.05*(0:10), limits = c(0, 0.5)) +
         theme(axis.text.x = element_text(angle = 90)) +
         labs(title = "Forecast over time", x = "Date", y = "Probability")),
-        width = 1
+        width_svg = 11
         )
       }
   })

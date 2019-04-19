@@ -266,10 +266,12 @@ forecast_yesterday <- read_csv("Output/forecast_timeline.csv")
 
 ## Write the timeline to the output folder and also the Shiny app
 bind_rows(forecast_yesterday, forecast_today) %>%
+  arrange(desc(date)) %>%
   distinct(date, outcome, .keep_all = TRUE) %>%
   write_csv("Output/forecast_timeline.csv")
 
 bind_rows(forecast_yesterday, forecast_today) %>%
+  arrange(desc(date)) %>%
   distinct(date, outcome, .keep_all = TRUE) %>%
   write_csv("Shiny-app/forecast_timeline.csv")
 
