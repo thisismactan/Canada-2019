@@ -45,7 +45,7 @@ forecast_timeline <- read_csv("forecast_timeline.csv") %>%
 
 
 canada_districts_latlong <- read_rds("canada_districts.rds") %>%
-  merge(read_csv("district_zoom_levels_2013.csv"), by.x = "FED_NUM", by.y = "district_code")
+  merge(read_csv("district_zoom_levels_2013.csv"), by.x = "FED_NUM", by.y = "district_code") 
 
 canada_flips <- canada_districts_latlong %>%
   filter(predicted_winner != last_winner)
@@ -64,11 +64,20 @@ provinces <- canada_districts_latlong %>%
   pull(province)
 
 province_names <- unique(provinces)
+
 districts <- canada_districts_latlong %>% 
   as.data.frame() %>% 
   dplyr::select(name_english, province) %>% 
   distinct(.keep_all = TRUE) %>% 
   pull(name_english)
+
+district_codes <- canada_districts_latlong %>% 
+  as.data.frame() %>% 
+  dplyr::select(FED_NUM, province) %>% 
+  distinct(.keep_all = TRUE) %>% 
+  pull(FED_NUM)
+
+names(district_codes) <- districts
 
 # UI
 ui <- fluidPage(
@@ -117,14 +126,14 @@ ui <- fluidPage(
                      ),
                      
                      ## Select province and show district menu
-                     inputPanel(selectInput(inputId = "province_select", label = "Go to a riding", choices = c("Choose a province or territory", provinces), 
+                     inputPanel(selectInput(inputId = "province_select", label = "Province", choices = c("Choose a province or territory", provinces), 
                                             selected = "Choose a province or territory"),
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
                                 uiOutput("riding_menu"),
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
                                 uiOutput("party_menu"),
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
-                                conditionalPanel(condition = "input.party_menu != 'Choose a party' & input.riding_menu != 'Choose a riding'",
+                                conditionalPanel(condition = "input.party_menu !== 'Choose a party' & input.riding_menu !== 'Choose a riding'",
                                                  actionButton("go_district", "Go!"))
                                 ),
                                 hr(),
@@ -145,7 +154,8 @@ ui <- fluidPage(
                                     radioButtons("graph_type",
                                                  label = "Graph",
                                                  choices = c("National polls",
-                                                             "Forecast over time")
+                                                             "Forecast over time",
+                                                             "Current forecast by party")
                                                  ),
                                     conditionalPanel(condition = "input.graph_type == 'National polls'",
                                                      sliderInput("date_range_polls", "Date range", min = as.Date("2015-10-19"), max = as.Date("2019-10-21"),
@@ -159,7 +169,10 @@ ui <- fluidPage(
                                                      sliderInput("date_range_probs", "Date range", min = as.Date("2019-04-17"), max = as.Date("2019-10-21"),
                                                                  value = as.Date(c("2019-04-17", "2019-10-21"))
                                                                  )
-                                                     )
+                                                     ),
+                                    conditionalPanel(condition = "input.graph_type == 'Current forecast by party'",
+                                                     checkboxGroupInput("current_forecast_party", label = "Parties to display:",
+                                                                        choices = c("Liberal", "Conservative", "NDP", "Bloc", "Green")))
                                     ),
         position = "right")
       )
@@ -170,7 +183,7 @@ ui <- fluidPage(
 server <- function(input, output) {
   # Ridings available given province
   output$riding_menu <- renderUI({
-    selectInput("riding_select", label = "Riding", choices = c("Choose a riding", districts[provinces == input$province_select]))
+    selectInput("riding_select", label = "Riding", choices = c("Choose a riding", district_codes[provinces == input$province_select]))
   })
   
   ## Parties available
@@ -204,7 +217,7 @@ server <- function(input, output) {
              mutate(n = 1:n()) %>%
              ungroup() %>%
              filter(n == 1,
-                    name_english == input$riding_select) %>%
+                    FED_NUM == input$riding_select) %>%
              st_as_sf()
     )
   })
@@ -212,14 +225,22 @@ server <- function(input, output) {
   ## The event in question: the click of the Go button (input$go_district)
   observeEvent(input$go_district,
                 handlerExpr = {
-                  leafletProxy('forecastmap') %>%
+                  leafletProxy("forecastmap") %>%
                     setView(lng = center()$lng, lat = center()$lat, zoom = center()$zoom_level)
                   })
+  
+  ## Or you can click on a riding on the map
+  observeEvent(input$ap_shape_click, {
+    p <- input$Map_shape_click
+    if(!is.null(p$id)) {
+      updateSelectInput(session, "riding_select", selected = p$id)
+    }
+  })
   
   ## Forecast breakdown
   forecastBreakdown <- eventReactive(input$go_district,
                                      valueExpr = {
-                                       girafe(ggobj = make_waterfall_plot(make_waterfall_data(input$riding_select, input$party_select)),
+                                       girafe(ggobj = make_waterfall_plot(make_waterfall_data(as.numeric(input$riding_select), input$party_select)),
                                               pointsize = 16, width_svg = 12, height_svg = 4)
                                        })
   
@@ -290,7 +311,8 @@ server <- function(input, output) {
       } else if(input$graph_type == "Forecast over time") {
         girafe(ggobj = (forecast_timeline %>%
         ggplot() +
-        geom_line_interactive(aes(x = date, y = prob, group = outcome, col = outcome, tooltip = description)) +
+        geom_point_interactive(aes(x = date, y = prob, group = outcome, col = outcome, tooltip = description), size = 1) +
+        geom_line(aes(x = date, y = prob, group = outcome, col = outcome)) +
         geom_vline(xintercept = as.Date("2019-10-21")) +
         scale_colour_manual(name = "Outcome", values = c("blue", "#AAAAFF", "red", "#FFAAAA", "darkorange1", "#FFBB77"),
                             labels = c("Conservative majority", "Conservative minority", "Liberal majority", "Liberal minority", 
@@ -301,7 +323,7 @@ server <- function(input, output) {
         labs(title = "Forecast over time", x = "Date", y = "Probability")),
         width_svg = 11
         )
-      }
+      } else if(input$graph_type == "Current forecast by party")
   })
 }
 

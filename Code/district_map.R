@@ -8,11 +8,24 @@ crs_lcc <- leafletCRS(code = "ESRI:102002", proj4def = crs_proj)
 canada_districts <- readOGR(dsn = "Data/Shapefiles", layer = "FED_CA_2_2_ENG") %>%
   ms_simplify()
 
+## Make predictions
+preds_data <- data_2019.simple %>%
+  mutate(LPC_pred = predict(model_LPC.linear, newdata = .),
+         CPC_pred = predict(model_CPC.linear, newdata = .),
+         NDP_pred = predict(model_NDP.linear, newdata = .),
+         Green_pred = predict(model_Green.linear, newdata = .),
+         Bloc_pred = (province == "Quebec")*predict(model_Bloc.linear, newdata = .)) %>%
+  dplyr::select(district_code, LPC_pred, CPC_pred, NDP_pred, Green_pred, Bloc_pred) %>%
+  mutate_all(function(x) pmax(x, 0)) %>%
+  mutate(CPC_pred = case_when(district_code == 24007 ~ (17.09/(67.02 - 6.64))*CPC_pred,
+                              district_code != 24007 ~ CPC_pred))
+
 ## Transform to lat-long
 canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0")) %>%
   st_as_sf() %>%
   merge(district_key_2013, by.x = "FED_NUM", by.y = "district_code", all = FALSE) %>%
   merge(province_key, by.x = "PROVCODE", by.y = "province_abbr", all.x = TRUE) %>%
+  merge(preds_data, by.x = "FED_NUM", by.y = "district_code", all.x = TRUE) %>%
   merge(LPC_distribution %>% dplyr::select(-name_english), by.x = "FED_NUM", by.y = "district_code", all.x = TRUE) %>%
   merge(CPC_distribution %>% dplyr::select(-name_english), by.x = "FED_NUM", by.y = "district_code", all.x = TRUE) %>%
   merge(NDP_distribution %>% dplyr::select(-name_english), by.x = "FED_NUM", by.y = "district_code", all.x = TRUE) %>%
@@ -64,11 +77,11 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = '#008B00'><b>", Green_cand, "</b> (Green)</font>: ", round(100*Green_prob), "%<br>",
                     "<br>",
                     "<b><u>Projected vote (90% CI)</u></b><br>",
-                    "<font color = 'red'><b>LPC</b></font>: ", round(100*pct_50.LPC, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
-                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*pct_50.CPC, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
-                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*pct_50.NDP, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
-                    "<font color = '#8B008B'><b>Bloc</b></font>: ", round(100*pct_50.Bloc, 1), "% (", round(100*pct_05.Bloc, 1), "%–", round(100*pct_95.Bloc, 1), "%)<br>",
-                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*pct_50.Green, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"),
+                    "<font color = 'red'><b>LPC</b></font>: ", round(100*LPC_pred, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
+                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
+                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
+                    "<font color = '#8B008B'><b>Bloc</b></font>: ", round(100*Bloc_pred, 1), "% (", round(100*pct_05.Bloc, 1), "%–", round(100*pct_95.Bloc, 1), "%)<br>",
+                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"),
            
            ## Flips in Quebec
            PROVCODE == "QC" & name_english != "Beauce" & predicted_winner != last_winner ~
@@ -83,11 +96,11 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = '#008B00'><b>", Green_cand, "</b> (Green)</font>: ", round(100*Green_prob), "%<br>",
                     "<br>",
                     "<b><u>Projected vote (90% CI)</u></b><br>",
-                    "<font color = 'red'><b>LPC</b></font>: ", round(100*pct_50.LPC, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
-                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*pct_50.CPC, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
-                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*pct_50.NDP, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
-                    "<font color = '#8B008B'><b>Bloc</b></font>: ", round(100*pct_50.Bloc, 1), "% (", round(100*pct_05.Bloc, 1), "%–", round(100*pct_95.Bloc, 1), "%)<br>",
-                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*pct_50.Green, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"
+                    "<font color = 'red'><b>LPC</b></font>: ", round(100*LPC_pred, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
+                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
+                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
+                    "<font color = '#8B008B'><b>Bloc</b></font>: ", round(100*Bloc_pred, 1), "% (", round(100*pct_05.Bloc, 1), "%–", round(100*pct_95.Bloc, 1), "%)<br>",
+                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"
                     ),
            
            ## Beauce (Maxime Bernier)
@@ -104,11 +117,11 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = '#191970'><b>", PPC_cand, "</b> (PPC)</font>: ", round(100*PPC_prob), "%<br>",
                     "<br>",
                     "<b><u>Projected vote (90% CI)</u></b><br>",
-                    "<font color = 'red'><b>LPC</b></font>: ", round(100*pct_50.LPC, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
-                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*pct_50.CPC, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
-                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*pct_50.NDP, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
-                    "<font color = '#8B008B'><b>Bloc</b></font>: ", round(100*pct_50.Bloc, 1), "% (", round(100*pct_05.Bloc, 1), "%–", round(100*pct_95.Bloc, 1), "%)<br>",
-                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*pct_50.Green, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)<br>",
+                    "<font color = 'red'><b>LPC</b></font>: ", round(100*LPC_pred, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
+                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
+                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
+                    "<font color = '#8B008B'><b>Bloc</b></font>: ", round(100*Bloc_pred, 1), "% (", round(100*pct_05.Bloc, 1), "%–", round(100*pct_95.Bloc, 1), "%)<br>",
+                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)<br>",
                     "<font color = '#191970'><b>PPC</b></font>: ", round(100*pct_50.PPC, 1), "% (", round(100*pct_05.PPC, 1), "%–", round(100*pct_95.PPC, 1), "%)"
                     ),
            
@@ -125,11 +138,11 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = '#191970'><b>", PPC_cand, "</b> (PPC)</font>: ", round(100*PPC_prob), "%<br>",
                     "<br>",
                     "<b><u>Projected vote (90% CI)</u></b><br>",
-                    "<font color = 'red'><b>LPC</b></font>: ", round(100*pct_50.LPC, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
-                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*pct_50.CPC, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
-                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*pct_50.NDP, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
-                    "<font color = '#8B008B'><b>Bloc</b></font>: ", round(100*pct_50.Bloc, 1), "% (", round(100*pct_05.Bloc, 1), "%–", round(100*pct_95.Bloc, 1), "%)<br>",
-                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*pct_50.Green, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)<br>",
+                    "<font color = 'red'><b>LPC</b></font>: ", round(100*LPC_pred, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
+                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
+                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
+                    "<font color = '#8B008B'><b>Bloc</b></font>: ", round(100*Bloc_pred, 1), "% (", round(100*pct_05.Bloc, 1), "%–", round(100*pct_95.Bloc, 1), "%)<br>",
+                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)<br>",
                     "<font color = '#191970'><b>PPC</b></font>: ", round(100*pct_50.PPC, 1), "% (", round(100*pct_05.PPC, 1), "%–", round(100*pct_95.PPC, 1), "%)"
              ),
            
@@ -145,10 +158,10 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = '#008B00'><b>", Green_cand, "</b> (Green)</font>: ", round(100*Green_prob), "%<br>",
                     "<br>",
                     "<b><u>Projected vote (90% CI)</u></b><br>",
-                    "<font color = 'red'><b>LPC</b></font>: ", round(100*pct_50.LPC, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
-                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*pct_50.CPC, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
-                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*pct_50.NDP, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
-                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*pct_50.Green, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"),
+                    "<font color = 'red'><b>LPC</b></font>: ", round(100*LPC_pred, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
+                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
+                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
+                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"),
            
            ## Flips outside Quebec
            PROVCODE != "QC" & predicted_winner != last_winner ~
@@ -162,10 +175,10 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = '#008B00'><b>", Green_cand, "</b> (Green)</font>: ", round(100*Green_prob), "%<br>",
                     "<br>",
                     "<b><u>Projected vote (90% CI)</u></b><br>",
-                    "<font color = 'red'><b>LPC</b></font>: ", round(100*pct_50.LPC, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
-                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*pct_50.CPC, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
-                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*pct_50.NDP, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
-                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*pct_50.Green, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"
+                    "<font color = 'red'><b>LPC</b></font>: ", round(100*LPC_pred, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
+                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
+                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
+                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"
              )
            )
   ) %>%

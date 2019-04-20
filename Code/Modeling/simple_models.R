@@ -46,3 +46,9 @@ model_Green.linear <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbe
                            I(Green_nation-Green_nation_lag)+I(Green_region-Green_region_lag)+minority+educ_university, data = results)
 model_Bloc.linear <- lm(Bloc~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
                           I(Bloc_nation-Bloc_nation_lag)+I(Bloc_region-Bloc_region_lag), data = results %>% filter(Quebec))
+
+write_rds(list("LPC" = model_LPC.linear,
+               "CPC" = model_CPC.linear,
+               "NDP" = model_NDP.linear,
+               "Green" = model_Green.linear,
+               "Bloc" = model_Bloc.linear), "Shiny-app/models.rds")

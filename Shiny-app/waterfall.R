@@ -25,11 +25,11 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                                                     names(coefs.LPC)[4:13])) %>%
       mutate(coefficient = coefs.LPC[variable],
              value = c(1,
-                       district_data.2019$incumbent == "Bloc",
-                       district_data.2019$incumbent == "Conservative",
-                       district_data.2019$incumbent == "Green",
                        district_data.2019$incumbent == "Liberal",
+                       district_data.2019$incumbent == "Conservative",
                        district_data.2019$incumbent == "NDP",
+                       district_data.2019$incumbent == "Green",
+                       district_data.2019$incumbent == "Bloc",
                        district_data.2019$LPC_lag,
                        district_data.2019$CPC_lag,
                        district_data.2019$NDP_lag,
@@ -71,11 +71,11 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                  "The incumbent is not running for reelection.",
                variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection == "Beauce" ~ 
                  "The People's Party incumbent is running for reelection.",
-               variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[2,3]) ~ "The Bloc Québécois incumbent is running for reelection.",
+               variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[2,3]) ~ "The Liberal incumbent is running for reelection.",
                variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[3,3]) ~ "The Conservative incumbent is running for reelection.",
-               variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[4,3]) ~ "The Green incumbent is running for reelection.",
-               variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[5,3]) ~ "The Liberal incumbent is running for reelection.",
-               variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[6,3]) ~ "The NDP incumbent is running for reelection.",
+               variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[4,3]) ~ "The NDP incumbent is running for reelection.",
+               variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[5,3]) ~ "The Green incumbent is running for reelection.",
+               variable_group == "Incumbency" & as.logical(waterfall_data_ungrouped[6,3]) ~ "The Bloc Québécois incumbent is running for reelection.",
                variable_group == "Last election result" ~ paste0("The Liberal candidate won ", round(100*as.numeric(waterfall_data_ungrouped[7,3]), 1),
                                                                  "% of the vote in 2015."),
                variable_group == "Quebec" & as.logical(waterfall_data_ungrouped[12,3]) ~ "This riding is in Quebec.",
@@ -453,7 +453,12 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
 make_waterfall_plot <- function(waterfall_data) {
   require(tidyverse)
   require(ggiraph)
-  waterfall_plot <- suppressWarnings(ggplot(waterfall_data, aes(variable_group, fill = factor(sign(effect)))) +
+  waterfall_plot <- suppressWarnings(
+    ggplot(waterfall_data %>% 
+             mutate(direction = case_when(effect > 0 ~ "Positive",
+                                          effect < 0 ~ "Negative",
+                                          effect == 0 ~ "Neutral")), 
+           aes(variable_group, fill = direction)) +
     geom_hline(data = waterfall_data %>% 
                  tail(1) %>% 
                  mutate(description = paste0("The ", party, " candidate is projected to win ", cumulative_effect, "% of the vote.")), 
@@ -461,7 +466,7 @@ make_waterfall_plot <- function(waterfall_data) {
     geom_rect_interactive(aes(x = variable_group, xmin = order - 0.5, xmax = order + 0.5, ymin = previous_cumulative_effect, ymax = cumulative_effect,
                               tooltip = description), col = "black") +
     coord_flip() +
-    scale_fill_manual(name = "Effect direction", labels = c("Negative", "Positive"), values = c("red", "green4")) +
+    scale_fill_manual(name = "Effect direction", values = c("Positive" = "green4", "Negative" = "red", "Neutral" = "#666666")) +
     scale_colour_manual(name = "", labels = paste0("Predicted ", waterfall_data$party[1],  " %"), values = "black") +
     labs(title = paste0("Forecast components for the ", waterfall_data$party[1], " share of the vote"),
          subtitle = waterfall_data$district[1], x = "Predictor", y = "Cumulative effect (percentage points)")
