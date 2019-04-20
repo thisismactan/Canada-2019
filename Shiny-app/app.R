@@ -26,12 +26,18 @@ poll_sds_adjusted <- read_csv("poll_sds_adjusted.csv")
 poll_averages_unadjusted <- read_csv("poll_averages_unadjusted.csv") %>%
   mutate(lower = pct - 1.644*poll_sds_unadjusted$sd,
          upper = pct + 1.644*poll_sds_unadjusted$sd,
-         Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's")))
+         Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's"))) %>%
+  mutate(description = case_when(Party == "People's" ~ paste0("PPC average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
+                                 Party != "People's" ~ paste0(Party, " average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)")
+  ))
 
 poll_averages_adjusted <- read_csv("poll_averages_adjusted.csv")  %>%
   mutate(lower = pct - 1.644*poll_sds_adjusted$sd,
          upper = pct + 1.644*poll_sds_adjusted$sd,
-         Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's")))
+         Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's"))) %>%
+  mutate(description = case_when(Party == "People's" ~ paste0(Party, " Party average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
+                                 Party != "People's" ~ paste0(Party, " average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)")
+  ))
 
 forecast_timeline <- read_csv("forecast_timeline.csv") %>%
   mutate(description = paste0(format(date, "%B %e, %Y"), "\n",
@@ -107,84 +113,22 @@ ui <- fluidPage(
                                  "</table>")
                      ),
                      
-                     
                      ## Select province and show district menu
                      inputPanel(selectInput(inputId = "province_select", label = "Go to a riding", choices = c("Choose a province or territory", provinces), 
                                             selected = "Choose a province or territory"),
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
-                                fluidRow(
-                                  column(1,
-                                         conditionalPanel(condition = "input.province_select == 'Newfoundland and Labrador'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Newfoundland and Labrador"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'Prince Edward Island'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Prince Edward Island"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'Nova Scotia'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Nova Scotia"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'New Brunswick'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "New Brunswick"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'Quebec'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Quebec"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'Ontario'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Ontario"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'Manitoba'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Manitoba"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'Saskatchewan'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Saskatchewan"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'Alberta'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Alberta"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'British Columbia'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "British Columbia"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'Yukon'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Yukon"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'Northwest Territories'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Northwest Territories"]))
-                                                          ),
-                                         conditionalPanel(condition = "input.province_select == 'Nunavut'",
-                                                          selectInput(inputId = "riding_select", label = "Riding", 
-                                                                      choices = c("Choose a riding", districts[provinces == "Nunavut"])
-                                                          )
-                                         ),
-                                         conditionalPanel(condition = "input.riding_select != 'Choose a riding' & input.riding_select != 'Quebec'",
-                                                          selectInput(inputId = "party_select", label = "Party",
-                                                                      choices = c("Choose a party", "Liberal", "Conservative", "NDP", "Green"),
-                                                                      width = "400px")),
-                                         conditionalPanel(condition = "input.riding_select == 'Quebec'",
-                                                          selectInput(inputId = "party_select", label = "Party",
-                                                                      choices = c("Choose a party", "Liberal", "Conservative", "NDP", "Green", "Bloc"),
-                                                                      width = "400px")),
-                                         conditionalPanel(condition = "input.party_select != 'Choose a party'",
-                                                          actionButton("go_district", "Go!")))
+                                uiOutput("riding_menu"),
+                                tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
+                                uiOutput("party_menu"),
+                                tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
+                                conditionalPanel(condition = "input.party_menu != 'Choose a party'",
+                                                 actionButton("go_district", "Go!"))
                                 ),
                                 hr(),
                                 hr(),
-                                hr()
-                                ),
+                                hr(),
                      width = 3.01),
-        position = "right"
-      )
+        position = "right")
     ),
     
     ## Polls and timeline
@@ -211,8 +155,8 @@ ui <- fluidPage(
                                     conditionalPanel(condition = "input.graph_type == 'Forecast over time'",
                                                      sliderInput("date_range_probs", "Date range", min = as.Date("2019-04-17"), max = as.Date("2019-10-21"),
                                                                  value = as.Date(c("2019-04-17", "2019-10-21"))
+                                                                 )
                                                      )
-                                    )
                                     ),
         position = "right")
       )
@@ -221,6 +165,16 @@ ui <- fluidPage(
 
 # Server
 server <- function(input, output) {
+  # Ridings available given province
+  output$riding_menu <- renderUI({
+    selectInput("riding_select", label = "Riding", choices = c("Choose a riding", districts[provinces == input$province_select]))
+  })
+  
+  output$party_menu <- renderUI({
+    selectInput("party_select", label = "Party", choices = c("Choose a party", "Liberal", "Conservative", "NDP", "Green"))
+  })
+  
+  
   # Forecast map
   output$forecastmap <- renderLeaflet({
     leaflet() %>%
@@ -287,7 +241,7 @@ server <- function(input, output) {
         geom_point_interactive(aes(size = sqrt(loess_weight), tooltip = description), alpha = 0.2) +
         geom_ribbon(data = poll_averages_adjusted %>% arrange(Party), aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
                     alpha = 0.2, show.legend = FALSE) +
-        geom_line(data = poll_averages_unadjusted %>% arrange(Party), aes(y = pct, col = Party)) +
+        geom_line_interactive(data = poll_averages_unadjusted %>% arrange(Party), aes(x = date, y = pct, col = Party)) +
         scale_colour_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
                                                        "People's" = "midnightblue")) +
         scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
@@ -316,7 +270,7 @@ server <- function(input, output) {
         geom_point(aes(size = sqrt(loess_weight), tooltip = description), alpha = 0.2) +
         geom_ribbon(data = poll_averages_unadjusted %>% arrange(Party), aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
                     alpha = 0.2, show.legend = FALSE) +
-        geom_line(data = poll_averages_unadjusted %>% arrange(Party), aes(y = pct, col = Party)) +
+        geom_line(data = poll_averages_unadjusted %>% arrange(Party), aes(x = date, y = pct, col = Party)) +
         scale_colour_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
                                                        "People's" = "midnightblue")) +
         scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
