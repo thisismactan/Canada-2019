@@ -182,6 +182,9 @@ coords_df <- st_coordinates(canada_districts_latlong) %>%
          FED_NUM = canada_districts_latlong$FED_NUM) %>%
   dplyr::select(FED_NUM, lng, lat)
 
+## Mess with frigid northlands a bit because Mercator
+coords_df$lat[344] <- coords_df$lat[343] <- coords_df$lat[342]
+
 canada_districts_latlong <- canada_districts_latlong %>%
   left_join(coords_df, by = "FED_NUM")
 

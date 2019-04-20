@@ -121,7 +121,7 @@ ui <- fluidPage(
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
                                 uiOutput("party_menu"),
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
-                                conditionalPanel(condition = "input.party_menu != 'Choose a party'",
+                                conditionalPanel(condition = "input.party_menu != 'Choose a party' & input.riding_menu != 'Choose a riding'",
                                                  actionButton("go_district", "Go!"))
                                 ),
                                 hr(),

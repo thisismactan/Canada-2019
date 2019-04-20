@@ -96,6 +96,9 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                variable_group == "Visible minority" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[16,3]), 1), 
                                                              "% of the population are visible minorities.")
              ),
+             description = case_when(effect > 0 ~ paste0(description, " (+", round(effect, 1), ")"),
+                                     effect < 0 ~ paste0(description, " (", round(effect, 1), ")"),
+                                     effect == 0 ~ paste0(description, " (+0)")),
              previous_cumulative_effect = lag(cumulative_effect),
              previous_cumulative_effect = case_when(is.na(previous_cumulative_effect) ~ 0,
                                                     !is.na(previous_cumulative_effect) ~ previous_cumulative_effect)
@@ -171,6 +174,9 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                variable_group == "Visible minority" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), 
                                                              "% of the population are visible minorities.")
              ),
+             description = case_when(effect > 0 ~ paste0(description, " (+", round(effect, 1), ")"),
+                                     effect < 0 ~ paste0(description, " (", round(effect, 1), ")"),
+                                     effect == 0 ~ paste0(description, " (+0)")),
              previous_cumulative_effect = lag(cumulative_effect),
              previous_cumulative_effect = case_when(is.na(previous_cumulative_effect) ~ 0,
                                                     !is.na(previous_cumulative_effect) ~ previous_cumulative_effect)
@@ -250,6 +256,9 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                variable_group == "Retiree population" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), 
                                                                "% of the population is over the age of 65.")
              ),
+             description = case_when(effect > 0 ~ paste0(description, " (+", round(effect, 1), ")"),
+                                     effect < 0 ~ paste0(description, " (", round(effect, 1), ")"),
+                                     effect == 0 ~ paste0(description, " (+0)")),
              previous_cumulative_effect = lag(cumulative_effect),
              previous_cumulative_effect = case_when(is.na(previous_cumulative_effect) ~ 0,
                                                     !is.na(previous_cumulative_effect) ~ previous_cumulative_effect)
@@ -332,6 +341,9 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                variable_group == "University education" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[15,3]), 1),
                                                                  "% of the adult population has a university diploma.")
              ),
+             description = case_when(effect > 0 ~ paste0(description, " (+", round(effect, 1), ")"),
+                                     effect < 0 ~ paste0(description, " (", round(effect, 1), ")"),
+                                     effect == 0 ~ paste0(description, " (+0)")),
              previous_cumulative_effect = lag(cumulative_effect),
              previous_cumulative_effect = case_when(is.na(previous_cumulative_effect) ~ 0,
                                                     !is.na(previous_cumulative_effect) ~ previous_cumulative_effect)
@@ -406,6 +418,9 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                  paste0("According to polls, the Bloc Québécois share of the regional vote will increase by ",
                         round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points.")
              ),
+             description = case_when(effect > 0 ~ paste0(description, " (+", round(effect, 1), ")"),
+                                     effect < 0 ~ paste0(description, " (", round(effect, 1), ")"),
+                                     effect == 0 ~ paste0(description, " (+0)")),
              previous_cumulative_effect = lag(cumulative_effect),
              previous_cumulative_effect = case_when(is.na(previous_cumulative_effect) ~ 0,
                                                     !is.na(previous_cumulative_effect) ~ previous_cumulative_effect)
@@ -427,7 +442,7 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
 make_waterfall_plot <- function(waterfall_data) {
   require(tidyverse)
   require(ggiraph)
-  waterfall_plot <- ggplot(waterfall_data, aes(variable_group, fill = factor(sign(effect)))) +
+  waterfall_plot <- suppressWarnings(ggplot(waterfall_data, aes(variable_group, fill = factor(sign(effect)))) +
     geom_hline(data = waterfall_data %>% 
                  tail(1) %>% 
                  mutate(description = paste0("The ", party, " candidate is projected to win ", cumulative_effect, "% of the vote.")), 
@@ -439,7 +454,7 @@ make_waterfall_plot <- function(waterfall_data) {
     scale_colour_manual(name = "", labels = paste0("Predicted ", waterfall_data$party[1],  " %"), values = "black") +
     labs(title = paste0("Forecast components for the ", waterfall_data$party[1], " share of the vote"),
          subtitle = waterfall_data$district[1], x = "Predictor", y = "Cumulative effect (percentage points)")
-  
+  )
   return(waterfall_plot)
 }
 
