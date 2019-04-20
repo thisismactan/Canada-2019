@@ -171,13 +171,15 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
   ) %>%
   st_as_sf()
 
-## Add centroids
+## Add "centroids"
 coords_df <- st_coordinates(canada_districts_latlong) %>%
   as.data.frame() %>%
   as.tbl() %>%
   group_by(L2) %>%
-  summarise(lng = mean(X), lat = mean(Y)) %>%
-  mutate(FED_NUM = canada_districts_latlong$FED_NUM) %>%
+  summarise(min_lng = min(X), max_lng = max(X), min_lat = min(Y), max_lat = max(Y)) %>%
+  mutate(lng = (min_lng + max_lng)/2, 
+         lat = (min_lat + max_lat)/2,
+         FED_NUM = canada_districts_latlong$FED_NUM) %>%
   dplyr::select(FED_NUM, lng, lat)
 
 canada_districts_latlong <- canada_districts_latlong %>%
