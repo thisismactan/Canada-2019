@@ -13,14 +13,15 @@ make_waterfall_data <- function(district_selection, party, data = data_2019.simp
   
   ## Now do a separate one for each party
   if(party == "Liberal") {
-    waterfall_data_ungrouped <- tibble(variable = names(coefs.LPC)) %>%
+    waterfall_data_ungrouped <- tibble(variable = c(names(coefs.LPC)[1:2], "incumbent_CPC", "incumbent_NDP", "incumbent_Green", "incumbent_Bloc",
+                                       names(coefs.LPC)[4:13])) %>%
       mutate(coefficient = coefs.LPC[variable],
              value = c(1,
-                       district_data.2019$incumbent == "Bloc",
-                       district_data.2019$incumbent == "Conservative",
-                       district_data.2019$incumbent == "Green",
-                       district_data.2019$incumbent == "Liberal",
-                       district_data.2019$incumbent == "NDP",
+                       district_data.2019$incumbent_LPC,
+                       district_data.2019$incumbent_CPC,
+                       district_data.2019$incumbent_NDP,
+                       district_data.2019$incumbent_Green,
+                       district_data.2019$incumbent_Bloc,
                        district_data.2019$LPC_lag,
                        district_data.2019$CPC_lag,
                        district_data.2019$NDP_lag,

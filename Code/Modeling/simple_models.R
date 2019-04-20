@@ -36,8 +36,8 @@ model_Bloc.simple <- randomForest(Bloc~LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_la
                                   data = results, mtry = 5, localImp = TRUE)
 
 ## Linear regression models for comparison
-model_LPC.linear <- lm(LPC~incumbent+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+I(LPC_nation-LPC_nation_lag)+I(LPC_region-LPC_region_lag)+
-                         educ_university+minority, data = results)
+model_LPC.linear <- lm(LPC~incumbent_LPC+incumbent_NDP+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+I(LPC_nation-LPC_nation_lag)+
+                         I(LPC_region-LPC_region_lag)+educ_university+minority, data = results)
 model_CPC.linear <- lm(CPC~incumbent_LPC+incumbent_CPC+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+CPC_nation+I(CPC_region-CPC_region_lag)+minority, 
                        data = results)
 model_NDP.linear <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+I(NDP_nation-NDP_nation_lag)+
@@ -45,4 +45,4 @@ model_NDP.linear <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+LPC_lag+CPC
 model_Green.linear <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Green+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
                            I(Green_nation-Green_nation_lag)+I(Green_region-Green_region_lag)+minority+educ_university, data = results)
 model_Bloc.linear <- lm(Bloc~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
-                          I(Bloc_nation-Bloc_nation_lag)+I(Bloc_region-Bloc_region_lag), data = results)
+                          I(Bloc_nation-Bloc_nation_lag)+I(Bloc_region-Bloc_region_lag), data = results %>% filter(Quebec))

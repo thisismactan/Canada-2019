@@ -163,7 +163,7 @@ for(i in 1:n) {
   test <- results[i,]
   
   # Fit linear models
-  model_LPC.linear_test2 <- lm(LPC~incumbent+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+I(LPC_nation-LPC_nation_lag)+I(LPC_region-LPC_region_lag)+
+  model_LPC.linear_test2 <- lm(LPC~incumbent_LPC+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+Quebec+I(LPC_nation-LPC_nation_lag)+I(LPC_region-LPC_region_lag)+
                                 educ_university+minority, data = train)
   model_CPC.linear_test2 <- lm(CPC~incumbent_LPC+incumbent_CPC+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+CPC_nation+I(CPC_region-CPC_region_lag)+minority, 
                                data = train)
@@ -173,7 +173,7 @@ for(i in 1:n) {
                                    Bloc_lag+Green_nation+I(Green_nation-Green_nation_lag)+I(Green_region-Green_region_lag)+minority+educ_university, 
                                  data = train)
   model_Bloc.linear_test2 <- lm(Bloc~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
-                                  I(Bloc_nation-Bloc_nation_lag)+I(Bloc_region-Bloc_region_lag), data = train)
+                                  I(Bloc_nation-Bloc_nation_lag)+I(Bloc_region-Bloc_region_lag), data = train %>% filter(Quebec))
   
   # Make test prediction and compute error
   test <- test %>%
@@ -181,7 +181,9 @@ for(i in 1:n) {
            CPC.pred = predict(model_CPC.linear_test2, newdata = .), CPC.error = CPC.pred - CPC,
            NDP.pred = predict(model_NDP.linear_test2, newdata = .), NDP.error = NDP.pred - NDP,
            Green.pred = predict(model_Green.linear_test2, newdata = .), Green.error = Green.pred - Green,
-           Bloc.pred = predict(model_Bloc.linear_test2, newdata = .), Bloc.error = Bloc.pred - Bloc)
+           Bloc.pred = case_when(Quebec ~ predict(model_Bloc.linear_test2, newdata = .),
+                                 !Quebec ~ 0), 
+           Bloc.error = Bloc.pred - Bloc)
   
   LPC_error[i] <- test$LPC.error[1]
   CPC_error[i] <- test$CPC.error[1]

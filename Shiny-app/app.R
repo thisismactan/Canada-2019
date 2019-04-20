@@ -43,7 +43,10 @@ forecast_timeline <- read_csv("forecast_timeline.csv") %>%
   mutate(description = paste0(format(date, "%B %e, %Y"), "\n",
                               outcome, ": ", round(100*prob), "%"))
 
-canada_districts_latlong <- read_rds("canada_districts.rds")
+
+canada_districts_latlong <- read_rds("canada_districts.rds") %>%
+  merge(read_csv("district_zoom_levels_2013.csv"), by.x = "FED_NUM", by.y = "district_code")
+
 canada_flips <- canada_districts_latlong %>%
   filter(predicted_winner != last_winner)
 
@@ -170,11 +173,11 @@ server <- function(input, output) {
     selectInput("riding_select", label = "Riding", choices = c("Choose a riding", districts[provinces == input$province_select]))
   })
   
+  ## Parties available
   output$party_menu <- renderUI({
-    selectInput("party_select", label = "Party", choices = c("Choose a party", "Liberal", "Conservative", "NDP", "Green"))
+    selectInput("party_select", label = "Party", choices = c("Choose a party", "Liberal", "Conservative", "NDP", "Green", "Bloc"))
   })
-  
-  
+
   # Forecast map
   output$forecastmap <- renderLeaflet({
     leaflet() %>%
@@ -197,6 +200,7 @@ server <- function(input, output) {
   center <- reactive({
     return(canada_districts_latlong %>% 
              group_by(name_english) %>%
+             arrange(name_english, lng) %>%
              mutate(n = 1:n()) %>%
              ungroup() %>%
              filter(n == 1,
@@ -209,7 +213,7 @@ server <- function(input, output) {
   observeEvent(input$go_district,
                 handlerExpr = {
                   leafletProxy('forecastmap') %>%
-                    setView(lng = center()$lng, lat = center()$lat, zoom = 7)
+                    setView(lng = center()$lng, lat = center()$lat, zoom = center()$zoom_level)
                   })
   
   ## Forecast breakdown

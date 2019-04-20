@@ -21,7 +21,8 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
   
   ## Now do a separate one for each party
   if(party == "Liberal") {
-    waterfall_data_ungrouped <- tibble(variable = names(coefs.LPC)) %>%
+    waterfall_data_ungrouped <- tibble(variable = c(names(coefs.LPC)[1:2], "incumbent_CPC", "incumbent_NDP", "incumbent_Green", "incumbent_Bloc",
+                                                    names(coefs.LPC)[4:13])) %>%
       mutate(coefficient = coefs.LPC[variable],
              value = c(1,
                        district_data.2019$incumbent == "Bloc",
@@ -354,7 +355,7 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
     waterfall_data$variable_group <- ordered(waterfall_data$variable_group, levels = rev(waterfall_data$variable_group))
   }
   
-  if(party == "Bloc") {
+  if(party == "Bloc" & district_data.2019$province == "Quebec") {
     waterfall_data_ungrouped <- tibble(variable = c(names(coefs.Bloc)[1:5], "incumbent_GreenTRUE", names(coefs.Bloc)[6:12])) %>%
       mutate(coefficient = coefs.Bloc[variable],
              value = c(1,
@@ -427,6 +428,16 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
       ) %>%
       arrange(desc(abs(effect) + (variable_group == "Baseline")*1000)) %>%
       mutate(order = n():1)
+    
+    waterfall_data$variable_group <- ordered(waterfall_data$variable_group, levels = rev(waterfall_data$variable_group))
+    
+  } else if(party == "Bloc" & district_data.2019$province != "Quebec") {
+    waterfall_data <- tibble(variable_group = "Quebec", 
+                             effect = 0, 
+                             cumulative_effect = 0,
+                             description = "This riding is not in Quebec.",
+                             previous_cumulative_effect = 0, 
+                             order = 1)
     
     waterfall_data$variable_group <- ordered(waterfall_data$variable_group, levels = rev(waterfall_data$variable_group))
   }
