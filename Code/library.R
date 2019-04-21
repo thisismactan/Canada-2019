@@ -2,6 +2,7 @@
 
 ## Maps
 library(leaflet)
+library(lwgeom)
 library(rgdal)
 library(rmapshaper)
 library(sf)

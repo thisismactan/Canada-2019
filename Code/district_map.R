@@ -182,7 +182,13 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
              )
            )
   ) %>%
-  st_as_sf()
+  st_as_sf() %>%
+  mutate(area = st_area(.)) %>%
+  group_by(FED_NUM) %>%
+  arrange(FED_NUM, desc(area)) %>%
+  mutate(area_order = 1:n()) %>%
+  filter((area_order == 1 & name_english != "Halifax") | (area_order == 2 & name_english == "Halifax")) %>%
+  ungroup()
 
 ## Add "centroids"
 coords_df <- st_coordinates(canada_districts_latlong) %>%
@@ -196,7 +202,7 @@ coords_df <- st_coordinates(canada_districts_latlong) %>%
   dplyr::select(FED_NUM, lng, lat)
 
 ## Mess with frigid northlands a bit because Mercator
-coords_df$lat[344] <- coords_df$lat[343] <- coords_df$lat[342]
+coords_df$lat[338] <- coords_df$lat[337] <- coords_df$lat[336]
 
 canada_districts_latlong <- canada_districts_latlong %>%
   left_join(coords_df, by = "FED_NUM")

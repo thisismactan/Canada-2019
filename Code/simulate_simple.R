@@ -245,6 +245,10 @@ seat_simulations <- tibble(simulation = 1:num.iter,
          type_of_win = case_when(pmax(LPC, CPC, NDP, Bloc, Green) <= 338/2 ~ "Minority",
                                  pmax(LPC, CPC, NDP, Bloc, Green) > 338/2 ~ "Majority"))
 
+seat_simulations
+
+write_rds(seat_simulations, "Shiny-app/seat_simulations.rds")
+
 ## Outcome probabilities
 outcome_probs <- seat_simulations %>%
   group_by(most_seats, type_of_win) %>%

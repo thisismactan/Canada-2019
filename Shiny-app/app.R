@@ -8,6 +8,7 @@ library(shinythemes)
 library(sp)
 library(sf)
 library(leaflet)
+library(lwgeom)
 
 ## Read in things
 outcome_probs <- read_rds("outcome_probs.rds")
@@ -27,22 +28,31 @@ poll_averages_unadjusted <- read_csv("poll_averages_unadjusted.csv") %>%
   mutate(lower = pct - 1.644*poll_sds_unadjusted$sd,
          upper = pct + 1.644*poll_sds_unadjusted$sd,
          Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's"))) %>%
-  mutate(description = case_when(Party == "People's" ~ paste0("PPC average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
-                                 Party != "People's" ~ paste0(Party, " average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)")
-  ))
+  mutate(description = case_when(Party == "Liberal" ~ paste0("LPC average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
+                                 Party == "Conservative" ~ paste0("CPC average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
+                                 Party == "NDP" ~ paste0("NDP average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
+                                 Party == "Green" ~ paste0("Green average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
+                                 Party == "People's" ~ paste0("PPC average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)")),
+         description = paste0(format(date, "%B %e, %Y"), "\n", description)
+  ) %>%
+  arrange(Party, date)
 
 poll_averages_adjusted <- read_csv("poll_averages_adjusted.csv")  %>%
   mutate(lower = pct - 1.644*poll_sds_adjusted$sd,
          upper = pct + 1.644*poll_sds_adjusted$sd,
          Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's"))) %>%
-  mutate(description = case_when(Party == "People's" ~ paste0(Party, " Party average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
-                                 Party != "People's" ~ paste0(Party, " average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)")
-  ))
+  mutate(description = case_when(Party == "Liberal" ~ paste0("LPC average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
+                                 Party == "Conservative" ~ paste0("CPC average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
+                                 Party == "NDP" ~ paste0("NDP average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
+                                 Party == "Green" ~ paste0("Green average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)"),
+                                 Party == "People's" ~ paste0("PPC average: ", round(pct, 1), "% (", round(lower, 1), "-", round(upper, 1), "%)")),
+         description = paste0(format(date, "%B %e, %Y"), "\n", description)
+  ) %>%
+  arrange(Party, date)
 
 forecast_timeline <- read_csv("forecast_timeline.csv") %>%
   mutate(description = paste0(format(date, "%B %e, %Y"), "\n",
                               outcome, ": ", round(100*prob), "%"))
-
 
 canada_districts_latlong <- read_rds("canada_districts.rds") %>%
   merge(read_csv("district_zoom_levels_2013.csv"), by.x = "FED_NUM", by.y = "district_code") 
@@ -97,11 +107,10 @@ ui <- fluidPage(
   navbarPage("The Election StatSheet Canada 2019 forecast",
     ## Map tab         
     tabPanel("Map",
-      titlePanel(paste0("Forecast as of ", month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today()))),
-      sidebarLayout(
+        sidebarLayout(
         
         ## Main panel: can display map or graphs
-        mainPanel = mainPanel(leafletOutput("forecastmap", height = 720, width = "100%"),
+        mainPanel = mainPanel(leafletOutput("forecastmap", height = 700, width = "100%"),
                               hr(),
                               ggiraphOutput("forecast_breakdown", width = "150%", height = "400px")),
         
@@ -131,10 +140,10 @@ ui <- fluidPage(
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
                                 uiOutput("riding_menu"),
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
-                                uiOutput("party_menu"),
+                                conditionalPanel(condition = "input.riding_menu !== 'Choose a riding'",
+                                                 actionButton("go_district", "Go!")),
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
-                                conditionalPanel(condition = "input.party_menu !== 'Choose a party' & input.riding_menu !== 'Choose a riding'",
-                                                 actionButton("go_district", "Go!"))
+                                uiOutput("party_menu")
                                 ),
                                 hr(),
                                 hr(),
@@ -154,8 +163,7 @@ ui <- fluidPage(
                                     radioButtons("graph_type",
                                                  label = "Graph",
                                                  choices = c("National polls",
-                                                             "Forecast over time",
-                                                             "Current forecast by party")
+                                                             "Forecast over time")
                                                  ),
                                     conditionalPanel(condition = "input.graph_type == 'National polls'",
                                                      sliderInput("date_range_polls", "Date range", min = as.Date("2015-10-19"), max = as.Date("2019-10-21"),
@@ -163,16 +171,13 @@ ui <- fluidPage(
                                                                  )
                                     ),
                                     conditionalPanel(condition = "input.graph_type == 'National polls'",
-                                                     checkboxInput("house_adjust", "Adjust for pollster house effects?", value = T)
+                                                     checkboxInput("house_adjust", "Adjust for pollster house effects?", value = TRUE)
                                     ),
                                     conditionalPanel(condition = "input.graph_type == 'Forecast over time'",
                                                      sliderInput("date_range_probs", "Date range", min = as.Date("2019-04-17"), max = as.Date("2019-10-21"),
                                                                  value = as.Date(c("2019-04-17", "2019-10-21"))
                                                                  )
-                                                     ),
-                                    conditionalPanel(condition = "input.graph_type == 'Current forecast by party'",
-                                                     checkboxGroupInput("current_forecast_party", label = "Parties to display:",
-                                                                        choices = c("Liberal", "Conservative", "NDP", "Bloc", "Green")))
+                                                     )
                                     ),
         position = "right")
       )
@@ -181,6 +186,7 @@ ui <- fluidPage(
 
 # Server
 server <- function(input, output) {
+  
   # Ridings available given province
   output$riding_menu <- renderUI({
     selectInput("riding_select", label = "Riding", choices = c("Choose a riding", district_codes[provinces == input$province_select]))
@@ -188,7 +194,7 @@ server <- function(input, output) {
   
   ## Parties available
   output$party_menu <- renderUI({
-    selectInput("party_select", label = "Party", choices = c("Choose a party", "Liberal", "Conservative", "NDP", "Green", "Bloc"))
+    selectInput("party_select", label = "Party", choices = c("Liberal", "Conservative", "NDP", "Green", "Bloc"))
   })
 
   # Forecast map
@@ -197,7 +203,7 @@ server <- function(input, output) {
       addMapPane(name = "worldmap", zIndex = 400) %>%
       addMapPane(name = "polygons", zIndex = 420) %>%
       addMapPane(name = "borders", zIndex = 440) %>%
-      addPolygons(data = canada_districts_latlong, weight = 1, color = "#666666", opacity = 1, fillColor = ~fill_color, 
+      addPolygons(data = canada_districts_latlong, layerId = ~FED_NUM, weight = 1, color = "#666666", opacity = 1, fillColor = ~fill_color, 
                   fillOpacity = ~((pmax(2*max_prob - 1, 0.01))^0.5)/1.15, label = ~name_english, popup = ~district_info,
                   highlightOptions = highlightOptions(weight = 3, color = "black", bringToFront = TRUE),
                   options = leafletOptions(pane = "polygons")) %>%
@@ -223,26 +229,28 @@ server <- function(input, output) {
   })
   
   ## The event in question: the click of the Go button (input$go_district)
-  observeEvent(input$go_district,
-                handlerExpr = {
-                  leafletProxy("forecastmap") %>%
-                    setView(lng = center()$lng, lat = center()$lat, zoom = center()$zoom_level)
-                  })
+  observeEvent(
+    input$go_district,
+    handlerExpr = {
+      leafletProxy("forecastmap") %>%
+        setView(lng = center()$lng, lat = center()$lat, zoom = center()$zoom_level)
+      }
+    )
   
-  ## Or you can click on a riding on the map
-  observeEvent(input$ap_shape_click, {
-    p <- input$Map_shape_click
-    if(!is.null(p$id)) {
-      updateSelectInput(session, "riding_select", selected = p$id)
-    }
-  })
+  ## Switch party when user changes the party menu
+  observeEvent(
+    input$party_select,
+    handlerExpr = {
+      selected_party <- input$party_select
+    })
   
   ## Forecast breakdown
-  forecastBreakdown <- eventReactive(input$go_district,
-                                     valueExpr = {
-                                       girafe(ggobj = make_waterfall_plot(make_waterfall_data(as.numeric(input$riding_select), input$party_select)),
-                                              pointsize = 16, width_svg = 12, height_svg = 4)
-                                       })
+  forecastBreakdown <- eventReactive(
+    input$forecastmap_shape_click,
+    valueExpr = {
+      girafe(ggobj = make_waterfall_plot(make_waterfall_data(as.numeric(input$forecastmap_shape_click$id), input$party_select)),
+             pointsize = 16, width_svg = 12, height_svg = 4)
+    })
   
   output$forecast_breakdown <- renderggiraph({
     forecastBreakdown()
@@ -263,10 +271,11 @@ server <- function(input, output) {
         arrange(Party) %>%
         ggplot(aes(x = date, y = Poll, col = Party)) +
         geom_vline(xintercept = as.Date("2019-10-21")) +
-        geom_point_interactive(aes(size = sqrt(loess_weight), tooltip = description), alpha = 0.2) +
-        geom_ribbon(data = poll_averages_adjusted %>% arrange(Party), aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
+        geom_point(aes(size = sqrt(loess_weight)), alpha = 0.2) +
+        geom_ribbon(data = poll_averages_adjusted, aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
                     alpha = 0.2, show.legend = FALSE) +
-        geom_line_interactive(data = poll_averages_unadjusted %>% arrange(Party), aes(x = date, y = pct, col = Party)) +
+        geom_point_interactive(data = poll_averages_unadjusted, aes(x = date, y = pct, col = Party, tooltip = description), size = 0.5) +
+        geom_line(data = poll_averages_adjusted, aes(x = date, y = pct, group = Party, col = Party)) +
         scale_colour_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
                                                        "People's" = "midnightblue")) +
         scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
@@ -292,10 +301,11 @@ server <- function(input, output) {
         arrange(Party) %>%
         ggplot(aes(x = date, y = Poll, col = Party)) +
         geom_vline(xintercept = as.Date("2019-10-21")) +
-        geom_point(aes(size = sqrt(loess_weight), tooltip = description), alpha = 0.2) +
-        geom_ribbon(data = poll_averages_unadjusted %>% arrange(Party), aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
+        geom_point(aes(size = sqrt(loess_weight)), alpha = 0.2) +
+        geom_ribbon(data = poll_averages_unadjusted, aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
                     alpha = 0.2, show.legend = FALSE) +
-        geom_line(data = poll_averages_unadjusted %>% arrange(Party), aes(x = date, y = pct, col = Party)) +
+        geom_point_interactive(data = poll_averages_unadjusted, aes(x = date, y = pct, col = Party, tooltip = description), size = 0.5) +
+        geom_line(data = poll_averages_unadjusted, aes(x = date, y = pct, group = Party, col = Party)) +
         scale_colour_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
                                                        "People's" = "midnightblue")) +
         scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
@@ -323,7 +333,7 @@ server <- function(input, output) {
         labs(title = "Forecast over time", x = "Date", y = "Probability")),
         width_svg = 11
         )
-      } else if(input$graph_type == "Current forecast by party")
+      }
   })
 }
 
