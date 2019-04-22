@@ -68,6 +68,12 @@ predictions %>%
   summarise(seats = n()) %>%
   spread(winner, seats)
 
+## Last time
+predictions %>%
+  group_by(last_winner, region) %>%
+  summarise(seats = n()) %>%
+  spread(last_winner, seats)
+
 ## Predicted seat flips
 predictions %>%
   group_by(winner, last_winner) %>%

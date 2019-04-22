@@ -112,7 +112,8 @@ ui <- fluidPage(
         ## Main panel: can display map or graphs
         mainPanel = mainPanel(leafletOutput("forecastmap", height = 700, width = "100%"),
                               hr(),
-                              ggiraphOutput("forecast_breakdown", width = "150%", height = "400px")),
+                              conditionalPanel("input.forecastmap_shape_click", 
+                                               ggiraphOutput("forecast_breakdown", width = "150%", height = "400px"))),
         
         ## Sidebar
         sidebarPanel(tags$h4("Current forecast"),
@@ -135,7 +136,7 @@ ui <- fluidPage(
                      ),
                      
                      ## Select province and show district menu
-                     inputPanel(selectInput(inputId = "province_select", label = "Province", choices = c("Choose a province or territory", provinces), 
+                     inputPanel(selectInput(inputId = "province_select", label = "Find a riding", choices = c("Choose a province or territory", provinces), 
                                             selected = "Choose a province or territory"),
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
                                 uiOutput("riding_menu"),
@@ -143,7 +144,7 @@ ui <- fluidPage(
                                 conditionalPanel(condition = "input.riding_menu !== 'Choose a riding'",
                                                  actionButton("go_district", "Go!")),
                                 tags$head(tags$style(HTML(".selectize-input {width: 400px;}"))),
-                                uiOutput("party_menu")
+                                selectInput("party_select", label = "Party", choices = c("Liberal", "Conservative", "NDP", "Green", "Bloc"))
                                 ),
                                 hr(),
                                 hr(),
@@ -191,11 +192,6 @@ server <- function(input, output) {
   output$riding_menu <- renderUI({
     selectInput("riding_select", label = "Riding", choices = c("Choose a riding", district_codes[provinces == input$province_select]))
   })
-  
-  ## Parties available
-  output$party_menu <- renderUI({
-    selectInput("party_select", label = "Party", choices = c("Liberal", "Conservative", "NDP", "Green", "Bloc"))
-  })
 
   # Forecast map
   output$forecastmap <- renderLeaflet({
@@ -237,16 +233,10 @@ server <- function(input, output) {
       }
     )
   
-  ## Switch party when user changes the party menu
-  observeEvent(
-    input$party_select,
-    handlerExpr = {
-      selected_party <- input$party_select
-    })
-  
   ## Forecast breakdown
-  forecastBreakdown <- eventReactive(
-    input$forecastmap_shape_click,
+  forecastBreakdown <- eventReactive( # react to either a click on the map or a district selection
+    {input$forecastmap_shape_click
+      input$party_select},
     valueExpr = {
       girafe(ggobj = make_waterfall_plot(make_waterfall_data(as.numeric(input$forecastmap_shape_click$id), input$party_select)),
              pointsize = 16, width_svg = 12, height_svg = 4)
@@ -274,7 +264,7 @@ server <- function(input, output) {
         geom_point(aes(size = sqrt(loess_weight)), alpha = 0.2) +
         geom_ribbon(data = poll_averages_adjusted, aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
                     alpha = 0.2, show.legend = FALSE) +
-        geom_point_interactive(data = poll_averages_unadjusted, aes(x = date, y = pct, col = Party, tooltip = description), size = 0.5) +
+        geom_point_interactive(data = poll_averages_adjusted, aes(x = date, y = pct, col = Party, tooltip = description), size = 0.5) +
         geom_line(data = poll_averages_adjusted, aes(x = date, y = pct, group = Party, col = Party)) +
         scale_colour_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
                                                        "People's" = "midnightblue")) +
