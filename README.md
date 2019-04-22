@@ -31,3 +31,8 @@ Current status: prettifying the RShiny app.
 - **Data**: Raw data downloaded from websites (see repo wiki). After processing, the processed versions are saved to the Processed directory. Also, shapefiles for creating maps.
 - **Output**: Things generally for publication.
 
+## Acknowledgments
+Thanks are in order to:
+- Imane Baitsa and Jérémie Darrieu at Statistics Canada for pointing me to some archived data sources on the StatCan website;
+- [Kaushik Mohan](https://github.com/kaushik12) for his R Shiny assistance; and
+- [Gabriel Guzman](https://github.com/gabriel1200) for light QA on the Shiny app.
