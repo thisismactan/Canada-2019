@@ -34,7 +34,15 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
   merge(PPC_distribution %>% dplyr::select(-name_english), by.x = "FED_NUM", by.y = "district_code", all.x = TRUE) %>%
   merge(district_probs %>% dplyr::select(-name_english), by.x = "FED_NUM", by.y = "district_code", all.x = TRUE) %>%
   merge(read_csv("Data/incumbents.csv") %>% dplyr::select(-name_english), by.x = "FED_NUM", by.y = "district_code", all.x = TRUE) %>%
-  merge(cands_2019, by.x = "FED_NUM", by.y = "district_code") %>%
+  merge(read_csv("Data/candidates_2019.csv") %>% 
+          filter(party %in% c("Liberal", "Conservative", "Green", "NDP", "People's", "Bloc")) %>%
+          mutate(candidate = case_when(is.na(candidate_last) ~ "TBD",
+                                       !is.na(candidate_last) ~ paste(candidate_first, candidate_last))) %>%
+          dplyr::select(district_code, party, candidate) %>%
+          spread(party, candidate) %>%
+          replace_na(list(district_code = NA, Bloc = "TBD", Conservative = "TBD", Green = "TBD", Liberal = "TBD", NDP = "TBD", `People's` = "TBD")) %>%
+          dplyr::select(district_code, LPC_cand = Liberal, CPC_cand = Conservative, NDP_cand = NDP, Green_cand = Green, Bloc_cand = Bloc, PPC_cand = `People's`), 
+        by.x = "FED_NUM", by.y = "district_code") %>%
   as.data.frame() %>%
   mutate(max_prob = pmax(LPC_prob, CPC_prob, NDP_prob, Bloc_prob, Green_prob, PPC_prob),
          predicted_winner = case_when(LPC_prob == max_prob ~ "Liberal",

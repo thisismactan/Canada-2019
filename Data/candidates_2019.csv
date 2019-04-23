@@ -31,7 +31,7 @@
 11001,Cardigan,Cardigan,NDP,,
 11001,Cardigan,Cardigan,Green,,
 11001,Cardigan,Cardigan,Liberal,MacAulay,Lawrence
-11001,Cardigan,Cardigan,Conservative,,
+11001,Cardigan,Cardigan,Conservative,Patkai,Julius
 11001,Cardigan,Cardigan,Christian Heritage,,
 11002,Charlottetown,Charlottetown,NDP,,
 11002,Charlottetown,Charlottetown,Liberal,Casey,Sean
@@ -115,11 +115,11 @@
 13005,Madawaska--Restigouche,Madawaska--Restigouche,Liberal,Arseneault,René
 13005,Madawaska--Restigouche,Madawaska--Restigouche,Green,,
 13005,Madawaska--Restigouche,Madawaska--Restigouche,NDP,,
-13005,Madawaska--Restigouche,Madawaska--Restigouche,Conservative,,
+13005,Madawaska--Restigouche,Madawaska--Restigouche,Conservative,Fox,Nelson
 13006,Miramichi--Grand Lake,Miramichi--Grand Lake,Green,,
 13006,Miramichi--Grand Lake,Miramichi--Grand Lake,NDP,,
 13006,Miramichi--Grand Lake,Miramichi--Grand Lake,Liberal,Finnigan,Pat
-13006,Miramichi--Grand Lake,Miramichi--Grand Lake,Conservative,Ingersoll,Shawn
+13006,Miramichi--Grand Lake,Miramichi--Grand Lake,Conservative,Mackenzie,Allison Richardson
 13007,Moncton--Riverview--Dieppe,Moncton--Riverview--Dieppe,Conservative,Godin-Charest,Sylvie
 13007,Moncton--Riverview--Dieppe,Moncton--Riverview--Dieppe,NDP,,
 13007,Moncton--Riverview--Dieppe,Moncton--Riverview--Dieppe,Green,,
@@ -146,8 +146,8 @@
 24002,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Conservative,Provencher,Mario
 24002,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Rhinoceros,,
 24002,Abitibi--Témiscamingue,Abitibi--Témiscamingue,NDP,Moore,Christine
-24002,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Bloc,,
-24002,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Liberal,,
+24002,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Bloc,Lemire,Sébastien
+24002,Abitibi--Témiscamingue,Abitibi--Témiscamingue,Liberal,Thibault,Claude
 24003,Ahuntsic-Cartierville,Ahuntsic-Cartierville,Bloc,,
 24003,Ahuntsic-Cartierville,Ahuntsic-Cartierville,Rhinoceros,,
 24003,Ahuntsic-Cartierville,Ahuntsic-Cartierville,Liberal,Joly,Mélanie
@@ -156,9 +156,9 @@
 24003,Ahuntsic-Cartierville,Ahuntsic-Cartierville,NDP,,
 24004,Alfred-Pellan,Alfred-Pellan,Green,,
 24004,Alfred-Pellan,Alfred-Pellan,NDP,,
-24004,Alfred-Pellan,Alfred-Pellan,Liberal,,
+24004,Alfred-Pellan,Alfred-Pellan,Liberal,Iacono,Angelo
 24004,Alfred-Pellan,Alfred-Pellan,Independent,,
-24004,Alfred-Pellan,Alfred-Pellan,Conservative,,
+24004,Alfred-Pellan,Alfred-Pellan,Conservative,Esposito,Angel
 24004,Alfred-Pellan,Alfred-Pellan,Bloc,,
 24005,Argenteuil--La Petite-Nation,Argenteuil--La Petite-Nation,Bloc,,
 24005,Argenteuil--La Petite-Nation,Argenteuil--La Petite-Nation,NDP,,
@@ -231,7 +231,7 @@
 24016,Brome--Missisquoi,Brome--Missisquoi,Green,,
 24016,Brome--Missisquoi,Brome--Missisquoi,Forces,,
 24016,Brome--Missisquoi,Brome--Missisquoi,Liberal,Paradis,Denis
-24016,Brome--Missisquoi,Brome--Missisquoi,Conservative,,
+24016,Brome--Missisquoi,Brome--Missisquoi,Conservative,Côté,Bruno
 24017,Brossard--Saint-Lambert,Brossard--Saint-Lambert,Conservative,Hoa,Glenn
 24017,Brossard--Saint-Lambert,Brossard--Saint-Lambert,Green,,
 24017,Brossard--Saint-Lambert,Brossard--Saint-Lambert,Bloc,,
@@ -260,7 +260,7 @@
 24021,Châteauguay--Lacolle,Châteauguay--Lacolle,Bloc,,
 24021,Châteauguay--Lacolle,Châteauguay--Lacolle,Conservative,Laplante,Hugues
 24021,Châteauguay--Lacolle,Châteauguay--Lacolle,Marxist-Leninist,,
-24022,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,Bloc,,
+24022,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,Bloc,Tremblay,Valérie
 24022,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,Liberal,,
 24022,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,NDP,,
 24022,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,Conservative,Martel,Richard
@@ -298,7 +298,7 @@
 24028,Hochelaga,Hochelaga,Marxist-Leninist,,
 24028,Hochelaga,Hochelaga,Conservative,Marcoux,Christine
 24028,Hochelaga,Hochelaga,Rhinoceros,,
-24028,Hochelaga,Hochelaga,Bloc,,
+24028,Hochelaga,Hochelaga,Bloc,Marchand,Simon
 24028,Hochelaga,Hochelaga,Liberal,Martinez Ferrada,Soraya
 24028,Hochelaga,Hochelaga,Green,,
 24029,Honoré-Mercier,Honoré-Mercier,NDP,,
@@ -341,7 +341,7 @@
 24034,La Prairie,La Prairie,Liberal,Poissant,Jean-Claude
 24034,La Prairie,La Prairie,Green,,
 24035,Lac-Saint-Jean,Lac-Saint-Jean,NDP,,
-24035,Lac-Saint-Jean,Lac-Saint-Jean,Bloc,,
+24035,Lac-Saint-Jean,Lac-Saint-Jean,Bloc,Duceppe,Alexis
 24035,Lac-Saint-Jean,Lac-Saint-Jean,Conservative,Fradette,Jocelyn
 24035,Lac-Saint-Jean,Lac-Saint-Jean,Green,,
 24035,Lac-Saint-Jean,Lac-Saint-Jean,Liberal,Hébert,Richard
@@ -359,10 +359,10 @@
 24038,Laurentides--Labelle,Laurentides--Labelle,Liberal,Graham,David
 24038,Laurentides--Labelle,Laurentides--Labelle,Green,,
 24038,Laurentides--Labelle,Laurentides--Labelle,NDP,,
-24038,Laurentides--Labelle,Laurentides--Labelle,Bloc,,
+24038,Laurentides--Labelle,Laurentides--Labelle,Bloc,Gervais,Samuel
 24039,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Libertarian,,
 24039,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Independent,,
-24039,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Bloc,,
+24039,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Bloc,Duchesne,Michel
 24039,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Communist,,
 24039,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Conservative,,
 24039,Laurier--Sainte-Marie,Laurier--Sainte-Marie,Green,,
@@ -418,8 +418,8 @@
 24048,Mirabel,Mirabel,Conservative,Desrochers,François
 24048,Mirabel,Mirabel,NDP,,
 24048,Mirabel,Mirabel,Green,,
-24048,Mirabel,Mirabel,Bloc,,
-24048,Mirabel,Mirabel,Liberal,Lauzon,Stéphane
+24048,Mirabel,Mirabel,Bloc,Marcil,Simon
+24048,Mirabel,Mirabel,Liberal,,
 24049,Montarville,Montarville,Green,,
 24049,Montarville,Montarville,Conservative,Sauvageau,Julie
 24049,Montarville,Montarville,Bloc,,
@@ -558,7 +558,7 @@
 24070,Saint-Maurice--Champlain,Saint-Maurice--Champlain,Conservative,,
 24070,Saint-Maurice--Champlain,Saint-Maurice--Champlain,Green,,
 24070,Saint-Maurice--Champlain,Saint-Maurice--Champlain,NDP,,
-24071,Salaberry--Suroît,Salaberry--Suroît,Bloc,,
+24071,Salaberry--Suroît,Salaberry--Suroît,Bloc,DeBellefeuille,Claude
 24071,Salaberry--Suroît,Salaberry--Suroît,Conservative,Larivière,Cynthia
 24071,Salaberry--Suroît,Salaberry--Suroît,Forces,,
 24071,Salaberry--Suroît,Salaberry--Suroît,Independent,,
@@ -641,7 +641,7 @@
 35007,Beaches--East York,Beaches--East York,Conservative,Nazeer,Nadirah
 35007,Beaches--East York,Beaches--East York,Marxist-Leninist,,
 35007,Beaches--East York,Beaches--East York,Liberal,Erskine-Smith,Nathaniel
-35007,Beaches--East York,Beaches--East York,NDP,,
+35007,Beaches--East York,Beaches--East York,NDP,Nam,Mae
 35007,Beaches--East York,Beaches--East York,Green,,
 35007,Beaches--East York,Beaches--East York,Independent,,
 35007,Beaches--East York,Beaches--East York,Independent,,
@@ -657,11 +657,11 @@
 35010,Brampton North,Brampton-Nord,Conservative,Khanna,Arpan
 35010,Brampton North,Brampton-Nord,Communist,,
 35010,Brampton North,Brampton-Nord,Liberal,Sahota,Ruby
-35010,Brampton North,Brampton-Nord,NDP,,
+35010,Brampton North,Brampton-Nord,NDP,Sandhu,Jaskaran
 35010,Brampton North,Brampton-Nord,Green,,
 35011,Brampton South,Brampton-Sud,Green,,
 35011,Brampton South,Brampton-Sud,NDP,,
-35011,Brampton South,Brampton-Sud,Conservative,,
+35011,Brampton South,Brampton-Sud,Conservative,Brar,Ramandeep
 35011,Brampton South,Brampton-Sud,Liberal,Sidhu,Sonia
 35012,Brampton West,Brampton-Ouest,Green,,
 35012,Brampton West,Brampton-Ouest,Liberal,Khera,Kamal
@@ -675,8 +675,9 @@
 35013,Brantford--Brant,Brantford--Brant,Independent,,
 35014,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,Green,Valiquette,Danielle
 35014,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,Liberal,,
-35014,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,NDP,,
+35014,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,NDP,Stephen,Christopher
 35014,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,Conservative,,
+35014,Bruce--Grey--Owen Sound,Bruce--Grey--Owen Sound,People's,Townsend,Bill
 35015,Burlington,Burlington,Green,,
 35015,Burlington,Burlington,Liberal,Gould,Karina
 35015,Burlington,Burlington,NDP,,
@@ -685,7 +686,6 @@
 35016,Cambridge,Cambridge,People's,Haskell,David
 35016,Cambridge,Cambridge,Conservative,Attwal,Sunny
 35016,Cambridge,Cambridge,Liberal,May,Bryan
-35016,Cambridge,Cambridge,Independent,,
 35016,Cambridge,Cambridge,NDP,Hamilton,Scott
 35017,Chatham-Kent--Leamington,Chatham-Kent--Leamington,Liberal,Omstead,Katie
 35017,Chatham-Kent--Leamington,Chatham-Kent--Leamington,Conservative,Epp,David
@@ -725,8 +725,8 @@
 35024,Eglinton--Lawrence,Eglinton--Lawrence,Libertarian,,
 35024,Eglinton--Lawrence,Eglinton--Lawrence,Green,,
 35024,Eglinton--Lawrence,Eglinton--Lawrence,Liberal,Mendicino,Marco
-35024,Eglinton--Lawrence,Eglinton--Lawrence,Conservative,,
-35024,Eglinton--Lawrence,Eglinton--Lawrence,NDP,,
+35024,Eglinton--Lawrence,Eglinton--Lawrence,Conservative,Aryeh-Bain,Chani
+35024,Eglinton--Lawrence,Eglinton--Lawrence,NDP,Nash,Alexandra
 35025,Elgin--Middlesex--London,Elgin--Middlesex--London,Liberal,,
 35025,Elgin--Middlesex--London,Elgin--Middlesex--London,Rhinoceros,,
 35025,Elgin--Middlesex--London,Elgin--Middlesex--London,Christian Heritage,,
@@ -741,7 +741,6 @@
 35027,Etobicoke Centre,Etobicoke-Centre,NDP,,
 35027,Etobicoke Centre,Etobicoke-Centre,Conservative,Opitz,Ted
 35027,Etobicoke Centre,Etobicoke-Centre,Green,,
-35027,Etobicoke Centre,Etobicoke-Centre,Progressive Canadian,,
 35027,Etobicoke Centre,Etobicoke-Centre,Liberal,Baker,Yvan
 35028,Etobicoke--Lakeshore,Etobicoke--Lakeshore,Liberal,Maloney,James
 35028,Etobicoke--Lakeshore,Etobicoke--Lakeshore,Marxist-Leninist,,
@@ -836,7 +835,7 @@
 35045,Kitchener Centre,Kitchener-Centre,Libertarian,,
 35045,Kitchener Centre,Kitchener-Centre,Liberal,Saini,Raj
 35045,Kitchener Centre,Kitchener-Centre,Green,Morrice,Mike
-35045,Kitchener Centre,Kitchener-Centre,Conservative,,
+35045,Kitchener Centre,Kitchener-Centre,Conservative,Woodworth,Stephen
 35046,Kitchener--Conestoga,Kitchener--Conestoga,Conservative,Albrecht,Harold
 35046,Kitchener--Conestoga,Kitchener--Conestoga,Libertarian,,
 35046,Kitchener--Conestoga,Kitchener--Conestoga,Green,Goertz,Stephanie
@@ -855,7 +854,7 @@
 35049,Lanark--Frontenac--Kingston,Lanark--Frontenac--Kingston,Liberal,,
 35049,Lanark--Frontenac--Kingston,Lanark--Frontenac--Kingston,People's,Theoret,John
 35049,Lanark--Frontenac--Kingston,Lanark--Frontenac--Kingston,NDP,,
-35049,Lanark--Frontenac--Kingston,Lanark--Frontenac--Kingston,Green,,
+35049,Lanark--Frontenac--Kingston,Lanark--Frontenac--Kingston,Green,Kotze,Stephen
 35049,Lanark--Frontenac--Kingston,Lanark--Frontenac--Kingston,Conservative,Reid,Scott
 35050,Leeds-Grenville-Thousand Islands and Rideau Lakes,Leeds-Grenville-Thousand Islands et Rideau Lakes,NDP,,
 35050,Leeds-Grenville-Thousand Islands and Rideau Lakes,Leeds-Grenville-Thousand Islands et Rideau Lakes,Conservative,Brarrett,Michael
@@ -897,7 +896,7 @@
 35058,Mississauga Centre,Mississauga-Centre,Liberal,Algahabra,Omar
 35058,Mississauga Centre,Mississauga-Centre,NDP,,
 35058,Mississauga Centre,Mississauga-Centre,Green,,
-35058,Mississauga Centre,Mississauga-Centre,Conservative,,
+35058,Mississauga Centre,Mississauga-Centre,Conservative,Mikael,Milad
 35059,Mississauga East--Cooksville,Mississauga-Est--Cooksville,Green,,
 35059,Mississauga East--Cooksville,Mississauga-Est--Cooksville,Liberal,Fonseca,Peter
 35059,Mississauga East--Cooksville,Mississauga-Est--Cooksville,Conservative,Lizon,Wladyslaw
@@ -914,7 +913,7 @@
 35061,Mississauga--Lakeshore,Mississauga--Lakeshore,Marxist-Leninist,,
 35061,Mississauga--Lakeshore,Mississauga--Lakeshore,Libertarian,,
 35062,Mississauga--Malton,Mississauga--Malton,Liberal,Bains,Navdeep
-35062,Mississauga--Malton,Mississauga--Malton,NDP,,
+35062,Mississauga--Malton,Mississauga--Malton,NDP,Clarke,Nikki
 35062,Mississauga--Malton,Mississauga--Malton,Conservative,,
 35062,Mississauga--Malton,Mississauga--Malton,Green,,
 35062,Mississauga--Malton,Mississauga--Malton,Independent,,
@@ -936,10 +935,9 @@
 35065,Newmarket--Aurora,Newmarket--Aurora,NDP,,
 35065,Newmarket--Aurora,Newmarket--Aurora,Green,,
 35065,Newmarket--Aurora,Newmarket--Aurora,Liberal,,
-35066,Niagara Centre,Niagara-Centre,NDP,,
+35066,Niagara Centre,Niagara-Centre,NDP,Allen,Malcolm
 35066,Niagara Centre,Niagara-Centre,Liberal,Badawey,Vance
 35066,Niagara Centre,Niagara-Centre,Green,,
-35066,Niagara Centre,Niagara-Centre,Animal Alliance Environment Voters,,
 35066,Niagara Centre,Niagara-Centre,Conservative,Jeffs,April
 35066,Niagara Centre,Niagara-Centre,Marxist-Leninist,,
 35067,Niagara Falls,Niagara Falls,NDP,,
@@ -967,7 +965,7 @@
 35071,Northumberland--Peterborough South,Northumberland--Peterborough-Sud,Green,Wheeldon,Jeff
 35072,Oakville,Oakville,Green,,
 35072,Oakville,Oakville,NDP,,
-35072,Oakville,Oakville,Liberal,Anand,Anita
+35072,Oakville,Oakville,Liberal,,
 35072,Oakville,Oakville,Conservative,Young,Terence
 35073,Oakville North--Burlington,Oakville-Nord--Burlington,NDP,,
 35073,Oakville North--Burlington,Oakville-Nord--Burlington,Libertarian,,
@@ -1012,7 +1010,7 @@
 35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Liberal,Vandenbeld,Anita
 35080,Oxford,Oxford,People's,,
 35080,Oxford,Oxford,Green,,
-35080,Oxford,Oxford,NDP,,
+35080,Oxford,Oxford,NDP,Chambers,Matthew
 35080,Oxford,Oxford,Conservative,MacKenzie,Dave
 35080,Oxford,Oxford,Liberal,,
 35081,Parkdale--High Park,Parkdale--High Park,Conservative,Pham,Ngoc
@@ -1024,10 +1022,10 @@
 35081,Parkdale--High Park,Parkdale--High Park,Independent,,
 35081,Parkdale--High Park,Parkdale--High Park,Liberal,Virani,Arif
 35082,Parry Sound--Muskoka,Parry Sound--Muskoka,Pirate,,
-35082,Parry Sound--Muskoka,Parry Sound--Muskoka,Conservative,Aitchison,Scott
+35082,Parry Sound--Muskoka,Parry Sound--Muskoka,Conservative,,
 35082,Parry Sound--Muskoka,Parry Sound--Muskoka,Liberal,Cowie,Trisha
 35082,Parry Sound--Muskoka,Parry Sound--Muskoka,Green,,
-35082,Parry Sound--Muskoka,Parry Sound--Muskoka,NDP,,
+35082,Parry Sound--Muskoka,Parry Sound--Muskoka,NDP,Young,Tom
 35082,Parry Sound--Muskoka,Parry Sound--Muskoka,Canadian Action,,
 35082,Parry Sound--Muskoka,Parry Sound--Muskoka,Marxist-Leninist,,
 35083,Perth--Wellington,Perth--Wellington,Christian Heritage,,
@@ -1073,7 +1071,7 @@
 35091,Sarnia--Lambton,Sarnia--Lambton,Liberal,,
 35091,Sarnia--Lambton,Sarnia--Lambton,Green,,
 35092,Sault Ste. Marie,Sault Ste. Marie,Green,,
-35092,Sault Ste. Marie,Sault Ste. Marie,Conservative,,
+35092,Sault Ste. Marie,Sault Ste. Marie,Conservative,Spina,Sonny
 35092,Sault Ste. Marie,Sault Ste. Marie,NDP,,
 35092,Sault Ste. Marie,Sault Ste. Marie,Liberal,Sheehan,Terry
 35092,Sault Ste. Marie,Sault Ste. Marie,Marxist-Leninist,,
@@ -1114,7 +1112,7 @@
 35099,Simcoe--Grey,Simcoe--Grey,Christian Heritage,,
 35100,Simcoe North,Simcoe-Nord,NDP,,
 35100,Simcoe North,Simcoe-Nord,No affiliation,,
-35100,Simcoe North,Simcoe-Nord,Liberal,Hawes,Gerry
+35100,Simcoe North,Simcoe-Nord,Liberal,,
 35100,Simcoe North,Simcoe-Nord,Conservative,Stanton,Bruce
 35100,Simcoe North,Simcoe-Nord,Green,,
 35100,Simcoe North,Simcoe-Nord,Christian Heritage,,
@@ -1137,7 +1135,7 @@
 35103,Sudbury,Sudbury,Conservative,,
 35104,Thornhill,Thornhill,Libertarian,,
 35104,Thornhill,Thornhill,NDP,,
-35104,Thornhill,Thornhill,Liberal,,
+35104,Thornhill,Thornhill,Liberal,Gladstone,Gary
 35104,Thornhill,Thornhill,Seniors,,
 35104,Thornhill,Thornhill,Conservative,Kent,Peter
 35104,Thornhill,Thornhill,Green,,
@@ -1145,7 +1143,7 @@
 35105,Thunder Bay--Rainy River,Thunder Bay--Rainy River,Green,,
 35105,Thunder Bay--Rainy River,Thunder Bay--Rainy River,NDP,,
 35105,Thunder Bay--Rainy River,Thunder Bay--Rainy River,Liberal,Ch'ng,Shelby
-35106,Thunder Bay--Superior North,Thunder Bay--Supérieur-Nord,NDP,,
+35106,Thunder Bay--Superior North,Thunder Bay--Supérieur-Nord,NDP,Achneepineskum,Anna
 35106,Thunder Bay--Superior North,Thunder Bay--Supérieur-Nord,Liberal,Hajdu,Patty
 35106,Thunder Bay--Superior North,Thunder Bay--Supérieur-Nord,Conservative,,
 35106,Thunder Bay--Superior North,Thunder Bay--Supérieur-Nord,Green,,
@@ -1177,7 +1175,7 @@
 35110,University--Rosedale,University--Rosedale,Libertarian,,
 35110,University--Rosedale,University--Rosedale,Green,,
 35111,Vaughan--Woodbridge,Vaughan--Woodbridge,Green,,
-35111,Vaughan--Woodbridge,Vaughan--Woodbridge,Conservative,,
+35111,Vaughan--Woodbridge,Vaughan--Woodbridge,Conservative,Kruze,Teresa
 35111,Vaughan--Woodbridge,Vaughan--Woodbridge,Libertarian,,
 35111,Vaughan--Woodbridge,Vaughan--Woodbridge,Liberal,Sorbara,Francesco
 35111,Vaughan--Woodbridge,Vaughan--Woodbridge,NDP,,
@@ -1230,7 +1228,7 @@
 35121,Humber River--Black Creek,Humber River--Black Creek,Liberal,Sgro,Judy
 35121,Humber River--Black Creek,Humber River--Black Creek,Conservative,Choudry,Iftikhar
 46001,Brandon--Souris,Brandon--Souris,Conservative,Maguire,Larry
-46001,Brandon--Souris,Brandon--Souris,Green,,
+46001,Brandon--Souris,Brandon--Souris,Green,Tiessen,Bill
 46001,Brandon--Souris,Brandon--Souris,NDP,,
 46001,Brandon--Souris,Brandon--Souris,Liberal,,
 46002,Charleswood--St. James--Assiniboia--Headingley,Charleswood--St. James--Assiniboia--Headingley,Liberal,Eyolfson,Doug
@@ -1268,7 +1266,7 @@
 46008,Provencher,Provencher,Green,Gibson,Janine
 46009,Saint Boniface--Saint Vital,Saint-Boniface--Saint-Vital,Conservative,Caron,Rejeanne
 46009,Saint Boniface--Saint Vital,Saint-Boniface--Saint-Vital,NDP,,
-46009,Saint Boniface--Saint Vital,Saint-Boniface--Saint-Vital,Liberal,Vandal,Daniel
+46009,Saint Boniface--Saint Vital,Saint-Boniface--Saint-Vital,Liberal,Vandal,Dan
 46009,Saint Boniface--Saint Vital,Saint-Boniface--Saint-Vital,Green,,
 46010,Selkirk--Interlake--Eastman,Selkirk--Interlake--Eastman,Conservative,Bezan,James
 46010,Selkirk--Interlake--Eastman,Selkirk--Interlake--Eastman,NDP,,
@@ -1334,7 +1332,7 @@
 47009,Regina--Wascana,Regina--Wascana,Green,,
 47010,Saskatoon--Grasswood,Saskatoon--Grasswood,NDP,,
 47010,Saskatoon--Grasswood,Saskatoon--Grasswood,Green,,
-47010,Saskatoon--Grasswood,Saskatoon--Grasswood,Liberal,,
+47010,Saskatoon--Grasswood,Saskatoon--Grasswood,Liberal,Muggli,Tracy
 47010,Saskatoon--Grasswood,Saskatoon--Grasswood,Conservative,Waugh,Kevin
 47010,Saskatoon--Grasswood,Saskatoon--Grasswood,People's,,
 47011,Saskatoon--University,Saskatoon--University,Liberal,,
@@ -1522,13 +1520,13 @@
 48028,Peace River--Westlock,Peace River--Westlock,Green,,
 48028,Peace River--Westlock,Peace River--Westlock,Libertarian,,
 48028,Peace River--Westlock,Peace River--Westlock,Conservative,Viersen,Arnold
-48029,Red Deer--Mountain View,Red Deer--Mountain View,Conservative,Calkins,Blaine
+48029,Red Deer--Mountain View,Red Deer--Mountain View,Conservative,Dreeshen,Earl
 48029,Red Deer--Mountain View,Red Deer--Mountain View,NDP,,
 48029,Red Deer--Mountain View,Red Deer--Mountain View,Liberal,,
-48029,Red Deer--Mountain View,Red Deer--Mountain View,People's,Vaillant,Ron
+48029,Red Deer--Mountain View,Red Deer--Mountain View,People's,,
 48029,Red Deer--Mountain View,Red Deer--Mountain View,Green,,
-48029,Red Deer--Mountain View,Red Deer--Mountain View,Libertarian,,
-48030,Red Deer--Lacombe,Red Deer--Lacombe,Conservative,,
+48030,Red Deer--Lacombe,Red Deer--Lacombe,People's,Vaillant,Ron
+48030,Red Deer--Lacombe,Red Deer--Lacombe,Conservative,Calkins,Blaine
 48030,Red Deer--Lacombe,Red Deer--Lacombe,NDP,,
 48030,Red Deer--Lacombe,Red Deer--Lacombe,Green,,
 48030,Red Deer--Lacombe,Red Deer--Lacombe,Liberal,,
@@ -1581,7 +1579,7 @@
 59005,Central Okanagan--Similkameen--Nicola,Central Okanagan--Similkameen--Nicola,Conservative,Albas,Dane
 59005,Central Okanagan--Similkameen--Nicola,Central Okanagan--Similkameen--Nicola,Green,,
 59005,Central Okanagan--Similkameen--Nicola,Central Okanagan--Similkameen--Nicola,Liberal,Murphy,Mary Ann
-59005,Central Okanagan--Similkameen--Nicola,Central Okanagan--Similkameen--Nicola,NDP,,
+59005,Central Okanagan--Similkameen--Nicola,Central Okanagan--Similkameen--Nicola,NDP,Phillip,Joan
 59006,Chilliwack--Hope,Chilliwack--Hope,Green,,
 59006,Chilliwack--Hope,Chilliwack--Hope,Liberal,,
 59006,Chilliwack--Hope,Chilliwack--Hope,Libertarian,,
@@ -1632,7 +1630,7 @@
 59016,Langley--Aldergrove,Langley--Aldergrove,Libertarian,,
 59016,Langley--Aldergrove,Langley--Aldergrove,Conservative,,
 59017,Mission--Matsqui--Fraser Canyon,Mission--Matsqui--Fraser Canyon,NDP,,
-59017,Mission--Matsqui--Fraser Canyon,Mission--Matsqui--Fraser Canyon,Green,,
+59017,Mission--Matsqui--Fraser Canyon,Mission--Matsqui--Fraser Canyon,Green,Kidder,John
 59017,Mission--Matsqui--Fraser Canyon,Mission--Matsqui--Fraser Canyon,Independent,,
 59017,Mission--Matsqui--Fraser Canyon,Mission--Matsqui--Fraser Canyon,Liberal,Sidhu,Jati
 59017,Mission--Matsqui--Fraser Canyon,Mission--Matsqui--Fraser Canyon,Conservative,Vis,Brad
@@ -1763,7 +1761,7 @@
 59040,Vancouver South,Vancouver-Sud,Conservative,,
 59041,Victoria,Victoria,Independent,,
 59041,Victoria,Victoria,Libertarian,,
-59041,Victoria,Victoria,NDP,,
+59041,Victoria,Victoria,NDP,Collins,Laurel
 59041,Victoria,Victoria,Animal Alliance Environment Voters,,
 59041,Victoria,Victoria,Conservative,,
 59041,Victoria,Victoria,Green,Kooy,Racelle
@@ -1782,7 +1780,7 @@
 61001,Northwest Territories,Territoires du Nord-Ouest,Liberal,McLeod,Michael
 61001,Northwest Territories,Territoires du Nord-Ouest,Green,,
 61001,Northwest Territories,Territoires du Nord-Ouest,Conservative,,
-62001,Nunavut,Nunavut,Conservative,,
+62001,Nunavut,Nunavut,Conservative,Aglukkaq,Leona
 62001,Nunavut,Nunavut,NDP,,
 62001,Nunavut,Nunavut,Green,,
-62001,Nunavut,Nunavut,Liberal,,
+62001,Nunavut,Nunavut,Liberal,Pizzo-Lyall,Megan

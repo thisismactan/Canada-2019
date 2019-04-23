@@ -63,6 +63,10 @@ canada_flips <- canada_districts_latlong %>%
 data_2019 <- read_rds("data_2019.rds")
 models_list <- read_rds("models.rds")
 
+seat_simulations <- read_rds("seat_simulations.rds") %>%
+  melt(id.vars = c("simulation", "most_seats", "type_of_win"), variable.name = "party", value.name = "seats") %>%
+  mutate(round_seats = 5*floor(value/5))
+
 ## Define waterfall functions
 source("waterfall.R")
 
@@ -164,7 +168,8 @@ ui <- fluidPage(
                                     radioButtons("graph_type",
                                                  label = "Graph",
                                                  choices = c("National polls",
-                                                             "Forecast over time")
+                                                             "Forecast over time",
+                                                             "Seat distributions")
                                                  ),
                                     conditionalPanel(condition = "input.graph_type == 'National polls'",
                                                      sliderInput("date_range_polls", "Date range", min = as.Date("2015-10-19"), max = as.Date("2019-10-21"),
@@ -176,9 +181,8 @@ ui <- fluidPage(
                                     ),
                                     conditionalPanel(condition = "input.graph_type == 'Forecast over time'",
                                                      sliderInput("date_range_probs", "Date range", min = as.Date("2019-04-17"), max = as.Date("2019-10-21"),
-                                                                 value = as.Date(c("2019-04-17", "2019-10-21"))
-                                                                 )
-                                                     )
+                                                                 value = as.Date(c("2019-04-17", "2019-10-21")))),
+                                    conditionalPanel(condition = "input.graph_type == 'Seat distributions'")
                                     ),
         position = "right")
       )
