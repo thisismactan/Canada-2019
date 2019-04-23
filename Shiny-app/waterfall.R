@@ -522,7 +522,6 @@ make_waterfall_plot <- function(waterfall_data) {
     } else if(nrow(waterfall_data) == 338) {
       waterfall_plot <- ggplot() + theme_minimal()
     }
-  }
   
   return(waterfall_plot)
 }

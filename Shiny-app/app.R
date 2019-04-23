@@ -12,16 +12,8 @@ library(lwgeom)
 
 ## Read in things
 outcome_probs <- read_rds("outcome_probs.rds")
-national_polls_unadjusted <- read_rds("national_polls.rds") %>%
-  mutate(description = paste0(pollster, ", ", date, "\n",
-                              "LPC: ", round(LPC,0), "%\n",
-                              "CPC: ", round(CPC,0), "%\n",
-                              "NDP: ", round(NDP,0), "%\n"))
-national_polls_adjusted <- read_rds("national_polls_adjusted.rds")%>%
-  mutate(description = paste0(pollster, ", ", date, "\n",
-                              "LPC: ", round(LPC,0), "%\n",
-                              "CPC: ", round(CPC,0), "%\n",
-                              "NDP: ", round(NDP,0), "%\n"))
+national_polls_unadjusted <- read_rds("national_polls.rds")
+national_polls_adjusted <- read_rds("national_polls_adjusted.rds")
 poll_sds_unadjusted <- read_csv("poll_sds_unadjusted.csv")
 poll_sds_adjusted <- read_csv("poll_sds_adjusted.csv")
 poll_averages_unadjusted <- read_csv("poll_averages_unadjusted.csv") %>%
@@ -65,7 +57,8 @@ models_list <- read_rds("models.rds")
 
 seat_simulations <- read_rds("seat_simulations.rds") %>%
   melt(id.vars = c("simulation", "most_seats", "type_of_win"), variable.name = "party", value.name = "seats") %>%
-  mutate(round_seats = 5*floor(value/5))
+  as.tbl() %>%
+  mutate(round_seats = 5*floor(seats/5))
 
 ## Define waterfall functions
 source("waterfall.R")
@@ -182,7 +175,10 @@ ui <- fluidPage(
                                     conditionalPanel(condition = "input.graph_type == 'Forecast over time'",
                                                      sliderInput("date_range_probs", "Date range", min = as.Date("2019-04-17"), max = as.Date("2019-10-21"),
                                                                  value = as.Date(c("2019-04-17", "2019-10-21")))),
-                                    conditionalPanel(condition = "input.graph_type == 'Seat distributions'")
+                                    conditionalPanel(condition = "input.graph_type == 'Seat distributions'",
+                                                     checkboxGroupInput("histogram_parties", "Parties to display",
+                                                                        choices = c("Liberal", "Conservative", "NDP", "Bloc"),
+                                                                        selected = c("Liberal", "Conservative", "NDP", "Bloc")))
                                     ),
         position = "right")
       )
@@ -254,15 +250,6 @@ server <- function(input, output) {
   output$forecastgraph <- renderggiraph({
     if(input$graph_type == "National polls" & input$house_adjust) {
       girafe(ggobj = (national_polls_adjusted %>%
-        reshape2::melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
-                       variable.name = "Party", value.name = "Poll") %>%
-        mutate(Party = case_when(Party == "LPC" ~ "Liberal",
-                                 Party == "CPC" ~ "Conservative",
-                                 Party == "NDP" ~ "NDP",
-                                 Party == "GPC" ~ "Green",
-                                 Party == "PPC" ~ "People's"),
-               Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's"))) %>%
-        arrange(Party) %>%
         ggplot(aes(x = date, y = Poll, col = Party)) +
         geom_vline(xintercept = as.Date("2019-10-21")) +
         geom_point(aes(size = sqrt(loess_weight)), alpha = 0.2) +
@@ -284,15 +271,6 @@ server <- function(input, output) {
       
     } else if(input$graph_type == "National polls" & !input$house_adjust) {
       girafe(ggobj = (national_polls_unadjusted %>%
-        reshape2::melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
-                       variable.name = "Party", value.name = "Poll") %>%
-        mutate(Party = case_when(Party == "LPC" ~ "Liberal",
-                                 Party == "CPC" ~ "Conservative",
-                                 Party == "NDP" ~ "NDP",
-                                 Party == "GPC" ~ "Green",
-                                 Party == "PPC" ~ "People's"),
-               Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's"))) %>%
-        arrange(Party) %>%
         ggplot(aes(x = date, y = Poll, col = Party)) +
         geom_vline(xintercept = as.Date("2019-10-21")) +
         geom_point(aes(size = sqrt(loess_weight)), alpha = 0.2) +
@@ -326,6 +304,27 @@ server <- function(input, output) {
         theme(axis.text.x = element_text(angle = 90)) +
         labs(title = "Forecast over time", x = "Date", y = "Probability")),
         width_svg = 11
+        )
+      } else if(input$graph_type == "Seat distributions") {
+        girafe(ggobj = (
+          seat_simulations %>%
+            group_by(party) %>%
+            mutate(n = n()) %>%
+            group_by(party, round_seats) %>%
+            summarise(prob = n()/mean(n)) %>%
+            ungroup() %>%
+            mutate(party = case_when(party == "LPC" ~ "Liberal",
+                                     party == "CPC" ~ "Conservative",
+                                     party == "NDP" ~ "NDP",
+                                     party == "Green" ~ "Green",
+                                     party == "Bloc" ~ "Bloc"),
+                   description = enc2utf8(paste0(party, ", ", round_seats, "–", round_seats + 4, " seats\nProbability: ", round(100*prob, 1), "%"))) %>%
+            filter(party %in% input$histogram_parties) %>%
+            ggplot(aes(x = round_seats, y = prob, fill = party)) + 
+            geom_bar_interactive(aes(tooltip = description), stat = "identity", position = "identity", alpha = 0.5, col = "black") +
+            scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Bloc" = "#8ECEF9")) +
+            labs(title = "Seat distribution by party", x = "Seats", y = "Probability")),
+          width_svg = 11
         )
       }
   })

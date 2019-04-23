@@ -43,8 +43,27 @@ national_polls.adjusted <- national_polls %>%
          NDP = NDP - NDP_house/2,
          GPC = GPC - GPC_house/2)
 
-write_rds(national_polls, "Shiny-app/national_polls.rds")
-write_rds(national_polls.adjusted, "Shiny-app/national_polls_adjusted.rds")
+write_rds(national_polls %>%
+            reshape2::melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
+                           variable.name = "Party", value.name = "Poll") %>%
+            mutate(Party = case_when(Party == "LPC" ~ "Liberal",
+                                     Party == "CPC" ~ "Conservative",
+                                     Party == "NDP" ~ "NDP",
+                                     Party == "GPC" ~ "Green",
+                                     Party == "PPC" ~ "People's"),
+                   Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's"))) %>%
+            arrange(Party), "Shiny-app/national_polls.rds")
+
+write_rds(national_polls.adjusted %>%
+            reshape2::melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
+                           variable.name = "Party", value.name = "Poll") %>%
+            mutate(Party = case_when(Party == "LPC" ~ "Liberal",
+                                     Party == "CPC" ~ "Conservative",
+                                     Party == "NDP" ~ "NDP",
+                                     Party == "GPC" ~ "Green",
+                                     Party == "PPC" ~ "People's"),
+                   Party = ordered(Party, levels = c("Liberal", "Conservative", "NDP", "Green", "People's"))) %>%
+            arrange(Party), "Shiny-app/national_polls_adjusted.rds")
 
 ## Weighted average
 national_polls.adjusted %>% 
