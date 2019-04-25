@@ -12,8 +12,22 @@ library(lwgeom)
 
 ## Read in things
 outcome_probs <- read_rds("outcome_probs.rds")
-national_polls_unadjusted <- read_rds("national_polls.rds")
-national_polls_adjusted <- read_rds("national_polls_adjusted.rds")
+national_polls_unadjusted <- read_rds("national_polls.rds") %>%
+  mutate(party_abbr = case_when(Party == "Liberal" ~ "LPC",
+                                Party == "Conservative" ~ "CPC",
+                                Party == "NDP" ~ "NDP",
+                                Party == "Green" ~ "Green",
+                                Party == "Bloc" ~ "Bloc",
+                                Party == "People's" ~ "PPC"),
+         description = paste0(pollster, ", ", date, "\n n = ", n, "\n", party_abbr, ": ", round(Poll, 1), "%"))
+national_polls_adjusted <- read_rds("national_polls_adjusted.rds") %>%
+  mutate(party_abbr = case_when(Party == "Liberal" ~ "LPC",
+                                Party == "Conservative" ~ "CPC",
+                                Party == "NDP" ~ "NDP",
+                                Party == "Green" ~ "Green",
+                                Party == "Bloc" ~ "Bloc",
+                                Party == "People's" ~ "PPC"),
+         description = paste0(pollster, ", ", date, "\n n = ", n, "\n", party_abbr, ": ", round(Poll, 1), "%"))
 poll_sds_unadjusted <- read_csv("poll_sds_unadjusted.csv")
 poll_sds_adjusted <- read_csv("poll_sds_adjusted.csv")
 poll_averages_unadjusted <- read_csv("poll_averages_unadjusted.csv") %>%
@@ -252,7 +266,7 @@ server <- function(input, output) {
       girafe(ggobj = (national_polls_adjusted %>%
         ggplot(aes(x = date, y = Poll, col = Party)) +
         geom_vline(xintercept = as.Date("2019-10-21")) +
-        geom_point(aes(size = sqrt(loess_weight)), alpha = 0.2) +
+        geom_point_interactive(aes(size = sqrt(loess_weight), tooltip = description), alpha = 0.2) +
         geom_ribbon(data = poll_averages_adjusted, aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
                     alpha = 0.2, show.legend = FALSE) +
         geom_point_interactive(data = poll_averages_adjusted, aes(x = date, y = pct, col = Party, tooltip = description), size = 0.5) +
@@ -273,7 +287,7 @@ server <- function(input, output) {
       girafe(ggobj = (national_polls_unadjusted %>%
         ggplot(aes(x = date, y = Poll, col = Party)) +
         geom_vline(xintercept = as.Date("2019-10-21")) +
-        geom_point(aes(size = sqrt(loess_weight)), alpha = 0.2) +
+        geom_point_interactive(aes(size = sqrt(loess_weight), tooltip = description), alpha = 0.2) +
         geom_ribbon(data = poll_averages_unadjusted, aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
                     alpha = 0.2, show.legend = FALSE) +
         geom_point_interactive(data = poll_averages_unadjusted, aes(x = date, y = pct, col = Party, tooltip = description), size = 0.5) +
