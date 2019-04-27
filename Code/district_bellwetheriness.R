@@ -26,7 +26,7 @@ ggplot(bellwetheriness, aes(x = LPC, y = CPC, col = LPC_rel_logit)) +
 # Bellwether Power Index (BPI)
 BPI <- bellwetheriness %>%
   mutate(BPI = LPC*CPC,
-         description = paste0(name_english, "\nP(LPC): ", round(100*LPC_win_prob, 1), "%\nP(CPC): ", round(100*CPC_win_prob, 1), "%\nBPI: ", 
+         description = paste0(name_english, "\nP(LPC): ", round(100*LPC_win_prob), "%\nP(CPC): ", round(100*CPC_win_prob), "%\nBPI: ", 
                               round(BPI, 3))) %>%
   arrange(desc(BPI))
 
