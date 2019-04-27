@@ -74,6 +74,8 @@ seat_simulations <- read_rds("seat_simulations.rds") %>%
   as.tbl() %>%
   mutate(round_seats = 5*floor(seats/5))
 
+BPI <- read_rds("bpi.rds")
+
 ## Define waterfall functions
 source("waterfall.R")
 
@@ -176,7 +178,8 @@ ui <- fluidPage(
                                                  label = "Graph",
                                                  choices = c("National polls",
                                                              "Forecast over time",
-                                                             "Seat distributions")
+                                                             "Seat distributions",
+                                                             "Bellwether-o-gram")
                                                  ),
                                     conditionalPanel(condition = "input.graph_type == 'National polls'",
                                                      sliderInput("date_range_polls", "Date range", min = as.Date("2015-10-19"), max = as.Date("2019-10-21"),
@@ -336,10 +339,20 @@ server <- function(input, output) {
             filter(party %in% input$histogram_parties) %>%
             ggplot(aes(x = round_seats, y = prob, fill = party)) + 
             geom_bar_interactive(aes(tooltip = description), stat = "identity", position = "identity", alpha = 0.5, col = "black") +
+            geom_vline(xintercept = 170, size = 1) +
+            geom_text(x = 195, y = 0.25, label = "170 seats needed\nfor a majority") +
             scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Bloc" = "#8ECEF9")) +
             labs(title = "Seat distribution by party", x = "Seats", y = "Probability")),
           width_svg = 11
         )
+      } else if(input$graph_type == "Bellwether-o-gram") {
+        girafe(ggobj = (
+          ggplot(BPI %>% filter(!grepl("\\'", description)), aes(x = LPC, y = CPC, col = LPC_rel_logit)) +
+            geom_text_interactive(aes(label = name_english, tooltip = description), size = 3) +
+            scale_colour_gradient(low = "blue", high = "red", name = "LPC relative logit") +
+            labs(title = "Bellwether-o-gram", subtitle = "What's the probability that the Liberals/Conservatives win given that they win district ___?",
+                 x = "P(LPC government|LPC wins district)", y = "P(CPC government|CPC wins district")),
+          width_svg = 11)
       }
   })
 }

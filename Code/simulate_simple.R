@@ -349,3 +349,6 @@ seat_simulations %>%
   scale_colour_manual(name = "Most seats", values = c("blue", "red", "darkorange1"), labels = c("Conservative", "Liberal", "NDP")) +
   labs(title = "Distribution of seat counts across simulations",
        subtitle = "Conservative vs. NDP", x = "Conservative seats", y = "NDP seats")
+
+#### Bellwetheriness ####
+source("Code/district_bellwetheriness.R")

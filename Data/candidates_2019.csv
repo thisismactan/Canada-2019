@@ -276,7 +276,7 @@
 24024,Dorval--Lachine--LaSalle,Dorval--Lachine--LaSalle,Green,,
 24024,Dorval--Lachine--LaSalle,Dorval--Lachine--LaSalle,NDP,,
 24024,Dorval--Lachine--LaSalle,Dorval--Lachine--LaSalle,Bloc,Vaudry,Jean-Frédéric
-24025,Drummond,Drummond,Bloc,,
+24025,Drummond,Drummond,Bloc,Ébacher,Jessica
 24025,Drummond,Drummond,NDP,Choquette,François
 24025,Drummond,Drummond,Green,,
 24025,Drummond,Drummond,Liberal,,
@@ -288,7 +288,7 @@
 24026,Gaspésie--Les Îles-de-la-Madeleine,Gaspésie--Les Îles-de-la-Madeleine,Bloc,,
 24026,Gaspésie--Les Îles-de-la-Madeleine,Gaspésie--Les Îles-de-la-Madeleine,NDP,,
 24027,Gatineau,Gatineau,Conservative,,
-24027,Gatineau,Gatineau,Bloc,,
+24027,Gatineau,Gatineau,Bloc,Nadeau,Geneviève
 24027,Gatineau,Gatineau,NDP,,
 24027,Gatineau,Gatineau,Green,,
 24027,Gatineau,Gatineau,Liberal,MacKinnon,Steven
@@ -321,7 +321,7 @@
 24031,Joliette,Joliette,Green,,
 24031,Joliette,Joliette,Bloc,Ste-Marie,Gabriel
 24032,Jonquière,Jonquière,Green,,
-24032,Jonquière,Jonquière,Bloc,,
+24032,Jonquière,Jonquière,Bloc,Simard,Mario
 24032,Jonquière,Jonquière,Rhinoceros,,
 24032,Jonquière,Jonquière,Conservative,Gagnon,Philippe
 24032,Jonquière,Jonquière,Liberal,,
@@ -531,7 +531,7 @@
 24065,Marc-Aurèle-Fortin,Marc-Aurèle-Fortin,Liberal,Robillard,Yves
 24066,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,Green,,
 24066,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,Bloc,Savard-Tremblay,Simon-Pierre
-24066,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,Conservative,,
+24066,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,Conservative,Barré,Bernard
 24066,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,Independent,,
 24066,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,NDP,Sansoucy,Brigitte
 24066,Saint-Hyacinthe--Bagot,Saint-Hyacinthe--Bagot,Liberal,,
@@ -716,6 +716,7 @@
 35022,Dufferin--Caledon,Dufferin--Caledon,Conservative,Singh Khattra,Harzadan
 35022,Dufferin--Caledon,Dufferin--Caledon,Green,,
 35022,Dufferin--Caledon,Dufferin--Caledon,NDP,,
+35022,Dufferin--Caledon,Dufferin--Caledon,People's,Ransom,Chad
 35023,Durham,Durham,Green,Price,Evan
 35023,Durham,Durham,Christian Heritage,,
 35023,Durham,Durham,Conservative,O'Toole,Erin

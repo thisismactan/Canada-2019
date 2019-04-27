@@ -1,4 +1,16 @@
 date,outcome,prob
+2019-04-27,Conservative majority,0.20864
+2019-04-27,Liberal majority,0.23512
+2019-04-27,NDP majority,NA
+2019-04-27,Conservative minority,0.32176
+2019-04-27,Liberal minority,0.2344
+2019-04-27,NDP minority,8e-5
+2019-04-26,Conservative majority,0.20764
+2019-04-26,Liberal majority,0.23588
+2019-04-26,NDP majority,NA
+2019-04-26,Conservative minority,0.32124
+2019-04-26,Liberal minority,0.23516
+2019-04-26,NDP minority,8e-5
 2019-04-25,Conservative majority,0.20484
 2019-04-25,Liberal majority,0.23808000000000001
 2019-04-25,NDP majority,NA

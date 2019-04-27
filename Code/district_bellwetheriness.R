@@ -1,9 +1,8 @@
 ## Estimating bellwetheriness
-source("Code/simulate_simple.R")
 source("Code/bellwetheriness_functions.R")
 
 # Identify districts where both Liberals and Conservatives have >10% of winning
-competitive_district_inds <- which(LPC_win_prob >= 0.1 & CPC_win_prob >= 0.1)
+competitive_district_inds <- which(LPC_win_prob >= 0.2 & CPC_win_prob >= 0.2)
 
 LPC_bellwetherinesses <- all_districts_bellwetheriness("Liberal", competitive_district_inds)
 CPC_bellwetherinesses <- all_districts_bellwetheriness("Conservative", competitive_district_inds)
@@ -14,7 +13,9 @@ bellwetheriness <- tibble(district_code = simulation_data$district_code[competit
                           CPC_win_prob = CPC_win_prob[competitive_district_inds],
                           LPC = LPC_bellwetherinesses,
                           CPC = CPC_bellwetherinesses,
-                          LPC_rel_logit = log(LPC_win_prob/CPC_win_prob))
+                          LPC_rel_logit = log(LPC_win_prob/CPC_win_prob)) %>%
+  arrange(abs(LPC_rel_logit)) %>%
+  dplyr::slice(1:50)
 
 # Bellwether-o-gram
 ggplot(bellwetheriness, aes(x = LPC, y = CPC, col = LPC_rel_logit)) +
@@ -24,6 +25,9 @@ ggplot(bellwetheriness, aes(x = LPC, y = CPC, col = LPC_rel_logit)) +
 
 # Bellwether Power Index (BPI)
 BPI <- bellwetheriness %>%
-  mutate(BPI = LPC*CPC) %>%
-  dplyr::select(district_code, name_english, BPI, LPC, CPC, LPC_rel_logit) %>%
+  mutate(BPI = LPC*CPC,
+         description = paste0(name_english, "\nP(LPC): ", round(100*LPC_win_prob, 1), "%\nP(CPC): ", round(100*CPC_win_prob, 1), "%\nBPI: ", 
+                              round(BPI, 3))) %>%
   arrange(desc(BPI))
+
+write_rds(BPI, "Shiny-app/bpi.rds")

@@ -113,6 +113,7 @@ predictions %>%
   dplyr::select(district_code, Liberal, Conservative, NDP, `Bloc Québécois`, Green) %>%
   melt(id.vars = "district_code", variable.name = "party", value.name = "pp") %>%
   mutate(pp = 100*pp) %>%
+  filter(!(party == "Bloc Québécois" & floor(district_code/1000) != 24)) %>%
   ggplot(aes(x = pp, fill = party)) +
   facet_wrap(~party, scales = "free_x") +
   geom_histogram(col = "black", binwidth = 1) +
