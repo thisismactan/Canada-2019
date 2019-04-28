@@ -38,20 +38,20 @@ for(i in 1:length(dates)) {
     melt(id.vars = "date", variable.name = "Party", value.name = "pct")
   
   sd_unadjusted_list[[i]] <- poll_data_unadjusted_timeline %>%
-    summarise(Liberal = sqrt(wtd.var(LPC, weight)/sum(weight)),
-              Conservative = sqrt(wtd.var(CPC, weight)/sum(weight)),
-              NDP = sqrt(wtd.var(NDP, weight)/sum(weight)),
-              Green = sqrt(wtd.var(GPC, weight)/sum(weight)),
-              `People's` = sqrt(wtd.var(PPC, weight)/sum(weight))) %>%
+    summarise(Liberal = sqrt(wtd.var(LPC, weight)),
+              Conservative = sqrt(wtd.var(CPC, weight)),
+              NDP = sqrt(wtd.var(NDP, weight)),
+              Green = sqrt(wtd.var(GPC, weight)),
+              `People's` = sqrt(wtd.var(PPC, weight))) %>%
     mutate(date = dates[i]) %>%
     melt(id.vars = "date", variable.name = "Party", value.name = "sd")
   
   sd_adjusted_list[[i]] <- poll_data_adjusted_timeline %>%
-    summarise(Liberal = sqrt(wtd.var(LPC, weight)/sum(weight)),
-              Conservative = sqrt(wtd.var(CPC, weight)/sum(weight)),
-              NDP = sqrt(wtd.var(NDP, weight)/sum(weight)),
-              Green = sqrt(wtd.var(GPC, weight)/sum(weight)),
-              `People's` = sqrt(wtd.var(PPC, weight)/sum(weight))) %>%
+    summarise(Liberal = sqrt(wtd.var(LPC, weight)),
+              Conservative = sqrt(wtd.var(CPC, weight)),
+              NDP = sqrt(wtd.var(NDP, weight)),
+              Green = sqrt(wtd.var(GPC, weight)),
+              `People's` = sqrt(wtd.var(PPC, weight))) %>%
     mutate(date = dates[i]) %>%
     melt(id.vars = "date", variable.name = "Party", value.name = "sd")
 }
