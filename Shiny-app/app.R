@@ -280,10 +280,10 @@ server <- function(input, output) {
     if(input$graph_type == "National polls" & input$house_adjust) {
       girafe(ggobj = (national_polls_adjusted %>%
         ggplot(aes(x = date, y = Poll, col = Party)) +
-        geom_vline(xintercept = as.Date("2019-10-21")) +
-        geom_point_interactive(aes(size = sqrt(loess_weight), tooltip = description), alpha = 0.2) +
         geom_ribbon(data = poll_averages_adjusted, aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
                     alpha = 0.2, show.legend = FALSE) +
+        geom_vline(xintercept = as.Date("2019-10-21")) +
+        geom_point_interactive(aes(size = sqrt(loess_weight), tooltip = description), alpha = 0.2) +
         geom_point_interactive(data = poll_averages_adjusted, aes(x = date, y = pct, col = Party, tooltip = description), size = 0.5) +
         geom_line(data = poll_averages_adjusted, aes(x = date, y = pct, group = Party, col = Party)) +
         scale_colour_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
@@ -301,10 +301,10 @@ server <- function(input, output) {
     } else if(input$graph_type == "National polls" & !input$house_adjust) {
       girafe(ggobj = (national_polls_unadjusted %>%
         ggplot(aes(x = date, y = Poll, col = Party)) +
-        geom_vline(xintercept = as.Date("2019-10-21")) +
-        geom_point_interactive(aes(size = sqrt(loess_weight), tooltip = description), alpha = 0.2) +
         geom_ribbon(data = poll_averages_unadjusted, aes(y = NULL, ymin = lower, ymax = upper, col = NA, fill = Party), 
                     alpha = 0.2, show.legend = FALSE) +
+        geom_vline(xintercept = as.Date("2019-10-21")) +
+        geom_point_interactive(aes(size = sqrt(loess_weight), tooltip = description), alpha = 0.2) +
         geom_point_interactive(data = poll_averages_unadjusted, aes(x = date, y = pct, col = Party, tooltip = description), size = 0.5) +
         geom_line(data = poll_averages_unadjusted, aes(x = date, y = pct, group = Party, col = Party)) +
         scale_colour_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", 
@@ -365,7 +365,7 @@ server <- function(input, output) {
             geom_text_interactive(aes(label = name_english, tooltip = description), size = 3) +
             scale_colour_gradient(low = "blue", high = "red", name = "LPC relative logit") +
             labs(title = "Bellwether-o-gram", x = "P(LPC government|LPC wins district)", y = "P(CPC government|CPC wins district",
-                 subtitle = "What's the probability that the Liberals/Conservatives win given that they win district ___?")),
+                 subtitle = "What's the probability that the Liberals/Conservatives win the election given that they win district ___?")),
           width_svg = 11)
       }
   })
