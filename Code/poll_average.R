@@ -98,12 +98,11 @@ ggplot(national_polls.adjusted %>%
 #### PROVINCIAL ####
 provincial_polls <- read_csv("Data/provincial_polling.csv") %>%
   reshape(varying = grep("\\.", names(read_csv("Data/provincial_polling.csv")), value = TRUE), 
-          idvar = c("pollster", "last_date", "mode", "n"), direction = "long") %>%
+          idvar = c("pollster", "median_date", "mode", "n"), direction = "long") %>%
   left_join(read_csv("Data/poll_spreads.csv"), by = "pollster", all.x = TRUE) %>%
   
   # Calculate poll age
-  mutate(last_date = as.Date(last_date, format = "%d-%b-%y"),
-         date = last_date - floor(spread/2),
+  mutate(date = as.Date(median_date, format = "%d-%b-%y"),
          age = as.numeric(lubridate::today() - date)) %>%
   
   arrange(age) %>%

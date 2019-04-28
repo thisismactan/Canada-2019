@@ -7,8 +7,8 @@ competitive_district_inds <- which(LPC_win_prob >= 0.2 & CPC_win_prob >= 0.2)
 LPC_bellwetherinesses <- all_districts_bellwetheriness("Liberal", competitive_district_inds)
 CPC_bellwetherinesses <- all_districts_bellwetheriness("Conservative", competitive_district_inds)
 
-bellwetheriness <- tibble(district_code = simulation_data$district_code[competitive_district_inds],
-                          name_english = simulation_data$name_english[competitive_district_inds],
+bellwetheriness <- tibble(district_code = data_2019.simple$district_code[competitive_district_inds],
+                          name_english = data_2019.simple$name_english[competitive_district_inds],
                           LPC_win_prob = LPC_win_prob[competitive_district_inds],
                           CPC_win_prob = CPC_win_prob[competitive_district_inds],
                           LPC = LPC_bellwetherinesses,

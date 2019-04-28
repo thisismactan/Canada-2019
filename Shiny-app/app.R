@@ -319,7 +319,7 @@ server <- function(input, output) {
         scale_x_date(breaks = "2 weeks", limits = input$date_range_probs) +
         scale_y_continuous(breaks = 0.05*(0:10), limits = c(0, 0.5)) +
         theme(axis.text.x = element_text(angle = 90)) +
-        labs(title = "Forecast over time", x = "Date", y = "Probability")),
+        labs(title = "Forecast over time", subtitle = "How has the forecast changed?", x = "Date", y = "Probability")),
         width_svg = 11
         )
       } else if(input$graph_type == "Seat distributions") {
@@ -342,7 +342,7 @@ server <- function(input, output) {
             geom_vline(xintercept = 170, size = 1) +
             geom_text(x = 195, y = 0.25, label = "170 seats needed\nfor a majority") +
             scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Bloc" = "#8ECEF9")) +
-            labs(title = "Seat distribution by party", x = "Seats", y = "Probability")),
+            labs(title = "Seat distribution by party", subtitle = "How many seats will each party win?", x = "Seats", y = "Probability")),
           width_svg = 11
         )
       } else if(input$graph_type == "Bellwether-o-gram") {
