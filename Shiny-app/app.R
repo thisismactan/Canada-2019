@@ -66,6 +66,18 @@ canada_districts_latlong <- read_rds("canada_districts.rds") %>%
 canada_flips <- canada_districts_latlong %>%
   filter(predicted_winner != last_winner)
 
+province_key <- canada_districts_latlong %>%
+  as.data.frame() %>%
+  as.tbl() %>%
+  dplyr::select(district = name_english, region) %>%
+  mutate(region = case_when(region == "Atlantic" ~ "Atlantic Canada",
+                            region == "Quebec" ~ "Quebec",
+                            region == "Ontario" ~ "Ontario",
+                            region == "Prairies" ~ "the Prairie provinces",
+                            region == "Alberta" ~ "Alberta",
+                            region == "British Columbia" ~ "British Columbia",
+                            region == "The frigid northlands" ~ "the frigid northlands"))
+
 data_2019 <- read_rds("data_2019.rds")
 models_list <- read_rds("models.rds")
 
@@ -194,7 +206,7 @@ ui <- fluidPage(
                                                                  value = as.Date(c("2019-04-17", "2019-10-21")))),
                                     conditionalPanel(condition = "input.graph_type == 'Seat distributions'",
                                                      checkboxGroupInput("histogram_parties", "Parties to display",
-                                                                        choices = c("Liberal", "Conservative", "NDP", "Bloc"),
+                                                                        choices = c("Liberal", "Conservative", "NDP", "Bloc", "Green"),
                                                                         selected = c("Liberal", "Conservative", "NDP", "Bloc")))
                                     ),
         position = "right")
@@ -340,8 +352,10 @@ server <- function(input, output) {
             ggplot(aes(x = round_seats, y = prob, fill = party)) + 
             geom_bar_interactive(aes(tooltip = description), stat = "identity", position = "identity", alpha = 0.5, col = "black") +
             geom_vline(xintercept = 170, size = 1) +
-            geom_text(x = 195, y = 0.25, label = "170 seats needed\nfor a majority") +
-            scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Bloc" = "#8ECEF9")) +
+            geom_text(x = 195, y = 0.1, label = "170 seats needed\nfor a majority") +
+            scale_y_continuous(breaks = 0.05*(0:20)) +
+            scale_fill_manual(name = "Party", values = c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Bloc" = "#8ECEF9",
+                                                         "Green" = "green4")) +
             labs(title = "Seat distribution by party", subtitle = "How many seats will each party win?", x = "Seats", y = "Probability")),
           width_svg = 11
         )
@@ -350,8 +364,8 @@ server <- function(input, output) {
           ggplot(BPI %>% filter(!grepl("\\'", description)), aes(x = LPC, y = CPC, col = LPC_rel_logit)) +
             geom_text_interactive(aes(label = name_english, tooltip = description), size = 3) +
             scale_colour_gradient(low = "blue", high = "red", name = "LPC relative logit") +
-            labs(title = "Bellwether-o-gram", subtitle = "What's the probability that the Liberals/Conservatives win given that they win district ___?",
-                 x = "P(LPC government|LPC wins district)", y = "P(CPC government|CPC wins district")),
+            labs(title = "Bellwether-o-gram", x = "P(LPC government|LPC wins district)", y = "P(CPC government|CPC wins district",
+                 subtitle = "What's the probability that the Liberals/Conservatives win given that they win district ___?")),
           width_svg = 11)
       }
   })
