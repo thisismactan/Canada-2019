@@ -269,14 +269,16 @@ forecast_today <- outcome_probs %>%
 forecast_yesterday <- read_csv("Output/forecast_timeline.csv")
 
 ## Write the timeline to the output folder and also the Shiny app
-bind_rows(forecast_yesterday, forecast_today) %>%
+bind_rows(forecast_today, forecast_yesterday) %>%
   arrange(desc(date)) %>%
   distinct(date, outcome, .keep_all = TRUE) %>%
+  replace_na(list(date = as.Date("2019-10-22"), outcome = "", prob = 0)) %>%
   write_csv("Output/forecast_timeline.csv")
 
-bind_rows(forecast_yesterday, forecast_today) %>%
+bind_rows(forecast_today, forecast_yesterday) %>%
   arrange(desc(date)) %>%
   distinct(date, outcome, .keep_all = TRUE) %>%
+  replace_na(list(date = as.Date("2019-10-22"), outcome = "", prob = 0)) %>%
   write_csv("Shiny-app/forecast_timeline.csv")
 
 seat_simulations %>%
