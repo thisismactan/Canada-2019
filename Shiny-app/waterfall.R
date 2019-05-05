@@ -24,7 +24,7 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                               region == "Prairie" ~ "Manitoba and Saskatchewan",
                               region == "Alberta" ~ "Alberta",
                               region == "British Columbia" ~ "British Columbia",
-                              region == "The frigid northlands" ~ "the frigid northlands"))
+                              region == "The frigid northlands" ~ "the Frigid Northlands"))
 
   ## Extract coefficients from model list
   coefs.LPC <- coef(models$LPC)

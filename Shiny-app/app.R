@@ -1,14 +1,13 @@
 library(lubridate)
 library(reshape2)
 library(ggiraph)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(readr)
 library(shiny)
 library(shinythemes)
-library(sp)
 library(sf)
 library(leaflet)
-library(lwgeom)
 
 ## Read in things
 outcome_probs <- read_rds("outcome_probs.rds")
@@ -65,18 +64,6 @@ canada_districts_latlong <- read_rds("canada_districts.rds") %>%
 
 canada_flips <- canada_districts_latlong %>%
   filter(predicted_winner != last_winner)
-
-province_key <- canada_districts_latlong %>%
-  as.data.frame() %>%
-  as.tbl() %>%
-  dplyr::select(district = name_english, region) %>%
-  mutate(region = case_when(region == "Atlantic" ~ "Atlantic Canada",
-                            region == "Quebec" ~ "Quebec",
-                            region == "Ontario" ~ "Ontario",
-                            region == "Prairies" ~ "the Prairie provinces",
-                            region == "Alberta" ~ "Alberta",
-                            region == "British Columbia" ~ "British Columbia",
-                            region == "The frigid northlands" ~ "the frigid northlands"))
 
 data_2019 <- read_rds("data_2019.rds")
 models_list <- read_rds("models.rds")
