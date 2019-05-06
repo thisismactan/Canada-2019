@@ -719,7 +719,7 @@
 35022,Dufferin--Caledon,Dufferin--Caledon,NDP,,
 35022,Dufferin--Caledon,Dufferin--Caledon,People's,Ransom,Chad
 35023,Durham,Durham,Green,Price,Evan
-35023,Durham,Durham,Christian Heritage,,
+35023,Durham,Durham,People's,,
 35023,Durham,Durham,Conservative,O'Toole,Erin
 35023,Durham,Durham,NDP,,
 35023,Durham,Durham,Liberal,,
@@ -766,7 +766,7 @@
 35031,Glengarry--Prescott--Russell,Glengarry--Prescott--Russell,Conservative,Lemieux,Pierre
 35031,Glengarry--Prescott--Russell,Glengarry--Prescott--Russell,Green,,
 35032,Guelph,Guelph,Communist,,
-35032,Guelph,Guelph,Libertarian,,
+35032,Guelph,Guelph,People's,,
 35032,Guelph,Guelph,Marijuana,,
 35032,Guelph,Guelph,Conservative,,
 35032,Guelph,Guelph,Liberal,Longfield,Lloyd
@@ -1010,7 +1010,7 @@
 35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,NDP,,
 35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Christian Heritage,,
 35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Liberal,Vandenbeld,Anita
-35080,Oxford,Oxford,People's,Martin,Wendy
+35080,Oxford,Oxford,People's,,
 35080,Oxford,Oxford,Green,,
 35080,Oxford,Oxford,NDP,Chambers,Matthew
 35080,Oxford,Oxford,Conservative,MacKenzie,Dave
@@ -1041,7 +1041,7 @@
 35084,Peterborough--Kawartha,Peterborough--Kawartha,Liberal,Monsef,Maryam
 35084,Peterborough--Kawartha,Peterborough--Kawartha,NDP,,
 35084,Peterborough--Kawartha,Peterborough--Kawartha,Conservative,Skinner,Michael
-35085,Pickering--Uxbridge,Pickering--Uxbridge,Conservative,,
+35085,Pickering--Uxbridge,Pickering--Uxbridge,Conservative,Musarat,Cyma
 35085,Pickering--Uxbridge,Pickering--Uxbridge,NDP,,
 35085,Pickering--Uxbridge,Pickering--Uxbridge,Green,,
 35085,Pickering--Uxbridge,Pickering--Uxbridge,Liberal,O'Connell,Jennifer
@@ -1113,7 +1113,7 @@
 35099,Simcoe--Grey,Simcoe--Grey,Conservative,Dowdall,Terry
 35099,Simcoe--Grey,Simcoe--Grey,Liberal,Kenney,Lorne
 35099,Simcoe--Grey,Simcoe--Grey,NDP,,
-35099,Simcoe--Grey,Simcoe--Grey,Christian Heritage,,
+35099,Simcoe--Grey,Simcoe--Grey,People's,Harris,Jeff
 35100,Simcoe North,Simcoe-Nord,NDP,,
 35100,Simcoe North,Simcoe-Nord,No affiliation,,
 35100,Simcoe North,Simcoe-Nord,Liberal,,
@@ -1610,9 +1610,10 @@
 59010,Cowichan--Malahat--Langford,Cowichan--Malahat--Langford,Liberal,,
 59010,Cowichan--Malahat--Langford,Cowichan--Malahat--Langford,NDP,MacGregor,Alistair
 59011,Delta,Delta,Green,DeCraene,Craig
-59011,Delta,Delta,Conservative,,
+59011,Delta,Delta,Conservative,Corbet,Tanya
 59011,Delta,Delta,NDP,,
 59011,Delta,Delta,Liberal,Qualtrough,Carla
+59011,Delta,Delta,People's,Rathbu,Derek
 59012,Fleetwood--Port Kells,Fleetwood--Port Kells,NDP,,
 59012,Fleetwood--Port Kells,Fleetwood--Port Kells,Conservative,Purewal,Shinder
 59012,Fleetwood--Port Kells,Fleetwood--Port Kells,Liberal,Hardie,Ken
@@ -1634,7 +1635,7 @@
 59016,Langley--Aldergrove,Langley--Aldergrove,Liberal,Jensen,Leon
 59016,Langley--Aldergrove,Langley--Aldergrove,NDP,,
 59016,Langley--Aldergrove,Langley--Aldergrove,Libertarian,,
-59016,Langley--Aldergrove,Langley--Aldergrove,Conservative,,
+59016,Langley--Aldergrove,Langley--Aldergrove,Conservative,van Popta,Tako
 59017,Mission--Matsqui--Fraser Canyon,Mission--Matsqui--Fraser Canyon,NDP,,
 59017,Mission--Matsqui--Fraser Canyon,Mission--Matsqui--Fraser Canyon,Green,Kidder,John
 59017,Mission--Matsqui--Fraser Canyon,Mission--Matsqui--Fraser Canyon,Independent,,
@@ -1685,7 +1686,7 @@
 59026,Esquimalt--Saanich--Sooke,Esquimalt--Saanich--Sooke,NDP,Garrison,Randall
 59026,Esquimalt--Saanich--Sooke,Esquimalt--Saanich--Sooke,Green,Merner,David
 59026,Esquimalt--Saanich--Sooke,Esquimalt--Saanich--Sooke,Conservative,,
-59026,Esquimalt--Saanich--Sooke,Esquimalt--Saanich--Sooke,Liberal,,
+59026,Esquimalt--Saanich--Sooke,Esquimalt--Saanich--Sooke,Liberal,Hammond,Jamie
 59026,Esquimalt--Saanich--Sooke,Esquimalt--Saanich--Sooke,Communist,,
 59027,Saanich--Gulf Islands,Saanich--Gulf Islands,Conservative,Busch,David
 59027,Saanich--Gulf Islands,Saanich--Gulf Islands,NDP,,
@@ -1708,7 +1709,7 @@
 59030,South Surrey--White Rock,Surrey-Sud--White Rock,Libertarian,,
 59030,South Surrey--White Rock,Surrey-Sud--White Rock,Progressive Canadian,,
 59030,South Surrey--White Rock,Surrey-Sud--White Rock,Conservative,Findlay,Kerry-Lynne
-59031,Steveston--Richmond East,Steveston--Richmond-Est,Conservative,,
+59031,Steveston--Richmond East,Steveston--Richmond-Est,Conservative,Chiu,Kenny
 59031,Steveston--Richmond East,Steveston--Richmond-Est,Liberal,Peschisolido,Joe
 59031,Steveston--Richmond East,Steveston--Richmond-Est,Green,,
 59031,Steveston--Richmond East,Steveston--Richmond-Est,NDP,,
