@@ -9,11 +9,14 @@ results <- historical_results.district %>%
   }) %>%
   mutate(Quebec = (province == "Quebec"),
          Atlantic = (region == "Atlantic"),
+         Vancouver_Island = district_code %in% c(59008, 59014, 59015, 59024, 59031, 59035),
+         incumbent = relevel(incumbent, ref = "None"),
          incumbent_LPC = incumbent == "Liberal",
          incumbent_CPC = incumbent == "Conservative",
          incumbent_NDP = incumbent == "NDP",
+         incumbent_Green = incumbent == "Green",
          incumbent_Bloc = incumbent == "Bloc",
-         incumbent_Green = incumbent == "Green")
+         incumbent_PPC = name_english == "Beauce")
 
 results$Bloc[is.na(results$Bloc)] <- 0
 results$Bloc[is.na(results$Bloc)] <- 0
@@ -144,11 +147,14 @@ results <- historical_results.district %>%
   }) %>%
   mutate(Quebec = (province == "Quebec"),
          Atlantic = (region == "Atlantic"),
+         Vancouver_Island = district_code %in% c(59008, 59014, 59015, 59024, 59031, 59035),
+         incumbent = relevel(incumbent, ref = "None"),
          incumbent_LPC = incumbent == "Liberal",
          incumbent_CPC = incumbent == "Conservative",
          incumbent_NDP = incumbent == "NDP",
+         incumbent_Green = incumbent == "Green",
          incumbent_Bloc = incumbent == "Bloc",
-         incumbent_Green = incumbent == "Green")
+         incumbent_PPC = name_english == "Beauce")
 
 results$Bloc[is.na(results$Bloc)] <- 0
 results$Bloc[is.na(results$Bloc)] <- 0
@@ -169,8 +175,8 @@ for(i in 1:n) {
                                data = train)
   model_NDP.linear_test2 <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
                                  I(NDP_nation-NDP_nation_lag)+I(NDP_region-NDP_region_lag)+age_65, data = train)
-  model_Green.linear_test2 <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Green+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+
-                                   Bloc_lag+Green_nation+I(Green_nation-Green_nation_lag)+I(Green_region-Green_region_lag)+minority+educ_university, 
+  model_Green.linear_test2 <- lm(I(Green-Green_lag)~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+incumbent_Green+LPC_lag+CPC_lag+NDP_lag+
+                                   Bloc_lag+I(Green_nation-Green_nation_lag)+I(Green_region-Green_region_lag)+Vancouver_Island, 
                                  data = train)
   model_Bloc.linear_test2 <- lm(Bloc~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
                                   I(Bloc_nation-Bloc_nation_lag)+I(Bloc_region-Bloc_region_lag), data = train %>% filter(Quebec))
@@ -180,7 +186,7 @@ for(i in 1:n) {
     mutate(LPC.pred = predict(model_LPC.linear_test2, newdata = .), LPC.error = LPC.pred - LPC,
            CPC.pred = predict(model_CPC.linear_test2, newdata = .), CPC.error = CPC.pred - CPC,
            NDP.pred = predict(model_NDP.linear_test2, newdata = .), NDP.error = NDP.pred - NDP,
-           Green.pred = predict(model_Green.linear_test2, newdata = .), Green.error = Green.pred - Green,
+           Green.pred = predict(model_Green.linear_test2, newdata = .) + Green_lag, Green.error = Green.pred - Green,
            Bloc.pred = case_when(Quebec ~ predict(model_Bloc.linear_test2, newdata = .),
                                  !Quebec ~ 0), 
            Bloc.error = Bloc.pred - Bloc)

@@ -8,6 +8,7 @@ results <- historical_results.district %>%
   }) %>%
   mutate(Quebec = (province == "Quebec"),
          Atlantic = (region == "Atlantic"),
+         Vancouver_Island = district_code %in% c(59008, 59014, 59015, 59024, 59031, 59035),
          incumbent = relevel(incumbent, ref = "None"),
          incumbent_LPC = incumbent == "Liberal",
          incumbent_CPC = incumbent == "Conservative",
@@ -42,8 +43,8 @@ model_CPC.linear <- lm(CPC~incumbent_LPC+incumbent_CPC+LPC_lag+CPC_lag+NDP_lag+G
                        data = results)
 model_NDP.linear <- lm(NDP~incumbent_LPC+incumbent_CPC+incumbent_NDP+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+I(NDP_nation-NDP_nation_lag)+
                          I(NDP_region-NDP_region_lag)+age_65, data = results)
-model_Green.linear <- lm(Green~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Green+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
-                           I(Green_nation-Green_nation_lag)+I(Green_region-Green_region_lag)+minority+educ_university, data = results)
+model_Green.linear <- lm(I(Green-Green_lag)~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+incumbent_Green+LPC_lag+CPC_lag+NDP_lag+Bloc_lag+
+                           I(Green_nation-Green_nation_lag)+I(Green_region-Green_region_lag)+I(Green_lag < 0.05)+Vancouver_Island, data = results)
 model_Bloc.linear <- lm(Bloc~incumbent_LPC+incumbent_CPC+incumbent_NDP+incumbent_Bloc+LPC_lag+CPC_lag+NDP_lag+Green_lag+Bloc_lag+
                           I(Bloc_nation-Bloc_nation_lag)+I(Bloc_region-Bloc_region_lag), data = results %>% filter(Quebec))
 

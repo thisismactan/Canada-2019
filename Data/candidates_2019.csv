@@ -74,7 +74,7 @@
 12006,Halifax West,Halifax-Ouest,Liberal,Regan,Geoff
 12006,Halifax West,Halifax-Ouest,Green,Zurawski,Richard
 12007,Kings--Hants,Kings--Hants,Liberal,,
-12007,Kings--Hants,Kings--Hants,Rhinoceros,,
+12007,Kings--Hants,Kings--Hants,People's,,
 12007,Kings--Hants,Kings--Hants,Green,Anderson,Brogan
 12007,Kings--Hants,Kings--Hants,NDP,Schneider,Stephen
 12007,Kings--Hants,Kings--Hants,Conservative,MacQuarrie,Martha
@@ -104,7 +104,8 @@
 13002,Beauséjour,Beauséjour,NDP,,
 13002,Beauséjour,Beauséjour,Green,,
 13002,Beauséjour,Beauséjour,Liberal,LeBlanc,Dominic
-13003,Fredericton,Fredericton,Conservative,,
+13002,Beauséjour,Beauséjour,People's,Mercier,Nancy
+13003,Fredericton,Fredericton,Conservative,Johnson,Andrea
 13003,Fredericton,Fredericton,Green,,
 13003,Fredericton,Fredericton,Liberal,DeCourcey,Matt
 13003,Fredericton,Fredericton,NDP,,
@@ -260,7 +261,7 @@
 24021,Châteauguay--Lacolle,Châteauguay--Lacolle,Liberal,Shanahan,Brenda
 24021,Châteauguay--Lacolle,Châteauguay--Lacolle,Bloc,,
 24021,Châteauguay--Lacolle,Châteauguay--Lacolle,Conservative,Laplante,Hugues
-24021,Châteauguay--Lacolle,Châteauguay--Lacolle,Marxist-Leninist,,
+24021,Châteauguay--Lacolle,Châteauguay--Lacolle,People's,Benoit,Jeff
 24022,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,Bloc,Tremblay,Valérie
 24022,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,Liberal,,
 24022,Chicoutimi--Le Fjord,Chicoutimi--Le Fjord,NDP,,
@@ -286,7 +287,7 @@
 24026,Gaspésie--Les Îles-de-la-Madeleine,Gaspésie--Les Îles-de-la-Madeleine,Liberal,Lebouthillier,Diane
 24026,Gaspésie--Les Îles-de-la-Madeleine,Gaspésie--Les Îles-de-la-Madeleine,Green,,
 24026,Gaspésie--Les Îles-de-la-Madeleine,Gaspésie--Les Îles-de-la-Madeleine,Conservative,Pigeon,Jean-Pierre
-24026,Gaspésie--Les Îles-de-la-Madeleine,Gaspésie--Les Îles-de-la-Madeleine,Bloc,,
+24026,Gaspésie--Les Îles-de-la-Madeleine,Gaspésie--Les Îles-de-la-Madeleine,Bloc,Bernatchez,Guy
 24026,Gaspésie--Les Îles-de-la-Madeleine,Gaspésie--Les Îles-de-la-Madeleine,NDP,,
 24027,Gatineau,Gatineau,Conservative,,
 24027,Gatineau,Gatineau,Bloc,Nadeau,Geneviève
@@ -321,6 +322,7 @@
 24031,Joliette,Joliette,NDP,,
 24031,Joliette,Joliette,Green,,
 24031,Joliette,Joliette,Bloc,Ste-Marie,Gabriel
+24031,Joliette,Joliette,People's,Prescott,Sylvain
 24032,Jonquière,Jonquière,Green,,
 24032,Jonquière,Jonquière,Bloc,Simard,Mario
 24032,Jonquière,Jonquière,Rhinoceros,,
@@ -430,12 +432,12 @@
 24050,Montcalm,Montcalm,Green,,
 24050,Montcalm,Montcalm,Conservative,Desroches,Gisèle
 24050,Montcalm,Montcalm,NDP,,
-24050,Montcalm,Montcalm,Forces,,
+24050,Montcalm,Montcalm,People's,Clenin,Hugo
 24050,Montcalm,Montcalm,Bloc,Thériault,Luc
 24050,Montcalm,Montcalm,Liberal,,
 24051,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Green,,
 24051,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Rhinoceros,,
-24051,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Bloc,Gagnon,Nancy
+24051,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Bloc,Gagnon,
 24051,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Conservative,Généreux,Bernard
 24051,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,NDP,,
 24051,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,Liberal,,
@@ -485,7 +487,7 @@
 24058,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,Conservative,Godin,Joël
 24058,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,Bloc,,
 24058,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,NDP,,
-24058,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,Green,,
+24058,Portneuf--Jacques-Cartier,Portneuf--Jacques-Cartier,Green,Cloutier,Jean
 24059,Québec,Québec,Conservative,Boutin,Bianca
 24059,Québec,Québec,Liberal,Duclos,Jean-Yves
 24059,Québec,Québec,Marxist-Leninist,,
@@ -957,7 +959,7 @@
 35069,Nickel Belt,Nickel Belt,Green,,
 35069,Nickel Belt,Nickel Belt,Liberal,Serré,Marc
 35069,Nickel Belt,Nickel Belt,Marxist-Leninist,,
-35070,Nipissing--Timiskaming,Nipissing--Timiskaming,Conservative,,
+35070,Nipissing--Timiskaming,Nipissing--Timiskaming,Conservative,Carr,Jordy
 35070,Nipissing--Timiskaming,Nipissing--Timiskaming,NDP,,
 35070,Nipissing--Timiskaming,Nipissing--Timiskaming,Green,,
 35070,Nipissing--Timiskaming,Nipissing--Timiskaming,Liberal,Rota,Anthony
@@ -1007,7 +1009,7 @@
 35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Conservative,Lalonde,Michael
 35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Green,,
 35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Marxist-Leninist,,
-35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,NDP,,
+35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,NDP,MacEwen,Angella
 35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Christian Heritage,,
 35079,Ottawa West--Nepean,Ottawa-Ouest--Nepean,Liberal,Vandenbeld,Anita
 35080,Oxford,Oxford,People's,,
@@ -1118,7 +1120,7 @@
 35100,Simcoe North,Simcoe-Nord,No affiliation,,
 35100,Simcoe North,Simcoe-Nord,Liberal,,
 35100,Simcoe North,Simcoe-Nord,Conservative,Stanton,Bruce
-35100,Simcoe North,Simcoe-Nord,Green,,
+35100,Simcoe North,Simcoe-Nord,Green,Schomann,Erik
 35100,Simcoe North,Simcoe-Nord,Christian Heritage,,
 35101,Spadina--Fort York,Spadina--Fort York,NDP,Yoon,Diana
 35101,Spadina--Fort York,Spadina--Fort York,Green,,
@@ -1147,7 +1149,7 @@
 35105,Thunder Bay--Rainy River,Thunder Bay--Rainy River,Green,,
 35105,Thunder Bay--Rainy River,Thunder Bay--Rainy River,NDP,,
 35105,Thunder Bay--Rainy River,Thunder Bay--Rainy River,Liberal,Ch'ng,Shelby
-35106,Thunder Bay--Superior North,Thunder Bay--Supérieur-Nord,NDP,,
+35106,Thunder Bay--Superior North,Thunder Bay--Supérieur-Nord,NDP,Achneepineskum,Anna
 35106,Thunder Bay--Superior North,Thunder Bay--Supérieur-Nord,Liberal,Hajdu,Patty
 35106,Thunder Bay--Superior North,Thunder Bay--Supérieur-Nord,Conservative,Pullia,Frank
 35106,Thunder Bay--Superior North,Thunder Bay--Supérieur-Nord,Green,,
@@ -1217,6 +1219,7 @@
 35118,York Centre,York-Centre,Green,,
 35118,York Centre,York-Centre,Liberal,Levitt,Michael
 35119,York--Simcoe,York--Simcoe,NDP,,
+35119,York--Simcoe,York--Simcoe,People's,Geurrts,Robert
 35119,York--Simcoe,York--Simcoe,Liberal,,
 35119,York--Simcoe,York--Simcoe,Conservative,Davidson,Scot
 35119,York--Simcoe,York--Simcoe,Green,Lund,Matt
@@ -1234,11 +1237,12 @@
 46001,Brandon--Souris,Brandon--Souris,Green,Tiessen,Bill
 46001,Brandon--Souris,Brandon--Souris,NDP,,
 46001,Brandon--Souris,Brandon--Souris,Liberal,,
-46002,Brandon--Souris,Brandon--Souris,People's,Lussier,Rob
+46001,Brandon--Souris,Brandon--Souris,People's,Lussier,Rob
 46002,Charleswood--St. James--Assiniboia--Headingley,Charleswood--St. James--Assiniboia--Headingley,Liberal,Eyolfson,Doug
 46002,Charleswood--St. James--Assiniboia--Headingley,Charleswood--St. James--Assiniboia--Headingley,Conservative,Morantz,Marty
 46002,Charleswood--St. James--Assiniboia--Headingley,Charleswood--St. James--Assiniboia--Headingley,Green,Nichols,Kevin
 46002,Charleswood--St. James--Assiniboia--Headingley,Charleswood--St. James--Assiniboia--Headingley,NDP,St. George,Ken
+46002,Charleswood--St. James--Assiniboia--Headingley,Charleswood--St. James--Assiniboia--Headingley,People's,Fletcher,Steven
 46003,Churchill--Keewatinook Aski,Churchill--Keewatinook Aski,NDP,Ashton,Niki
 46003,Churchill--Keewatinook Aski,Churchill--Keewatinook Aski,Liberal,Klassen,Judy
 46003,Churchill--Keewatinook Aski,Churchill--Keewatinook Aski,Green,,
@@ -1312,6 +1316,7 @@
 47004,Carlton Trail--Eagle Creek,Sentier Carlton--Eagle Creek,Green,,
 47004,Carlton Trail--Eagle Creek,Sentier Carlton--Eagle Creek,Liberal,,
 47004,Carlton Trail--Eagle Creek,Sentier Carlton--Eagle Creek,NDP,,
+47004,Carlton Trail--Eagle Creek,Sentier Carlton--Eagle Creek,People's,Wortman,Jeff
 47005,Moose Jaw--Lake Centre--Lanigan,Moose Jaw--Lake Centre--Lanigan,NDP,Regent,Talon
 47005,Moose Jaw--Lake Centre--Lanigan,Moose Jaw--Lake Centre--Lanigan,Liberal,,
 47005,Moose Jaw--Lake Centre--Lanigan,Moose Jaw--Lake Centre--Lanigan,Conservative,Lukiwski,Tom
@@ -1321,6 +1326,7 @@
 47006,Prince Albert,Prince Albert,Conservative,Hoback,Randy
 47006,Prince Albert,Prince Albert,Liberal,Hjertaas,Estelle
 47006,Prince Albert,Prince Albert,Green,,
+47006,Prince Albert,Prince Albert,People's,Day,Kelly
 47007,Regina--Lewvan,Regina--Lewvan,Liberal,,
 47007,Regina--Lewvan,Regina--Lewvan,People's,McCulloch,Christopher
 47007,Regina--Lewvan,Regina--Lewvan,Conservative,Steinley,Warren
@@ -1450,7 +1456,7 @@
 48016,Edmonton Manning,Edmonton Manning,Liberal,,
 48016,Edmonton Manning,Edmonton Manning,Independent,,
 48016,Edmonton Manning,Edmonton Manning,NDP,,
-48016,Edmonton Manning,Edmonton Manning,Marxist-Leninist,,
+48016,Edmonton Manning,Edmonton Manning,People's,Summers,Dan
 48016,Edmonton Manning,Edmonton Manning,Green,,
 48017,Edmonton Mill Woods,Edmonton Mill Woods,NDP,,
 48017,Edmonton Mill Woods,Edmonton Mill Woods,Christian Heritage,,
@@ -1477,7 +1483,7 @@
 48019,Edmonton Strathcona,Edmonton Strathcona,Conservative,,
 48020,Edmonton West,Edmonton-Ouest,Green,,
 48020,Edmonton West,Edmonton-Ouest,Libertarian,,
-48020,Edmonton West,Edmonton-Ouest,Liberal,,
+48020,Edmonton West,Edmonton-Ouest,Liberal,Johnston,Kerrie
 48020,Edmonton West,Edmonton-Ouest,NDP,,
 48020,Edmonton West,Edmonton-Ouest,Conservative,McCauley,Kelly
 48020,Edmonton West,Edmonton-Ouest,Marxist-Leninist,,
@@ -1620,7 +1626,7 @@
 59012,Fleetwood--Port Kells,Fleetwood--Port Kells,Green,,
 59013,Kamloops--Thompson--Cariboo,Kamloops--Thompson--Cariboo,Green,,
 59013,Kamloops--Thompson--Cariboo,Kamloops--Thompson--Cariboo,Conservative,McLeod,Cathy
-59013,Kamloops--Thompson--Cariboo,Kamloops--Thompson--Cariboo,Liberal,,
+59013,Kamloops--Thompson--Cariboo,Kamloops--Thompson--Cariboo,Liberal,Lake,Terry
 59013,Kamloops--Thompson--Cariboo,Kamloops--Thompson--Cariboo,NDP,Myhill-Jones,Gina
 59014,Kelowna--Lake Country,Kelowna--Lake Country,NDP,Kulik,Justin
 59014,Kelowna--Lake Country,Kelowna--Lake Country,Conservative,Gray,Tracy
@@ -1657,6 +1663,7 @@
 59020,North Okanagan--Shuswap,North Okanagan--Shuswap,Liberal,Derkaz,Cindy
 59020,North Okanagan--Shuswap,North Okanagan--Shuswap,Green,Reinarz,Marc
 59020,North Okanagan--Shuswap,North Okanagan--Shuswap,NDP,Sandhu,Harwinder
+59020,North Okanagan--Shuswap,North Okanagan--Shuswap,People's,Delfing,Kyle
 59021,North Vancouver,North Vancouver,Independent,,
 59021,North Vancouver,North Vancouver,Green,Orr,George
 59021,North Vancouver,North Vancouver,Conservative,,
@@ -1733,7 +1740,7 @@
 59035,Vancouver East,Vancouver-Est,Marxist-Leninist,,
 59035,Vancouver East,Vancouver-Est,NDP,Kwan,Jenny
 59035,Vancouver East,Vancouver-Est,Conservative,,
-59035,Vancouver East,Vancouver-Est,Communist,,
+59035,Vancouver East,Vancouver-Est,People's,Litzcke,Karin
 59035,Vancouver East,Vancouver-Est,Independent,,
 59035,Vancouver East,Vancouver-Est,Green,Burns,Bridget
 59035,Vancouver East,Vancouver-Est,Pirate,,
@@ -1749,7 +1756,7 @@
 59037,North Island--Powell River,North Island--Powell River,Conservative,Downey,Shelley
 59038,Vancouver Kingsway,Vancouver Kingsway,Communist,,
 59038,Vancouver Kingsway,Vancouver Kingsway,NDP,Davies,Don
-59038,Vancouver Kingsway,Vancouver Kingsway,Libertarian,,
+59038,Vancouver Kingsway,Vancouver Kingsway,People's,Torn,Ian
 59038,Vancouver Kingsway,Vancouver Kingsway,Liberal,Taggart,Tamara
 59038,Vancouver Kingsway,Vancouver Kingsway,Green,,
 59038,Vancouver Kingsway,Vancouver Kingsway,Marxist-Leninist,,

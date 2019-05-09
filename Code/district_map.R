@@ -13,7 +13,7 @@ preds_data <- data_2019.simple %>%
   mutate(LPC_pred = predict(model_LPC.linear, newdata = .),
          CPC_pred = predict(model_CPC.linear, newdata = .),
          NDP_pred = predict(model_NDP.linear, newdata = .),
-         Green_pred = predict(model_Green.linear, newdata = .),
+         Green_pred = predict(model_Green.linear, newdata = .) + Green_lag,
          Bloc_pred = (province == "Quebec")*predict(model_Bloc.linear, newdata = .)) %>%
   dplyr::select(district_code, LPC_pred, CPC_pred, NDP_pred, Green_pred, Bloc_pred) %>%
   mutate_all(function(x) pmax(x, 0)) %>%

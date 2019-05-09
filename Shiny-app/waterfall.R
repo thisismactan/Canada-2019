@@ -293,12 +293,11 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                      district_data.2019$LPC_lag,
                      district_data.2019$CPC_lag,
                      district_data.2019$NDP_lag,
-                     district_data.2019$Green_lag,
                      district_data.2019$Bloc_lag,
                      district_data.2019$Green_nation - district_data.2019$Green_nation_lag,
                      district_data.2019$Green_region - district_data.2019$Green_region_lag,
-                     district_data.2019$minority,
-                     district_data.2019$educ_university),
+                     district_data.2019$Green_lag < 0.05,
+                     district_data.2019$Vancouver_Island),
            variable_group = c("Baseline",
                               "Incumbency",
                               "Incumbency",
@@ -309,12 +308,11 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                               "Last election result",
                               "Last election result",
                               "Last election result",
-                              "Last election result",
                               "National swing",
                               "Regional swing",
-                              "Visible minority",
-                              "University education"),
-           effect = coefficient*value)
+                              "Last election result",
+                              "Vancouver Island"),
+           effect = coefficient*value + (variable_group == "Baseline")*district_data.2019$Green_lag)
   
   waterfall_data.Green <- waterfall_data_ungrouped %>%
     na.omit() %>%
@@ -324,7 +322,7 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
     filter(effect != 0) %>%
     mutate(cumulative_effect = cumsum(effect),
            description = case_when( 
-             variable_group == "Baseline" ~ paste0("The Green Party baseline is ", round(effect, 1), "% of the vote."),
+             variable_group == "Baseline" ~ paste0("The Green Party baseline in this riding is ", round(effect, 1), "% of the vote."),
              variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection != "Beauce" ~ 
                "The incumbent is not running for reelection.",
              variable_group == "Incumbency" & sum(waterfall_data_ungrouped$value[2:6]) == 0 & district_selection == "Beauce" ~ 
@@ -348,10 +346,7 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
              variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) > 0) ~
                paste0("According to polls, the Green Party share of the vote in ", district_data.2019$region[1], " will increase by ",
                       round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
-             variable_group == "Visible minority" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), 
-                                                           "% of the population are visible minorities."),
-             variable_group == "University education" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[15,3]), 1),
-                                                               "% of the adult population has a university diploma.")
+             variable_group == "Vancouver Island" ~ "This riding is in Vancouver Island."
            ),
            description = case_when(effect > 0 ~ paste0(description, " (+", round(effect, 1), ")"),
                                    effect < 0 ~ paste0(description, " (", round(effect, 1), ")"),

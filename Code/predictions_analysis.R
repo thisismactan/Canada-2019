@@ -3,7 +3,7 @@ LPC_preds <- predict(model_LPC.linear, newdata = data_2019.simple)
 CPC_preds <- predict(model_CPC.linear, newdata = data_2019.simple)
 NDP_preds <- predict(model_NDP.linear, newdata = data_2019.simple)
 Bloc_preds <- predict(model_Bloc.linear, newdata = data_2019.simple)
-Green_preds <- predict(model_Green.linear, newdata = data_2019.simple)
+Green_preds <- predict(model_Green.linear, newdata = data_2019.simple) + data_2019.simple$Green_lag
 
 predictions <- tibble(district_code = data_2019.simple$district_code,
                       name_english = data_2019.simple$name_english,

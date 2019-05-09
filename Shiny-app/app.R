@@ -189,8 +189,8 @@ ui <- fluidPage(
                                                      checkboxInput("house_adjust", "Adjust for pollster house effects?", value = TRUE)
                                     ),
                                     conditionalPanel(condition = "input.graph_type == 'Forecast over time'",
-                                                     sliderInput("date_range_probs", "Date range", min = as.Date("2019-04-17"), max = as.Date("2019-10-21"),
-                                                                 value = as.Date(c("2019-04-17", "2019-10-21")))),
+                                                     sliderInput("date_range_probs", "Date range", min = as.Date("2019-05-08"), max = as.Date("2019-10-21"),
+                                                                 value = as.Date(c("2019-5-08", "2019-10-21")))),
                                     conditionalPanel(condition = "input.graph_type == 'Seat distributions'",
                                                      checkboxGroupInput("histogram_parties", "Parties to display",
                                                                         choices = c("Liberal", "Conservative", "NDP", "Bloc", "Green"),

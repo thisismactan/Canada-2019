@@ -116,7 +116,7 @@ for(i in 1:num.iter) {
   CPC_district_simulations[, i] <- predict(model_CPC.linear, newdata = simulation_data)
   NDP_district_simulations[, i] <- predict(model_NDP.linear, newdata = simulation_data)
   Bloc_district_simulations[, i] <- predict(model_Bloc.linear, newdata = simulation_data)
-  Green_district_simulations[, i] <- predict(model_Green.linear, newdata = simulation_data)
+  Green_district_simulations[, i] <- predict(model_Green.linear, newdata = simulation_data) + simulation_data$Green_lag
 }
 
 Sys.time() - start_time

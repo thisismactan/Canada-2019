@@ -2,7 +2,7 @@
 source("Code/library.R")
 
 #### Full model (pruned) ####
-linear_model.errors <- fread_to_tbl("Output/Model testing/linear_model_errors.csv")
+linear_model.errors <- fread_to_tbl("Output/Model testing/linear_model_errors2.csv")
 
 ## Standard deviation (even by province means are essentially zero)
 linear_model.errors %>%

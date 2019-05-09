@@ -148,6 +148,7 @@ data_2019.simple <- district_key_2013 %>%
          incumbent_CPC = incumbent == "Conservative",
          incumbent_NDP = incumbent == "NDP",
          incumbent_Green = incumbent == "Green",
-         incumbent_Bloc = incumbent == "Bloc")
+         incumbent_Bloc = incumbent == "Bloc") %>%
+  mutate(Vancouver_Island = district_code %in% c(59009, 59010, 59018, 59026, 59027, 59037, 59041))
 
 write_rds(data_2019.simple, "Shiny-app/data_2019.rds")
