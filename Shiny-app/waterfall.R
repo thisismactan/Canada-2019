@@ -1,10 +1,9 @@
 ## make_waterfall_data: function that creates a data frame for waterfall plotting
 make_waterfall_data <- function(district_selection, party, models = models_list, data = data_2019) {
   require(tidyverse)
-  
-  ## Subset data to the district of interest
-  if(!is.numeric(district_selection) & !is.character(district_selection)) {
-    waterfall_data <- data_2019
+
+  if((!is.numeric(district_selection) & !is.character(district_selection)) | district_selection == "") {
+    return(data_2019 %>% filter(FALSE))
   } else {
     if(is.numeric(district_selection)) {
       district_data.2019 <- data_2019 %>%
@@ -105,6 +104,8 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
              variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[14,3]) > 0) ~
                paste0("According to polls, the Liberal share of the vote in ", district_data.2019$region[1], " will increase by ",
                       round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), " percentage points."),
+             variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) == 0) ~ 
+               paste0("According to polls, the Liberal share of the vote in ", district_data.2019$region[1], " will not change."),
              variable_group == "University education" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[15,3]), 1), 
                                                                "% of the adult population has a university diploma."),
              variable_group == "Visible minority" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[16,3]), 1), 
@@ -184,6 +185,8 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
              variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) > 0) ~
                paste0("According to polls, the Conservative share of the vote in ", district_data.2019$region[1], " will increase by ",
                       round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
+             variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) == 0) ~ 
+               paste0("According to polls, the Conservative share of the vote in ", district_data.2019$region[1], " will not change."),
              variable_group == "Visible minority" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), 
                                                            "% of the population are visible minorities.")
            ),
@@ -266,6 +269,8 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
              variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) > 0) ~
                paste0("According to polls, the NDP share of the vote in ", district_data.2019$region[1], " will increase by ",
                       round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
+             variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) == 0) ~ 
+               paste0("According to polls, the NDP share of the vote in ", district_data.2019$region[1], " will not change."),
              variable_group == "Retiree population" ~ paste0(round(100*as.numeric(waterfall_data_ungrouped[14,3]), 1), 
                                                              "% of the population is over the age of 65.")
            ),
@@ -346,6 +351,8 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
              variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) > 0) ~
                paste0("According to polls, the Green Party share of the vote in ", district_data.2019$region[1], " will increase by ",
                       round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
+             variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) == 0) ~ 
+               paste0("According to polls, the Green Party share of the vote in ", district_data.2019$region[1], " will not change."),
              variable_group == "Vancouver Island" ~ "This riding is in Vancouver Island."
            ),
            description = case_when(effect > 0 ~ paste0(description, " (+", round(effect, 1), ")"),
@@ -423,7 +430,9 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
                         -round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
                variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) > 0) ~
                  paste0("According to polls, the Bloc Québécois share of the vote in ", district_data.2019$region[1], " will increase by ",
-                        round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points.")
+                        round(100*as.numeric(waterfall_data_ungrouped[13,3]), 1), " percentage points."),
+               variable_group == "Regional swing" & (as.numeric(waterfall_data_ungrouped[13,3]) == 0) ~ 
+                 paste0("According to polls, the Bloc Québécois share of the vote in ", district_data.2019$region[1], " will not change.")
              ),
              description = case_when(effect > 0 ~ paste0(description, " (+", round(effect, 1), ")"),
                                      effect < 0 ~ paste0(description, " (", round(effect, 1), ")"),
@@ -500,11 +509,11 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
   return(waterfall_data)
 }
 
-## make_waterfall_plot: takes data frame created by make_waterfall_data and 
+## make_waterfall_plot: takes data frame created by make_waterfall_data and makes a waterfall plot out of it
 make_waterfall_plot <- function(waterfall_data) {
   require(tidyverse)
   require(ggiraph)
-  if(nrow(waterfall_data) != 338) {
+  if(nrow(waterfall_data) > 0) {
     waterfall_plot <- suppressWarnings(
       ggplot(waterfall_data %>% 
                mutate(direction = case_when(effect > 0 ~ "Positive",
@@ -524,9 +533,9 @@ make_waterfall_plot <- function(waterfall_data) {
              subtitle = waterfall_data$district[1], x = "Predictor", y = "Cumulative effect (percentage points)") +
         lims(y = c(min(0, mean(waterfall_data$min_vote)), mean(waterfall_data$max_vote)))
     )
-    } else if(nrow(waterfall_data) == 338) {
-      waterfall_plot <- ggplot() + theme_minimal()
-    }
+  } else if(nrow(waterfall_data) == 0) {
+    waterfall_plot <- ggplot() + theme_minimal()
+  }
   
   return(waterfall_plot)
 }
