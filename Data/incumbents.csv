@@ -73,7 +73,7 @@
 24040,Laval--Les Îles,Liberal,TRUE
 24041,Longueuil--Charles-LeMoyne,Liberal,TRUE
 24042,Lévis--Lotbinière,Conservative,TRUE
-24043,Longueuil--Saint-Hubert,NDP,TRUE
+24043,Longueuil--Saint-Hubert,NDP,FALSE
 24044,Louis-Hébert,Liberal,TRUE
 24045,Louis-Saint-Laurent,Conservative,TRUE
 24046,Manicouagan,Bloc,TRUE
@@ -250,7 +250,7 @@
 47004,Carlton Trail--Eagle Creek,Conservative,TRUE
 47005,Moose Jaw--Lake Centre--Lanigan,Conservative,TRUE
 47006,Prince Albert,Conservative,TRUE
-47007,Regina--Lewvan,NDP,TRUE
+47007,Regina--Lewvan,NDP,FALSE
 47008,Regina--Qu'Appelle,Conservative,TRUE
 47009,Regina--Wascana,Liberal,TRUE
 47010,Saskatoon--Grasswood,Conservative,TRUE
@@ -333,7 +333,7 @@
 59039,Vancouver Quadra,Liberal,TRUE
 59040,Vancouver South,Liberal,TRUE
 59041,Victoria,NDP,FALSE
-59042,West Vancouver--Sunshine Coast--Sea to Sky Country,Liberal,TRUE
+59042,West Vancouver--Sunshine Coast--Sea to Sky Country,Liberal,FALSE
 60001,Yukon,Liberal,TRUE
 61001,Northwest Territories,Liberal,TRUE
 62001,Nunavut,Liberal,FALSE

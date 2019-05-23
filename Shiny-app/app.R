@@ -350,7 +350,7 @@ server <- function(input, output) {
         girafe(ggobj = (
           ggplot(BPI %>% filter(!grepl("\\'", description)), aes(x = LPC, y = CPC, col = LPC_rel_logit)) +
             geom_text_interactive(aes(label = name_english, tooltip = description), size = 3) +
-            scale_colour_gradient(low = "blue", high = "red", name = "LPC relative logit") +
+            scale_colour_gradient(low = "blue", high = "red", name = "LPC relative log-odds") +
             labs(title = "Bellwether-o-gram", x = "P(LPC government|LPC wins district)", y = "P(CPC government|CPC wins district)",
                  subtitle = "What's the probability that the Liberals/Conservatives win the election given that they win district ___?")),
           width_svg = 11)

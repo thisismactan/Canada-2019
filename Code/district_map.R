@@ -39,6 +39,7 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
           mutate(candidate = case_when(is.na(candidate_last) ~ "TBD",
                                        !is.na(candidate_last) ~ paste(candidate_first, candidate_last))) %>%
           dplyr::select(district_code, party, candidate) %>%
+          distinct(district_code, party, .keep_all = TRUE) %>%
           spread(party, candidate) %>%
           replace_na(list(district_code = NA, Bloc = "TBD", Conservative = "TBD", Green = "TBD", Liberal = "TBD", NDP = "TBD", `People's` = "TBD")) %>%
           dplyr::select(district_code, LPC_cand = Liberal, CPC_cand = Conservative, NDP_cand = NDP, Green_cand = Green, Bloc_cand = Bloc, PPC_cand = `People's`), 
