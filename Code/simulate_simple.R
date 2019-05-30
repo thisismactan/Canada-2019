@@ -1,6 +1,7 @@
 ## Run necessaries
 source("Code/Modeling/poll_error_variance.R")
 source("Code/Modeling/model_error_variance.R")
+source("Code/independent_performance.R")
 source("Code/poll_average.R")
 source("Code/shape_2019_data.R")
 
@@ -63,7 +64,13 @@ frigid_northlands_sims <- (rmvn(num.iter, frigid_northlands_means, frigid_northl
 
 LPC_district_simulations <- CPC_district_simulations <- NDP_district_simulations <- Bloc_district_simulations <- 
   Green_district_simulations <- matrix(NA, 338, num.iter)
-PPC_district_simulations <- matrix(0, 338, num.iter)
+PPC_district_simulations <- ind_district_simulations <- matrix(0, 338, num.iter)
+
+wilson_raybould_fractions <- rnorm(num.iter, mean = wilson_raybould_mean.logit, sd = independent_se) %>% invlogit()
+philpott_fractions <- rnorm(num.iter, mean = philpott_mean.logit, sd = independent_se) %>% invlogit()
+vancouver_granville_row <- 329
+markham_stoufville_row <- 164
+beauce_row <- 39
 
 ## Simulation
 start_time <- Sys.time()
@@ -121,53 +128,54 @@ for(i in 1:num.iter) {
 
 Sys.time() - start_time
 
-PPC_district_simulations[39,] <- ((67.02 - 6.64 - 17.09)/(67.02 - 6.64))*CPC_district_simulations[39,]
-CPC_district_simulations[39,] <- (17.09/(67.02 - 6.64))*CPC_district_simulations[39,]
+## Maxime Bernier
+PPC_district_simulations[beauce_row,] <- ((67.02 - 6.64 - 17.09)/(67.02 - 6.64))*CPC_district_simulations[beauce_row,]
+CPC_district_simulations[beauce_row,] <- (17.09/(67.02 - 6.64))*CPC_district_simulations[beauce_row,]
+
+## Jody Wilson-Raybould
+ind_district_simulations[vancouver_granville_row,] <- wilson_raybould_fractions*LPC_district_simulations[vancouver_granville_row,] +
+  0.1*NDP_district_simulations[vancouver_granville_row,]
+LPC_district_simulations[vancouver_granville_row,] <- (1 - wilson_raybould_fractions)*LPC_district_simulations[vancouver_granville_row,]
+NDP_district_simulations[vancouver_granville_row,] <- 0.9*NDP_district_simulations[vancouver_granville_row,]
+
+## Jane Philpott
+ind_district_simulations[markham_stoufville_row,] <- philpott_fractions*LPC_district_simulations[markham_stoufville_row,] +
+  0.1*NDP_district_simulations[markham_stoufville_row,]
+LPC_district_simulations[markham_stoufville_row,] <- (1 - philpott_fractions)*LPC_district_simulations[markham_stoufville_row,]
+NDP_district_simulations[markham_stoufville_row,] <- 0.9*NDP_district_simulations[markham_stoufville_row,]
 
 ## Vote distributions
 LPC_distribution <- tibble(district_code = data_2019.simple$district_code,
                            name_english = district_key_2013$name_english,
                            pct_05.LPC = pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
-                           pct_25.LPC = pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25)),
                            pct_50.LPC = pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
-                           pct_75.LPC = pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
                            pct_95.LPC = pmax(0, apply(LPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
 
 CPC_distribution <- tibble(district_code = data_2019.simple$district_code,
                            name_english = district_key_2013$name_english,
                            pct_05.CPC = pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
-                           pct_25.CPC = pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25)),
                            pct_50.CPC = pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
-                           pct_75.CPC = pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
                            pct_95.CPC = pmax(0, apply(CPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
 
 NDP_distribution <- tibble(district_code = data_2019.simple$district_code,
                            name_english = district_key_2013$name_english,
                            pct_05.NDP = pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
-                           pct_25.NDP = pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25)),
                            pct_50.NDP = pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
-                           pct_75.NDP = pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
                            pct_95.NDP = pmax(0, apply(NDP_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
 
 Bloc_distribution <- tibble(district_code = data_2019.simple$district_code,
                             name_english = district_key_2013$name_english,
                             pct_05.Bloc = pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
-                            pct_25.Bloc = pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25)),
                             pct_50.Bloc = pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
-                            pct_75.Bloc = pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
                             pct_95.Bloc = pmax(0, apply(Bloc_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95))) %>%
   mutate(pct_05.Bloc = pct_05.Bloc*(1 - (floor(district_code/1000) != 24)),
-         pct_25.Bloc = pct_25.Bloc*(1 - (floor(district_code/1000) != 24)),
          pct_50.Bloc = pct_50.Bloc*(1 - (floor(district_code/1000) != 24)),
-         pct_75.Bloc = pct_75.Bloc*(1 - (floor(district_code/1000) != 24)),
          pct_95.Bloc = pct_95.Bloc*(1 - (floor(district_code/1000) != 24)))
 
 Green_distribution <- tibble(district_code = data_2019.simple$district_code,
                              name_english = district_key_2013$name_english,
                              pct_05.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
-                             pct_25.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.25)),
                              pct_50.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
-                             pct_75.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.75)),
                              pct_95.Green = pmax(0, apply(Green_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
 
 PPC_distribution <- tibble(district_code = data_2019.simple$district_code,
@@ -176,42 +184,61 @@ PPC_distribution <- tibble(district_code = data_2019.simple$district_code,
                            pct_50.PPC = pmax(0, apply(PPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
                            pct_95.PPC = pmax(0, apply(PPC_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
 
+ind_distribution <- tibble(district_code = data_2019.simple$district_code,
+                           name_english = district_key_2013$name_english,
+                           pct_05.ind = pmax(0, apply(ind_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.05)),
+                           pct_50.ind = pmax(0, apply(ind_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.5)),
+                           pct_95.ind = pmax(0, apply(ind_district_simulations, MARGIN = 1, FUN = quantile, prob = 0.95)))
+
 ## Winners by district by simulation
 LPC_wins <- (LPC_district_simulations > CPC_district_simulations) &
   (LPC_district_simulations > NDP_district_simulations) &
   (LPC_district_simulations > Bloc_district_simulations) &
   (LPC_district_simulations > Green_district_simulations) &
-  (LPC_district_simulations > PPC_district_simulations)
+  (LPC_district_simulations > PPC_district_simulations) &
+  (LPC_district_simulations > ind_district_simulations)
 
 CPC_wins <- (CPC_district_simulations > LPC_district_simulations) &
   (CPC_district_simulations > NDP_district_simulations) &
   (CPC_district_simulations > Bloc_district_simulations) &
   (CPC_district_simulations > Green_district_simulations) &
-  (CPC_district_simulations > PPC_district_simulations)
+  (CPC_district_simulations > PPC_district_simulations) &
+  (CPC_district_simulations > ind_district_simulations)
 
 NDP_wins <- (NDP_district_simulations > LPC_district_simulations) &
   (NDP_district_simulations > CPC_district_simulations) &
   (NDP_district_simulations > Bloc_district_simulations) &
   (NDP_district_simulations > Green_district_simulations) &
-  (NDP_district_simulations > PPC_district_simulations)
+  (NDP_district_simulations > PPC_district_simulations) &
+  (NDP_district_simulations > ind_district_simulations)
 
 Bloc_wins <- (Bloc_district_simulations > LPC_district_simulations) &
   (Bloc_district_simulations > CPC_district_simulations) &
   (Bloc_district_simulations > NDP_district_simulations) &
   (Bloc_district_simulations > Green_district_simulations) &
-  (Bloc_district_simulations > PPC_district_simulations)
+  (Bloc_district_simulations > PPC_district_simulations) &
+  (Bloc_district_simulations > ind_district_simulations)
 
 Green_wins <- (Green_district_simulations > LPC_district_simulations) &
   (Green_district_simulations > CPC_district_simulations) &
   (Green_district_simulations > NDP_district_simulations) &
   (Green_district_simulations > Bloc_district_simulations) &
-  (Green_district_simulations > PPC_district_simulations)
+  (Green_district_simulations > PPC_district_simulations) &
+  (Green_district_simulations > ind_district_simulations)
 
 PPC_wins <- (PPC_district_simulations > LPC_district_simulations) &
   (PPC_district_simulations > CPC_district_simulations) &
   (PPC_district_simulations > NDP_district_simulations) &
   (PPC_district_simulations > Bloc_district_simulations) &
-  (PPC_district_simulations > Green_district_simulations)
+  (PPC_district_simulations > Green_district_simulations) &
+  (PPC_district_simulations > ind_district_simulations)
+
+ind_wins <- (ind_district_simulations > LPC_district_simulations) &
+  (ind_district_simulations > CPC_district_simulations) &
+  (ind_district_simulations > NDP_district_simulations) &
+  (ind_district_simulations > Bloc_district_simulations) &
+  (ind_district_simulations > Green_district_simulations) &
+  (ind_district_simulations > PPC_district_simulations)
 
 ## Win probabilities by district
 district_probs <- tibble(district_code = data_2019.simple$district_code,
@@ -221,7 +248,8 @@ district_probs <- tibble(district_code = data_2019.simple$district_code,
                          NDP_prob = rowMeans(NDP_wins),
                          Bloc_prob = rowMeans(Bloc_wins),
                          Green_prob = rowMeans(Green_wins),
-                         PPC_prob = rowMeans(PPC_wins))
+                         PPC_prob = rowMeans(PPC_wins),
+                         ind_prob = rowMeans(ind_wins))
 
 ## Seat counts by simulation
 LPC_seats <- colSums(LPC_wins)
@@ -230,6 +258,7 @@ NDP_seats <- colSums(NDP_wins)
 Bloc_seats <- colSums(Bloc_wins)
 Green_seats <- colSums(Green_wins)
 PPC_seats <- colSums(PPC_wins)
+ind_seats <- colSums(ind_wins)
 
 seat_simulations <- tibble(simulation = 1:num.iter,
                            LPC = LPC_seats,
@@ -253,7 +282,7 @@ write_rds(seat_simulations, "Shiny-app/seat_simulations.rds")
 outcome_probs <- seat_simulations %>%
   group_by(most_seats, type_of_win) %>%
   summarise(prob = n()/num.iter) %>%
-  spread(type_of_win, prob)
+  spread(type_of_win, prob, fill = 0)
 
 outcome_probs
 

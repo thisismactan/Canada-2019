@@ -10,17 +10,17 @@
 11002,Charlottetown,Liberal,TRUE
 11003,Egmont,Liberal,TRUE
 11004,Malpeque,Liberal,TRUE
-12001,Cape Breton--Canso,Liberal,TRUE
+12001,Cape Breton--Canso,Liberal,FALSE
 12002,Central Nova,Liberal,TRUE
 12003,Cumberland--Colchester,Liberal,FALSE
 12004,Dartmouth--Cole Harbour,Liberal,TRUE
 12005,Halifax,Liberal,TRUE
-12006,Halifax West,Liberal,FALSE
+12006,Halifax West,Liberal,TRUE
 12007,Kings--Hants,Liberal,TRUE
 12008,Sackville--Preston--Chezzetcook,Liberal,TRUE
 12009,South Shore--St. Margarets,Liberal,TRUE
-12010,Sydney--Victoria,Liberal,TRUE
-12011,West Nova,Liberal,TRUE
+12010,Sydney--Victoria,Liberal,FALSE
+12011,West Nova,Liberal,FALSE
 13001,Acadie--Bathurst,Liberal,TRUE
 13002,Beauséjour,Liberal,TRUE
 13003,Fredericton,Liberal,TRUE
@@ -73,7 +73,7 @@
 24040,Laval--Les Îles,Liberal,TRUE
 24041,Longueuil--Charles-LeMoyne,Liberal,TRUE
 24042,Lévis--Lotbinière,Conservative,TRUE
-24043,Longueuil--Saint-Hubert,NDP,FALSE
+24043,Longueuil--Saint-Hubert,NDP,TRUE
 24044,Louis-Hébert,Liberal,TRUE
 24045,Louis-Saint-Laurent,Conservative,TRUE
 24046,Manicouagan,Bloc,TRUE
@@ -99,7 +99,7 @@
 24066,Saint-Hyacinthe--Bagot,NDP,TRUE
 24067,Saint-Jean,Liberal,TRUE
 24068,Saint-Laurent,Liberal,TRUE
-24069,Saint-Léonard--Saint-Michel,Liberal,FALSE
+24069,Saint-Léonard--Saint-Michel,Liberal,TRUE
 24070,Saint-Maurice--Champlain,Liberal,TRUE
 24071,Salaberry--Suroît,NDP,FALSE
 24072,Shefford,Liberal,TRUE
@@ -112,7 +112,7 @@
 35001,Ajax,Liberal,TRUE
 35002,Algoma--Manitoulin--Kapuskasing,NDP,TRUE
 35003,Aurora--Oak Ridges--Richmond Hill,Conservative,TRUE
-35004,Barrie--Innisfil,Conservative,FALSE
+35004,Barrie--Innisfil,Conservative,TRUE
 35005,Barrie--Springwater--Oro-Medonte,Conservative,TRUE
 35006,Bay of Quinte,Liberal,TRUE
 35007,Beaches--East York,Liberal,TRUE
@@ -162,7 +162,7 @@
 35051,London--Fanshawe,NDP,FALSE
 35052,London North Centre,Liberal,TRUE
 35053,London West,Liberal,TRUE
-35054,Markham--Stouffville,Liberal,FALSE
+35054,Markham--Stouffville,Liberal,TRUE
 35055,Markham--Thornhill,Liberal,TRUE
 35056,Markham--Unionville,Conservative,TRUE
 35057,Milton,Conservative,TRUE
@@ -173,7 +173,7 @@
 35062,Mississauga--Malton,Liberal,TRUE
 35063,Mississauga--Streetsville,Liberal,TRUE
 35064,Nepean,Liberal,TRUE
-35065,Newmarket--Aurora,Liberal,TRUE
+35065,Newmarket--Aurora,Liberal,FALSE
 35066,Niagara Centre,Liberal,TRUE
 35067,Niagara Falls,Conservative,FALSE
 35068,Niagara West,Conservative,TRUE
@@ -184,7 +184,7 @@
 35073,Oakville North--Burlington,Liberal,TRUE
 35074,Oshawa,Conservative,TRUE
 35075,Ottawa Centre,Liberal,TRUE
-35076,Orléans,Liberal,TRUE
+35076,Orléans,Liberal,FALSE
 35077,Ottawa South,Liberal,TRUE
 35078,Ottawa--Vanier,Liberal,TRUE
 35079,Ottawa West--Nepean,Liberal,TRUE
@@ -254,7 +254,7 @@
 47008,Regina--Qu'Appelle,Conservative,TRUE
 47009,Regina--Wascana,Liberal,TRUE
 47010,Saskatoon--Grasswood,Conservative,TRUE
-47011,Saskatoon--University,Conservative,FALSE
+47011,Saskatoon--University,Conservative,TRUE
 47012,Saskatoon West,NDP,TRUE
 47013,Souris--Moose Mountain,Conservative,TRUE
 47014,Yorkton--Melville,Conservative,TRUE
@@ -327,13 +327,13 @@
 59033,Surrey--Newton,Liberal,TRUE
 59034,Vancouver Centre,Liberal,TRUE
 59035,Vancouver East,NDP,TRUE
-59036,Vancouver Granville,Liberal,FALSE
+59036,Vancouver Granville,Liberal,TRUE
 59037,North Island--Powell River,NDP,TRUE
 59038,Vancouver Kingsway,NDP,TRUE
 59039,Vancouver Quadra,Liberal,TRUE
 59040,Vancouver South,Liberal,TRUE
 59041,Victoria,NDP,FALSE
-59042,West Vancouver--Sunshine Coast--Sea to Sky Country,Liberal,FALSE
+59042,West Vancouver--Sunshine Coast--Sea to Sky Country,Liberal,TRUE
 60001,Yukon,Liberal,TRUE
 61001,Northwest Territories,Liberal,TRUE
 62001,Nunavut,Liberal,FALSE
