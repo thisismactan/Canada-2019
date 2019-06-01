@@ -98,7 +98,7 @@ ggplot(national_polls.adjusted %>%
 #### PROVINCIAL ####
 provincial_polls <- read_csv("Data/provincial_polling.csv") %>%
   reshape(varying = grep("\\.", names(read_csv("Data/provincial_polling.csv")), value = TRUE), 
-          idvar = c("pollster", "median_date", "mode", "n"), direction = "long") %>%
+          idvar = c("pollster", "median_date", "mode", "LV", "n"), direction = "long") %>%
   left_join(read_csv("Data/poll_spreads.csv"), by = "pollster", all.x = TRUE) %>%
   
   # Calculate poll age
@@ -106,13 +106,13 @@ provincial_polls <- read_csv("Data/provincial_polling.csv") %>%
          age = as.numeric(lubridate::today() - date)) %>%
   
   arrange(age) %>%
-  dplyr::select(pollster, date, age, mode, n, province = time, LPC, CPC, NDP, BQ, GPC, PPC) %>%
+  dplyr::select(pollster, date, age, mode, n, LV, province = time, LPC, CPC, NDP, BQ, GPC, PPC) %>%
   mutate(province = case_when(province == "BC" ~ "British Columbia",
                               province != "BC" ~ province)) %>%
   as.tbl() %>%
   left_join(house_effects, by = "pollster") %>%
-  mutate(weight = 100*(age <= 60)*exp(-age^(1/3))/ifelse(mode == "IVR", 3, 1)/sqrt(sqrt(n))/full_house,
-         loess_weight = 100/ifelse(mode == "IVR", 3, 1)/sqrt(sqrt(n))/full_house)
+  mutate(weight = 100*(age <= 60)*(ifelse(LV, 3, 1))*exp(-age^(1/3))/ifelse(mode == "IVR", 3, 1)/sqrt(sqrt(n))/full_house,
+         loess_weight = 100*(ifelse(LV, 3, 1))/ifelse(mode == "IVR", 3, 1)/sqrt(sqrt(n))/full_house)
 
 provincial_polls_adjusted <- provincial_polls %>%
   mutate(LPC = LPC - 0.5*LPC_house,
@@ -123,7 +123,7 @@ provincial_polls_adjusted <- provincial_polls %>%
 
 ## Plotting
 provincial_polls_adjusted %>%
-  melt(id.vars = c("pollster", "date", "age", "n", "mode", "province", "weight", "loess_weight", "LPC_house", "CPC_house", "NDP_house",
+  melt(id.vars = c("pollster", "date", "age", "n", "mode", "LV", "province", "weight", "loess_weight", "LPC_house", "CPC_house", "NDP_house",
                    "GPC_house", "BQ_house", "PPC_house", "full_house"), variable.name = "Party", value.name = "Poll") %>%
   mutate(Poll = as.numeric(Poll)) %>%
   ggplot(aes(x = date, y = Poll, col = Party)) +

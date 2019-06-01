@@ -97,7 +97,8 @@ predictions %>%
                                winner == "NDP" & last_winner == "Bloc" ~ "Bloc to NDP",
                                winner == "Bloc" & last_winner == "Liberal" ~ "LPC to Bloc",
                                winner == "Bloc" & last_winner == "Conservative" ~ "CPC to Bloc",
-                               winner == "Bloc" & last_winner == "NDP" ~ "NDP to Bloc")
+                               winner == "Bloc" & last_winner == "NDP" ~ "NDP to Bloc",
+                               winner == "Green" & last_winner == "NDP" ~ "NDP to Green")
          ) %>%
   group_by(flip_type, region) %>%
   summarise(n = n()) %>%

@@ -25,7 +25,7 @@ preds_data <- data_2019.simple %>%
          ind_pred = case_when(district_code == 35054 ~ invlogit(philpott_mean.logit)*LPC_pred + 0.1*NDP_pred,
                               district_code == 59036 ~ invlogit(wilson_raybould_mean.logit)*LPC_pred + 0.1*NDP_pred),
          NDP_pred = case_when(district_code %in% c(35054, 59036) ~ 0.9*NDP_pred,
-                              !(district_code %in% c(35054, 59036)) ~ NDP_pred))
+                              !(district_code %in% c(35054, 59036)) ~ NDP_pred)
   )
 
 ## Transform to lat-long
@@ -220,7 +220,7 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = 'red'><b>LPC</b></font>: ", round(100*LPC_pred, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
                     "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
                     "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
-                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"<br>,
+                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)<br>",
                     "<font color = '#444444'><b>Ind</b></font> ", round(100*ind_pred, 1), "% (", round(100*pct_05.ind, 1), "%–", round(100*pct_95.ind, 1), "%)"
               ),
            
@@ -240,7 +240,7 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = 'red'><b>LPC</b></font>: ", round(100*LPC_pred, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
                     "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
                     "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
-                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"<br>,
+                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)<br>",
                     "<font color = '#444444'><b>Ind</b></font> ", round(100*ind_pred, 1), "% (", round(100*pct_05.ind, 1), "%–", round(100*pct_95.ind, 1), "%)"
              )
            )
