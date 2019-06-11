@@ -9,6 +9,10 @@ library(shinythemes)
 library(sf)
 library(leaflet)
 
+# Set time zone
+Sys.setenv(TZ = "America/New_York")
+update_time <- Sys.time()
+
 ## Read in things
 outcome_probs <- read_rds("outcome_probs.rds")
 national_polls_unadjusted <- read_rds("national_polls.rds") %>%
@@ -129,6 +133,7 @@ ui <- fluidPage(
         
         ## Sidebar
         sidebarPanel(tags$h4("Current forecast"),
+                     tags$h5(paste("Last updated", update_time)),
                      tags$h5("Outcome probabilities"),
                      HTML(paste0("<table>",
                                  "<tr>",
