@@ -61,7 +61,8 @@ poll_averages_adjusted <- read_csv("poll_averages_adjusted.csv")  %>%
 
 forecast_timeline <- read_csv("forecast_timeline.csv") %>%
   mutate(description = paste0(format(date, "%B %e, %Y"), "\n",
-                              outcome, ": ", round(100*prob), "%"))
+                              outcome, ": ", round(100*prob), "%")) %>%
+  filter(grepl("Conservative|Liberal|NDP", outcome), grepl("majority|minority", outcome))
 
 canada_districts_latlong <- read_rds("canada_districts.rds") %>%
   merge(read_csv("district_zoom_levels_2013.csv"), by.x = "FED_NUM", by.y = "district_code") 
