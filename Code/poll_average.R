@@ -66,12 +66,14 @@ write_rds(national_polls.adjusted %>%
             arrange(Party), "Shiny-app/national_polls_adjusted.rds")
 
 ## Weighted average
-national_polls.adjusted %>% 
+national_avg <- national_polls.adjusted %>% 
   melt(id.vars = c("pollster", "date", "age", "MOE", "n", "mode", "IVR", "weight")) %>%
   filter(variable %in% c("LPC", "CPC", "NDP", "BQ", "GPC", "PPC")) %>%
   group_by(party = variable) %>%
   summarise(average = Hmisc::wtd.mean(value, weights = weight, na.rm = TRUE),
             sd = sqrt(Hmisc::wtd.var(value, weights = weight, na.rm = TRUE)))
+
+national_avg
 
 ## Weighted covariance (except People's Party)
 national_polls_matrix <- national_polls.adjusted %>%
@@ -85,11 +87,12 @@ ggplot(national_polls.adjusted %>%
          melt(measure.vars = c("LPC", "CPC", "NDP", "GPC", "PPC"),
               variable.name = "Party", value.name = "Poll"), 
        aes(x = date, y = Poll, col = Party)) +
+  geom_vline(xintercept = as.Date("2019-10-21")) +
   geom_point(aes(size = loess_weight), alpha = 0.4) +
   geom_smooth(aes(weight = loess_weight), method = "loess", span = 0.25, size = 1) +
   scale_colour_manual(name = "Party", values = national_colors, labels = national_parties) +
   scale_size_continuous(name = "Weight", range = c(0.1, 3)) +
-  scale_x_date(date_breaks = "months", date_labels = "%b %Y", limits = c(as.Date("2018-01-01"), today())) +
+  scale_x_date(date_breaks = "months", date_labels = "%b %Y", limits = as.Date(c("2018-01-01", "2019-10-21"))) +
   theme(axis.text.x = element_text(angle = 90, size = 7)) +
   scale_y_continuous(breaks = 10*(0:6)) +
   labs(title = "2019 Canadian federal election polling",

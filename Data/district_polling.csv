@@ -1,0 +1,40 @@
+﻿name_english,district_code,pollster,median_date,n,party,pct,avg_dayof,lean
+Burnaby South,59003,Mainstreet Research,2018-11-11,366,LPC,35.9,37.62,-1.72
+Burnaby South,59003,Mainstreet Research,2018-11-11,366,CPC,29.3,32.04,-2.74
+Burnaby South,59003,Mainstreet Research,2018-11-11,366,NDP,27.2,16.33,10.87
+Burnaby South,59003,Mainstreet Research,2018-11-11,366,GPC,6.1,7.46,-1.36
+Burnaby South,59003,Mainstreet Research,2018-11-11,366,PPC,1,1.85,-0.85
+Burnaby South,59003,Mainstreet Research,2019-01-10,740,LPC,26.3,36.34,-10.04
+Burnaby South,59003,Mainstreet Research,2019-01-10,740,CPC,22,34.16,-12.16
+Burnaby South,59003,Mainstreet Research,2019-01-10,740,NDP,38.8,15.69,23.11
+Burnaby South,59003,Mainstreet Research,2019-01-10,740,GPC,4.2,7.2,-3
+Burnaby South,59003,Mainstreet Research,2019-01-10,740,PPC,8.7,1.88,6.82
+Vancouver Granville,59036,Justason Marketing,2019-04-05,195,LPC,24,33,-9
+Vancouver Granville,59036,Justason Marketing,2019-04-05,195,CPC,14,34.83,-20.83
+Vancouver Granville,59036,Justason Marketing,2019-04-05,195,NDP,23,15.5,7.5
+Vancouver Granville,59036,Justason Marketing,2019-04-05,195,GPC,,9.05,
+Vancouver Granville,59036,Justason Marketing,2019-04-05,195,PPC,,2.14,
+Vancouver Granville,59036,Justason Marketing,2019-04-05,195,Ind,33,,
+Vancouver Granville,59036,Mainstreet Research,2019-05-30,418,LPC,29.2,30.97,-1.77
+Vancouver Granville,59036,Mainstreet Research,2019-05-30,418,CPC,19.9,34.93,-15.03
+Vancouver Granville,59036,Mainstreet Research,2019-05-30,418,NDP,8.4,15.73,-7.33
+Vancouver Granville,59036,Mainstreet Research,2019-05-30,418,GPC,10.2,10.49,-0.29
+Vancouver Granville,59036,Mainstreet Research,2019-05-30,418,PPC,0,1.81,-1.81
+Vancouver Granville,59036,Mainstreet Research,2019-05-30,418,Ind,32.3,,
+Markham--Stouffville,35054,Mainstreet Research,2019-05-30,601,LPC,38.9,30.97,7.93
+Markham--Stouffville,35054,Mainstreet Research,2019-05-30,601,CPC,32.2,34.93,-2.73
+Markham--Stouffville,35054,Mainstreet Research,2019-05-30,601,NDP,2.4,15.73,-13.33
+Markham--Stouffville,35054,Mainstreet Research,2019-05-30,601,GPC,5.7,10.49,-4.79
+Markham--Stouffville,35054,Mainstreet Research,2019-05-30,601,PPC,0,1.81,-1.81
+Markham--Stouffville,35054,Mainstreet Research,2019-05-30,601,Ind,20.8,,
+Oakville,35072,Mainstreet Research,2019-05-30,602,LPC,48.3,30.97,17.33
+Oakville,35072,Mainstreet Research,2019-05-30,602,CPC,35.4,34.93,0.47
+Oakville,35072,Mainstreet Research,2019-05-30,602,NDP,3,15.73,-12.73
+Oakville,35072,Mainstreet Research,2019-05-30,602,GPC,8.3,10.49,-2.19
+Oakville,35072,Mainstreet Research,2019-05-30,602,PPC,3.5,1.81,1.69
+Beauce,24007,Mainstreet Research,2018-11-11,616,LPC,13.8,37.62,-23.82
+Beauce,24007,Mainstreet Research,2018-11-11,616,CPC,37.9,32.04,5.86
+Beauce,24007,Mainstreet Research,2018-11-11,616,NDP,5.5,16.33,-10.83
+Beauce,24007,Mainstreet Research,2018-11-11,616,GPC,2,7.46,-5.46
+Beauce,24007,Mainstreet Research,2018-11-11,616,BQ,4.4,,
+Beauce,24007,Mainstreet Research,2018-11-11,616,PPC,34.7,1.85,

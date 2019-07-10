@@ -1,0 +1,22 @@
+source("code/library.R")
+
+# Read in current district polls
+district_polls <- read_csv("Data/district_polling.csv") %>%
+  left_join(national_avg, by = "party") %>%
+  mutate(pct_adj = case_when(!is.na(lean) ~ lean + average,
+                             is.na(lean) ~ pct)) %>%
+  mutate(age = as.numeric(today() - median_date),
+         weight = 10*(n^0.25)/exp((age/7)^0.3))
+
+district_poll_avg <- district_polls %>%
+  group_by(district_code, party) %>%
+  summarise(pct = wtd.mean(pct_adj, weight),
+            total_n = sum(n)) %>%
+  mutate(variance = 2500/total_n) %>%
+  dplyr::select(district_code, variance, party, pct) %>%
+  spread(party, pct) %>%
+  ungroup() %>%
+  right_join(district_key_2013, by = "district_code") %>%
+  dplyr::select(-name_english, -population)
+
+names(district_poll_avg) <- c("district_code", "variance", "BQ_poll", "CPC_poll", "GPC_poll", "Ind_poll", "LPC_poll", "NDP_poll", "PPC_poll")
