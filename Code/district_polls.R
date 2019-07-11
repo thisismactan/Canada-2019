@@ -10,13 +10,15 @@ district_polls <- read_csv("Data/district_polling.csv") %>%
 
 district_poll_avg <- district_polls %>%
   group_by(district_code, party) %>%
-  summarise(pct = wtd.mean(pct_adj, weight),
-            total_n = sum(n)) %>%
-  mutate(variance = 2500/total_n) %>%
-  dplyr::select(district_code, variance, party, pct) %>%
+  summarise(pct = wtd.mean(pct_adj, weight)/100,
+            total_n = sum(n),
+            most_recent = max(median_date)) %>%
+  mutate(age_weeks = as.numeric(today() - most_recent)/7,
+         variance = exp(0.1*age_weeks)*0.25/total_n) %>%
+  dplyr::select(district_code, variance, age_weeks, party, pct) %>%
   spread(party, pct) %>%
   ungroup() %>%
   right_join(district_key_2013, by = "district_code") %>%
   dplyr::select(-name_english, -population)
 
-names(district_poll_avg) <- c("district_code", "variance", "BQ_poll", "CPC_poll", "GPC_poll", "Ind_poll", "LPC_poll", "NDP_poll", "PPC_poll")
+names(district_poll_avg) <- c("district_code", "variance", "age_weeks", "BQ_poll", "CPC_poll", "GPC_poll", "Ind_poll", "LPC_poll", "NDP_poll", "PPC_poll")

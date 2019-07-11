@@ -32,6 +32,7 @@ library(xgboostExplainer)
 
 ## Simulating
 library(mvnfast)
+library(Rfast)
 
 #### PARTY COLORS ####
 quebec_parties <- c("Liberal", "Conservative", "NDP", "Bloc", "Green", "People's")

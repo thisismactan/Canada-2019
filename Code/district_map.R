@@ -15,9 +15,14 @@ preds_data <- data_2019.simple %>%
          NDP_pred = predict(model_NDP.linear, newdata = .),
          Green_pred = predict(model_Green.linear, newdata = .) + Green_lag,
          Bloc_pred = (province == "Quebec")*predict(model_Bloc.linear, newdata = .)) %>%
-  dplyr::select(district_code, LPC_pred, CPC_pred, NDP_pred, Green_pred, Bloc_pred) %>%
   mutate_all(function(x) pmax(x, 0)) %>%
-  mutate(CPC_pred = case_when(district_code == 24007 ~ (17.09/(67.02 - 6.64))*CPC_pred,
+  mutate(LPC_rho = LPC_rho,
+         CPC_rho = CPC_rho,
+         NDP_rho = NDP_rho,
+         Green_rho = Green_rho,
+         Bloc_rho = Bloc_rho,
+         ind_rho = ind_rho,
+         CPC_pred = case_when(district_code == 24007 ~ (17.09/(67.02 - 6.64))*CPC_pred,
                               district_code != 24007 ~ CPC_pred),
          LPC_pred = case_when(district_code == 35054 ~ (1 - invlogit(philpott_mean.logit))*LPC_pred,
                               district_code == 59036 ~ (1 - invlogit(wilson_raybould_mean.logit))*LPC_pred,
@@ -26,7 +31,19 @@ preds_data <- data_2019.simple %>%
                               district_code == 59036 ~ invlogit(wilson_raybould_mean.logit)*LPC_pred + 0.1*NDP_pred),
          NDP_pred = case_when(district_code %in% c(35054, 59036) ~ 0.9*NDP_pred,
                               !(district_code %in% c(35054, 59036)) ~ NDP_pred)
-  )
+  ) %>%
+  left_join(district_poll_avg, by = "district_code") %>%
+  mutate_all(function(x) {
+    x[is.na(x)] <- 0
+    return(x)
+    }) %>%
+  mutate(LPC_pred = LPC_rho*LPC_pred + (1 - LPC_rho)*LPC_poll,
+         CPC_pred = CPC_rho*CPC_pred + (1 - CPC_rho)*CPC_poll,
+         NDP_pred = NDP_rho*NDP_pred + (1 - NDP_rho)*NDP_poll,
+         Bloc_pred = Bloc_rho*Bloc_pred + (1 - Bloc_rho)*BQ_poll,
+         Green_pred = Green_rho*Green_pred + (1 - Green_rho)*GPC_poll,
+         ind_pred = ind_rho*ind_pred + (1 - ind_rho)*Ind_poll) %>%
+  dplyr::select(district_code, LPC_pred, CPC_pred, NDP_pred, Green_pred, Bloc_pred, ind_pred)
 
 ## Transform to lat-long
 canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0")) %>%

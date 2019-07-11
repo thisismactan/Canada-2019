@@ -4,6 +4,7 @@ source("Code/Modeling/model_error_variance.R")
 source("Code/independent_performance.R")
 source("Code/poll_average.R")
 source("Code/shape_2019_data.R")
+source("Code/district_polls.R")
 
 ## Clean district keys again for good measure
 district_key_2013 <- readr::read_csv("Data/Raw/electoral_districts_key_2013.csv", locale = locale(encoding = "LATIN1"))
@@ -128,21 +129,81 @@ for(i in 1:num.iter) {
 
 Sys.time() - start_time
 
-## Maxime Bernier
+## Adjust ridings known to be pathological
+### Beauce (Maxime Bernier)
 PPC_district_simulations[beauce_row,] <- ((67.02 - 6.64 - 17.09)/(67.02 - 6.64))*CPC_district_simulations[beauce_row,]
 CPC_district_simulations[beauce_row,] <- (17.09/(67.02 - 6.64))*CPC_district_simulations[beauce_row,]
 
-## Jody Wilson-Raybould
+### Vancouver Granville (Jody Wilson-Raybould)
 ind_district_simulations[vancouver_granville_row,] <- wilson_raybould_fractions*LPC_district_simulations[vancouver_granville_row,] +
   0.1*NDP_district_simulations[vancouver_granville_row,]
 LPC_district_simulations[vancouver_granville_row,] <- (1 - wilson_raybould_fractions)*LPC_district_simulations[vancouver_granville_row,]
 NDP_district_simulations[vancouver_granville_row,] <- 0.9*NDP_district_simulations[vancouver_granville_row,]
 
-## Jane Philpott
+### Markham--Stouffville (Jane Philpott)
 ind_district_simulations[markham_stoufville_row,] <- philpott_fractions*LPC_district_simulations[markham_stoufville_row,] +
   0.1*NDP_district_simulations[markham_stoufville_row,]
 LPC_district_simulations[markham_stoufville_row,] <- (1 - philpott_fractions)*LPC_district_simulations[markham_stoufville_row,]
 NDP_district_simulations[markham_stoufville_row,] <- 0.9*NDP_district_simulations[markham_stoufville_row,]
+
+## Factor in district-level polling
+
+### Calculate variance by district
+LPC_district_variance <- rowVars(LPC_district_simulations)
+CPC_district_variance <- rowVars(CPC_district_simulations)
+NDP_district_variance <- rowVars(NDP_district_simulations)
+Bloc_district_variance <- rowVars(Bloc_district_simulations)
+Green_district_variance <- rowVars(Green_district_simulations)
+PPC_district_variance <- rowVars(PPC_district_simulations)
+ind_district_variance <- rowVars(ind_district_simulations)
+
+### Compute rho (weight given to prior)
+district_poll_variance <- district_poll_avg$variance
+LPC_rho <- district_poll_variance/(district_poll_variance + LPC_district_variance)
+CPC_rho <- district_poll_variance/(district_poll_variance + CPC_district_variance)
+NDP_rho <- district_poll_variance/(district_poll_variance + NDP_district_variance)
+Bloc_rho <- district_poll_variance/(district_poll_variance + Bloc_district_variance)
+Green_rho <- district_poll_variance/(district_poll_variance + Green_district_variance)
+PPC_rho <- district_poll_variance/(district_poll_variance + PPC_district_variance)
+ind_rho <- district_poll_variance/(district_poll_variance + ind_district_variance)
+
+LPC_rho[is.na(LPC_rho)] <- 1
+CPC_rho[is.na(CPC_rho)] <- 1
+NDP_rho[is.na(NDP_rho)] <- 1
+Bloc_rho[is.na(Bloc_rho)] <- 1
+Green_rho[is.na(Green_rho)] <- 1
+PPC_rho[is.na(PPC_rho)] <- 1
+ind_rho[is.na(ind_rho)] <- 1
+
+LPC_district_poll.mat <- matrix(district_poll_avg$LPC_poll, 338, num.iter)
+CPC_district_poll.mat <- matrix(district_poll_avg$CPC_poll, 338, num.iter)
+NDP_district_poll.mat <- matrix(district_poll_avg$NDP_poll, 338, num.iter)
+Bloc_district_poll.mat <- matrix(district_poll_avg$BQ_poll, 338, num.iter)
+Green_district_poll.mat <- matrix(district_poll_avg$GPC_poll, 338, num.iter)
+PPC_district_poll.mat <- matrix(district_poll_avg$PPC_poll, 338, num.iter)
+ind_district_poll.mat <- matrix(district_poll_avg$Ind_poll, 338, num.iter)
+
+LPC_rho.mat <- matrix(LPC_rho, 338, num.iter)
+CPC_rho.mat <- matrix(CPC_rho, 338, num.iter)
+NDP_rho.mat <- matrix(NDP_rho, 338, num.iter)
+Bloc_rho.mat <- matrix(Bloc_rho, 338, num.iter)
+Green_rho.mat <- matrix(Green_rho, 338, num.iter)
+PPC_rho.mat <- matrix(PPC_rho, 338, num.iter)
+ind_rho.mat <- matrix(ind_rho, 338, num.iter)
+
+LPC_district_poll.mat[is.na(LPC_district_poll.mat)] <- CPC_district_poll.mat[is.na(CPC_district_poll.mat)] <-
+  NDP_district_poll.mat[is.na(NDP_district_poll.mat)] <- Bloc_district_poll.mat[is.na(Bloc_district_poll.mat)] <-
+  Green_district_poll.mat[is.na(Green_district_poll.mat)] <- PPC_district_poll.mat[is.na(PPC_district_poll.mat)] <-
+  ind_district_poll.mat[is.na(ind_district_poll.mat)] <- 0
+
+### Weighted average
+LPC_district_simulations <- LPC_district_simulations*LPC_rho.mat + LPC_district_poll.mat*(1 - LPC_rho.mat)
+CPC_district_simulations <- CPC_district_simulations*CPC_rho.mat + CPC_district_poll.mat*(1 - CPC_rho.mat)
+NDP_district_simulations <- NDP_district_simulations*NDP_rho.mat + NDP_district_poll.mat*(1 - LPC_rho.mat)
+Bloc_district_simulations <- Bloc_district_simulations*Bloc_rho.mat + Bloc_district_poll.mat*(1 - LPC_rho.mat)
+Green_district_simulations <- Green_district_simulations*Green_rho.mat + Green_district_poll.mat*(1 - LPC_rho.mat)
+PPC_district_simulations <- PPC_district_simulations*PPC_rho.mat + PPC_district_poll.mat*(1 - LPC_rho.mat)
+ind_district_simulations <- ind_district_simulations*ind_rho.mat + ind_district_poll.mat*(1 - LPC_rho.mat)
 
 ## Vote distributions
 LPC_distribution <- tibble(district_code = data_2019.simple$district_code,
@@ -357,26 +418,3 @@ seat_simulations %>%
   labs(title = "Distribution of seat counts by party", x = "Seats", y = "Probability",
        subtitle = paste0(month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today())))
 
-## Seat distribution scatterplot: Liberals vs. Conservatives
-seat_simulations %>%
-  ggplot(aes(x = LPC, y = CPC, col = most_seats)) +
-  geom_point(alpha = 0.1, size = 1) +
-  scale_colour_manual(name = "Most seats", values = c("blue", "red", "darkorange1"), labels = c("Conservative", "Liberal", "NDP")) +
-  labs(title = "Distribution of seat counts across simulations",
-       subtitle = "Liberal vs. Conservative", x = "Liberal seats", y = "Conservative seats")
-
-## Liberals vs. NDP
-seat_simulations %>%
-  ggplot(aes(x = LPC, y = NDP, col = most_seats)) +
-  geom_point(alpha = 0.1, size = 1) +
-  scale_colour_manual(name = "Most seats", values = c("blue", "red", "darkorange1"), labels = c("Conservative", "Liberal", "NDP")) +
-  labs(title = "Distribution of seat counts across simulations",
-       subtitle = "Liberal vs. NDP", x = "Liberal seats", y = "NDP seats")
-
-## Conservatives vs. NDP
-seat_simulations %>%
-  ggplot(aes(x = CPC, y = NDP, col = most_seats)) +
-  geom_point(alpha = 0.1, size = 1) +
-  scale_colour_manual(name = "Most seats", values = c("blue", "red", "darkorange1"), labels = c("Conservative", "Liberal", "NDP")) +
-  labs(title = "Distribution of seat counts across simulations",
-       subtitle = "Conservative vs. NDP", x = "Conservative seats", y = "NDP seats")
