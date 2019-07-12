@@ -67,8 +67,8 @@ LPC_district_simulations <- CPC_district_simulations <- NDP_district_simulations
   Green_district_simulations <- matrix(NA, 338, num.iter)
 PPC_district_simulations <- ind_district_simulations <- matrix(0, 338, num.iter)
 
-wilson_raybould_fractions <- rnorm(num.iter, mean = wilson_raybould_mean.logit, sd = independent_se) %>% invlogit()
-philpott_fractions <- rnorm(num.iter, mean = philpott_mean.logit, sd = independent_se) %>% invlogit()
+wilson_raybould_fractions <- rnorm(num.iter, mean = wilson_raybould_mean.logit, sd = 1.1*independent_se) %>% invlogit()
+philpott_fractions <- rnorm(num.iter, mean = philpott_mean.logit, sd = 1.1*independent_se) %>% invlogit()
 vancouver_granville_row <- 329
 markham_stoufville_row <- 164
 beauce_row <- 39
@@ -418,3 +418,5 @@ seat_simulations %>%
   labs(title = "Distribution of seat counts by party", x = "Seats", y = "Probability",
        subtitle = paste0(month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today())))
 
+## Remove large intermediate arrays generated during simulation
+rm(list = grep("_rho.mat|_wins|_simulations|_district_poll.mat", ls(), value = TRUE))

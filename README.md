@@ -1,8 +1,8 @@
 # Canada-2019
-## Last updated: 14 Apr 2019
+## Last updated: 11 July 2019
 This is the repository for the Election StatSheet 2019 Canadian election forecast. Hooray!
 
-Current status: prettifying the RShiny app.
+Current status: fully incorporating district-level polling into all parts of the forecast.
 
 ### Notes to self ###
 
@@ -30,6 +30,7 @@ Current status: prettifying the RShiny app.
 - **Code**: All scripts, including data processing, model building, simulation, etc.
 - **Data**: Raw data downloaded from websites (see repo wiki). After processing, the processed versions are saved to the Processed directory. Also, shapefiles for creating maps.
 - **Output**: Things generally for publication.
+- **Shiny-app**: Everything to be deployed with the Shiny app.
 
 ## Acknowledgments
 Thanks are in order to:

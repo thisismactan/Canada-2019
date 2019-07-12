@@ -1,4 +1,4 @@
-source("code/library.R")
+source("Code/Modeling/district_poll_error_variance.R")
 
 # Read in current district polls
 district_polls <- read_csv("Data/district_polling.csv") %>%
@@ -14,7 +14,7 @@ district_poll_avg <- district_polls %>%
             total_n = sum(n),
             most_recent = max(median_date)) %>%
   mutate(age_weeks = as.numeric(today() - most_recent)/7,
-         variance = exp(0.1*age_weeks)*0.25/total_n) %>%
+         variance = exp(0.1*age_weeks)*0.25/total_n + district_poll_error_variance/2) %>%
   dplyr::select(district_code, variance, age_weeks, party, pct) %>%
   spread(party, pct) %>%
   ungroup() %>%
