@@ -117,7 +117,7 @@
 35006,Bay of Quinte,Liberal,TRUE
 35007,Beaches--East York,Liberal,TRUE
 35008,Brampton Centre,Liberal,TRUE
-35009,Brampton East,Liberal,FALSE
+35009,Brampton East,Independent,FALSE
 35010,Brampton North,Liberal,TRUE
 35011,Brampton South,Liberal,TRUE
 35012,Brampton West,Liberal,TRUE
@@ -162,7 +162,7 @@
 35051,London--Fanshawe,NDP,FALSE
 35052,London North Centre,Liberal,TRUE
 35053,London West,Liberal,TRUE
-35054,Markham--Stouffville,Liberal,TRUE
+35054,Markham--Stouffville,Independent,TRUE
 35055,Markham--Thornhill,Liberal,TRUE
 35056,Markham--Unionville,Conservative,TRUE
 35057,Milton,Conservative,TRUE
@@ -190,7 +190,7 @@
 35079,Ottawa West--Nepean,Liberal,TRUE
 35080,Oxford,Conservative,TRUE
 35081,Parkdale--High Park,Liberal,TRUE
-35082,Parry Sound--Muskoka,Conservative,FALSE
+35082,Parry Sound--Muskoka,Independent,FALSE
 35083,Perth--Wellington,Conservative,TRUE
 35084,Peterborough--Kawartha,Liberal,TRUE
 35085,Pickering--Uxbridge,Liberal,TRUE
@@ -222,7 +222,7 @@
 35111,Vaughan--Woodbridge,Liberal,TRUE
 35112,Waterloo,Liberal,TRUE
 35113,Wellington--Halton Hills,Conservative,TRUE
-35114,Whitby,Liberal,FALSE
+35114,Whitby,Independent,FALSE
 35115,Willowdale,Liberal,TRUE
 35116,Windsor--Tecumseh,NDP,TRUE
 35117,Windsor West,NDP,TRUE
@@ -250,7 +250,7 @@
 47004,Carlton Trail--Eagle Creek,Conservative,TRUE
 47005,Moose Jaw--Lake Centre--Lanigan,Conservative,TRUE
 47006,Prince Albert,Conservative,TRUE
-47007,Regina--Lewvan,NDP,FALSE
+47007,Regina--Lewvan,CCF,FALSE
 47008,Regina--Qu'Appelle,Conservative,TRUE
 47009,Regina--Wascana,Liberal,TRUE
 47010,Saskatoon--Grasswood,Conservative,TRUE
@@ -270,7 +270,7 @@
 48010,Calgary Rocky Ridge,Conservative,TRUE
 48011,Calgary Shepard,Conservative,TRUE
 48012,Calgary Signal Hill,Conservative,TRUE
-48013,Calgary Skyview,Liberal,FALSE
+48013,Calgary Skyview,Independent,FALSE
 48014,Edmonton Centre,Liberal,TRUE
 48015,Edmonton Griesbach,Conservative,TRUE
 48016,Edmonton Manning,Conservative,TRUE
@@ -327,7 +327,7 @@
 59033,Surrey--Newton,Liberal,TRUE
 59034,Vancouver Centre,Liberal,TRUE
 59035,Vancouver East,NDP,TRUE
-59036,Vancouver Granville,Liberal,TRUE
+59036,Vancouver Granville,Independent,TRUE
 59037,North Island--Powell River,NDP,TRUE
 59038,Vancouver Kingsway,NDP,TRUE
 59039,Vancouver Quadra,Liberal,TRUE
@@ -336,4 +336,4 @@
 59042,West Vancouver--Sunshine Coast--Sea to Sky Country,Liberal,TRUE
 60001,Yukon,Liberal,TRUE
 61001,Northwest Territories,Liberal,TRUE
-62001,Nunavut,Liberal,FALSE
+62001,Nunavut,Independent,FALSE

@@ -1,4 +1,10 @@
 date,outcome,prob
+2019-07-13,Conservative majority,0.10772
+2019-07-13,Liberal majority,0.31764
+2019-07-13,NDP majority,4e-5
+2019-07-13,Conservative minority,0.29428
+2019-07-13,Liberal minority,0.28024
+2019-07-13,NDP minority,8e-5
 2019-07-09,Conservative majority,0.11324
 2019-07-09,Liberal majority,0.31256
 2019-07-09,NDP majority,4e-5

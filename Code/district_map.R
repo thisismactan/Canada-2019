@@ -187,7 +187,7 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
              ),
            
            ## Holds outside Quebec
-           PROVCODE != "QC" & !(FED_NUM %in% c(35054, 59036)) & predicted_winner == last_winner ~
+           PROVCODE != "QC" & !(last_winner %in% c("Independent", "CCF")) & predicted_winner == last_winner ~
              paste0("<b><u><font size = 2.5>", name_english, "</font></b></u><br>",
                     "<b><font color = ", predicted_color, ">", predicted_winner, "</font> hold</b><br>",
                     "<br>",
@@ -204,7 +204,7 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"),
            
            ## Flips outside Quebec
-           PROVCODE != "QC" & !(FED_NUM %in% c(35054, 59036)) & predicted_winner != last_winner ~
+           PROVCODE != "QC" & !(last_winner %in% c("Independent", "CCF")) & predicted_winner != last_winner ~
              paste0("<b><u><font size = 2.5>", name_english, "</font></b></u><br>",
                     "<b><font color = ", predicted_color, ">", predicted_winner, "</font> gain from ", "<font color = ", last_color, ">", last_winner, "</font></b><br>",
                     "<br>",
@@ -222,9 +222,9 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
              ),
            
            ## Holds with independents
-           FED_NUM %in% c(35054, 59036) & predicted_winner == "Independent" ~
+           last_winner %in% c("Independent", "CCF") & predicted_winner == "Independent" & incumbent_running ~
              paste0("<b><u><font size = 2.5>", name_english, "</font></b></u><br>",
-                    "<b><font color = '#444444'>Independent</font> hold</b><br>",
+                    "<b><font color = '#444444'>", last_winner, "</font> hold</b><br>",
                     "<br>",
                     "<b><u>Win probabilities</u></b><br>",
                     "<font color = 'red'><b>", LPC_cand, "</b> (LPC)</font>: ", round(100*LPC_prob), "%<br>",
@@ -238,13 +238,13 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
                     "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
                     "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)<br>",
-                    "<font color = '#444444'><b>Ind</b></font> ", round(100*ind_pred, 1), "% (", round(100*pct_05.ind, 1), "%–", round(100*pct_95.ind, 1), "%)"
+                    "<font color = '#444444'><b>Ind</b></font>: ", round(100*ind_pred, 1), "% (", round(100*pct_05.ind, 1), "%–", round(100*pct_95.ind, 1), "%)"
               ),
            
-           ## Flips from independents
-           FED_NUM %in% c(35054, 59036) & predicted_winner != "Independent" ~
+           ## Flips from independents running
+           last_winner %in% c("Independent", "CCF") & predicted_winner != "Independent" & incumbent_running ~
              paste0("<b><u><font size = 2.5>", name_english, "</font></b></u><br>",
-                    "<b><font color = ", predicted_color, ">", predicted_winner, "</font> gain from <font color = '#444444'>Independent</font></b><br>",
+                    "<b><font color = ", predicted_color, ">", predicted_winner, "</font> gain from <font color = '#444444'>", last_winner, "</font></b><br>",
                     "<br>",
                     "<b><u>Win probabilities</u></b><br>",
                     "<font color = 'red'><b>", LPC_cand, "</b> (LPC)</font>: ", round(100*LPC_prob), "%<br>",
@@ -258,7 +258,25 @@ canada_districts_latlong <- spTransform(canada_districts, CRS("+proj=longlat +da
                     "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
                     "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
                     "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)<br>",
-                    "<font color = '#444444'><b>Ind</b></font> ", round(100*ind_pred, 1), "% (", round(100*pct_05.ind, 1), "%–", round(100*pct_95.ind, 1), "%)"
+                    "<font color = '#444444'><b>Ind</b></font>: ", round(100*ind_pred, 1), "% (", round(100*pct_05.ind, 1), "%–", round(100*pct_95.ind, 1), "%)"
+             ),
+           
+           ## Flips from independents not running
+           last_winner %in% c("Independent", "CCF") & predicted_winner != "Independent" & !incumbent_running ~
+             paste0("<b><u><font size = 2.5>", name_english, "</font></b></u><br>",
+                    "<b><font color = ", predicted_color, ">", predicted_winner, "</font> gain from <font color = '#444444'>", last_winner, "</font></b><br>",
+                    "<br>",
+                    "<b><u>Win probabilities</u></b><br>",
+                    "<font color = 'red'><b>", LPC_cand, "</b> (LPC)</font>: ", round(100*LPC_prob), "%<br>",
+                    "<font color = 'blue'><b>", CPC_cand, "</b> (CPC)</font>: ", round(100*CPC_prob), "%<br>",
+                    "<font color = '#EE7600'><b>", NDP_cand, "</b> (NDP)</font>: ", round(100*NDP_prob), "%<br>",
+                    "<font color = '#008B00'><b>", Green_cand, "</b> (Green)</font>: ", round(100*Green_prob), "%<br>",
+                    "<br>",
+                    "<b><u>Projected vote (90% CI)</u></b><br>",
+                    "<font color = 'red'><b>LPC</b></font>: ", round(100*LPC_pred, 1), "% (", round(100*pct_05.LPC, 1), "%–", round(100*pct_95.LPC, 1), "%)<br>",
+                    "<font color = 'blue'><b>CPC</b></font>: ", round(100*CPC_pred, 1), "% (", round(100*pct_05.CPC, 1), "%–", round(100*pct_95.CPC, 1), "%)<br>",
+                    "<font color = '#EE7600'><b>NDP</b></font>: ", round(100*NDP_pred, 1), "% (", round(100*pct_05.NDP, 1), "%–", round(100*pct_95.NDP, 1), "%)<br>",
+                    "<font color = '#008B00'><b>Green</b></font>: ", round(100*Green_pred, 1), "% (", round(100*pct_05.Green, 1), "%–", round(100*pct_95.Green, 1), "%)"
              )
            )
   ) %>%
@@ -300,4 +318,3 @@ leaflet() %>%
   addPolylines(data = canada_flips, weight = 2, color = "black", opacity = 1, fillOpacity = 0, dashArray = "3") %>%
   addTiles(options = tileOptions(opacity = 0.4, fillOpacity = 0.75)) %>%
   setView(lng = -96.5, lat = 55, zoom = 4)
-  

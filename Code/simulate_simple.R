@@ -70,7 +70,7 @@ PPC_district_simulations <- ind_district_simulations <- matrix(0, 338, num.iter)
 wilson_raybould_fractions <- rnorm(num.iter, mean = wilson_raybould_mean.logit, sd = 1.1*independent_se) %>% invlogit()
 philpott_fractions <- rnorm(num.iter, mean = philpott_mean.logit, sd = 1.1*independent_se) %>% invlogit()
 vancouver_granville_row <- 329
-markham_stoufville_row <- 164
+markham_stouffville_row <- 164
 beauce_row <- 39
 
 ## Simulation
@@ -130,9 +130,6 @@ for(i in 1:num.iter) {
 Sys.time() - start_time
 
 ## Adjust ridings known to be pathological
-### Beauce (Maxime Bernier)
-PPC_district_simulations[beauce_row,] <- ((67.02 - 6.64 - 17.09)/(67.02 - 6.64))*CPC_district_simulations[beauce_row,]
-CPC_district_simulations[beauce_row,] <- (17.09/(67.02 - 6.64))*CPC_district_simulations[beauce_row,]
 
 ### Vancouver Granville (Jody Wilson-Raybould)
 ind_district_simulations[vancouver_granville_row,] <- wilson_raybould_fractions*LPC_district_simulations[vancouver_granville_row,] +
@@ -141,10 +138,16 @@ LPC_district_simulations[vancouver_granville_row,] <- (1 - wilson_raybould_fract
 NDP_district_simulations[vancouver_granville_row,] <- 0.9*NDP_district_simulations[vancouver_granville_row,]
 
 ### Markham--Stouffville (Jane Philpott)
-ind_district_simulations[markham_stoufville_row,] <- philpott_fractions*LPC_district_simulations[markham_stoufville_row,] +
-  0.1*NDP_district_simulations[markham_stoufville_row,]
-LPC_district_simulations[markham_stoufville_row,] <- (1 - philpott_fractions)*LPC_district_simulations[markham_stoufville_row,]
-NDP_district_simulations[markham_stoufville_row,] <- 0.9*NDP_district_simulations[markham_stoufville_row,]
+ind_district_simulations[markham_stouffville_row,] <- philpott_fractions*LPC_district_simulations[markham_stouffville_row,] +
+  0.1*NDP_district_simulations[markham_stouffville_row,]
+LPC_district_simulations[markham_stouffville_row,] <- (1 - philpott_fractions)*LPC_district_simulations[markham_stouffville_row,]
+NDP_district_simulations[markham_stouffville_row,] <- 0.9*NDP_district_simulations[markham_stouffville_row,]
+
+### PPC gets leftovers, except in Beauce (Maxime Bernier)
+PPC_district_simulations <- 1 - (LPC_district_simulations + CPC_district_simulations + NDP_district_simulations + Bloc_district_simulations + 
+                                   Green_district_simulations + ind_district_simulations)
+PPC_district_simulations[beauce_row,] <- ((67.02 - 6.64 - 17.09)/(67.02 - 6.64))*CPC_district_simulations[beauce_row,]
+CPC_district_simulations[beauce_row,] <- (17.09/(67.02 - 6.64))*CPC_district_simulations[beauce_row,]
 
 ## Factor in district-level polling
 
@@ -199,11 +202,11 @@ LPC_district_poll.mat[is.na(LPC_district_poll.mat)] <- CPC_district_poll.mat[is.
 ### Weighted average
 LPC_district_simulations <- LPC_district_simulations*LPC_rho.mat + LPC_district_poll.mat*(1 - LPC_rho.mat)
 CPC_district_simulations <- CPC_district_simulations*CPC_rho.mat + CPC_district_poll.mat*(1 - CPC_rho.mat)
-NDP_district_simulations <- NDP_district_simulations*NDP_rho.mat + NDP_district_poll.mat*(1 - LPC_rho.mat)
-Bloc_district_simulations <- Bloc_district_simulations*Bloc_rho.mat + Bloc_district_poll.mat*(1 - LPC_rho.mat)
-Green_district_simulations <- Green_district_simulations*Green_rho.mat + Green_district_poll.mat*(1 - LPC_rho.mat)
-PPC_district_simulations <- PPC_district_simulations*PPC_rho.mat + PPC_district_poll.mat*(1 - LPC_rho.mat)
-ind_district_simulations <- ind_district_simulations*ind_rho.mat + ind_district_poll.mat*(1 - LPC_rho.mat)
+NDP_district_simulations <- NDP_district_simulations*NDP_rho.mat + NDP_district_poll.mat*(1 - NDP_rho.mat)
+Bloc_district_simulations <- Bloc_district_simulations*Bloc_rho.mat + Bloc_district_poll.mat*(1 - Bloc_rho.mat)
+Green_district_simulations <- Green_district_simulations*Green_rho.mat + Green_district_poll.mat*(1 - Green_rho.mat)
+PPC_district_simulations <- PPC_district_simulations*PPC_rho.mat + PPC_district_poll.mat*(1 - PPC_rho.mat)
+ind_district_simulations <- ind_district_simulations*ind_rho.mat + ind_district_poll.mat*(1 - ind_rho.mat)
 
 ## Vote distributions
 LPC_distribution <- tibble(district_code = data_2019.simple$district_code,
@@ -326,7 +329,9 @@ seat_simulations <- tibble(simulation = 1:num.iter,
                            CPC = CPC_seats,
                            NDP = NDP_seats,
                            Bloc = Bloc_seats,
-                           Green = Green_seats) %>%
+                           Green = Green_seats,
+                           PPC = PPC_seats,
+                           Ind = ind_seats) %>%
   mutate(most_seats = case_when(LPC == pmax(LPC, CPC, NDP, Bloc, Green) ~ "Liberal",
                                 CPC == pmax(LPC, CPC, NDP, Bloc, Green) ~ "Conservative",
                                 NDP == pmax(LPC, CPC, NDP, Bloc, Green) ~ "NDP",

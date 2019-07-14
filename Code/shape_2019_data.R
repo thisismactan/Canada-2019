@@ -52,7 +52,7 @@ national_results_2019 <- national_polls.adjusted %>%
   spread(party, average) %>%
   dplyr::select(LPC_nation = LPC, CPC_nation = CPC, NDP_nation = NDP, Bloc_nation = BQ, Green_nation = GPC,
                 PPC_nation = PPC) %>%
-  mutate(Green_nation = 0.7*Green_nation,
+  mutate(Green_nation = 0.9*Green_nation,
          major_total = LPC_nation + CPC_nation + NDP_nation + Bloc_nation + Green_nation + PPC_nation,
          LPC_nation = LPC_nation/major_total,
          CPC_nation = CPC_nation/major_total,
@@ -111,7 +111,7 @@ regional_vote <- provincial_polls_adjusted %>%
                                  !is.na(Bloc_region) ~ Bloc_region),
          PPC_region = case_when(is.na(PPC_region) ~ 0,
                                 !is.na(PPC_region) ~ PPC_region),
-         Green_region = Green_region*0.7,
+         Green_region = Green_region,
          major_total = LPC_region + CPC_region + NDP_region + Bloc_region + Green_region + PPC_region,
          LPC_region = LPC_region/major_total,
          CPC_region = CPC_region/major_total,
