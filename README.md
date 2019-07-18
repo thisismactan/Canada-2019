@@ -1,8 +1,8 @@
 # Canada-2019
-## Last updated: 11 July 2019
+## Last updated: 18 July 2019
 This is the repository for the Election StatSheet 2019 Canadian election forecast. Hooray!
 
-Current status: fully incorporating district-level polling into all parts of the forecast.
+Current status: It's alive!
 
 ### Notes to self ###
 
