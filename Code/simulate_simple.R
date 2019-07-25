@@ -3,8 +3,8 @@ source("Code/Modeling/poll_error_variance.R")
 source("Code/Modeling/model_error_variance.R")
 source("Code/independent_performance.R")
 source("Code/poll_average.R")
-source("Code/shape_2019_data.R")
 source("Code/district_polls.R")
+source("Code/shape_2019_data.R")
 
 ## Clean district keys again for good measure
 district_key_2013 <- readr::read_csv("Data/Raw/electoral_districts_key_2013.csv", locale = locale(encoding = "LATIN1"))
@@ -348,11 +348,14 @@ write_rds(seat_simulations, "Shiny-app/seat_simulations.rds")
 outcome_probs <- seat_simulations %>%
   group_by(most_seats, type_of_win) %>%
   summarise(prob = n()/num.iter) %>%
-  spread(type_of_win, prob, fill = 0)
+  spread(type_of_win, prob, fill = 0) %>%
+  filter(most_seats %in% c("Conservative", "Liberal", "NDP"))
 
 outcome_probs
 
 write_rds(outcome_probs, "Shiny-app/outcome_probs.rds")
+
+write_rds(Sys.time(), "Shiny-app/update_time.rds")
 
 ## Add forecast to timeline
 forecast_today <- outcome_probs %>%
@@ -395,6 +398,18 @@ forecast_timeline %>%
   theme(axis.text.x = element_text(angle = 90)) +
   labs(title = "Forecast over time", x = "Date", y = "Probability")
 
+## Vote distribution by party
+national_poll_sims %>%
+  as.data.frame() %>%
+  as.tbl() %>%
+  dplyr::select(Liberal = V1, Conservative = V2, NDP = V3, Bloc = V4, Green = V5, `People's` = V6) %>%
+  melt(variable.name = "party", value.name = "pct") %>%
+  group_by(party) %>%
+  summarise(mean = mean(pct),
+            pct_05 = quantile(pct, 0.05),
+            pct_50 = quantile(pct, 0.5),
+            pct_95 = quantile(pct, 0.95))
+
 ## Seat distributions by party
 seat_simulations %>%
   reshape2::melt(id.vars = c("simulation", "most_seats", "type_of_win"), variable.name = "party", value.name = "seats") %>%
@@ -412,7 +427,7 @@ seat_simulations %>%
   filter(party %in% c("LPC", "CPC", "NDP")) %>%
   ggplot() +
   geom_histogram(aes(x = seats, y = ..density.., fill = party),
-                 binwidth = 3, col = "black", alpha = 0.5, position = "identity") +
+                 binwidth = 3, col = "black", alpha = 2/3, position = "identity") +
   geom_vline(xintercept = 170, size = 1) +
   geom_text(data = data.frame(x = 200,
                               y = 0.02,
@@ -423,5 +438,14 @@ seat_simulations %>%
   labs(title = "Distribution of seat counts by party", x = "Seats", y = "Probability",
        subtitle = paste0(month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today())))
 
-## Remove large intermediate arrays generated during simulation
-rm(list = grep("_rho.mat|_wins|_simulations|_district_poll.mat", ls(), value = TRUE))
+## Write data with rho and actual poll average to the Shiny folder
+data_2019.simple %>%
+  mutate(LPC_rho = LPC_rho,
+         CPC_rho = CPC_rho,
+         NDP_rho = NDP_rho,
+         Bloc_rho = Bloc_rho,
+         Green_rho = Green_rho,
+         PPC_rho = PPC_rho,
+         ind_rho = ind_rho) %>%
+  left_join(district_poll_avg, by = "district_code") %>%
+  write_rds("Shiny-app/data_2019.rds")

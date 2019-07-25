@@ -120,7 +120,7 @@ make_waterfall_data <- function(district_selection, party, models = models_list,
     ) %>%
     arrange(desc(abs(effect) + (variable_group == "Baseline")*1000)) %>%
     mutate(order = n():1)
-  
+
   waterfall_data.LPC$variable_group <- ordered(waterfall_data.LPC$variable_group, levels = rev(waterfall_data.LPC$variable_group))
   
   #### Conservatives ####

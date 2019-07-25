@@ -11,12 +11,12 @@ for(i in 1:length(dates)) {
     filter(date <= dates[i]) %>%
     left_join(house_effects, by = "pollster") %>%
     mutate(age = as.numeric(dates[i] - date),
-           weight = 3*(age <= 60)*exp(-(age)^(0.15))/sqrt(MOE/100)/(ifelse(IVR, 3, 1)))
+           weight = 3*(age <= 60)*exp(-(age)^(1/4))/sqrt(MOE/100)/(ifelse(IVR, 3, 1)))
   
   poll_data_adjusted_timeline <- national_polls.adjusted %>%
     filter(date <= dates[i]) %>%
     mutate(age = as.numeric(dates[i] - date),
-           weight = 3*(age <= 60)*exp(-(age)^(0.15))/sqrt(MOE/100)/(ifelse(IVR, 3, 1)*sqrt(full_house))
+           weight = 3*(age <= 60)*exp(-(age)^(1/4))/sqrt(MOE/100)/(ifelse(IVR, 3, 1)*sqrt(full_house))
     )
   
   avg_unadjusted_list[[i]] <- poll_data_unadjusted_timeline %>%

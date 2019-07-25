@@ -1,0 +1,692 @@
+﻿election_date,name_english,district_code,pollster,median_date,n,party,pct
+2015-10-19,Calgary Centre,48004,Mainstreet Research,2015-10-13,688,LPC,39
+2015-10-19,Calgary Centre,48004,Mainstreet Research,2015-10-13,688,CPC,38
+2015-10-19,Calgary Centre,48004,Mainstreet Research,2015-10-13,688,NDP,19
+2015-10-19,Calgary Centre,48004,Mainstreet Research,2015-10-13,688,Green,6
+2015-10-19,Calgary Centre,48004,Environics,2015-09-20,531,LPC,39
+2015-10-19,Calgary Centre,48004,Environics,2015-09-20,531,CPC,47
+2015-10-19,Calgary Centre,48004,Environics,2015-09-20,531,NDP,11
+2015-10-19,Calgary Centre,48004,Environics,2015-09-20,531,Green,3
+2015-10-19,Calgary Centre,48004,Environics,2015-08-18,517,LPC,32
+2015-10-19,Calgary Centre,48004,Environics,2015-08-18,517,CPC,44
+2015-10-19,Calgary Centre,48004,Environics,2015-08-18,517,NDP,17
+2015-10-19,Calgary Centre,48004,Environics,2015-08-18,517,Green,7
+2015-10-19,Calgary Confederation,48005,Mainstreet Research,2015-09-14,679,LPC,38
+2015-10-19,Calgary Confederation,48005,Mainstreet Research,2015-09-14,679,CPC,37
+2015-10-19,Calgary Confederation,48005,Mainstreet Research,2015-09-14,679,NDP,19
+2015-10-19,Calgary Confederation,48005,Mainstreet Research,2015-09-14,679,Green,6
+2015-10-19,Edmonton Centre,48014,ThinkHQ,2015-10-15,517,LPC,33
+2015-10-19,Edmonton Centre,48014,ThinkHQ,2015-10-15,517,CPC,36
+2015-10-19,Edmonton Centre,48014,ThinkHQ,2015-10-15,517,NDP,24
+2015-10-19,Edmonton Centre,48014,ThinkHQ,2015-10-15,517,Green,4
+2015-10-19,Edmonton Centre,48014,Mainstreet Research,2015-10-08,701,LPC,27
+2015-10-19,Edmonton Centre,48014,Mainstreet Research,2015-10-08,701,CPC,31
+2015-10-19,Edmonton Centre,48014,Mainstreet Research,2015-10-08,701,NDP,38
+2015-10-19,Edmonton Centre,48014,Mainstreet Research,2015-10-08,701,Green,3
+2015-10-19,Edmonton Centre,48014,Forum Research,2015-09-25,524,LPC,27
+2015-10-19,Edmonton Centre,48014,Forum Research,2015-09-25,524,CPC,40
+2015-10-19,Edmonton Centre,48014,Forum Research,2015-09-25,524,NDP,30
+2015-10-19,Edmonton Centre,48014,Forum Research,2015-09-25,524,Green,4
+2015-10-19,Edmonton Centre,48014,Environics,2015-09-16,547,LPC,22
+2015-10-19,Edmonton Centre,48014,Environics,2015-09-16,547,CPC,39
+2015-10-19,Edmonton Centre,48014,Environics,2015-09-16,547,NDP,35
+2015-10-19,Edmonton Centre,48014,Environics,2015-09-16,547,Green,5
+2015-10-19,Edmonton Griesbach,48015,Environics,2015-08-16,509,LPC,15
+2015-10-19,Edmonton Griesbach,48015,Environics,2015-08-16,509,CPC,32
+2015-10-19,Edmonton Griesbach,48015,Environics,2015-08-16,509,NDP,48
+2015-10-19,Edmonton Griesbach,48015,Environics,2015-08-16,509,Green,5
+2015-10-19,Edmonton Mill Woods,48017,Environics,2015-09-16,512,LPC,39
+2015-10-19,Edmonton Mill Woods,48017,Environics,2015-09-16,512,CPC,39
+2015-10-19,Edmonton Mill Woods,48017,Environics,2015-09-16,512,NDP,15
+2015-10-19,Edmonton Mill Woods,48017,Environics,2015-09-16,512,Green,7
+2015-10-19,Edmonton Riverbend,48018,Environics,2015-10-08,684,LPC,18
+2015-10-19,Edmonton Riverbend,48018,Environics,2015-10-08,684,CPC,44
+2015-10-19,Edmonton Riverbend,48018,Environics,2015-10-08,684,NDP,34
+2015-10-19,Edmonton Riverbend,48018,Environics,2015-10-08,684,Green,4
+2015-10-19,Edmonton Manning,48016,Environics,2015-09-16,512,LPC,18
+2015-10-19,Edmonton Manning,48016,Environics,2015-09-16,512,CPC,45
+2015-10-19,Edmonton Manning,48016,Environics,2015-09-16,512,NDP,33
+2015-10-19,Edmonton Manning,48016,Environics,2015-09-16,512,Green,4
+2015-10-19,Edmonton West,48020,Environics,2015-09-16,618,LPC,29
+2015-10-19,Edmonton West,48020,Environics,2015-09-16,618,CPC,48
+2015-10-19,Edmonton West,48020,Environics,2015-09-16,618,NDP,19
+2015-10-19,Edmonton West,48020,Environics,2015-09-16,618,Green,4
+2015-10-19,Fort McMurray--Cold Lake,48023,Mainstreet Research,2015-09-10,494,LPC,35
+2015-10-19,Fort McMurray--Cold Lake,48023,Mainstreet Research,2015-09-10,494,CPC,45
+2015-10-19,Fort McMurray--Cold Lake,48023,Mainstreet Research,2015-09-10,494,NDP,15
+2015-10-19,Fort McMurray--Cold Lake,48023,Mainstreet Research,2015-09-10,494,Green,5
+2015-10-19,Lethbridge,48026,Mainstreet Research,2015-10-13,657,LPC,13
+2015-10-19,Lethbridge,48026,Mainstreet Research,2015-10-13,657,CPC,56
+2015-10-19,Lethbridge,48026,Mainstreet Research,2015-10-13,657,NDP,26
+2015-10-19,Lethbridge,48026,Mainstreet Research,2015-10-13,657,Green,4
+2015-10-19,Lethbridge,48026,Environics,2015-09-17,639,LPC,14
+2015-10-19,Lethbridge,48026,Environics,2015-09-17,639,CPC,48
+2015-10-19,Lethbridge,48026,Environics,2015-09-17,639,NDP,34
+2015-10-19,Lethbridge,48026,Environics,2015-09-17,639,Green,5
+2015-10-19,St. Albert--Edmonton,48031,Mainstreet Research,2015-10-13,681,LPC,7
+2015-10-19,St. Albert--Edmonton,48031,Mainstreet Research,2015-10-13,681,CPC,43
+2015-10-19,St. Albert--Edmonton,48031,Mainstreet Research,2015-10-13,681,NDP,20
+2015-10-19,St. Albert--Edmonton,48031,Mainstreet Research,2015-10-13,681,Green,2
+2015-10-19,St. Albert--Edmonton,48031,Forum Research,2015-09-25,490,LPC,10
+2015-10-19,St. Albert--Edmonton,48031,Forum Research,2015-09-25,490,CPC,38
+2015-10-19,St. Albert--Edmonton,48031,Forum Research,2015-09-25,490,NDP,19
+2015-10-19,St. Albert--Edmonton,48031,Forum Research,2015-09-25,490,Green,4
+2015-10-19,St. Albert--Edmonton,48031,Environics,2015-09-17,1030,LPC,15
+2015-10-19,St. Albert--Edmonton,48031,Environics,2015-09-17,1030,CPC,39
+2015-10-19,St. Albert--Edmonton,48031,Environics,2015-09-17,1030,NDP,20
+2015-10-19,St. Albert--Edmonton,48031,Environics,2015-09-17,1030,Green,4
+2015-10-19,Yellowhead,48034,Mainstreet Research,2015-09-10,569,LPC,15
+2015-10-19,Yellowhead,48034,Mainstreet Research,2015-09-10,569,CPC,63
+2015-10-19,Yellowhead,48034,Mainstreet Research,2015-09-10,569,NDP,15
+2015-10-19,Yellowhead,48034,Mainstreet Research,2015-09-10,569,Green,3
+2015-10-19,Burnaby North--Seymour,59002,Mainstreet Research,2015-10-10,716,LPC,27
+2015-10-19,Burnaby North--Seymour,59002,Mainstreet Research,2015-10-10,716,CPC,38
+2015-10-19,Burnaby North--Seymour,59002,Mainstreet Research,2015-10-10,716,NDP,26
+2015-10-19,Burnaby North--Seymour,59002,Mainstreet Research,2015-10-10,716,Green,9
+2015-10-19,Burnaby North--Seymour,59002,Insights West,2015-10-10,400,LPC,21
+2015-10-19,Burnaby North--Seymour,59002,Insights West,2015-10-10,400,CPC,33
+2015-10-19,Burnaby North--Seymour,59002,Insights West,2015-10-10,400,NDP,36
+2015-10-19,Burnaby North--Seymour,59002,Insights West,2015-10-10,400,Green,9
+2015-10-19,Burnaby North--Seymour,59002,Insights West,2015-09-13,301,LPC,21
+2015-10-19,Burnaby North--Seymour,59002,Insights West,2015-09-13,301,CPC,33
+2015-10-19,Burnaby North--Seymour,59002,Insights West,2015-09-13,301,NDP,37
+2015-10-19,Burnaby North--Seymour,59002,Insights West,2015-09-13,301,Green,9
+2015-10-19,Cariboo--Prince George,59004,Environics,2015-10-11,500,LPC,29
+2015-10-19,Cariboo--Prince George,59004,Environics,2015-10-11,500,CPC,30
+2015-10-19,Cariboo--Prince George,59004,Environics,2015-10-11,500,NDP,36
+2015-10-19,Cariboo--Prince George,59004,Environics,2015-10-11,500,Green,5
+2015-10-19,Coquitlam--Port Coquitlam,59008,Environics,2015-10-11,504,LPC,29
+2015-10-19,Coquitlam--Port Coquitlam,59008,Environics,2015-10-11,504,CPC,31
+2015-10-19,Coquitlam--Port Coquitlam,59008,Environics,2015-10-11,504,NDP,34
+2015-10-19,Coquitlam--Port Coquitlam,59008,Environics,2015-10-11,504,Green,6
+2015-10-19,Courtenay--Alberni,59009,Insights West,2015-10-10,400,LPC,18
+2015-10-19,Courtenay--Alberni,59009,Insights West,2015-10-10,400,CPC,32
+2015-10-19,Courtenay--Alberni,59009,Insights West,2015-10-10,400,NDP,34
+2015-10-19,Courtenay--Alberni,59009,Insights West,2015-10-10,400,Green,15
+2015-10-19,Courtenay--Alberni,59009,Mainstreet Research,2015-10-08,672,LPC,20
+2015-10-19,Courtenay--Alberni,59009,Mainstreet Research,2015-10-08,672,CPC,30
+2015-10-19,Courtenay--Alberni,59009,Mainstreet Research,2015-10-08,672,NDP,33
+2015-10-19,Courtenay--Alberni,59009,Mainstreet Research,2015-10-08,672,Green,16
+2015-10-19,Courtenay--Alberni,59009,Insights West,2015-09-13,301,LPC,13
+2015-10-19,Courtenay--Alberni,59009,Insights West,2015-09-13,301,CPC,33
+2015-10-19,Courtenay--Alberni,59009,Insights West,2015-09-13,301,NDP,39
+2015-10-19,Courtenay--Alberni,59009,Insights West,2015-09-13,301,Green,12
+2015-10-19,Cowichan--Malahat--Langford,59010,Insights West,2015-10-05,400,LPC,14
+2015-10-19,Cowichan--Malahat--Langford,59010,Insights West,2015-10-05,400,CPC,28
+2015-10-19,Cowichan--Malahat--Langford,59010,Insights West,2015-10-05,400,NDP,35
+2015-10-19,Cowichan--Malahat--Langford,59010,Insights West,2015-10-05,400,Green,19
+2015-10-19,Esquimault--Saanich--Sooke,59026,Insights West,2015-10-10,300,LPC,20
+2015-10-19,Esquimault--Saanich--Sooke,59026,Insights West,2015-10-10,300,CPC,19
+2015-10-19,Esquimault--Saanich--Sooke,59026,Insights West,2015-10-10,300,NDP,39
+2015-10-19,Esquimault--Saanich--Sooke,59026,Insights West,2015-10-10,300,Green,21
+2015-10-19,Esquimault--Saanich--Sooke,59026,Insights West,2015-09-13,300,LPC,19
+2015-10-19,Esquimault--Saanich--Sooke,59026,Insights West,2015-09-13,300,CPC,20
+2015-10-19,Esquimault--Saanich--Sooke,59026,Insights West,2015-09-13,300,NDP,39
+2015-10-19,Esquimault--Saanich--Sooke,59026,Insights West,2015-09-13,300,Green,19
+2015-10-19,Fleetwood--Port Kells,59012,Mainstreet Research,2015-10-10,661,LPC,35
+2015-10-19,Fleetwood--Port Kells,59012,Mainstreet Research,2015-10-10,661,CPC,35
+2015-10-19,Fleetwood--Port Kells,59012,Mainstreet Research,2015-10-10,661,NDP,24
+2015-10-19,Fleetwood--Port Kells,59012,Mainstreet Research,2015-10-10,661,Green,6
+2015-10-19,Kootenay--Columbia,59015,Environics,2015-09-19,529,LPC,15
+2015-10-19,Kootenay--Columbia,59015,Environics,2015-09-19,529,CPC,37
+2015-10-19,Kootenay--Columbia,59015,Environics,2015-09-19,529,NDP,37
+2015-10-19,Kootenay--Columbia,59015,Environics,2015-09-19,529,Green,11
+2015-10-19,Nanaimo--Ladysmith,59018,Insights West,2015-10-05,400,LPC,18
+2015-10-19,Nanaimo--Ladysmith,59018,Insights West,2015-10-05,400,CPC,26
+2015-10-19,Nanaimo--Ladysmith,59018,Insights West,2015-10-05,400,NDP,35
+2015-10-19,Nanaimo--Ladysmith,59018,Insights West,2015-10-05,400,Green,21
+2015-10-19,Nanaimo--Ladysmith,59018,Environics,2015-09-20,699,LPC,17
+2015-10-19,Nanaimo--Ladysmith,59018,Environics,2015-09-20,699,CPC,24
+2015-10-19,Nanaimo--Ladysmith,59018,Environics,2015-09-20,699,NDP,34
+2015-10-19,Nanaimo--Ladysmith,59018,Environics,2015-09-20,699,Green,24
+2015-10-19,North Island--Powell River,59037,Environics,2015-09-19,556,LPC,18
+2015-10-19,North Island--Powell River,59037,Environics,2015-09-19,556,CPC,27
+2015-10-19,North Island--Powell River,59037,Environics,2015-09-19,556,NDP,41
+2015-10-19,North Island--Powell River,59037,Environics,2015-09-19,556,Green,14
+2015-10-19,North Okanagan--Shuswap,59020,Environics,2015-10-11,755,LPC,22
+2015-10-19,North Okanagan--Shuswap,59020,Environics,2015-10-11,755,CPC,33
+2015-10-19,North Okanagan--Shuswap,59020,Environics,2015-10-11,755,NDP,37
+2015-10-19,North Okanagan--Shuswap,59020,Environics,2015-10-11,755,Green,8
+2015-10-19,North Okanagan--Shuswap,59020,Mainstreet Research,2015-10-10,567,LPC,24
+2015-10-19,North Okanagan--Shuswap,59020,Mainstreet Research,2015-10-10,567,CPC,45
+2015-10-19,North Okanagan--Shuswap,59020,Mainstreet Research,2015-10-10,567,NDP,26
+2015-10-19,North Okanagan--Shuswap,59020,Mainstreet Research,2015-10-10,567,Green,5
+2015-10-19,North Okanagan--Shuswap,59020,Oraclepoll Research,2015-10-06,312,LPC,12
+2015-10-19,North Okanagan--Shuswap,59020,Oraclepoll Research,2015-10-06,312,CPC,38
+2015-10-19,North Okanagan--Shuswap,59020,Oraclepoll Research,2015-10-06,312,NDP,41
+2015-10-19,North Okanagan--Shuswap,59020,Oraclepoll Research,2015-10-06,312,Green,9
+2015-10-19,North Vancouver,59021,Insights West,2015-10-10,400,LPC,41
+2015-10-19,North Vancouver,59021,Insights West,2015-10-10,400,CPC,33
+2015-10-19,North Vancouver,59021,Insights West,2015-10-10,400,NDP,11
+2015-10-19,North Vancouver,59021,Insights West,2015-10-10,400,Green,15
+2015-10-19,North Vancouver,59021,Insights West,2015-09-13,297,LPC,41
+2015-10-19,North Vancouver,59021,Insights West,2015-09-13,297,CPC,31
+2015-10-19,North Vancouver,59021,Insights West,2015-09-13,297,NDP,14
+2015-10-19,North Vancouver,59021,Insights West,2015-09-13,297,Green,13
+2015-10-19,Pitt Meadows--Maple Ridge,59022,Environics,2015-09-20,543,LPC,19
+2015-10-19,Pitt Meadows--Maple Ridge,59022,Environics,2015-09-20,543,CPC,35
+2015-10-19,Pitt Meadows--Maple Ridge,59022,Environics,2015-09-20,543,NDP,41
+2015-10-19,Pitt Meadows--Maple Ridge,59022,Environics,2015-09-20,543,Green,6
+2015-10-19,Port Moody--Coquitlam,59023,Environics,2015-09-20,529,LPC,19
+2015-10-19,Port Moody--Coquitlam,59023,Environics,2015-09-20,529,CPC,34
+2015-10-19,Port Moody--Coquitlam,59023,Environics,2015-09-20,529,NDP,41
+2015-10-19,Port Moody--Coquitlam,59023,Environics,2015-09-20,529,Green,7
+2015-10-19,Port Moody--Coquitlam,59023,Environics,2015-08-18,511,LPC,14
+2015-10-19,Port Moody--Coquitlam,59023,Environics,2015-08-18,511,CPC,27
+2015-10-19,Port Moody--Coquitlam,59023,Environics,2015-08-18,511,NDP,54
+2015-10-19,Port Moody--Coquitlam,59023,Environics,2015-08-18,511,Green,5
+2015-10-19,South Okanagan--West Kootenay,59029,Insights West,2015-10-10,301,LPC,23
+2015-10-19,South Okanagan--West Kootenay,59029,Insights West,2015-10-10,301,CPC,31
+2015-10-19,South Okanagan--West Kootenay,59029,Insights West,2015-10-10,301,NDP,36
+2015-10-19,South Okanagan--West Kootenay,59029,Insights West,2015-10-10,301,Green,8
+2015-10-19,South Okanagan--West Kootenay,59029,Insights West,2015-09-13,303,LPC,18
+2015-10-19,South Okanagan--West Kootenay,59029,Insights West,2015-09-13,303,CPC,33
+2015-10-19,South Okanagan--West Kootenay,59029,Insights West,2015-09-13,303,NDP,42
+2015-10-19,South Okanagan--West Kootenay,59029,Insights West,2015-09-13,303,Green,4
+2015-10-19,Vancouver Granville,59036,Environics,2015-10-11,505,LPC,35
+2015-10-19,Vancouver Granville,59036,Environics,2015-10-11,505,CPC,28
+2015-10-19,Vancouver Granville,59036,Environics,2015-10-11,505,NDP,33
+2015-10-19,Vancouver Granville,59036,Environics,2015-10-11,505,Green,4
+2015-10-19,Vancouver Granville,59036,Mainstreet Research,2015-10-10,665,LPC,44
+2015-10-19,Vancouver Granville,59036,Mainstreet Research,2015-10-10,665,CPC,28
+2015-10-19,Vancouver Granville,59036,Mainstreet Research,2015-10-10,665,NDP,28
+2015-10-19,Vancouver Granville,59036,Mainstreet Research,2015-10-10,665,Green,9
+2015-10-19,Vancouver Granville,59036,Environics,2015-09-21,541,LPC,30
+2015-10-19,Vancouver Granville,59036,Environics,2015-09-21,541,CPC,29
+2015-10-19,Vancouver Granville,59036,Environics,2015-09-21,541,NDP,36
+2015-10-19,Vancouver Granville,59036,Environics,2015-09-21,541,Green,6
+2015-10-19,Vancouver Granville,59036,Environics,2015-08-18,482,LPC,24
+2015-10-19,Vancouver Granville,59036,Environics,2015-08-18,482,CPC,30
+2015-10-19,Vancouver Granville,59036,Environics,2015-08-18,482,NDP,36
+2015-10-19,Vancouver Granville,59036,Environics,2015-08-18,482,Green,10
+2015-10-19,Vancouver South,59040,Insights West,2015-10-10,301,LPC,38
+2015-10-19,Vancouver South,59040,Insights West,2015-10-10,301,CPC,33
+2015-10-19,Vancouver South,59040,Insights West,2015-10-10,301,NDP,19
+2015-10-19,Vancouver South,59040,Insights West,2015-10-10,301,Green,8
+2015-10-19,Vancouver South,59040,Insights West,2015-09-13,303,LPC,40
+2015-10-19,Vancouver South,59040,Insights West,2015-09-13,303,CPC,27
+2015-10-19,Vancouver South,59040,Insights West,2015-09-13,303,NDP,22
+2015-10-19,Vancouver South,59040,Insights West,2015-09-13,303,Green,8
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Mainstreet Research,2015-10-10,673,LPC,37
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Mainstreet Research,2015-10-10,673,CPC,32
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Mainstreet Research,2015-10-10,673,NDP,15
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Mainstreet Research,2015-10-10,673,Green,16
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Insights West,2015-10-10,403,LPC,42
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Insights West,2015-10-10,403,CPC,31
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Insights West,2015-10-10,403,NDP,14
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Insights West,2015-10-10,403,Green,13
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Insights West,2015-09-13,302,LPC,34
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Insights West,2015-09-13,302,CPC,30
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Insights West,2015-09-13,302,NDP,22
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Insights West,2015-09-13,302,Green,11
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Environics,2015-08-16,582,LPC,30
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Environics,2015-08-16,582,CPC,23
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Environics,2015-08-16,582,NDP,27
+2015-10-19,West Vancouver--Sunshine Coast--Sea to Sky Country,59042,Environics,2015-08-16,582,Green,19
+2015-10-19,Elmwood--Transcona,46005,Environics,2015-09-20,552,LPC,20
+2015-10-19,Elmwood--Transcona,46005,Environics,2015-09-20,552,CPC,39
+2015-10-19,Elmwood--Transcona,46005,Environics,2015-09-20,552,NDP,37
+2015-10-19,Elmwood--Transcona,46005,Environics,2015-09-20,552,Green,4
+2015-10-19,Elmwood--Transcona,46005,Environics,2015-08-16,517,LPC,25
+2015-10-19,Elmwood--Transcona,46005,Environics,2015-08-16,517,CPC,30
+2015-10-19,Elmwood--Transcona,46005,Environics,2015-08-16,517,NDP,39
+2015-10-19,Elmwood--Transcona,46005,Environics,2015-08-16,517,Green,6
+2015-10-19,Saint Boniface--Saint Vital,46009,Mainstreet Research,2015-09-21,651,LPC,37
+2015-10-19,Saint Boniface--Saint Vital,46009,Mainstreet Research,2015-09-21,651,CPC,33
+2015-10-19,Saint Boniface--Saint Vital,46009,Mainstreet Research,2015-09-21,651,NDP,25
+2015-10-19,Saint Boniface--Saint Vital,46009,Mainstreet Research,2015-09-21,651,Green,5
+2015-10-19,Winnipeg South Centre,46014,Environics,2015-09-20,597,LPC,38
+2015-10-19,Winnipeg South Centre,46014,Environics,2015-09-20,597,CPC,31
+2015-10-19,Winnipeg South Centre,46014,Environics,2015-09-20,597,NDP,23
+2015-10-19,Winnipeg South Centre,46014,Environics,2015-09-20,597,Green,8
+2015-10-19,Fredericton,13003,Environics,2015-10-04,839,LPC,43
+2015-10-19,Fredericton,13003,Environics,2015-10-04,839,CPC,32
+2015-10-19,Fredericton,13003,Environics,2015-10-04,839,NDP,14
+2015-10-19,Fredericton,13003,Environics,2015-10-04,839,Green,12
+2015-10-19,Fredericton,13003,Environics,2015-09-19,580,LPC,37
+2015-10-19,Fredericton,13003,Environics,2015-09-19,580,CPC,32
+2015-10-19,Fredericton,13003,Environics,2015-09-19,580,NDP,20
+2015-10-19,Fredericton,13003,Environics,2015-09-19,580,Green,10
+2015-10-19,Fredericton,13003,Environics,2015-08-16,799,LPC,34
+2015-10-19,Fredericton,13003,Environics,2015-08-16,799,CPC,29
+2015-10-19,Fredericton,13003,Environics,2015-08-16,799,NDP,26
+2015-10-19,Fredericton,13003,Environics,2015-08-16,799,Green,12
+2015-10-19,Saint John--Rothesay,13009,Mainstreet Research,2015-10-08,510,LPC,34
+2015-10-19,Saint John--Rothesay,13009,Mainstreet Research,2015-10-08,510,CPC,36
+2015-10-19,Saint John--Rothesay,13009,Mainstreet Research,2015-10-08,510,NDP,26
+2015-10-19,Saint John--Rothesay,13009,Mainstreet Research,2015-10-08,510,Green,4
+2015-10-19,Saint John--Rothesay,13009,Environics,2015-09-20,623,LPC,33
+2015-10-19,Saint John--Rothesay,13009,Environics,2015-09-20,623,CPC,38
+2015-10-19,Saint John--Rothesay,13009,Environics,2015-09-20,623,NDP,25
+2015-10-19,Saint John--Rothesay,13009,Environics,2015-09-20,623,Green,4
+2015-10-19,Avalon,10001,Mainstreet Research,2015-09-17,679,LPC,43
+2015-10-19,Avalon,10001,Mainstreet Research,2015-09-17,679,CPC,14
+2015-10-19,Avalon,10001,Mainstreet Research,2015-09-17,679,NDP,19
+2015-10-19,Avalon,10001,Mainstreet Research,2015-09-17,679,Green,4
+2015-10-19,Central Nova,12002,Environics,2015-09-20,573,LPC,50
+2015-10-19,Central Nova,12002,Environics,2015-09-20,573,CPC,23
+2015-10-19,Central Nova,12002,Environics,2015-09-20,573,NDP,20
+2015-10-19,Central Nova,12002,Environics,2015-09-20,573,Green,7
+2015-10-19,Central Nova,12002,Mainstreet Research,2015-09-17,652,LPC,30
+2015-10-19,Central Nova,12002,Mainstreet Research,2015-09-17,652,CPC,36
+2015-10-19,Central Nova,12002,Mainstreet Research,2015-09-17,652,NDP,26
+2015-10-19,Central Nova,12002,Mainstreet Research,2015-09-17,652,Green,8
+2015-10-19,Cumberland--Colchester,12003,Environics,2015-09-20,617,LPC,54
+2015-10-19,Cumberland--Colchester,12003,Environics,2015-09-20,617,CPC,32
+2015-10-19,Cumberland--Colchester,12003,Environics,2015-09-20,617,NDP,7
+2015-10-19,Cumberland--Colchester,12003,Environics,2015-09-20,617,Green,6
+2015-10-19,Cumberland--Colchester,12003,Mainstreet Research,2015-09-17,660,LPC,48
+2015-10-19,Cumberland--Colchester,12003,Mainstreet Research,2015-09-17,660,CPC,33
+2015-10-19,Cumberland--Colchester,12003,Mainstreet Research,2015-09-17,660,NDP,12
+2015-10-19,Cumberland--Colchester,12003,Mainstreet Research,2015-09-17,660,Green,7
+2015-10-19,Ajax,35001,Mainstreet Research,2015-09-14,690,LPC,37
+2015-10-19,Ajax,35001,Mainstreet Research,2015-09-14,690,CPC,39
+2015-10-19,Ajax,35001,Mainstreet Research,2015-09-14,690,NDP,20
+2015-10-19,Ajax,35001,Mainstreet Research,2015-09-14,690,Green,4
+2015-10-19,Ajax,35001,Forum Research,2015-09-11,425,LPC,46
+2015-10-19,Ajax,35001,Forum Research,2015-09-11,425,CPC,35
+2015-10-19,Ajax,35001,Forum Research,2015-09-11,425,NDP,17
+2015-10-19,Ajax,35001,Forum Research,2015-09-11,425,Green,2
+2015-10-19,Algoma--Manitoulin--Kapuskasing,35002,Oraclepoll Research,2015-10-08,300,LPC,20
+2015-10-19,Algoma--Manitoulin--Kapuskasing,35002,Oraclepoll Research,2015-10-08,300,CPC,30
+2015-10-19,Algoma--Manitoulin--Kapuskasing,35002,Oraclepoll Research,2015-10-08,300,NDP,45
+2015-10-19,Algoma--Manitoulin--Kapuskasing,35002,Oraclepoll Research,2015-10-08,300,Green,5
+2015-10-19,Brampton Centre,35008,Mainstreet Research,2015-10-08,653,LPC,41
+2015-10-19,Brampton Centre,35008,Mainstreet Research,2015-10-08,653,CPC,40
+2015-10-19,Brampton Centre,35008,Mainstreet Research,2015-10-08,653,NDP,14
+2015-10-19,Brampton Centre,35008,Mainstreet Research,2015-10-08,653,Green,5
+2015-10-19,Brampton Centre,35008,Forum Research,2015-10-02,456,LPC,32
+2015-10-19,Brampton Centre,35008,Forum Research,2015-10-02,456,CPC,39
+2015-10-19,Brampton Centre,35008,Forum Research,2015-10-02,456,NDP,25
+2015-10-19,Brampton Centre,35008,Forum Research,2015-10-02,456,Green,4
+2015-10-19,Brampton East,35009,Mainstreet Research,2015-09-29,684,LPC,36
+2015-10-19,Brampton East,35009,Mainstreet Research,2015-09-29,684,CPC,35
+2015-10-19,Brampton East,35009,Mainstreet Research,2015-09-29,684,NDP,24
+2015-10-19,Brampton East,35009,Mainstreet Research,2015-09-29,684,Green,5
+2015-10-19,Brampton North,35010,Mainstreet Research,2015-10-08,689,LPC,46
+2015-10-19,Brampton North,35010,Mainstreet Research,2015-10-08,689,CPC,37
+2015-10-19,Brampton North,35010,Mainstreet Research,2015-10-08,689,NDP,16
+2015-10-19,Brampton North,35010,Mainstreet Research,2015-10-08,689,Green,1
+2015-10-19,Brampton North,35010,Forum Research,2015-10-04,336,LPC,34
+2015-10-19,Brampton North,35010,Forum Research,2015-10-04,336,CPC,39
+2015-10-19,Brampton North,35010,Forum Research,2015-10-04,336,NDP,24
+2015-10-19,Brampton North,35010,Forum Research,2015-10-04,336,Green,2
+2015-10-19,Brantford--Brant,35013,Environics,2015-09-20,622,LPC,25
+2015-10-19,Brantford--Brant,35013,Environics,2015-09-20,622,CPC,39
+2015-10-19,Brantford--Brant,35013,Environics,2015-09-20,622,NDP,30
+2015-10-19,Brantford--Brant,35013,Environics,2015-09-20,622,Green,6
+2015-10-19,Bruce--Grey--Owen Sound,35014,Environics,2015-10-11,966,LPC,40
+2015-10-19,Bruce--Grey--Owen Sound,35014,Environics,2015-10-11,966,CPC,41
+2015-10-19,Bruce--Grey--Owen Sound,35014,Environics,2015-10-11,966,NDP,16
+2015-10-19,Bruce--Grey--Owen Sound,35014,Environics,2015-10-11,966,Green,4
+2015-10-19,Bruce--Grey--Owen Sound,35014,Environics,2015-09-21,1022,LPC,29
+2015-10-19,Bruce--Grey--Owen Sound,35014,Environics,2015-09-21,1022,CPC,43
+2015-10-19,Bruce--Grey--Owen Sound,35014,Environics,2015-09-21,1022,NDP,20
+2015-10-19,Bruce--Grey--Owen Sound,35014,Environics,2015-09-21,1022,Green,9
+2015-10-19,Cambridge,35016,Environics,2015-09-20,552,LPC,34
+2015-10-19,Cambridge,35016,Environics,2015-09-20,552,CPC,43
+2015-10-19,Cambridge,35016,Environics,2015-09-20,552,NDP,17
+2015-10-19,Cambridge,35016,Environics,2015-09-20,552,Green,6
+2015-10-19,Chatham-Kent--Leamington,35017,Mainstreet Research,2015-09-29,625,LPC,27
+2015-10-19,Chatham-Kent--Leamington,35017,Mainstreet Research,2015-09-29,625,CPC,45
+2015-10-19,Chatham-Kent--Leamington,35017,Mainstreet Research,2015-09-29,625,NDP,23
+2015-10-19,Chatham-Kent--Leamington,35017,Mainstreet Research,2015-09-29,625,Green,4
+2015-10-19,Don Valley West,35021,Mainstreet Research,2015-09-29,688,LPC,47
+2015-10-19,Don Valley West,35021,Mainstreet Research,2015-09-29,688,CPC,35
+2015-10-19,Don Valley West,35021,Mainstreet Research,2015-09-29,688,NDP,13
+2015-10-19,Don Valley West,35021,Mainstreet Research,2015-09-29,688,Green,4
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-10-04,823,LPC,44
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-10-04,823,CPC,39
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-10-04,823,NDP,14
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-10-04,823,Green,3
+2015-10-19,Eglinton--Lawrence,35024,Forum Research,2015-09-21,634,LPC,44
+2015-10-19,Eglinton--Lawrence,35024,Forum Research,2015-09-21,634,CPC,38
+2015-10-19,Eglinton--Lawrence,35024,Forum Research,2015-09-21,634,NDP,17
+2015-10-19,Eglinton--Lawrence,35024,Forum Research,2015-09-21,634,Green,2
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-09-19,565,LPC,37
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-09-19,565,CPC,35
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-09-19,565,NDP,24
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-09-19,565,Green,4
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-08-16,588,LPC,35
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-08-16,588,CPC,36
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-08-16,588,NDP,25
+2015-10-19,Eglinton--Lawrence,35024,Environics,2015-08-16,588,Green,4
+2015-10-19,Eglinton--Lawrence,35024,Forum Research,2015-08-05,709,LPC,34
+2015-10-19,Eglinton--Lawrence,35024,Forum Research,2015-08-05,709,CPC,41
+2015-10-19,Eglinton--Lawrence,35024,Forum Research,2015-08-05,709,NDP,20
+2015-10-19,Eglinton--Lawrence,35024,Forum Research,2015-08-05,709,Green,5
+2015-10-19,Essex,35026,Environics,2015-10-04,655,LPC,22
+2015-10-19,Essex,35026,Environics,2015-10-04,655,CPC,38
+2015-10-19,Essex,35026,Environics,2015-10-04,655,NDP,37
+2015-10-19,Essex,35026,Environics,2015-10-04,655,Green,4
+2015-10-19,Etobicoke Centre,35027,Forum Research,2015-09-11,885,LPC,43
+2015-10-19,Etobicoke Centre,35027,Forum Research,2015-09-11,885,CPC,42
+2015-10-19,Etobicoke Centre,35027,Forum Research,2015-09-11,885,NDP,11
+2015-10-19,Etobicoke Centre,35027,Forum Research,2015-09-11,885,Green,3
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-10-04,665,LPC,43
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-10-04,665,CPC,36
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-10-04,665,NDP,16
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-10-04,665,Green,4
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-09-19,537,LPC,40
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-09-19,537,CPC,38
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-09-19,537,NDP,19
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-09-19,537,Green,3
+2015-10-19,Etobicoke--Lakeshore,35028,Forum Research,2015-09-17,835,LPC,41
+2015-10-19,Etobicoke--Lakeshore,35028,Forum Research,2015-09-17,835,CPC,33
+2015-10-19,Etobicoke--Lakeshore,35028,Forum Research,2015-09-17,835,NDP,22
+2015-10-19,Etobicoke--Lakeshore,35028,Forum Research,2015-09-17,835,Green,4
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-08-16,544,LPC,36
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-08-16,544,CPC,31
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-08-16,544,NDP,28
+2015-10-19,Etobicoke--Lakeshore,35028,Environics,2015-08-16,544,Green,5
+2015-10-19,Flamborough--Glanbrook,35030,Mainstreet Research,2015-10-08,659,LPC,28
+2015-10-19,Flamborough--Glanbrook,35030,Mainstreet Research,2015-10-08,659,CPC,48
+2015-10-19,Flamborough--Glanbrook,35030,Mainstreet Research,2015-10-08,659,NDP,14
+2015-10-19,Flamborough--Glanbrook,35030,Mainstreet Research,2015-10-08,659,Green,9
+2015-10-19,Guelph,35032,Environics,2015-09-20,601,LPC,45
+2015-10-19,Guelph,35032,Environics,2015-09-20,601,CPC,25
+2015-10-19,Guelph,35032,Environics,2015-09-20,601,NDP,18
+2015-10-19,Guelph,35032,Environics,2015-09-20,601,Green,12
+2015-10-19,Hamilton West--Ancaster--Dundas,35038,Mainstreet Research,2015-10-08,672,LPC,50
+2015-10-19,Hamilton West--Ancaster--Dundas,35038,Mainstreet Research,2015-10-08,672,CPC,27
+2015-10-19,Hamilton West--Ancaster--Dundas,35038,Mainstreet Research,2015-10-08,672,NDP,16
+2015-10-19,Hamilton West--Ancaster--Dundas,35038,Mainstreet Research,2015-10-08,672,Green,7
+2015-10-19,Kanata--Carleton,35041,Environics,2015-10-11,861,LPC,50
+2015-10-19,Kanata--Carleton,35041,Environics,2015-10-11,861,CPC,39
+2015-10-19,Kanata--Carleton,35041,Environics,2015-10-11,861,NDP,8
+2015-10-19,Kanata--Carleton,35041,Environics,2015-10-11,861,Green,3
+2015-10-19,Kanata--Carleton,35041,Mainstreet Research,2015-10-04,630,LPC,43
+2015-10-19,Kanata--Carleton,35041,Mainstreet Research,2015-10-04,630,CPC,45
+2015-10-19,Kanata--Carleton,35041,Mainstreet Research,2015-10-04,630,NDP,8
+2015-10-19,Kanata--Carleton,35041,Mainstreet Research,2015-10-04,630,Green,4
+2015-10-19,Kanata--Carleton,35041,Environics,2015-09-20,562,LPC,37
+2015-10-19,Kanata--Carleton,35041,Environics,2015-09-20,562,CPC,44
+2015-10-19,Kanata--Carleton,35041,Environics,2015-09-20,562,NDP,13
+2015-10-19,Kanata--Carleton,35041,Environics,2015-09-20,562,Green,5
+2015-10-19,Kenora,35042,Environics,2015-10-05,647,LPC,28
+2015-10-19,Kenora,35042,Environics,2015-10-05,647,CPC,40
+2015-10-19,Kenora,35042,Environics,2015-10-05,647,NDP,29
+2015-10-19,Kenora,35042,Environics,2015-10-05,647,Green,4
+2015-10-19,Kitchener Centre,35045,Environics,2015-10-11,856,LPC,46
+2015-10-19,Kitchener Centre,35045,Environics,2015-10-11,856,CPC,28
+2015-10-19,Kitchener Centre,35045,Environics,2015-10-11,856,NDP,22
+2015-10-19,Kitchener Centre,35045,Environics,2015-10-11,856,Green,4
+2015-10-19,Kitchener Centre,35045,Environics,2015-09-20,672,LPC,33
+2015-10-19,Kitchener Centre,35045,Environics,2015-09-20,672,CPC,31
+2015-10-19,Kitchener Centre,35045,Environics,2015-09-20,672,NDP,30
+2015-10-19,Kitchener Centre,35045,Environics,2015-09-20,672,Green,7
+2015-10-19,Kitchener Centre,35045,Environics,2015-08-16,625,LPC,31
+2015-10-19,Kitchener Centre,35045,Environics,2015-08-16,625,CPC,29
+2015-10-19,Kitchener Centre,35045,Environics,2015-08-16,625,NDP,33
+2015-10-19,Kitchener Centre,35045,Environics,2015-08-16,625,Green,7
+2015-10-19,London North Centre,35052,Environics,2015-10-04,668,LPC,48
+2015-10-19,London North Centre,35052,Environics,2015-10-04,668,CPC,32
+2015-10-19,London North Centre,35052,Environics,2015-10-04,668,NDP,15
+2015-10-19,London North Centre,35052,Environics,2015-10-04,668,Green,5
+2015-10-19,London North Centre,35052,Environics,2015-09-20,540,LPC,35
+2015-10-19,London North Centre,35052,Environics,2015-09-20,540,CPC,35
+2015-10-19,London North Centre,35052,Environics,2015-09-20,540,NDP,25
+2015-10-19,London North Centre,35052,Environics,2015-09-20,540,Green,5
+2015-10-19,London North Centre,35052,Environics,2015-08-16,706,LPC,34
+2015-10-19,London North Centre,35052,Environics,2015-08-16,706,CPC,32
+2015-10-19,London North Centre,35052,Environics,2015-08-16,706,NDP,27
+2015-10-19,London North Centre,35052,Environics,2015-08-16,706,Green,6
+2015-10-19,London West,35053,Mainstreet Research,2015-10-08,678,LPC,42
+2015-10-19,London West,35053,Mainstreet Research,2015-10-08,678,CPC,33
+2015-10-19,London West,35053,Mainstreet Research,2015-10-08,678,NDP,19
+2015-10-19,London West,35053,Mainstreet Research,2015-10-08,678,Green,6
+2015-10-19,London West,35053,Environics,2015-10-04,1132,LPC,37
+2015-10-19,London West,35053,Environics,2015-10-04,1132,CPC,38
+2015-10-19,London West,35053,Environics,2015-10-04,1132,NDP,20
+2015-10-19,London West,35053,Environics,2015-10-04,1132,Green,5
+2015-10-19,Markham--Stouffville,35054,Forum Research,2015-10-03,439,LPC,51
+2015-10-19,Markham--Stouffville,35054,Forum Research,2015-10-03,439,CPC,40
+2015-10-19,Markham--Stouffville,35054,Forum Research,2015-10-03,439,NDP,6
+2015-10-19,Markham--Stouffville,35054,Forum Research,2015-10-03,439,Green,2
+2015-10-19,Mississauga Centre,35058,Forum Research,2015-10-04,308,LPC,44
+2015-10-19,Mississauga Centre,35058,Forum Research,2015-10-04,308,CPC,35
+2015-10-19,Mississauga Centre,35058,Forum Research,2015-10-04,308,NDP,16
+2015-10-19,Mississauga Centre,35058,Forum Research,2015-10-04,308,Green,5
+2015-10-19,Mississauga Lakeshore,35061,Forum Research,2015-10-04,538,LPC,44
+2015-10-19,Mississauga Lakeshore,35061,Forum Research,2015-10-04,538,CPC,41
+2015-10-19,Mississauga Lakeshore,35061,Forum Research,2015-10-04,538,NDP,12
+2015-10-19,Mississauga Lakeshore,35061,Forum Research,2015-10-04,538,Green,3
+2015-10-19,Mississauga--Malton,35062,Forum Research,2015-10-02,335,LPC,44
+2015-10-19,Mississauga--Malton,35062,Forum Research,2015-10-02,335,CPC,29
+2015-10-19,Mississauga--Malton,35062,Forum Research,2015-10-02,335,NDP,20
+2015-10-19,Mississauga--Malton,35062,Forum Research,2015-10-02,335,Green,5
+2015-10-19,Nepean,35064,Environics,2015-10-11,1032,LPC,47
+2015-10-19,Nepean,35064,Environics,2015-10-11,1032,CPC,40
+2015-10-19,Nepean,35064,Environics,2015-10-11,1032,NDP,10
+2015-10-19,Nepean,35064,Environics,2015-10-11,1032,Green,4
+2015-10-19,Nepean,35064,Mainstreet Research,2015-10-04,655,LPC,42
+2015-10-19,Nepean,35064,Mainstreet Research,2015-10-04,655,CPC,41
+2015-10-19,Nepean,35064,Mainstreet Research,2015-10-04,655,NDP,13
+2015-10-19,Nepean,35064,Mainstreet Research,2015-10-04,655,Green,4
+2015-10-19,Nepean,35064,Environics,2015-09-20,569,LPC,34
+2015-10-19,Nepean,35064,Environics,2015-09-20,569,CPC,40
+2015-10-19,Nepean,35064,Environics,2015-09-20,569,NDP,19
+2015-10-19,Nepean,35064,Environics,2015-09-20,569,Green,8
+2015-10-19,Niagara Falls,35067,Environics,2015-09-20,557,LPC,25
+2015-10-19,Niagara Falls,35067,Environics,2015-09-20,557,CPC,42
+2015-10-19,Niagara Falls,35067,Environics,2015-09-20,557,NDP,27
+2015-10-19,Niagara Falls,35067,Environics,2015-09-20,557,Green,6
+2015-10-19,Nickel Belt,35069,Oraclepoll Research,2015-10-08,300,LPC,35
+2015-10-19,Nickel Belt,35069,Oraclepoll Research,2015-10-08,300,CPC,14
+2015-10-19,Nickel Belt,35069,Oraclepoll Research,2015-10-08,300,NDP,46
+2015-10-19,Nickel Belt,35069,Oraclepoll Research,2015-10-08,300,Green,5
+2015-10-19,Nipissing--Timiskaming,35070,Oraclepoll Research,2015-10-08,300,LPC,47
+2015-10-19,Nipissing--Timiskaming,35070,Oraclepoll Research,2015-10-08,300,CPC,31
+2015-10-19,Nipissing--Timiskaming,35070,Oraclepoll Research,2015-10-08,300,NDP,16
+2015-10-19,Nipissing--Timiskaming,35070,Oraclepoll Research,2015-10-08,300,Green,6
+2015-10-19,Orléans,35076,Mainstreet Research,2015-09-29,660,LPC,40
+2015-10-19,Orléans,35076,Mainstreet Research,2015-09-29,660,CPC,33
+2015-10-19,Orléans,35076,Mainstreet Research,2015-09-29,660,NDP,19
+2015-10-19,Orléans,35076,Mainstreet Research,2015-09-29,660,Green,8
+2015-10-19,Orléans,35076,Environics,2015-09-20,567,LPC,51
+2015-10-19,Orléans,35076,Environics,2015-09-20,567,CPC,36
+2015-10-19,Orléans,35076,Environics,2015-09-20,567,NDP,11
+2015-10-19,Orléans,35076,Environics,2015-09-20,567,Green,3
+2015-10-19,Ottawa Centre,35075,Mainstreet Research,2015-10-04,685,LPC,30
+2015-10-19,Ottawa Centre,35075,Mainstreet Research,2015-10-04,685,CPC,22
+2015-10-19,Ottawa Centre,35075,Mainstreet Research,2015-10-04,685,NDP,42
+2015-10-19,Ottawa Centre,35075,Mainstreet Research,2015-10-04,685,Green,6
+2015-10-19,Ottawa West--Nepean,35079,Mainstreet Research,2015-10-04,661,LPC,47
+2015-10-19,Ottawa West--Nepean,35079,Mainstreet Research,2015-10-04,661,CPC,29
+2015-10-19,Ottawa West--Nepean,35079,Mainstreet Research,2015-10-04,661,NDP,20
+2015-10-19,Ottawa West--Nepean,35079,Mainstreet Research,2015-10-04,661,Green,4
+2015-10-19,Ottawa West--Nepean,35079,Forum Research,2015-09-25,1083,LPC,46
+2015-10-19,Ottawa West--Nepean,35079,Forum Research,2015-09-25,1083,CPC,35
+2015-10-19,Ottawa West--Nepean,35079,Forum Research,2015-09-25,1083,NDP,15
+2015-10-19,Ottawa West--Nepean,35079,Forum Research,2015-09-25,1083,Green,0
+2015-10-19,Ottawa West--Nepean,35079,Environics,2015-09-20,747,LPC,39
+2015-10-19,Ottawa West--Nepean,35079,Environics,2015-09-20,747,CPC,35
+2015-10-19,Ottawa West--Nepean,35079,Environics,2015-09-20,747,NDP,20
+2015-10-19,Ottawa West--Nepean,35079,Environics,2015-09-20,747,Green,5
+2015-10-19,Perth--Wellington,35083,Mainstreet Research,2015-10-08,652,LPC,35
+2015-10-19,Perth--Wellington,35083,Mainstreet Research,2015-10-08,652,CPC,36
+2015-10-19,Perth--Wellington,35083,Mainstreet Research,2015-10-08,652,NDP,21
+2015-10-19,Perth--Wellington,35083,Mainstreet Research,2015-10-08,652,Green,8
+2015-10-19,Peterborough--Kawartha,35084,Environics,2015-10-11,859,LPC,46
+2015-10-19,Peterborough--Kawartha,35084,Environics,2015-10-11,859,CPC,34
+2015-10-19,Peterborough--Kawartha,35084,Environics,2015-10-11,859,NDP,17
+2015-10-19,Peterborough--Kawartha,35084,Environics,2015-10-11,859,Green,3
+2015-10-19,Peterborough--Kawartha,35084,Forum Research,2015-09-24,1294,LPC,37
+2015-10-19,Peterborough--Kawartha,35084,Forum Research,2015-09-24,1294,CPC,34
+2015-10-19,Peterborough--Kawartha,35084,Forum Research,2015-09-24,1294,NDP,24
+2015-10-19,Peterborough--Kawartha,35084,Forum Research,2015-09-24,1294,Green,4
+2015-10-19,Peterborough--Kawartha,35084,Nanos Research,2015-08-26,300,LPC,41
+2015-10-19,Peterborough--Kawartha,35084,Nanos Research,2015-08-26,300,CPC,29
+2015-10-19,Peterborough--Kawartha,35084,Nanos Research,2015-08-26,300,NDP,27
+2015-10-19,Peterborough--Kawartha,35084,Nanos Research,2015-08-26,300,Green,4
+2015-10-19,Sault Ste. Marie,35092,Oraclepoll Research,2015-10-07,300,LPC,35
+2015-10-19,Sault Ste. Marie,35092,Oraclepoll Research,2015-10-07,300,CPC,36
+2015-10-19,Sault Ste. Marie,35092,Oraclepoll Research,2015-10-07,300,NDP,23
+2015-10-19,Sault Ste. Marie,35092,Oraclepoll Research,2015-10-07,300,Green,6
+2015-10-19,Sault Ste. Marie,35092,Environics,2015-09-20,632,LPC,34
+2015-10-19,Sault Ste. Marie,35092,Environics,2015-09-20,632,CPC,31
+2015-10-19,Sault Ste. Marie,35092,Environics,2015-09-20,632,NDP,30
+2015-10-19,Sault Ste. Marie,35092,Environics,2015-09-20,632,Green,6
+2015-10-19,Scarborough Centre,35094,Forum Research,2015-10-03,458,LPC,43
+2015-10-19,Scarborough Centre,35094,Forum Research,2015-10-03,458,CPC,36
+2015-10-19,Scarborough Centre,35094,Forum Research,2015-10-03,458,NDP,19
+2015-10-19,Scarborough Centre,35094,Forum Research,2015-10-03,458,Green,2
+2015-10-19,Scarborough Southwest,35098,Mainstreet Research,2015-09-29,654,LPC,40
+2015-10-19,Scarborough Southwest,35098,Mainstreet Research,2015-09-29,654,CPC,21
+2015-10-19,Scarborough Southwest,35098,Mainstreet Research,2015-09-29,654,NDP,37
+2015-10-19,Scarborough Southwest,35098,Mainstreet Research,2015-09-29,654,Green,3
+2015-10-19,Scarborough Southwest,35098,Forum Research,2015-09-22,608,LPC,35
+2015-10-19,Scarborough Southwest,35098,Forum Research,2015-09-22,608,CPC,27
+2015-10-19,Scarborough Southwest,35098,Forum Research,2015-09-22,608,NDP,32
+2015-10-19,Scarborough Southwest,35098,Forum Research,2015-09-22,608,Green,5
+2015-10-19,Spadina--Fort York,35101,Forum Research,2015-10-01,461,LPC,37
+2015-10-19,Spadina--Fort York,35101,Forum Research,2015-10-01,461,CPC,17
+2015-10-19,Spadina--Fort York,35101,Forum Research,2015-10-01,461,NDP,42
+2015-10-19,Spadina--Fort York,35101,Forum Research,2015-10-01,461,Green,5
+2015-10-19,Spadina--Fort York,35101,Mainstreet Research,2015-09-14,671,LPC,39
+2015-10-19,Spadina--Fort York,35101,Mainstreet Research,2015-09-14,671,CPC,13
+2015-10-19,Spadina--Fort York,35101,Mainstreet Research,2015-09-14,671,NDP,45
+2015-10-19,Spadina--Fort York,35101,Mainstreet Research,2015-09-14,671,Green,3
+2015-10-19,Spadina--Fort York,35101,Forum Research,2015-08-06,345,LPC,28
+2015-10-19,Spadina--Fort York,35101,Forum Research,2015-08-06,345,CPC,10
+2015-10-19,Spadina--Fort York,35101,Forum Research,2015-08-06,345,NDP,57
+2015-10-19,Spadina--Fort York,35101,Forum Research,2015-08-06,345,Green,4
+2015-10-19,Sudbury,35103,Oraclepoll Research,2015-10-10,400,LPC,31
+2015-10-19,Sudbury,35103,Oraclepoll Research,2015-10-10,400,CPC,27
+2015-10-19,Sudbury,35103,Oraclepoll Research,2015-10-10,400,NDP,38
+2015-10-19,Sudbury,35103,Oraclepoll Research,2015-10-10,400,Green,4
+2015-10-19,Timmins--James Bay,35107,Oraclepoll Research,2015-10-08,300,LPC,21
+2015-10-19,Timmins--James Bay,35107,Oraclepoll Research,2015-10-08,300,CPC,11
+2015-10-19,Timmins--James Bay,35107,Oraclepoll Research,2015-10-08,300,NDP,62
+2015-10-19,Timmins--James Bay,35107,Oraclepoll Research,2015-10-08,300,Green,5
+2015-10-19,Toronto Centre,35108,Forum Research,2015-10-01,597,LPC,42
+2015-10-19,Toronto Centre,35108,Forum Research,2015-10-01,597,CPC,17
+2015-10-19,Toronto Centre,35108,Forum Research,2015-10-01,597,NDP,37
+2015-10-19,Toronto Centre,35108,Forum Research,2015-10-01,597,Green,4
+2015-10-19,Toronto Centre,35108,Forum Research,2015-08-28,488,LPC,40
+2015-10-19,Toronto Centre,35108,Forum Research,2015-08-28,488,CPC,14
+2015-10-19,Toronto Centre,35108,Forum Research,2015-08-28,488,NDP,41
+2015-10-19,Toronto Centre,35108,Forum Research,2015-08-28,488,Green,4
+2015-10-19,University--Rosedale,35110,Forum Research,2015-09-30,604,LPC,38
+2015-10-19,University--Rosedale,35110,Forum Research,2015-09-30,604,CPC,20
+2015-10-19,University--Rosedale,35110,Forum Research,2015-09-30,604,NDP,39
+2015-10-19,University--Rosedale,35110,Forum Research,2015-09-30,604,Green,3
+2015-10-19,University--Rosedale,35110,Mainstreet Research,2015-09-29,644,LPC,39
+2015-10-19,University--Rosedale,35110,Mainstreet Research,2015-09-29,644,CPC,15
+2015-10-19,University--Rosedale,35110,Mainstreet Research,2015-09-29,644,NDP,43
+2015-10-19,University--Rosedale,35110,Mainstreet Research,2015-09-29,644,Green,3
+2015-10-19,University--Rosedale,35110,Forum Research,2015-08-25,528,LPC,32
+2015-10-19,University--Rosedale,35110,Forum Research,2015-08-25,528,CPC,17
+2015-10-19,University--Rosedale,35110,Forum Research,2015-08-25,528,NDP,46
+2015-10-19,University--Rosedale,35110,Forum Research,2015-08-25,528,Green,5
+2015-10-19,Waterloo,35112,Environics,2015-09-20,658,LPC,39
+2015-10-19,Waterloo,35112,Environics,2015-09-20,658,CPC,31
+2015-10-19,Waterloo,35112,Environics,2015-09-20,658,NDP,26
+2015-10-19,Waterloo,35112,Environics,2015-09-20,658,Green,3
+2015-10-19,Willowdale,35115,Environics,2015-09-20,535,LPC,45
+2015-10-19,Willowdale,35115,Environics,2015-09-20,535,CPC,36
+2015-10-19,Willowdale,35115,Environics,2015-09-20,535,NDP,15
+2015-10-19,Willowdale,35115,Environics,2015-09-20,535,Green,5
+2015-10-19,Willowdale,35115,Environics,2015-08-17,508,LPC,37
+2015-10-19,Willowdale,35115,Environics,2015-08-17,508,CPC,32
+2015-10-19,Willowdale,35115,Environics,2015-08-17,508,NDP,26
+2015-10-19,Willowdale,35115,Environics,2015-08-17,508,Green,5
+2015-10-19,York Centre,35118,Forum Research,2015-10-04,387,LPC,39
+2015-10-19,York Centre,35118,Forum Research,2015-10-04,387,CPC,40
+2015-10-19,York Centre,35118,Forum Research,2015-10-04,387,NDP,17
+2015-10-19,York Centre,35118,Forum Research,2015-10-04,387,Green,3
+2015-10-19,Ahuntsic-Cartierville,24003,Mainstreet Research,2015-09-21,698,LPC,34
+2015-10-19,Ahuntsic-Cartierville,24003,Mainstreet Research,2015-09-21,698,CPC,13
+2015-10-19,Ahuntsic-Cartierville,24003,Mainstreet Research,2015-09-21,698,NDP,37
+2015-10-19,Ahuntsic-Cartierville,24003,Mainstreet Research,2015-09-21,698,Green,3
+2015-10-19,Ahuntsic-Cartierville,24003,Mainstreet Research,2015-09-21,698,Bloc,13
+2015-10-19,Chicoutimi--Le Fjord,24022,Segma Research,2015-10-12,100,LPC,22
+2015-10-19,Chicoutimi--Le Fjord,24022,Segma Research,2015-10-12,100,CPC,20
+2015-10-19,Chicoutimi--Le Fjord,24022,Segma Research,2015-10-12,100,NDP,33
+2015-10-19,Chicoutimi--Le Fjord,24022,Segma Research,2015-10-12,100,Green,3
+2015-10-19,Chicoutimi--Le Fjord,24022,Segma Research,2015-10-12,100,Bloc,22
+2015-10-19,Chicoutimi--Le Fjord,24022,Segma Research,2015-09-19,100,LPC,19
+2015-10-19,Chicoutimi--Le Fjord,24022,Segma Research,2015-09-19,100,CPC,17
+2015-10-19,Chicoutimi--Le Fjord,24022,Segma Research,2015-09-19,100,NDP,41
+2015-10-19,Chicoutimi--Le Fjord,24022,Segma Research,2015-09-19,100,Green,5
+2015-10-19,Chicoutimi--Le Fjord,24022,Segma Research,2015-09-19,100,Bloc,18
+2015-10-19,Jonquière,24032,Segma Research,2015-10-12,100,LPC,24
+2015-10-19,Jonquière,24032,Segma Research,2015-10-12,100,CPC,20
+2015-10-19,Jonquière,24032,Segma Research,2015-10-12,100,NDP,33
+2015-10-19,Jonquière,24032,Segma Research,2015-10-12,100,Green,3
+2015-10-19,Jonquière,24032,Segma Research,2015-10-12,100,Bloc,19
+2015-10-19,Jonquière,24032,Segma Research,2015-09-19,100,LPC,18
+2015-10-19,Jonquière,24032,Segma Research,2015-09-19,100,CPC,20
+2015-10-19,Jonquière,24032,Segma Research,2015-09-19,100,NDP,37
+2015-10-19,Jonquière,24032,Segma Research,2015-09-19,100,Green,5
+2015-10-19,Jonquière,24032,Segma Research,2015-09-19,100,Bloc,20
+2015-10-19,Lac-Saint-Jean,24035,Segma Research,2015-10-12,100,LPC,16
+2015-10-19,Lac-Saint-Jean,24035,Segma Research,2015-10-12,100,CPC,35
+2015-10-19,Lac-Saint-Jean,24035,Segma Research,2015-10-12,100,NDP,30
+2015-10-19,Lac-Saint-Jean,24035,Segma Research,2015-10-12,100,Green,3
+2015-10-19,Lac-Saint-Jean,24035,Segma Research,2015-10-12,100,Bloc,17
+2015-10-19,Lac-Saint-Jean,24035,Segma Research,2015-09-19,100,LPC,11
+2015-10-19,Lac-Saint-Jean,24035,Segma Research,2015-09-19,100,CPC,35
+2015-10-19,Lac-Saint-Jean,24035,Segma Research,2015-09-19,100,NDP,29
+2015-10-19,Lac-Saint-Jean,24035,Segma Research,2015-09-19,100,Green,5
+2015-10-19,Lac-Saint-Jean,24035,Segma Research,2015-09-19,100,Bloc,21
+2015-10-19,Laurier--Sainte-Marie,24039,CROP,2015-08-29,377,LPC,15
+2015-10-19,Laurier--Sainte-Marie,24039,CROP,2015-08-29,377,CPC,2
+2015-10-19,Laurier--Sainte-Marie,24039,CROP,2015-08-29,377,NDP,57
+2015-10-19,Laurier--Sainte-Marie,24039,CROP,2015-08-29,377,Green,4
+2015-10-19,Laurier--Sainte-Marie,24039,CROP,2015-08-29,377,Bloc,20
+2015-10-19,Montarville,24049,Solutions Logik,2015-09-25,100,LPC,14
+2015-10-19,Montarville,24049,Solutions Logik,2015-09-25,100,CPC,9
+2015-10-19,Montarville,24049,Solutions Logik,2015-09-25,100,NDP,28
+2015-10-19,Montarville,24049,Solutions Logik,2015-09-25,100,Green,3
+2015-10-19,Montarville,24049,Solutions Logik,2015-09-25,100,Bloc,46
+2015-10-19,Mount Royal,24052,Mainstreet Research,2015-09-21,672,LPC,50
+2015-10-19,Mount Royal,24052,Mainstreet Research,2015-09-21,672,CPC,27
+2015-10-19,Mount Royal,24052,Mainstreet Research,2015-09-21,672,NDP,16
+2015-10-19,Mount Royal,24052,Mainstreet Research,2015-09-21,672,Green,2
+2015-10-19,Mount Royal,24052,Mainstreet Research,2015-09-21,672,Bloc,7
+2015-10-19,Notre-Dame-de-Grâce--Westmount,24053,Mainstreet Research,2015-10-04,665,LPC,40
+2015-10-19,Notre-Dame-de-Grâce--Westmount,24053,Mainstreet Research,2015-10-04,665,CPC,10
+2015-10-19,Notre-Dame-de-Grâce--Westmount,24053,Mainstreet Research,2015-10-04,665,NDP,33
+2015-10-19,Notre-Dame-de-Grâce--Westmount,24053,Mainstreet Research,2015-10-04,665,Green,10
+2015-10-19,Notre-Dame-de-Grâce--Westmount,24053,Mainstreet Research,2015-10-04,665,Bloc,7
+2015-10-19,Papineau,24055,Mainstreet Research,2015-09-17,783,LPC,41
+2015-10-19,Papineau,24055,Mainstreet Research,2015-09-17,783,CPC,11
+2015-10-19,Papineau,24055,Mainstreet Research,2015-09-17,783,NDP,36
+2015-10-19,Papineau,24055,Mainstreet Research,2015-09-17,783,Green,0
+2015-10-19,Papineau,24055,Mainstreet Research,2015-09-17,783,Bloc,12
+2015-10-19,Papineau,24055,CROP,2015-09-14,375,LPC,35
+2015-10-19,Papineau,24055,CROP,2015-09-14,375,CPC,5
+2015-10-19,Papineau,24055,CROP,2015-09-14,375,NDP,46
+2015-10-19,Papineau,24055,CROP,2015-09-14,375,Green,4
+2015-10-19,Papineau,24055,CROP,2015-09-14,375,Bloc,10
+2015-10-19,Pontiac,24057,Mainstreet Research,2015-10-04,673,LPC,34
+2015-10-19,Pontiac,24057,Mainstreet Research,2015-10-04,673,CPC,19
+2015-10-19,Pontiac,24057,Mainstreet Research,2015-10-04,673,NDP,36
+2015-10-19,Pontiac,24057,Mainstreet Research,2015-10-04,673,Green,3
+2015-10-19,Pontiac,24057,Mainstreet Research,2015-10-04,673,Bloc,8
+2015-10-19,Richmond--Arthabaska,24061,Mainstreet Research,2015-09-21,668,LPC,7
+2015-10-19,Richmond--Arthabaska,24061,Mainstreet Research,2015-09-21,668,CPC,46
+2015-10-19,Richmond--Arthabaska,24061,Mainstreet Research,2015-09-21,668,NDP,35
+2015-10-19,Richmond--Arthabaska,24061,Mainstreet Research,2015-09-21,668,Green,2
+2015-10-19,Richmond--Arthabaska,24061,Mainstreet Research,2015-09-21,668,Bloc,10
+2015-10-19,Regina--Lewvan,47007,Mainstreet Research,2015-09-21,639,LPC,21
+2015-10-19,Regina--Lewvan,47007,Mainstreet Research,2015-09-21,639,CPC,40
+2015-10-19,Regina--Lewvan,47007,Mainstreet Research,2015-09-21,639,NDP,34
+2015-10-19,Regina--Lewvan,47007,Mainstreet Research,2015-09-21,639,Green,5
+2015-10-19,Saskatoon--University,47011,Environics,2015-09-20,853,LPC,22
+2015-10-19,Saskatoon--University,47011,Environics,2015-09-20,853,CPC,37
+2015-10-19,Saskatoon--University,47011,Environics,2015-09-20,853,NDP,37
+2015-10-19,Saskatoon--University,47011,Environics,2015-09-20,853,Green,4
+2015-10-19,Saskatoon--University,47011,Environics,2015-08-16,691,LPC,22
+2015-10-19,Saskatoon--University,47011,Environics,2015-08-16,691,CPC,34
+2015-10-19,Saskatoon--University,47011,Environics,2015-08-16,691,NDP,41
+2015-10-19,Saskatoon--University,47011,Environics,2015-08-16,691,Green,4
+2015-10-19,Saskatoon West,47012,Mainstreet Research,2015-09-21,658,LPC,25
+2015-10-19,Saskatoon West,47012,Mainstreet Research,2015-09-21,658,CPC,31
+2015-10-19,Saskatoon West,47012,Mainstreet Research,2015-09-21,658,NDP,36
+2015-10-19,Saskatoon West,47012,Mainstreet Research,2015-09-21,658,Green,9
+2015-10-19,Yukon,60001,Environics,2015-09-21,497,LPC,39
+2015-10-19,Yukon,60001,Environics,2015-09-21,497,CPC,27
+2015-10-19,Yukon,60001,Environics,2015-09-21,497,NDP,29
+2015-10-19,Yukon,60001,Environics,2015-09-21,497,Green,4

@@ -36,7 +36,7 @@ house_effects <- national_polls %>%
 
 national_polls.adjusted <- national_polls %>%
   left_join(house_effects, by = "pollster") %>%
-  mutate(weight = 3*(age <= 60)*exp(-(age)^(1/3))/sqrt(MOE/100)/(ifelse(IVR, 3, 1))/sqrt(full_house),
+  mutate(weight = 3*(age <= 60)*exp(-(age)^(0.4))/sqrt(MOE/100)/(ifelse(IVR, 3, 1))/sqrt(full_house),
          LPC = LPC - LPC_house/2,
          CPC = CPC - CPC_house/2,
          BQ = BQ - BQ_house/2,
@@ -73,9 +73,21 @@ national_avg <- national_polls.adjusted %>%
   summarise(average = Hmisc::wtd.mean(value, weights = weight, na.rm = TRUE),
             sd = sqrt(Hmisc::wtd.var(value, weights = weight, na.rm = TRUE)))
 
-national_avg
+national_avg %>%
+  mutate(lower = average - 1.644*sd,
+         upper = average + 1.644*sd) %>%
+  ggplot(aes(x = party, y = average, fill = party)) +
+  geom_col() +
+  geom_errorbar(aes(ymin = lower, ymax = upper), col = "#666666") +
+  geom_text(aes(label = round(average, 1), y = average + 1)) +
+  scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1", "#8ECEF9", "green4", "midnightblue"),
+                    labels = c("Liberal", "Conservative", "NDP", "Bloc Québécois", "Green", "People's Party")) +
+  theme(axis.ticks.x = element_blank(), axis.title.x = element_blank()) +
+  labs(title = "2019 Canadian federal election national polling", y = "%", caption = "Error bars indicate 90% CI",
+       subtitle = paste0(month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today())))
 
 ## Weighted covariance (except People's Party)
+                   
 national_polls_matrix <- national_polls.adjusted %>%
   dplyr::select(weight, LPC, CPC, NDP, BQ, GPC, PPC) %>%
   na.omit()
@@ -133,12 +145,11 @@ provincial_polls_adjusted %>%
   facet_wrap(~province) +
   geom_point(alpha = 0.4, size = 1) +
   geom_smooth(aes(weight = loess_weight), method = "loess", span = 0.4, size = 1) +
-  geom_vline(xintercept = as.Date("2019-02-07")) +
   scale_colour_manual(name = "Party", values = quebec_colors, labels = quebec_parties) +
   labs(title = "2019 Canadian federal election polling",
        subtitle = "By province", x = "Date", y = "%") +
   scale_x_date(date_breaks = "months", date_labels = "%b %Y") +
-  theme(axis.text.x = element_text(angle = 90, size = 7))
+  theme(axis.text.x = element_text(angle = 90, size = 7, hjust = 0.5))
 
 ## Regional covariances
 ontario_polls <- provincial_polls_adjusted %>%

@@ -1,16 +1,16 @@
 ## Estimating bellwetheriness
 source("Code/bellwetheriness_functions.R")
 
-# Identify districts where both Liberals and Conservatives have >10% of winning
-competitive_district_inds <- which(LPC_win_prob >= 0.2 & CPC_win_prob >= 0.2)
+# Identify districts where both Liberals and Conservatives have >20% of winning
+competitive_district_inds <- which(district_probs$LPC_prob >= 0.2 & district_probs$CPC_prob >= 0.2)
 
 LPC_bellwetherinesses <- all_districts_bellwetheriness("Liberal", competitive_district_inds)
 CPC_bellwetherinesses <- all_districts_bellwetheriness("Conservative", competitive_district_inds)
 
 bellwetheriness <- tibble(district_code = data_2019.simple$district_code[competitive_district_inds],
                           name_english = data_2019.simple$name_english[competitive_district_inds],
-                          LPC_win_prob = LPC_win_prob[competitive_district_inds],
-                          CPC_win_prob = CPC_win_prob[competitive_district_inds],
+                          LPC_win_prob = district_probs$LPC_prob[competitive_district_inds],
+                          CPC_win_prob = district_probs$CPC_prob[competitive_district_inds],
                           LPC = LPC_bellwetherinesses,
                           CPC = CPC_bellwetherinesses,
                           LPC_rel_logit = log(LPC_win_prob/CPC_win_prob)) %>%

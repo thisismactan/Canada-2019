@@ -1,5 +1,6 @@
 source("Code/library.R")
 source("Code/poll_average.R")
+source("Code/district_polls.R")
 
 ## Assemble the dataset for making 2019 predictions
 demographics_2019 <- demographics_2016
@@ -142,7 +143,8 @@ data_2019.simple <- district_key_2013 %>%
                                incumbent_running & last_winner == "NDP" ~ "NDP",
                                incumbent_running & last_winner == "Bloc" ~ "Bloc",
                                incumbent_running & last_winner == "Green" ~ "Green",
-                               incumbent_running & last_winner == "People's Party" ~ "Conservative"),
+                               incumbent_running & last_winner == "People's Party" ~ "Conservative",
+                               incumbent_running & last_winner == "Independent" ~ "None"),
          incumbent = relevel(factor(as.character(incumbent)), ref = "None"),
          incumbent_LPC = incumbent == "Liberal",
          incumbent_CPC = incumbent == "Conservative",
@@ -150,5 +152,3 @@ data_2019.simple <- district_key_2013 %>%
          incumbent_Green = incumbent == "Green",
          incumbent_Bloc = incumbent == "Bloc") %>%
   mutate(Vancouver_Island = district_code %in% c(59009, 59010, 59018, 59026, 59027, 59037, 59041))
-
-write_rds(data_2019.simple, "Shiny-app/data_2019.rds")
