@@ -56,10 +56,25 @@ for(i in 1:length(dates)) {
     melt(id.vars = "date", variable.name = "Party", value.name = "sd")
 }
 
-poll_averages_unadjusted <- bind_rows(avg_unadjusted_list)
-poll_averages_adjusted <- bind_rows(avg_adjusted_list)
-poll_sds_unadjusted <- bind_rows(sd_unadjusted_list)
-poll_sds_adjusted <- bind_rows(sd_adjusted_list)
+poll_averages_unadjusted <- bind_rows(avg_unadjusted_list) %>%
+  arrange(Party, date) %>%
+  group_by(Party) %>%
+  mutate(pct = (lag(pct, 2) + lag(pct, 1) + pct + lead(pct, 1) + lead(pct, 2)) / 5)
+
+poll_averages_adjusted <- bind_rows(avg_adjusted_list) %>%
+  arrange(Party, date) %>%
+  group_by(Party) %>%
+  mutate(pct = (lag(pct, 2) + lag(pct, 1) + pct + lead(pct, 1) + lead(pct, 2)) / 5)
+
+poll_sds_unadjusted <- bind_rows(sd_unadjusted_list) %>%
+  arrange(Party, date) %>%
+  group_by(Party) %>%
+  mutate(sd = (lag(sd, 2) + lag(sd, 1) + sd + lead(sd, 1) + lead(sd, 2)) / 5)
+
+poll_sds_adjusted <- bind_rows(sd_adjusted_list) %>%
+  arrange(Party, date) %>%
+  group_by(Party) %>%
+  mutate(sd = (lag(sd, 2) + lag(sd, 1) + sd + lead(sd, 1) + lead(sd, 2)) / 5)
 
 write_csv(poll_averages_unadjusted, "Shiny-app/poll_averages_unadjusted.csv")
 write_csv(poll_averages_adjusted, "Shiny-app/poll_averages_adjusted.csv")
