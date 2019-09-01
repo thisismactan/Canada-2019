@@ -32,7 +32,7 @@
 13009,Saint John--Rothesay,Liberal,TRUE
 13010,Tobique--Mactaquac,Liberal,FALSE
 24001,Abitibi--Baie-James--Nunavik--Eeyou,NDP,FALSE
-24002,Abitibi--Témiscamingue,NDP,TRUE
+24002,Abitibi--Témiscamingue,NDP,FALSE
 24003,Ahuntsic-Cartierville,Liberal,TRUE
 24004,Alfred-Pellan,Liberal,TRUE
 24005,Argenteuil--La Petite-Nation,Liberal,TRUE
@@ -46,7 +46,7 @@
 24013,Thérèse-De Blainville,Liberal,TRUE
 24014,Pierre-Boucher--Les Patriotes--Verchères,Bloc,TRUE
 24015,Bourassa,Liberal,TRUE
-24016,Brome--Missisquoi,Liberal,TRUE
+24016,Brome--Missisquoi,Liberal,FALSE
 24017,Brossard--Saint-Lambert,Liberal,TRUE
 24018,Rimouski-Neigette--Témiscouata--Les Basques,NDP,TRUE
 24019,Charlesbourg--Haute-Saint-Charles,Conservative,TRUE
@@ -86,7 +86,7 @@
 24053,Notre-Dame-de-Grâce--Westmount,Liberal,TRUE
 24054,Outremont,Liberal,TRUE
 24055,Papineau,Liberal,TRUE
-24056,Pierrefonds--Dollard,Liberal,TRUE
+24056,Pierrefonds--Dollard,Liberal,FALSE
 24057,Pontiac,Liberal,TRUE
 24058,Portneuf--Jacques-Cartier,Conservative,TRUE
 24059,Québec,Liberal,TRUE
@@ -99,7 +99,7 @@
 24066,Saint-Hyacinthe--Bagot,NDP,TRUE
 24067,Saint-Jean,Liberal,TRUE
 24068,Saint-Laurent,Liberal,TRUE
-24069,Saint-Léonard--Saint-Michel,Liberal,TRUE
+24069,Saint-Léonard--Saint-Michel,Liberal,FALSE
 24070,Saint-Maurice--Champlain,Liberal,TRUE
 24071,Salaberry--Suroît,NDP,FALSE
 24072,Shefford,Liberal,TRUE
@@ -108,12 +108,12 @@
 24075,Terrebonne,Bloc,TRUE
 24076,Trois-Rivières,NDP,TRUE
 24077,Ville-Marie--Le Sud-Ouest--Île-des-Soeurs,Liberal,TRUE
-24078,Vimy,Liberal,TRUE
+24078,Vimy,Liberal,FALSE
 35001,Ajax,Liberal,TRUE
 35002,Algoma--Manitoulin--Kapuskasing,NDP,TRUE
 35003,Aurora--Oak Ridges--Richmond Hill,Conservative,TRUE
 35004,Barrie--Innisfil,Conservative,TRUE
-35005,Barrie--Springwater--Oro-Medonte,Conservative,TRUE
+35005,Barrie--Springwater--Oro-Medonte,Conservative,FALSE
 35006,Bay of Quinte,Liberal,TRUE
 35007,Beaches--East York,Liberal,TRUE
 35008,Brampton Centre,Liberal,TRUE
@@ -263,7 +263,7 @@
 48003,Bow River,Conservative,TRUE
 48004,Calgary Centre,Liberal,TRUE
 48005,Calgary Confederation,Conservative,TRUE
-48006,Calgary Forest Lawn,Conservative,TRUE
+48006,Calgary Forest Lawn,Conservative,FALSE
 48007,Calgary Heritage,Conservative,TRUE
 48008,Calgary Midnapore,Conservative,TRUE
 48009,Calgary Nose Hill,Conservative,TRUE
@@ -333,7 +333,7 @@
 59039,Vancouver Quadra,Liberal,TRUE
 59040,Vancouver South,Liberal,TRUE
 59041,Victoria,NDP,FALSE
-59042,West Vancouver--Sunshine Coast--Sea to Sky Country,Liberal,TRUE
+59042,West Vancouver--Sunshine Coast--Sea to Sky Country,Liberal,FALSE
 60001,Yukon,Liberal,TRUE
 61001,Northwest Territories,Liberal,TRUE
 62001,Nunavut,Independent,FALSE

@@ -189,3 +189,32 @@ quebec_polls_covariance <- cov.wt(quebec_polls %>% dplyr::select(-weight), wt = 
 prairie_polls_covariance <- cov.wt(prairie_polls %>% dplyr::select(-weight), wt = prairie_polls$weight)$cov
 alberta_polls_covariance <- cov.wt(alberta_polls %>% dplyr::select(-weight), wt = alberta_polls$weight)$cov
 bc_polls_covariance <- cov.wt(bc_polls %>% dplyr::select(-weight), wt = bc_polls$weight)$cov
+
+## Regional polling averages
+regional_polls <- bind_rows(
+  alberta_polls %>% mutate(region = "Alberta"),
+  atlantic_polls %>% mutate(region = "Atlantic Canada"),
+  bc_polls %>% mutate(region = "British Columbia"),
+  ontario_polls %>% mutate(region = "Ontario"),
+  prairie_polls %>% mutate(region = "Prairie"),
+  quebec_polls %>% mutate(region = "Quebec")
+) %>%
+  dplyr::select(region, weight, LPC, CPC, NDP, BQ, GPC, PPC)
+
+regional_polls %>%
+  filter(weight > 0) %>%
+  melt(id.vars = c("region", "weight"), variable.name = "party", value.name = "pct") %>%
+  group_by(region, party) %>%
+  summarise(avg = wtd.mean(pct, weight),
+            sd = sqrt(wtd.var(pct, weight))*n()/(n() - 1)) %>%
+  mutate(upper = avg + 1.645*sd,
+         lower = pmax(avg - 1.645*sd, 0)) %>%
+  ggplot(aes(x = party, y = avg, fill = party)) +
+  facet_wrap(~region) +
+  geom_col() +
+  geom_errorbar(aes(ymin = lower, ymax = upper), alpha = 2/3) +
+  geom_text(aes(y = avg + 2.5, label = round(avg, 1)), size = 3) +
+  scale_fill_manual(name = "Party", values = quebec_colors, labels = quebec_parties) +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.title.x = element_blank()) +
+  labs(title = "2019 Canadian federal election polling by region", caption = "Error bars indicate 90% CIs", y = "%",
+       subtitle = paste0(month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today())))

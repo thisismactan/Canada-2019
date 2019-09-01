@@ -30,7 +30,8 @@ predictions <- tibble(district_code = data_2019.simple$district_code,
                             PPC_vote == pmax(LPC_vote, CPC_vote, NDP_vote, Bloc_vote, Green_vote, PPC_vote, ind_vote) ~ "People's Party",
                             ind_vote == pmax(LPC_vote, CPC_vote, NDP_vote, Bloc_vote, Green_vote, PPC_vote, ind_vote) ~ "Independent")
          ) %>%
-  left_join(read_csv("Data/incumbents.csv") %>% dplyr::select(-name_english), by = "district_code")
+  left_join(read_csv("Data/incumbents.csv") %>% dplyr::select(-name_english), by = "district_code") %>%
+  left_join(district_probs, by = c("district_code", "name_english"))
 
 ## Distribution of vote in seats that the party won
 predictions %>%
@@ -66,7 +67,7 @@ predictions %>%
   summarise(seats = n()) %>%
   spread(winner, seats)
 
-## Last time
+## Currently
 predictions %>%
   group_by(last_winner, region) %>%
   summarise(seats = n()) %>%

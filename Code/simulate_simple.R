@@ -2,7 +2,7 @@
 source("Code/Modeling/poll_error_variance.R")
 source("Code/Modeling/model_error_variance.R")
 source("Code/independent_performance.R")
-source("Code/poll_average.R")
+source("Code/poll_average_over_time.R")
 source("Code/district_polls.R")
 source("Code/shape_2019_data.R")
 
@@ -146,8 +146,9 @@ NDP_district_simulations[markham_stouffville_row,] <- 0.9*NDP_district_simulatio
 ### PPC gets leftovers, except in Beauce (Maxime Bernier)
 PPC_district_simulations <- 1 - (LPC_district_simulations + CPC_district_simulations + NDP_district_simulations + Bloc_district_simulations + 
                                    Green_district_simulations + ind_district_simulations)
-PPC_district_simulations[beauce_row,] <- ((67.02 - 6.64 - 17.09)/(67.02 - 6.64))*CPC_district_simulations[beauce_row,]
-CPC_district_simulations[beauce_row,] <- (17.09/(67.02 - 6.64))*CPC_district_simulations[beauce_row,]
+beauce_noise <- rnorm(num.iter, 0, 0.2)
+PPC_district_simulations[beauce_row,] <- ((67.02 - 6.64 - 17.09)/(67.02 - 6.64))*CPC_district_simulations[beauce_row,] + beauce_noise
+CPC_district_simulations[beauce_row,] <- (17.09/(67.02 - 6.64))*CPC_district_simulations[beauce_row,] - beauce_noise
 
 ## Factor in district-level polling
 
@@ -159,6 +160,7 @@ Bloc_district_variance <- rowVars(Bloc_district_simulations)
 Green_district_variance <- rowVars(Green_district_simulations)
 PPC_district_variance <- rowVars(PPC_district_simulations)
 ind_district_variance <- rowVars(ind_district_simulations)
+
 
 ### Compute rho (weight given to prior)
 district_poll_variance <- district_poll_avg$variance
@@ -394,7 +396,7 @@ forecast_timeline %>%
   scale_colour_manual(name = "Outcome", values = c("blue", "#AAAAFF", "red", "#FFAAAA", "darkorange1", "#FFBB77"),
                       labels = c("Conservative majority", "Conservative minority", "Liberal majority", "Liberal minority", 
                                  "NDP majority", "NDP minority")) +
-  scale_x_date(limits = as.Date(c("2019-04-17", "2019-10-21")), breaks = "1 week", date_labels = "%b %e") +
+  scale_x_date(limits = as.Date(c("2019-07-15", "2019-10-21")), breaks = "1 week", date_labels = "%b %e") +
   theme(axis.text.x = element_text(angle = 90)) +
   labs(title = "Forecast over time", x = "Date", y = "Probability")
 
