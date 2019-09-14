@@ -306,7 +306,7 @@ canada_districts_latlong <- canada_districts_latlong %>%
   left_join(coords_df, by = "FED_NUM")
 
 ## Remove large intermediate arrays generated during simulation
-rm(list = grep("_rho.mat|_wins|_district_poll.mat", ls(), value = TRUE))
+rm(list = grep("_rho.mat|_district_poll.mat", ls(), value = TRUE))
 
 write_rds(canada_districts_latlong, "Shiny-app/canada_districts.rds")
 

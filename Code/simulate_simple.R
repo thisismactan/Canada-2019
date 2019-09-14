@@ -429,7 +429,7 @@ seat_simulations %>%
   filter(party %in% c("LPC", "CPC", "NDP")) %>%
   ggplot() +
   geom_histogram(aes(x = seats, y = ..density.., fill = party),
-                 binwidth = 3, col = "black", alpha = 2/3, position = "identity") +
+                 binwidth = 1, alpha = 2/3, position = "identity") +
   geom_vline(xintercept = 170, size = 1) +
   geom_text(data = data.frame(x = 200,
                               y = 0.02,
@@ -437,7 +437,7 @@ seat_simulations %>%
             aes(x = x, y = y, label = label), size = 3) +
   scale_fill_manual(name = "Party", values = c("red", "blue", "darkorange1"), labels = c("Liberal", "Conservative", "NDP")) +
   scale_x_continuous(breaks = seq(0, 300, by = 50)) +
-  labs(title = "Distribution of seat counts by party", x = "Seats", y = "Probability",
+  labs(title = "Forecast distribution of seat counts by party", x = "Seats", y = "Probability",
        subtitle = paste0(month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today())))
 
 ## Write data with rho and actual poll average to the Shiny folder

@@ -14,8 +14,7 @@ bellwetheriness <- tibble(district_code = data_2019.simple$district_code[competi
                           LPC = LPC_bellwetherinesses,
                           CPC = CPC_bellwetherinesses,
                           LPC_rel_logit = log(LPC_win_prob/CPC_win_prob)) %>%
-  arrange(abs(LPC_rel_logit)) %>%
-  dplyr::slice(1:50)
+  arrange(abs(LPC_rel_logit))
 
 # Bellwether-o-gram
 ggplot(bellwetheriness, aes(x = LPC, y = CPC, col = LPC_rel_logit)) +
