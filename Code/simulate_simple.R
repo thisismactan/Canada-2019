@@ -429,7 +429,7 @@ seat_simulations %>%
   filter(party %in% c("LPC", "CPC", "NDP")) %>%
   ggplot() +
   geom_histogram(aes(x = seats, y = ..density.., fill = party),
-                 binwidth = 1, alpha = 2/3, position = "identity") +
+                 binwidth = 3, alpha = 2/3, position = "identity", col = "black") +
   geom_vline(xintercept = 170, size = 1) +
   geom_text(data = data.frame(x = 200,
                               y = 0.02,

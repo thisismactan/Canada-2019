@@ -18,7 +18,7 @@ bellwetheriness <- tibble(district_code = data_2019.simple$district_code[competi
 
 # Bellwether-o-gram
 ggplot(bellwetheriness, aes(x = LPC, y = CPC, col = LPC_rel_logit)) +
-  geom_text(aes(label = name_english), size = 2) +
+  geom_text(aes(label = name_english), size = 3) +
   scale_colour_gradient(low = "blue", high = "red", name = "LPC rel. logit") +
   labs(title = "Bellwether-o-gram", x = "P(LPC gov|LPC district)", y = "P(CPC gov|CPC district)")
 
