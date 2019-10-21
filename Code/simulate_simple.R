@@ -3,7 +3,6 @@ source("Code/Modeling/poll_error_variance.R")
 source("Code/Modeling/model_error_variance.R")
 source("Code/independent_performance.R")
 source("Code/poll_average_over_time.R")
-source("Code/district_polls.R")
 source("Code/shape_2019_data.R")
 
 ## Clean district keys again for good measure
@@ -49,6 +48,9 @@ ontario_means <- region_wtd_mean(ontario_polls)
 prairie_means <- region_wtd_mean(prairie_polls)
 alberta_means <- region_wtd_mean(alberta_polls)
 bc_means <- region_wtd_mean(bc_polls)
+
+## Compute district polling averages/variances
+source("Code/district_polls.R")
 
 national_poll_errors <- rmvn(num.iter, rep(0, 5), poll_error_covariance) %>%
   cbind(0)
@@ -161,7 +163,6 @@ Green_district_variance <- rowVars(Green_district_simulations)
 PPC_district_variance <- rowVars(PPC_district_simulations)
 ind_district_variance <- rowVars(ind_district_simulations)
 
-
 ### Compute rho (weight given to prior)
 district_poll_variance <- district_poll_avg$variance
 LPC_rho <- district_poll_variance/(district_poll_variance + LPC_district_variance)
@@ -180,13 +181,17 @@ Green_rho[is.na(Green_rho)] <- 1
 PPC_rho[is.na(PPC_rho)] <- 1
 ind_rho[is.na(ind_rho)] <- 1
 
-LPC_district_poll.mat <- matrix(district_poll_avg$LPC_poll, 338, num.iter)
-CPC_district_poll.mat <- matrix(district_poll_avg$CPC_poll, 338, num.iter)
-NDP_district_poll.mat <- matrix(district_poll_avg$NDP_poll, 338, num.iter)
-Bloc_district_poll.mat <- matrix(district_poll_avg$BQ_poll, 338, num.iter)
-Green_district_poll.mat <- matrix(district_poll_avg$GPC_poll, 338, num.iter)
+LPC_rho[beauce_row] <- CPC_rho[beauce_row] <- NDP_rho[beauce_row] <- Bloc_rho[beauce_row] <- Green_rho[beauce_row] <- PPC_rho[beauce_row] <- 
+  LPC_rho[vancouver_granville_row] <- CPC_rho[vancouver_granville_row] <- NDP_rho[vancouver_granville_row] <- Bloc_rho[vancouver_granville_row] <- 
+  Green_rho[vancouver_granville_row] <- PPC_rho[vancouver_granville_row] <- ind_rho[vancouver_granville_row] <- 0.0001
+
+LPC_district_poll.mat <- matrix(district_poll_avg$LPC_poll, 338, num.iter) + rnorm(338*num.iter, 0, sqrt(district_poll_error_variance))
+CPC_district_poll.mat <- matrix(district_poll_avg$CPC_poll, 338, num.iter) + rnorm(338*num.iter, 0, sqrt(district_poll_error_variance))
+NDP_district_poll.mat <- matrix(district_poll_avg$NDP_poll, 338, num.iter) + rnorm(338*num.iter, 0, sqrt(district_poll_error_variance))
+Bloc_district_poll.mat <- matrix(district_poll_avg$BQ_poll, 338, num.iter) + rnorm(338*num.iter, 0, sqrt(district_poll_error_variance))
+Green_district_poll.mat <- matrix(district_poll_avg$GPC_poll, 338, num.iter) + rnorm(338*num.iter, 0, sqrt(district_poll_error_variance))
 PPC_district_poll.mat <- matrix(district_poll_avg$PPC_poll, 338, num.iter)
-ind_district_poll.mat <- matrix(district_poll_avg$Ind_poll, 338, num.iter)
+ind_district_poll.mat <- matrix(district_poll_avg$Ind_poll, 338, num.iter) + rnorm(338*num.iter, 0, sqrt(district_poll_error_variance))
 
 LPC_rho.mat <- matrix(LPC_rho, 338, num.iter)
 CPC_rho.mat <- matrix(CPC_rho, 338, num.iter)
@@ -373,12 +378,14 @@ bind_rows(forecast_today, forecast_yesterday) %>%
   arrange(desc(date)) %>%
   distinct(date, outcome, .keep_all = TRUE) %>%
   replace_na(list(date = as.Date("2019-10-22"), outcome = "", prob = 0)) %>%
+  filter(!grepl("na", outcome)) %>%
   write_csv("Output/forecast_timeline.csv")
 
 bind_rows(forecast_today, forecast_yesterday) %>%
   arrange(desc(date)) %>%
   distinct(date, outcome, .keep_all = TRUE) %>%
   replace_na(list(date = as.Date("2019-10-22"), outcome = "", prob = 0)) %>%
+  filter(!grepl("na", outcome)) %>%
   write_csv("Shiny-app/forecast_timeline.csv")
 
 seat_simulations %>%

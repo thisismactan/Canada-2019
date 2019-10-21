@@ -2,7 +2,7 @@
 source("Code/bellwetheriness_functions.R")
 
 # Identify districts where both Liberals and Conservatives have >10% of winning
-competitive_district_inds <- which(district_probs$LPC_prob >= 0.1 & district_probs$CPC_prob >= 0.1)
+competitive_district_inds <- which(district_probs$LPC_prob >= 0.15 & district_probs$CPC_prob >= 0.15)
 
 LPC_bellwetherinesses <- all_districts_bellwetheriness("Liberal", competitive_district_inds)
 CPC_bellwetherinesses <- all_districts_bellwetheriness("Conservative", competitive_district_inds)

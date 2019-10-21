@@ -36,7 +36,7 @@ Beauce,24007,Mainstreet Research,2018-11-11,616,LPC,13.8,37.62,-23.82
 Beauce,24007,Mainstreet Research,2018-11-11,616,CPC,37.9,32.04,5.86
 Beauce,24007,Mainstreet Research,2018-11-11,616,NDP,5.5,16.33,-10.83
 Beauce,24007,Mainstreet Research,2018-11-11,616,GPC,2,7.46,-5.46
-Beauce,24007,Mainstreet Research,2018-11-11,616,BQ,4.4,,
+Beauce,24007,Mainstreet Research,2018-11-11,616,BQ,4.4,14.69,-10.29
 Beauce,24007,Mainstreet Research,2018-11-11,616,PPC,34.7,1.85,32.85
 Niagara Centre,35066,Mainstreet Research,2019-07-16,482,LPC,43.7,32.37,11.33
 Niagara Centre,35066,Mainstreet Research,2019-07-16,482,CPC,31.3,33.22,-1.92
@@ -48,18 +48,18 @@ Whitby,35114,Mainstreet Research,2019-07-19,600,CPC,41,33.3,7.7
 Whitby,35114,Mainstreet Research,2019-07-19,600,NDP,5,15.59,-10.59
 Whitby,35114,Mainstreet Research,2019-07-19,600,GPC,10,10.69,-0.69
 Whitby,35114,Mainstreet Research,2019-07-19,600,PPC,4,2.42,1.58
-Quebec,24059,Mainstreet Research,2019-07-24,684,LPC,33.1,32.43,0.67
-Quebec,24059,Mainstreet Research,2019-07-24,684,CPC,25.2,33.62,-8.42
-Quebec,24059,Mainstreet Research,2019-07-24,684,NDP,8.1,15.11,-7.01
-Quebec,24059,Mainstreet Research,2019-07-24,684,GPC,7.7,10.82,-3.12
-Quebec,24059,Mainstreet Research,2019-07-24,684,PPC,3,2.53,0.47
-Quebec,24059,Mainstreet Research,2019-07-24,684,BQ,21.4,,
-Beauce,24007,Mainstreet Research,2019-08-05,640,LPC,19.3,33.12,-13.82
-Beauce,24007,Mainstreet Research,2019-08-05,640,CPC,33.5,33.18,0.32
-Beauce,24007,Mainstreet Research,2019-08-05,640,NDP,1.9,14.95,-13.05
-Beauce,24007,Mainstreet Research,2019-08-05,640,GPC,3.7,10.62,-6.92
-Beauce,24007,Mainstreet Research,2019-08-05,640,BQ,5.9,,
-Beauce,24007,Mainstreet Research,2019-08-05,640,PPC,33,2.9,30.1
+Quebec,24059,Mainstreet Research,2019-07-24,684,LPC,33.1,37.26,-4.16
+Quebec,24059,Mainstreet Research,2019-07-24,684,CPC,25.2,22.16,3.04
+Quebec,24059,Mainstreet Research,2019-07-24,684,NDP,8.1,9.95,-1.85
+Quebec,24059,Mainstreet Research,2019-07-24,684,GPC,7.7,17.39,-9.69
+Quebec,24059,Mainstreet Research,2019-07-24,684,PPC,3,8.55,-5.55
+Quebec,24059,Mainstreet Research,2019-07-24,684,BQ,21.4,3.17,18.23
+Beauce,24007,Mainstreet Research,2019-08-05,640,LPC,19.3,35.73,-16.43
+Beauce,24007,Mainstreet Research,2019-08-05,640,CPC,33.5,24.36,9.14
+Beauce,24007,Mainstreet Research,2019-08-05,640,NDP,1.9,8.68,-6.78
+Beauce,24007,Mainstreet Research,2019-08-05,640,GPC,3.7,9.02,-5.32
+Beauce,24007,Mainstreet Research,2019-08-05,640,BQ,5.9,18.44,-12.54
+Beauce,24007,Mainstreet Research,2019-08-05,640,PPC,33,2.19,30.81
 Victoria,59041,Mainstreet Research,2019-08-10,575,LPC,27.1,33,-5.9
 Victoria,59041,Mainstreet Research,2019-08-10,575,CPC,17.2,33,-15.8
 Victoria,59041,Mainstreet Research,2019-08-10,575,NDP,22.2,15,7.2
@@ -82,15 +82,206 @@ Vancouver Granville,59036,Justason Marketing,2019-09-01,361,NDP,6,14.75,-8.75
 Vancouver Granville,59036,Justason Marketing,2019-09-01,361,GPC,12,10.39,1.61
 Vancouver Granville,59036,Justason Marketing,2019-09-01,361,PPC,,2.8,
 Vancouver Granville,59036,Justason Marketing,2019-09-01,361,Ind,37,,
-Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,LPC,35,33.32,1.68
-Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,CPC,15,33.47,-18.47
-Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,NDP,8,14.47,-6.47
-Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,GPC,9,10.6,-1.6
-Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,BQ,26,,
-Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,PPC,,3,
-Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,LPC,22,34.1,-12.1
-Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,CPC,48,33.97,14.03
-Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,NDP,4,13.98,-9.98
-Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,GPC,7,9.98,-2.98
-Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,BQ,12,,
-Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,PPC,4,2.91,1.09
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,LPC,35,33.6,1.4
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,CPC,15,20.65,-5.65
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,NDP,8,9.31,-1.31
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,GPC,9,10.9,-1.9
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,BQ,26,20.76,5.24
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-03,825,PPC,,3.66,
+Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,LPC,22,36.28,-14.28
+Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,CPC,48,22.87,25.13
+Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,NDP,4,8.36,-4.36
+Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,GPC,7,9.47,-2.47
+Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,BQ,12,18.61,-6.61
+Portneuf--Jacques-Cartier,24058,Mainstreet Research,2019-09-13,654,PPC,4,4.48,-0.48
+Louis-Hébert,24044,Mainstreet Research,2019-09-03,864,LPC,39.6,33.6,6
+Louis-Hébert,24044,Mainstreet Research,2019-09-03,864,CPC,19.2,20.65,-1.45
+Louis-Hébert,24044,Mainstreet Research,2019-09-03,864,NDP,5,9.31,-4.31
+Louis-Hébert,24044,Mainstreet Research,2019-09-03,864,GPC,8.2,10.9,-2.7
+Louis-Hébert,24044,Mainstreet Research,2019-09-03,864,BQ,18.7,20.76,-2.06
+Louis-Hébert,24044,Mainstreet Research,2019-09-03,864,PPC,4,3.66,0.34
+Beauport-Limoilou,24008,Mainstreet Research,2019-09-30,623,LPC,30,34.4,-4.4
+Beauport-Limoilou,24008,Mainstreet Research,2019-09-30,623,CPC,32,21.04,10.96
+Beauport-Limoilou,24008,Mainstreet Research,2019-09-30,623,NDP,6,11.02,-5.02
+Beauport-Limoilou,24008,Mainstreet Research,2019-09-30,623,GPC,7,8.81,-1.81
+Beauport-Limoilou,24008,Mainstreet Research,2019-09-30,623,BQ,20,21.72,-1.72
+Beauport-Limoilou,24008,Mainstreet Research,2019-09-30,623,PPC,3,2.78,0.22
+Fleetwood--Port Kells,59012,Mainstreet Research,2019-09-29,654,LPC,39.7,33.51,6.19
+Fleetwood--Port Kells,59012,Mainstreet Research,2019-09-29,654,CPC,38,34.48,3.52
+Fleetwood--Port Kells,59012,Mainstreet Research,2019-09-29,654,NDP,7.2,13.75,-6.55
+Fleetwood--Port Kells,59012,Mainstreet Research,2019-09-29,654,GPC,7.1,10.31,-3.21
+Fleetwood--Port Kells,59012,Mainstreet Research,2019-09-29,654,PPC,5.3,2.58,2.72
+Kamloops--Thompson--Cariboo,59013,Mainstreet Research,2019-09-25,796,LPC,24.4,33.86,-9.46
+Kamloops--Thompson--Cariboo,59013,Mainstreet Research,2019-09-25,796,CPC,38.5,34.36,4.14
+Kamloops--Thompson--Cariboo,59013,Mainstreet Research,2019-09-25,796,NDP,10.1,13.71,-3.61
+Kamloops--Thompson--Cariboo,59013,Mainstreet Research,2019-09-25,796,GPC,14.6,10.14,4.46
+Kamloops--Thompson--Cariboo,59013,Mainstreet Research,2019-09-25,796,PPC,4.5,2.63,1.87
+Vancouver East,59035,Mainstreet Research,2019-09-29,624,LPC,25.3,33.51,-8.21
+Vancouver East,59035,Mainstreet Research,2019-09-29,624,CPC,16.3,34.48,-18.18
+Vancouver East,59035,Mainstreet Research,2019-09-29,624,NDP,37,13.75,23.25
+Vancouver East,59035,Mainstreet Research,2019-09-29,624,GPC,15.9,10.31,5.59
+Vancouver East,59035,Mainstreet Research,2019-09-29,624,PPC,2,2.58,-0.58
+Elmwood--Transcona,46005,Mainstreet Research,2019-09-24,617,LPC,26,33.88,-7.88
+Elmwood--Transcona,46005,Mainstreet Research,2019-09-24,617,CPC,41,34.37,6.63
+Elmwood--Transcona,46005,Mainstreet Research,2019-09-24,617,NDP,20.1,13.68,6.42
+Elmwood--Transcona,46005,Mainstreet Research,2019-09-24,617,GPC,8.8,10.06,-1.26
+Elmwood--Transcona,46005,Mainstreet Research,2019-09-24,617,PPC,1.6,2.68,-1.08
+Cumberland--Colchester,12003,Mainstreet Research,2019-09-26,616,LPC,39,33.79,5.21
+Cumberland--Colchester,12003,Mainstreet Research,2019-09-26,616,CPC,35.8,34.38,1.42
+Cumberland--Colchester,12003,Mainstreet Research,2019-09-26,616,NDP,4.5,13.74,-9.24
+Cumberland--Colchester,12003,Mainstreet Research,2019-09-26,616,GPC,15.1,10.19,4.91
+Cumberland--Colchester,12003,Mainstreet Research,2019-09-26,616,PPC,1.8,2.58,-0.78
+Guelph,35032,Mainstreet Research,2019-09-30,630,LPC,44.1,33.67,10.43
+Guelph,35032,Mainstreet Research,2019-09-30,630,CPC,21.9,34.36,-12.46
+Guelph,35032,Mainstreet Research,2019-09-30,630,NDP,6.2,13.66,-7.46
+Guelph,35032,Mainstreet Research,2019-09-30,630,GPC,23.3,10.4,12.9
+Guelph,35032,Mainstreet Research,2019-09-30,630,PPC,3.8,2.61,1.19
+Milton,35057,Mainstreet Research,2019-09-30,588,LPC,39.8,33.67,6.13
+Milton,35057,Mainstreet Research,2019-09-30,588,CPC,38.8,34.36,4.44
+Milton,35057,Mainstreet Research,2019-09-30,588,NDP,4.3,13.66,-9.36
+Milton,35057,Mainstreet Research,2019-09-30,588,GPC,10.3,10.4,-0.1
+Milton,35057,Mainstreet Research,2019-09-30,588,PPC,3.6,2.61,0.99
+Scarborough Centre,35094,Mainstreet Research,2019-09-29,627,LPC,53.2,33.51,19.69
+Scarborough Centre,35094,Mainstreet Research,2019-09-29,627,CPC,22.2,34.48,-12.28
+Scarborough Centre,35094,Mainstreet Research,2019-09-29,627,NDP,4.7,13.75,-9.05
+Scarborough Centre,35094,Mainstreet Research,2019-09-29,627,GPC,12.7,10.31,2.39
+Scarborough Centre,35094,Mainstreet Research,2019-09-29,627,PPC,3.5,2.58,0.92
+Berthier--Maskinongé,24012,Mainstreet Research,2019-09-26,600,LPC,16.1,35.98,-19.88
+Berthier--Maskinongé,24012,Mainstreet Research,2019-09-26,600,CPC,14.6,20.73,-6.13
+Berthier--Maskinongé,24012,Mainstreet Research,2019-09-26,600,NDP,35.5,9.84,25.66
+Berthier--Maskinongé,24012,Mainstreet Research,2019-09-26,600,GPC,2.3,9.35,-7.05
+Berthier--Maskinongé,24012,Mainstreet Research,2019-09-26,600,BQ,27.8,21.93,5.87
+Berthier--Maskinongé,24012,Mainstreet Research,2019-09-26,600,PPC,1.8,1.99,-0.19
+Edmonton Mill Woods,48017,Mainstreet Research,2019-09-16,623,LPC,32.6,34.19,-1.59
+Edmonton Mill Woods,48017,Mainstreet Research,2019-09-16,623,CPC,40.6,34.46,6.14
+Edmonton Mill Woods,48017,Mainstreet Research,2019-09-16,623,NDP,13.5,13.85,-0.35
+Edmonton Mill Woods,48017,Mainstreet Research,2019-09-16,623,GPC,9,9.61,-0.61
+Edmonton Mill Woods,48017,Mainstreet Research,2019-09-16,623,PPC,3.8,2.82,0.98
+Edmonton Strathcona,48019,Mainstreet Research,2019-09-20,623,LPC,27.7,33.77,-6.07
+Edmonton Strathcona,48019,Mainstreet Research,2019-09-20,623,CPC,37.9,34.58,3.32
+Edmonton Strathcona,48019,Mainstreet Research,2019-09-20,623,NDP,23.6,13.69,9.91
+Edmonton Strathcona,48019,Mainstreet Research,2019-09-20,623,GPC,5.8,9.88,-4.08
+Edmonton Strathcona,48019,Mainstreet Research,2019-09-20,623,PPC,2.9,2.81,0.09
+Vancouver Granville,59036,Mainstreet Research,2019-09-24,592,LPC,30.2,33.88,-3.68
+Vancouver Granville,59036,Mainstreet Research,2019-09-24,592,CPC,23.3,34.37,-11.07
+Vancouver Granville,59036,Mainstreet Research,2019-09-24,592,NDP,7.7,13.68,-5.98
+Vancouver Granville,59036,Mainstreet Research,2019-09-24,592,GPC,6.5,10.06,-3.56
+Vancouver Granville,59036,Mainstreet Research,2019-09-24,592,PPC,0.9,2.68,-1.78
+Vancouver Granville,59036,Mainstreet Research,2019-09-24,592,Ind,26.9,,
+Central Nova,12002,Mainstreet Research,2019-09-20,598,LPC,41,33.77,7.23
+Central Nova,12002,Mainstreet Research,2019-09-20,598,CPC,38.3,34.58,3.72
+Central Nova,12002,Mainstreet Research,2019-09-20,598,NDP,8.7,13.69,-4.99
+Central Nova,12002,Mainstreet Research,2019-09-20,598,GPC,11.1,9.88,1.22
+Central Nova,12002,Mainstreet Research,2019-09-20,598,PPC,0.7,2.81,-2.11
+Sackville--Preston--Chezzetcook,12008,Mainstreet Research,2019-09-14,452,LPC,38.9,34.14,4.76
+Sackville--Preston--Chezzetcook,12008,Mainstreet Research,2019-09-14,452,CPC,26.7,33.89,-7.19
+Sackville--Preston--Chezzetcook,12008,Mainstreet Research,2019-09-14,452,NDP,14.3,14.23,0.07
+Sackville--Preston--Chezzetcook,12008,Mainstreet Research,2019-09-14,452,GPC,17.1,9.92,7.18
+Sackville--Preston--Chezzetcook,12008,Mainstreet Research,2019-09-14,452,PPC,2.4,2.77,-0.37
+Barrie--Springwater--Oro-Medonte,35005,Mainstreet Research,2019-09-20,620,LPC,31.6,33.77,-2.17
+Barrie--Springwater--Oro-Medonte,35005,Mainstreet Research,2019-09-20,620,CPC,39.7,34.58,5.12
+Barrie--Springwater--Oro-Medonte,35005,Mainstreet Research,2019-09-20,620,NDP,8,13.69,-5.69
+Barrie--Springwater--Oro-Medonte,35005,Mainstreet Research,2019-09-20,620,GPC,15.3,9.88,5.42
+Barrie--Springwater--Oro-Medonte,35005,Mainstreet Research,2019-09-20,620,PPC,3.7,2.81,0.89
+Chatham--Kent-Leamington,35017,Mainstreet Research,2019-09-22,458,LPC,34.8,33.74,1.06
+Chatham--Kent-Leamington,35017,Mainstreet Research,2019-09-22,458,CPC,49.4,34.35,15.05
+Chatham--Kent-Leamington,35017,Mainstreet Research,2019-09-22,458,NDP,9.8,13.71,-3.91
+Chatham--Kent-Leamington,35017,Mainstreet Research,2019-09-22,458,GPC,2.2,10,-7.8
+Chatham--Kent-Leamington,35017,Mainstreet Research,2019-09-22,458,PPC,1.7,2.8,-1.1
+Durham,35023,Mainstreet Research,2019-09-20,620,LPC,35.4,33.77,1.63
+Durham,35023,Mainstreet Research,2019-09-20,620,CPC,43.1,34.58,8.52
+Durham,35023,Mainstreet Research,2019-09-20,620,NDP,8.5,13.69,-5.19
+Durham,35023,Mainstreet Research,2019-09-20,620,GPC,6.7,9.88,-3.18
+Durham,35023,Mainstreet Research,2019-09-20,620,PPC,4.3,2.81,1.49
+Ottawa Centre,35075,Mainstreet Research,2019-09-15,699,LPC,45.6,34.18,11.42
+Ottawa Centre,35075,Mainstreet Research,2019-09-15,699,CPC,22.7,34.15,-11.45
+Ottawa Centre,35075,Mainstreet Research,2019-09-15,699,NDP,15.7,14.07,1.63
+Ottawa Centre,35075,Mainstreet Research,2019-09-15,699,GPC,11.3,9.74,1.56
+Ottawa Centre,35075,Mainstreet Research,2019-09-15,699,PPC,2.7,2.79,-0.09
+Simcoe North,35100,Mainstreet Research,2019-09-20,674,LPC,36.1,33.77,2.33
+Simcoe North,35100,Mainstreet Research,2019-09-20,674,CPC,39.6,34.58,5.02
+Simcoe North,35100,Mainstreet Research,2019-09-20,674,NDP,5.5,13.69,-8.19
+Simcoe North,35100,Mainstreet Research,2019-09-20,674,GPC,15.3,9.88,5.42
+Simcoe North,35100,Mainstreet Research,2019-09-20,674,PPC,2.1,2.81,-0.71
+Waterloo,35112,Mainstreet Research,2019-09-20,606,LPC,49.5,33.77,15.73
+Waterloo,35112,Mainstreet Research,2019-09-20,606,CPC,23.7,34.58,-10.88
+Waterloo,35112,Mainstreet Research,2019-09-20,606,NDP,8.8,13.69,-4.89
+Waterloo,35112,Mainstreet Research,2019-09-20,606,GPC,13.5,9.88,3.62
+Waterloo,35112,Mainstreet Research,2019-09-20,606,PPC,2.7,2.81,-0.11
+Charlottetown,11002,Mainstreet Research,2019-09-20,628,LPC,41.3,33.77,7.53
+Charlottetown,11002,Mainstreet Research,2019-09-20,628,CPC,28.7,34.58,-5.88
+Charlottetown,11002,Mainstreet Research,2019-09-20,628,NDP,7.4,13.69,-6.29
+Charlottetown,11002,Mainstreet Research,2019-09-20,628,GPC,17,9.88,7.12
+Charlottetown,11002,Mainstreet Research,2019-09-20,628,PPC,1.2,2.81,-1.61
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-09-03,615,LPC,41,33.6,7.4
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-09-03,615,CPC,3.7,20.65,-16.95
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-09-03,615,NDP,12.8,9.31,3.49
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-09-03,615,GPC,8.4,10.9,-2.5
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-09-03,615,BQ,26.8,20.76,6.04
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-09-03,615,PPC,4,3.66,0.34
+Longueuil--Saint-Hubert,24043,Mainstreet Research,2019-09-29,556,LPC,35,34.24,0.76
+Longueuil--Saint-Hubert,24043,Mainstreet Research,2019-09-29,556,CPC,9,21.53,-12.53
+Longueuil--Saint-Hubert,24043,Mainstreet Research,2019-09-29,556,NDP,5,10.98,-5.98
+Longueuil--Saint-Hubert,24043,Mainstreet Research,2019-09-29,556,GPC,17,8.23,8.77
+Longueuil--Saint-Hubert,24043,Mainstreet Research,2019-09-29,556,BQ,28,22.14,5.86
+Longueuil--Saint-Hubert,24043,Mainstreet Research,2019-09-29,556,PPC,3,2.63,0.37
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-29,609,LPC,25,34.24,-9.24
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-29,609,CPC,9,21.53,-12.53
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-29,609,NDP,18,10.98,7.02
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-29,609,GPC,6,8.23,-2.23
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-29,609,BQ,39,22.14,16.86
+Beloeil--Chambly,24011,Mainstreet Research,2019-09-29,609,PPC,2,2.63,-0.63
+Bécancour--Nicolet--Saurel,24011,Mainstreet Research,2019-09-12,716,LPC,31.1,36.28,-5.18
+Bécancour--Nicolet--Saurel,24011,Mainstreet Research,2019-09-12,716,CPC,20.4,23.59,-3.19
+Bécancour--Nicolet--Saurel,24011,Mainstreet Research,2019-09-12,716,NDP,4,7.19,-3.19
+Bécancour--Nicolet--Saurel,24011,Mainstreet Research,2019-09-12,716,GPC,3.1,8.44,-5.34
+Bécancour--Nicolet--Saurel,24011,Mainstreet Research,2019-09-12,716,BQ,37.6,19.18,18.42
+Bécancour--Nicolet--Saurel,24011,Mainstreet Research,2019-09-12,716,PPC,0.9,2.91,-2.01
+Rosemont--La Petite-Patrie,24064,Mainstreet Research,2019-10-01,613,LPC,22,34.11,-12.11
+Rosemont--La Petite-Patrie,24064,Mainstreet Research,2019-10-01,613,CPC,6.1,19.91,-13.81
+Rosemont--La Petite-Patrie,24064,Mainstreet Research,2019-10-01,613,NDP,35.4,11.25,24.15
+Rosemont--La Petite-Patrie,24064,Mainstreet Research,2019-10-01,613,GPC,6.2,10.46,-4.26
+Rosemont--La Petite-Patrie,24064,Mainstreet Research,2019-10-01,613,BQ,26,21.36,4.64
+Rosemont--La Petite-Patrie,24064,Mainstreet Research,2019-10-01,613,PPC,2.6,2.53,0.07
+Beauce,24007,Mainstreet Research,2019-10-09,625,LPC,15,33.22,-18.22
+Beauce,24007,Mainstreet Research,2019-10-09,625,CPC,31,16.16,14.84
+Beauce,24007,Mainstreet Research,2019-10-09,625,NDP,2,12.53,-10.53
+Beauce,24007,Mainstreet Research,2019-10-09,625,GPC,4,7.94,-3.94
+Beauce,24007,Mainstreet Research,2019-10-09,625,BQ,13,27.05,-14.05
+Beauce,24007,Mainstreet Research,2019-10-09,625,PPC,29,2.21,26.79
+Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,24051,Mainstreet Research,2019-10-05,586,LPC,24,37.48,-13.48
+Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,24051,Mainstreet Research,2019-10-05,586,CPC,29,18.97,10.03
+Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,24051,Mainstreet Research,2019-10-05,586,NDP,8,9.94,-1.94
+Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,24051,Mainstreet Research,2019-10-05,586,GPC,6,9.23,-3.23
+Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,24051,Mainstreet Research,2019-10-05,586,BQ,29,21.77,7.23
+Montmagny--L'Islet--Kamouraska--Rivière-du-Loup,24051,Mainstreet Research,2019-10-05,586,PPC,4,1.77,2.23
+Jonquière,24032,Mainstreet Research,2019-10-08,634,LPC,14.9,31.23,-16.33
+Jonquière,24032,Mainstreet Research,2019-10-08,634,CPC,20.3,16.48,3.82
+Jonquière,24032,Mainstreet Research,2019-10-08,634,NDP,24.7,13.75,10.95
+Jonquière,24032,Mainstreet Research,2019-10-08,634,GPC,2.5,7.3,-4.8
+Jonquière,24032,Mainstreet Research,2019-10-08,634,BQ,34.2,28.04,6.16
+Jonquière,24032,Mainstreet Research,2019-10-08,634,PPC,2,2.64,-0.64
+Vancouver Granville,59036,Mainstreet Research,2019-10-15,620,LPC,28.3,31.97,-3.67
+Vancouver Granville,59036,Mainstreet Research,2019-10-15,620,CPC,22.3,32.31,-10.01
+Vancouver Granville,59036,Mainstreet Research,2019-10-15,620,NDP,9,17.65,-8.65
+Vancouver Granville,59036,Mainstreet Research,2019-10-15,620,GPC,6.5,8.62,-2.12
+Vancouver Granville,59036,Mainstreet Research,2019-10-15,620,PPC,1,2.29,-1.29
+Vancouver Granville,59036,Mainstreet Research,2019-10-15,620,Ind,32.8,,
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-10-16,628,LPC,35,32.4,2.6
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-10-16,628,CPC,2,14.92,-12.92
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-10-16,628,NDP,16,12.36,3.64
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-10-16,628,GPC,3,7.16,-4.16
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-10-16,628,BQ,40,30,10
+Laurier--Sainte-Marie,24039,Mainstreet Research,2019-10-16,628,PPC,2,3.47,-1.47
+Jonquière,24032,Mainstreet Research,2019-09-14,674,LPC,27,36.32,-9.32
+Jonquière,24032,Mainstreet Research,2019-09-14,674,CPC,29,22.93,6.07
+Jonquière,24032,Mainstreet Research,2019-09-14,674,NDP,13,8.19,4.81
+Jonquière,24032,Mainstreet Research,2019-09-14,674,GPC,6,9.35,-3.35
+Jonquière,24032,Mainstreet Research,2019-09-14,674,BQ,19,18.7,0.3
+Jonquière,24032,Mainstreet Research,2019-09-14,674,PPC,3,4.26,-1.26
+Quebec,24059,Mainstreet Research,2019-10-19,600,LPC,39,32.76,6.24
+Quebec,24059,Mainstreet Research,2019-10-19,600,CPC,17,15.66,1.34
+Quebec,24059,Mainstreet Research,2019-10-19,600,NDP,8,11.61,-3.61
+Quebec,24059,Mainstreet Research,2019-10-19,600,GPC,6,6.13,-0.13
+Quebec,24059,Mainstreet Research,2019-10-19,600,PPC,27,30.66,-3.66
+Quebec,24059,Mainstreet Research,2019-10-19,600,BQ,3,3.22,-0.22

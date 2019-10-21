@@ -4,7 +4,7 @@ source("Code/poll_scrape_clean.R")
 ## Add weights
 national_polls <- national_polls %>%
   mutate(numeric_date = as.numeric(date), 
-         loess_weight = 1/sqrt(MOE/100)/(ifelse(IVR, 3, 1) * ifelse(pollster == "Mainstreet Research", 3, 1))) %>%
+         loess_weight = 1/sqrt(MOE/100)/(ifelse(IVR, 3, 1) * ifelse(rolling, 3, 1))) %>%
   filter(!(pollster == "Abacus Data" & date %in% as.Date(paste0("2019-03-0", c(7, 6, 4, 3)))))
 
 ## Fit loess models
@@ -36,7 +36,7 @@ house_effects <- national_polls %>%
 
 national_polls.adjusted <- national_polls %>%
   left_join(house_effects, by = "pollster") %>%
-  mutate(weight = 3*(age <= 60)*exp(-(age)^(0.4))/sqrt(MOE/100)/(ifelse(IVR, 3, 1))/sqrt(full_house),
+  mutate(weight = 3*(age <= 40)*exp(-(age)^(0.8))/sqrt(MOE/100)/(ifelse(IVR, 3, 1))/sqrt(full_house),
          LPC = LPC - LPC_house/2,
          CPC = CPC - CPC_house/2,
          BQ = BQ - BQ_house/2,
@@ -92,7 +92,8 @@ national_polls_matrix <- national_polls.adjusted %>%
   dplyr::select(weight, LPC, CPC, NDP, BQ, GPC, PPC) %>%
   na.omit()
   
-national_polls_covariance <- cov.wt(national_polls_matrix %>% dplyr::select(-weight), national_polls_matrix$weight)$cov
+national_polls_covariance <- cov.wt(national_polls_matrix %>% dplyr::select(-weight), national_polls_matrix$weight)$cov / 
+  (sum(national_polls_matrix$weight)^2 / sum(national_polls_matrix$weight^2))
 
 ## Plot national polls
 ggplot(national_polls.adjusted %>%
@@ -102,7 +103,7 @@ ggplot(national_polls.adjusted %>%
   geom_vline(xintercept = as.Date("2019-10-21")) +
   geom_point(aes(size = loess_weight), alpha = 0.4) +
   geom_smooth(aes(weight = loess_weight), method = "loess", span = 0.25, size = 1) +
-  scale_colour_manual(name = "Party", values = national_colors, labels = national_parties) +
+  scale_colour_manual(name = "Party", values = national_colors_abbr) +
   scale_size_continuous(name = "Weight", range = c(0.1, 3)) +
   scale_x_date(date_breaks = "months", date_labels = "%b %Y", limits = as.Date(c("2018-01-01", "2019-10-21"))) +
   theme(axis.text.x = element_text(angle = 90, size = 7)) +
@@ -126,7 +127,7 @@ provincial_polls <- read_csv("Data/provincial_polling.csv") %>%
                               province != "BC" ~ province)) %>%
   as.tbl() %>%
   left_join(house_effects, by = "pollster") %>%
-  mutate(weight = 100*(age <= 60)*(ifelse(LV, 3, 1))*exp(-age^(1/3))/ifelse(mode == "IVR", 3, 1)/sqrt(sqrt(n))/full_house,
+  mutate(weight = 100*(age <= 40)*(ifelse(LV, 3, 1))*exp(-age^(2/3))/ifelse(mode == "IVR", 3, 1)/sqrt(sqrt(n))/full_house,
          loess_weight = 100*(ifelse(LV, 3, 1))/ifelse(mode == "IVR", 3, 1)/sqrt(sqrt(n))/full_house)
 
 provincial_polls_adjusted <- provincial_polls %>%
@@ -140,12 +141,19 @@ provincial_polls_adjusted <- provincial_polls %>%
 provincial_polls_adjusted %>%
   melt(id.vars = c("pollster", "date", "age", "n", "mode", "LV", "province", "weight", "loess_weight", "LPC_house", "CPC_house", "NDP_house",
                    "GPC_house", "BQ_house", "PPC_house", "full_house"), variable.name = "Party", value.name = "Poll") %>%
-  mutate(Poll = as.numeric(Poll)) %>%
+  mutate(Poll = as.numeric(Poll),
+         Party = case_when(Party == "LPC" ~ "Liberal",
+                           Party == "CPC" ~ "Conservative",
+                           Party == "NDP" ~ "NDP",
+                           Party == "BQ" ~ "Bloc",
+                           Party == "GPC" ~ "Green",
+                           Party == "PPC" ~ "People's") %>%
+           ordered(levels = c("Liberal", "Conservative", "NDP", "Green", "Bloc", "People's"))) %>%
   ggplot(aes(x = date, y = Poll, col = Party)) +
   facet_wrap(~province) +
   geom_point(alpha = 0.4, size = 1) +
-  geom_smooth(aes(weight = loess_weight), method = "loess", span = 0.4, size = 1) +
-  scale_colour_manual(name = "Party", values = quebec_colors, labels = quebec_parties) +
+  geom_smooth(aes(weight = loess_weight), method = "loess", span = 1/3, size = 1) +
+  scale_colour_manual(name = "Party", values = quebec_colors) +
   labs(title = "2019 Canadian federal election polling",
        subtitle = "By province", x = "Date", y = "%") +
   scale_x_date(date_breaks = "months", date_labels = "%b %Y") +
@@ -183,12 +191,12 @@ bc_polls <- provincial_polls_adjusted %>%
   na.omit()
 
 ## Poll covariances
-ontario_polls_covariance <- cov.wt(ontario_polls %>% dplyr::select(-weight), wt = ontario_polls$weight)$cov
+ontario_polls_covariance <- cov.wt(ontario_polls %>% dplyr::select(-weight), wt = ontario_polls$weight)$cov 
 atlantic_polls_covariance <- cov.wt(atlantic_polls %>% dplyr::select(-weight), wt = atlantic_polls$weight)$cov
 quebec_polls_covariance <- cov.wt(quebec_polls %>% dplyr::select(-weight), wt = quebec_polls$weight)$cov
 prairie_polls_covariance <- cov.wt(prairie_polls %>% dplyr::select(-weight), wt = prairie_polls$weight)$cov
 alberta_polls_covariance <- cov.wt(alberta_polls %>% dplyr::select(-weight), wt = alberta_polls$weight)$cov
-bc_polls_covariance <- cov.wt(bc_polls %>% dplyr::select(-weight), wt = bc_polls$weight)$cov
+bc_polls_covariance <- cov.wt(bc_polls %>% dplyr::select(-weight), wt = bc_polls$weight)$cov 
 
 ## Regional polling averages
 regional_polls <- bind_rows(
@@ -206,15 +214,16 @@ regional_polls %>%
   melt(id.vars = c("region", "weight"), variable.name = "party", value.name = "pct") %>%
   group_by(region, party) %>%
   summarise(avg = wtd.mean(pct, weight),
-            sd = sqrt(wtd.var(pct, weight))*n()/(n() - 1)) %>%
-  mutate(upper = avg + 1.645*sd,
-         lower = pmax(avg - 1.645*sd, 0)) %>%
+            sd = sqrt(wtd.var(pct, weight))*n()/(n() - 1),
+            n_eff = sum(weight)^2 / sum(weight^2)) %>%
+  mutate(upper = pmin(avg + 1.645*sd / sqrt(n_eff), 100),
+         lower = pmax(avg - 1.645*sd / sqrt(n_eff), 0)) %>%
   ggplot(aes(x = party, y = avg, fill = party)) +
   facet_wrap(~region) +
   geom_col() +
   geom_errorbar(aes(ymin = lower, ymax = upper), alpha = 2/3) +
   geom_text(aes(y = avg + 2.5, label = round(avg, 1)), size = 3) +
-  scale_fill_manual(name = "Party", values = quebec_colors, labels = quebec_parties) +
+  scale_fill_manual(name = "Party", values = quebec_colors_abbr) +
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(), axis.title.x = element_blank()) +
   labs(title = "2019 Canadian federal election polling by region", caption = "Error bars indicate 90% CIs", y = "%",
        subtitle = paste0(month(today(), label = TRUE, abbr = FALSE), " ", day(today()), ", ", year(today())))

@@ -36,10 +36,12 @@ library(Rfast)
 
 #### PARTY COLORS ####
 quebec_parties <- c("Liberal", "Conservative", "NDP", "Bloc", "Green", "People's")
-quebec_colors <- c("red", "blue", "darkorange1", "#8ECEF9", "green4", "midnightblue")
+quebec_colors <- c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Bloc" = "#8ECEF9", "Green" = "green4", "People's" = "midnightblue")
+quebec_colors_abbr <- c("LPC" = "red", "CPC" = "blue", "NDP" = "darkorange1", "BQ" = "#8ECEF9", "GPC" = "green4", "PPC" = "midnightblue")
 
 national_parties <- c("Liberal", "Conservative", "NDP", "Green", "People's")
-national_colors <- c("red", "blue", "darkorange1", "green4", "midnightblue")
+national_colors <- c("Liberal" = "red", "Conservative" = "blue", "NDP" = "darkorange1", "Green" = "green4", "People's" = "midnightblue")
+national_colors_abbr <- c("LPC" = "red", "CPC" = "blue", "NDP" = "darkorange1", "GPC" = "green4", "PPC" = "midnightblue")
 
 #### CUSTOM FUNCTIONS ####
 ## fread_to_tbl(): uses data.table::fread() for fast reading of data, then converts to tibble
